@@ -1,8 +1,8 @@
 <h1> <%= @stadium.name %> </h1>
-<h2> <%= link_to "Vendors", stadium_vendors_path(@stadium) %> </h2>
+<h3> <%= link_to "Vendors", stadium_vendors_path(@stadium) %> </h2>
 <ul>
 	<% @stadium.vendors.each do |vendor| %>
-		<li> <%= vendor.name %> </li>
+		<li> <%= link_to vendor.name, stadium_vendor_path(@stadium, vendor) %> </li>
 	<% end %>
 </ul>
 

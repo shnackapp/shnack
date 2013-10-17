@@ -9,10 +9,17 @@ Menu: <br />
 			<dd><%= number_to_currency item.price %></dd>
 		<% end %>
 	</dl>
-	<%= form_for @vendor.menu.items.new, :url => url_for(:controller => "vendors", :action => 'add_item') do  |f| %>
-		<%= f.hidden_field :vendor_id, :value => @vendor.id %>
-		<%= f.label :name %> <%= f.text_field :name %> <br />
-		<%= f.label :price %>  <%= f.text_field :price %>
-		<%= f.submit %>
-	<% end %>
-
+	<table class="item_form">
+		<%= form_for @vendor.menu.items.new, :url => url_for(:controller => "vendors", :action => 'add_item') do  |f| %>
+			<%= f.hidden_field :vendor_id, :value => @vendor.id %>
+			<tr>
+				<td><%= f.label :name %></td>
+				<td><%= f.text_field :name %></td>
+			</tr>
+			<tr>
+				<td> <%= f.label :price %></td>
+				<td> <%= f.text_field :price %></td>
+			</tr>
+			<tr colspan="2"> <td> <%= f.submit %></td> </tr>
+		<% end %>
+	</table>

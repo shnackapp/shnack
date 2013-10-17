@@ -17,6 +17,7 @@
  
  
 body {
+	padding: 25px;
 	color: #a61c00;
 	font-family: 'Poiret One';		
 	background-color: #F0F0F0;
@@ -36,18 +37,6 @@ body {
 	float:right;
 }
  
-.body {
-	text-align: center;
-}
- 
-p {
-	width: 600px;
-	text-align: justify;
-}
- 
-.coming_soon {
-	font-family: 'Damion', cursive;
-	font-size: 2.5em;
-	margin-top: 30px;
-	display: block;
+h1,h2,h3 {
+	padding-bottom: 10px;
 }
