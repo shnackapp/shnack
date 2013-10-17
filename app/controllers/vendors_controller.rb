@@ -14,7 +14,9 @@ class VendorsController < ApplicationController
 		@vendor = @stadium.vendors.new
 	end
 	def create 
-		@stadium.vendors.create(params[:vendor])
+		vendor = @stadium.vendors.new(params[:vendor])
+		vendor.build_menu
+		vendor.save
 		redirect_to stadium_vendors_path(@stadium)
 	end
 	def show

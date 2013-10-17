@@ -10,9 +10,10 @@
 #
 
 class Vendor < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :stadium_id
   belongs_to :stadium
   has_one :menu
 
   validates_presence_of :menu
+
 end

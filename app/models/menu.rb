@@ -10,6 +10,7 @@
 
 class Menu < ActiveRecord::Base
   # attr_accessible :title, :body
+  attr_accessible :vendor_id
   belongs_to :vendor
   has_many :items
 
