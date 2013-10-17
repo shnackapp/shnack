@@ -1,0 +1,18 @@
+<h2> <%= @vendor.name %> </h2>
+<h3> <%= @stadium.name %> </h3>
+
+Menu: <br />
+
+	<dl>
+		<% @vendor.menu.items.each do |item| %>
+			<dt><%= item.name %></dt>
+			<dd><%= number_to_currency item.price %></dd>
+		<% end %>
+	</dl>
+	<%= form_for @vendor.menu.items.new, :url => url_for(:controller => "vendors", :action => 'add_item') do  |f| %>
+		<%= f.hidden_field :vendor_id, :value => @vendor.id %>
+		<%= f.label :name %> <%= f.text_field :name %> <br />
+		<%= f.label :price %>  <%= f.text_field :price %>
+		<%= f.submit %>
+	<% end %>
+

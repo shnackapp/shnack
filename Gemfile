@@ -8,6 +8,9 @@ gem 'rails', '3.2.13'
 gem 'sqlite3'
 gem 'annotate', ">=2.5.0"
 
+group :development do
+	gem 'byebug'
+end
 
 
 # Gems used only for assets and not required

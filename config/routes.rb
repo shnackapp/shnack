@@ -3,7 +3,13 @@ Shnack::Application.routes.draw do
   # first created -> highest priority.
 
   root to: "application#select_stadium"
-  get ':controller/:action(/:id)'
+  resources :stadia, :path => "stadiums" do
+    resources :vendors
+    get '/:controller/:action'
+    post '/:controller/:action'
+  end
+
+
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

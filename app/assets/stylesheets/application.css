@@ -11,3 +11,43 @@
  *= require_self
  *= require_tree .
  */
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+@import url(http://fonts.googleapis.com/css?family=Damion);
+ 
+ 
+ 
+body {
+	color: #a61c00;
+	font-family: 'Poiret One';		
+	background-color: #F0F0F0;
+}
+.top_bar {
+	height:30px;
+}
+ 
+.center {
+	margin-left: auto;
+	margin-right: auto;
+ 
+}
+
+#logo, .logo {
+	width: 200px;
+	float:right;
+}
+ 
+.body {
+	text-align: center;
+}
+ 
+p {
+	width: 600px;
+	text-align: justify;
+}
+ 
+.coming_soon {
+	font-family: 'Damion', cursive;
+	font-size: 2.5em;
+	margin-top: 30px;
+	display: block;
+}
