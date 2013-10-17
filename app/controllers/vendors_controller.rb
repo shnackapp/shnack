@@ -15,6 +15,7 @@ class VendorsController < ApplicationController
 	end
 	def create 
 		@stadium.vendors.create(params[:vendor])
+		redirect_to stadium_vendors_path(@stadium)
 	end
 	def show
 	end
