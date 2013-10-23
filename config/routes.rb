@@ -1,6 +1,10 @@
 Shnack::Application.routes.draw do
+  devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
+
+  match 'user_root' => 'Shnack#logged_in', as: :user_root
 
   root to: "application#select_stadium"
   resources :stadia, :path => "stadiums" do
@@ -8,6 +12,8 @@ Shnack::Application.routes.draw do
     get '/:controller/:action'
     post '/:controller/:action'
   end
+
+  get '/shnack/:action', :controller => 'shnack'
 
 
 

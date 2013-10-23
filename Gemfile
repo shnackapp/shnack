@@ -6,6 +6,8 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'annotate', ">=2.5.0"
+gem 'devise'
+
 
 group :development, :test do
 	gem 'byebug'

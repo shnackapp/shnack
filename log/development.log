@@ -15994,3 +15994,2893 @@ Served asset /application.js - 304 Not Modified (0ms)
 
 Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-17 13:01:00 -0700
 Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/stadiums/new" for 127.0.0.1 at 2013-10-17 15:44:44 -0700
+Processing by StadiaController#new as HTML
+  Rendered stadia/_form.html.erb (1.8ms)
+  Rendered stadia/new.html.erb within layouts/application (2.5ms)
+Compiled stadia.css  (2ms)  (pid 69438)
+Compiled stadiums.css  (1ms)  (pid 69438)
+Compiled vendors.css  (4ms)  (pid 69438)
+Compiled application.css  (29ms)  (pid 69438)
+Completed 200 OK in 78ms (Views: 77.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-17 15:44:44 -0700
+Served asset /application.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-17 15:44:44 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:44 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-17 15:44:44 -0700
+Served asset /vendors.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:44 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-17 15:44:44 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:44 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:44 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:44 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-17 15:44:44 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-17 15:44:46 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[35mStadium Load (0.1ms)[0m  SELECT "stadia".* FROM "stadia" 
+  Rendered application/select_stadium.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-17 15:44:46 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-17 15:44:46 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:46 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-17 15:44:46 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:46 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:46 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:46 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:46 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-17 15:44:46 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/stadiums" for 127.0.0.1 at 2013-10-17 15:44:48 -0700
+Processing by StadiaController#index as HTML
+  [1m[36mStadium Load (0.2ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  Rendered stadia/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-17 15:44:48 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-17 15:44:48 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:48 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-17 15:44:48 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:48 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:48 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:48 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-17 15:44:48 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-17 15:44:48 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/stadiums/1" for 127.0.0.1 at 2013-10-17 16:01:21 -0700
+Processing by StadiaController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStadium Load (0.1ms)[0m  SELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mVendor Load (0.1ms)[0m  [1mSELECT "vendors".* FROM "vendors" WHERE "vendors"."stadium_id" = 1[0m
+  Rendered stadia/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 47ms (Views: 45.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-17 16:01:21 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-17 16:01:21 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-17 16:01:21 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-17 16:01:21 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-17 16:01:21 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-17 16:01:21 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-17 16:01:21 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-17 16:01:21 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-17 16:01:21 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-17 16:01:21 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/stadiums/new" for 127.0.0.1 at 2013-10-17 19:17:34 -0700
+Processing by StadiaController#new as HTML
+  Rendered stadia/_form.html.erb (1.5ms)
+  Rendered stadia/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 48ms (Views: 48.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:34 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:34 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:34 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:34 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:34 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:34 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:34 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:34 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:34 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-17 19:17:34 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started POST "/stadiums" for 127.0.0.1 at 2013-10-17 19:17:38 -0700
+Processing by StadiaController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZGQ/62cvlcdZzI4w4zq/n/nH7gkTk9rzUXeMdVToN4o=", "stadium"=>{"name"=>"Candlestick Park"}, "commit"=>"Create Stadium"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "stadia" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 18 Oct 2013 02:17:38 UTC +00:00], ["name", "Candlestick Park"], ["updated_at", Fri, 18 Oct 2013 02:17:38 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/stadiums/17
+Completed 302 Found in 43ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/stadiums/17" for 127.0.0.1 at 2013-10-17 19:17:39 -0700
+Processing by StadiaController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1[0m  [["id", "17"]]
+  [1m[35mVendor Load (0.1ms)[0m  SELECT "vendors".* FROM "vendors" WHERE "vendors"."stadium_id" = 17
+  Rendered stadia/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:39 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:39 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:39 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:39 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:39 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:39 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:39 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:39 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-17 19:17:39 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:39 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/stadiums/17/vendors" for 127.0.0.1 at 2013-10-17 19:17:42 -0700
+Processing by VendorsController#index as HTML
+  Parameters: {"stadium_id"=>"17"}
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1[0m  [["id", "17"]]
+  [1m[35mVendor Load (0.1ms)[0m  SELECT "vendors".* FROM "vendors" WHERE "vendors"."stadium_id" = 17
+  Rendered vendors/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:42 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:42 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:42 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:42 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:42 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:42 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:42 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:42 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:42 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-17 19:17:42 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/stadiums/17/images/favicon.ico" for 127.0.0.1 at 2013-10-17 19:17:42 -0700
+
+ActionController::RoutingError (No route matches [GET] "/stadiums/17/images/favicon.ico"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/stadiums/17/vendors/new" for 127.0.0.1 at 2013-10-17 19:17:43 -0700
+Processing by VendorsController#new as HTML
+  Parameters: {"stadium_id"=>"17"}
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1[0m  [["id", "17"]]
+  Rendered vendors/_form.html.erb (1.6ms)
+  Rendered vendors/new.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 51ms (Views: 49.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:43 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:43 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:43 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:43 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:43 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:43 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:43 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:43 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:43 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-17 19:17:43 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/stadiums/17/vendors/images/favicon.ico" for 127.0.0.1 at 2013-10-17 19:17:43 -0700
+
+ActionController::RoutingError (No route matches [GET] "/stadiums/17/vendors/images/favicon.ico"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started POST "/stadiums/17/vendors" for 127.0.0.1 at 2013-10-17 19:17:49 -0700
+Processing by VendorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZGQ/62cvlcdZzI4w4zq/n/nH7gkTk9rzUXeMdVToN4o=", "vendor"=>{"name"=>"Hot Dog Salesman"}, "commit"=>"Create Vendor", "stadium_id"=>"17"}
+  [1m[35mStadium Load (0.1ms)[0m  SELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1  [["id", "17"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "vendors" ("created_at", "name", "stadium_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 18 Oct 2013 02:17:49 UTC +00:00], ["name", "Hot Dog Salesman"], ["stadium_id", 17], ["updated_at", Fri, 18 Oct 2013 02:17:49 UTC +00:00]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "menus" ("created_at", "updated_at", "vendor_id") VALUES (?, ?, ?)[0m  [["created_at", Fri, 18 Oct 2013 02:17:49 UTC +00:00], ["updated_at", Fri, 18 Oct 2013 02:17:49 UTC +00:00], ["vendor_id", 8]]
+  [1m[35m (146.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/stadiums/17/vendors
+Completed 302 Found in 152ms (ActiveRecord: 147.6ms)
+
+
+Started GET "/stadiums/17/vendors" for 127.0.0.1 at 2013-10-17 19:17:49 -0700
+Processing by VendorsController#index as HTML
+  Parameters: {"stadium_id"=>"17"}
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1[0m  [["id", "17"]]
+  [1m[35mVendor Load (0.1ms)[0m  SELECT "vendors".* FROM "vendors" WHERE "vendors"."stadium_id" = 17
+  Rendered vendors/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:49 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:49 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:49 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:49 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:49 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:49 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:49 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:49 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:49 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-17 19:17:49 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/stadiums/17/vendors/8" for 127.0.0.1 at 2013-10-17 19:17:51 -0700
+Processing by VendorsController#show as HTML
+  Parameters: {"stadium_id"=>"17", "id"=>"8"}
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1[0m  [["id", "17"]]
+  [1m[35mVendor Load (0.1ms)[0m  SELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = ? LIMIT 1  [["id", "8"]]
+  [1m[36mMenu Load (0.2ms)[0m  [1mSELECT "menus".* FROM "menus" WHERE "menus"."vendor_id" = 8 LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."menu_id" = 9
+  Rendered vendors/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 59ms (Views: 57.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:51 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:51 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:51 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:51 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:51 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:51 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:51 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:51 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:51 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-17 19:17:51 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started POST "/stadiums/17/vendors/add_item" for 127.0.0.1 at 2013-10-17 19:17:59 -0700
+Processing by VendorsController#add_item as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZGQ/62cvlcdZzI4w4zq/n/nH7gkTk9rzUXeMdVToN4o=", "item"=>{"vendor_id"=>"8", "name"=>"Hot Dog", "price"=>"3.00"}, "commit"=>"Create Item", "stadium_id"=>"17"}
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1[0m  [["id", "17"]]
+  [1m[35mVendor Load (0.1ms)[0m  SELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = ? LIMIT 1  [["id", "8"]]
+  [1m[36mMenu Load (0.1ms)[0m  [1mSELECT "menus".* FROM "menus" WHERE "menus"."vendor_id" = 8 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMenu Load (0.2ms)[0m  [1mSELECT "menus".* FROM "menus" WHERE "menus"."id" = 9 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "items" ("created_at", "menu_id", "name", "price", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Fri, 18 Oct 2013 02:17:59 UTC +00:00], ["menu_id", 9], ["name", "Hot Dog"], ["price", #<BigDecimal:7fbd4f2505d0,'0.3E1',9(18)>], ["updated_at", Fri, 18 Oct 2013 02:17:59 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/stadiums/17/vendors/8
+Completed 302 Found in 6ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/stadiums/17/vendors/8" for 127.0.0.1 at 2013-10-17 19:17:59 -0700
+Processing by VendorsController#show as HTML
+  Parameters: {"stadium_id"=>"17", "id"=>"8"}
+  [1m[35mStadium Load (0.1ms)[0m  SELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1  [["id", "17"]]
+  [1m[36mVendor Load (0.1ms)[0m  [1mSELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = ? LIMIT 1[0m  [["id", "8"]]
+  [1m[35mMenu Load (0.1ms)[0m  SELECT "menus".* FROM "menus" WHERE "menus"."vendor_id" = 8 LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."menu_id" = 9[0m
+  Rendered vendors/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:59 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:59 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:59 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:59 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-17 19:17:59 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:59 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:59 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:59 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-17 19:17:59 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-17 19:17:59 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateStadia (20131011032024)
+Migrating to CreateVendors (20131011035007)
+Migrating to AddStadiumIdToVendor (20131011035116)
+Migrating to CreateMenus (20131017093258)
+Migrating to CreateItems (20131017093617)
+Migrating to CreateEmptyMenuForAllVendors (20131017095627)
+Migrating to RemoveMenuIdColumnFromVendors (20131017170243)
+Migrating to DeviseCreateUsers (20131023081326)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20131023081326')[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 11:06:04 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  Rendered application/select_stadium.html.erb within layouts/application (2.2ms)
+Compiled jquery.js  (3ms)  (pid 77207)
+Compiled jquery_ujs.js  (0ms)  (pid 77207)
+Compiled stadiums.js  (169ms)  (pid 77207)
+Compiled vendors.js  (51ms)  (pid 77207)
+Compiled application.js  (326ms)  (pid 77207)
+Completed 200 OK in 495ms (Views: 435.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:05 -0700
+Served asset /application.css - 304 Not Modified (42ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:05 -0700
+Served asset /stadia.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:05 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:05 -0700
+Served asset /vendors.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:05 -0700
+Served asset /stadiums.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:05 -0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:05 -0700
+Served asset /stadiums.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:05 -0700
+Served asset /vendors.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:05 -0700
+Served asset /application.js - 304 Not Modified (26ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:06:05 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (26ms)
+
+
+Started GET "/images/favicon.ico" for 127.0.0.1 at 2013-10-23 11:06:05 -0700
+
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 11:06:08 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[35mStadium Load (0.2ms)[0m  SELECT "stadia".* FROM "stadia" 
+  Rendered application/select_stadium.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:08 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:08 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:08 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:08 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:08 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:08 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:08 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:08 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:08 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:06:08 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 11:06:09 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[36mStadium Load (0.2ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  Rendered application/select_stadium.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:09 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:09 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:09 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:09 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:09 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:09 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:09 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:09 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:09 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:06:09 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 11:06:26 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[35mStadium Load (0.2ms)[0m  SELECT "stadia".* FROM "stadia" 
+  Rendered application/select_stadium.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:26 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:26 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:26 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:26 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:26 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:26 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:26 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:26 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:26 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:06:26 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-10-23 11:06:28 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/shared/_links.erb (1.4ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/sessions/new.html.erb within layouts/application (96.1ms)
+Completed 200 OK in 152ms (Views: 110.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:28 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:28 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:28 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:28 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:28 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:28 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:28 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:28 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:28 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:06:28 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/users/images/favicon.ico" for 127.0.0.1 at 2013-10-23 11:06:28 -0700
+
+ActionController::RoutingError (No route matches [GET] "/users/images/favicon.ico"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-10-23 11:06:47 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QNAw1TNRagJTjjLXigsVAIYZismkKCTmGlpOCgGqgrw=", "user"=>{"email"=>"abc@asdfa.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'abc@asdfa.com' LIMIT 1[0m
+Completed 401 Unauthorized in 35ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QNAw1TNRagJTjjLXigsVAIYZismkKCTmGlpOCgGqgrw=", "user"=>{"email"=>"abc@asdfa.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 72ms (Views: 13.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:47 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:47 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:47 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:47 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:47 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:47 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:47 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:47 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:47 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:06:47 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-10-23 11:06:49 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/registrations/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:49 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:49 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:49 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:49 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:06:49 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:49 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:49 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:49 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:06:49 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:06:49 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-10-23 11:07:01 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QNAw1TNRagJTjjLXigsVAIYZismkKCTmGlpOCgGqgrw=", "user"=>{"email"=>"shnack@shnackapp.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'shnack@shnackapp.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/shared/_links.erb (0.2ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/registrations/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 138ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:07:01 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:07:01 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:07:01 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:07:01 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:07:01 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:07:01 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:07:01 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:07:01 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:07:01 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:07:01 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-10-23 11:07:05 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QNAw1TNRagJTjjLXigsVAIYZismkKCTmGlpOCgGqgrw=", "user"=>{"email"=>"shnack@shnackapp.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'shnack@shnackapp.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (32.6ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 23 Oct 2013 18:07:05 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "shnack@shnackapp.com"], ["encrypted_password", "$2a$10$sKY1OMtr5HOozcR0JIkSVeZUbsPwL.wlHrPPwcP/J4i19nzN1Hbg6"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 23 Oct 2013 18:07:05 UTC +00:00]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2013-10-23 18:07:05.503414', "current_sign_in_at" = '2013-10-23 18:07:05.503414', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2013-10-23 18:07:05.504176' WHERE "users"."id" = 1
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 104ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 11:07:05 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[35mStadium Load (0.1ms)[0m  SELECT "stadia".* FROM "stadia" 
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered application/select_stadium.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:07:05 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:07:05 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:07:05 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:07:05 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:07:05 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:07:05 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:07:05 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:07:05 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:07:05 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:07:05 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2013-10-23 11:09:08 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QNAw1TNRagJTjjLXigsVAIYZismkKCTmGlpOCgGqgrw="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 43ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 11:09:08 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  Rendered application/select_stadium.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 45ms (Views: 44.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:09:08 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:09:08 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:09:08 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:09:08 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:09:08 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:09:08 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:09:08 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:09:08 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:09:08 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:09:08 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-10-23 11:09:09 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 15ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:09:09 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:09:09 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:09:09 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:09:09 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:09:09 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:09:09 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:09:09 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:09:09 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:09:09 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:09:09 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-10-23 11:10:27 -0700
+Processing by Devise::SessionsController#new as HTML
+Completed 500 Internal Server Error in 43ms
+
+LoadError (cannot load such file -- omniauth):
+  app/models/user.rb:23:in `<class:User>'
+  app/models/user.rb:20:in `<top (required)>'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-10-23 11:10:53 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 29ms (Views: 14.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:10:54 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:10:54 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:10:54 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:10:54 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:10:54 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:10:54 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:10:54 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:10:54 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:10:54 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:10:54 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RSOF+04zxk2z3oGUVoqQexwxzMIqUyg6JItX2wqNw5w=", "user"=>{"email"=>"shnack@shnackapp.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'shnack@shnackapp.com' LIMIT 1
+Completed 401 Unauthorized in 100ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RSOF+04zxk2z3oGUVoqQexwxzMIqUyg6JItX2wqNw5w=", "user"=>{"email"=>"shnack@shnackapp.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/shared/_links.erb (0.4ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/sessions/new.html.erb within layouts/application (3.3ms)
+Compiled shnack.css  (36ms)  (pid 77207)
+Compiled application.css  (39ms)  (pid 77207)
+Compiled shnack.js  (45ms)  (pid 77207)
+Compiled application.js  (50ms)  (pid 77207)
+Completed 200 OK in 241ms (Views: 181.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Served asset /shnack.css - 200 OK (1ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Served asset /shnack.js - 200 OK (2ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:14:54 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-10-23 11:14:59 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RSOF+04zxk2z3oGUVoqQexwxzMIqUyg6JItX2wqNw5w=", "user"=>{"email"=>"shnack@shnackapp.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'shnack@shnackapp.com' LIMIT 1[0m
+Completed 401 Unauthorized in 61ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RSOF+04zxk2z3oGUVoqQexwxzMIqUyg6JItX2wqNw5w=", "user"=>{"email"=>"shnack@shnackapp.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 77ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:14:59 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:14:59 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:14:59 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:14:59 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:14:59 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:14:59 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:14:59 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:14:59 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:14:59 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:14:59 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-10-23 11:15:01 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RSOF+04zxk2z3oGUVoqQexwxzMIqUyg6JItX2wqNw5w=", "user"=>{"email"=>"shnack@shnackapp.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'shnack@shnackapp.com' LIMIT 1
+Completed 401 Unauthorized in 60ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RSOF+04zxk2z3oGUVoqQexwxzMIqUyg6JItX2wqNw5w=", "user"=>{"email"=>"shnack@shnackapp.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/sessions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 75ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:15:01 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:15:01 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:15:01 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:15:01 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:15:01 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:15:01 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:15:01 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:15:01 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:15:01 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:15:01 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-10-23 11:15:03 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RSOF+04zxk2z3oGUVoqQexwxzMIqUyg6JItX2wqNw5w=", "user"=>{"email"=>"shnack@shnackapp.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'shnack@shnackapp.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2013-10-23 18:15:03.345786', "sign_in_count" = 2, "updated_at" = '2013-10-23 18:15:03.346873' WHERE "users"."id" = 1[0m
+  [1m[35m (1.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/user_root
+Completed 302 Found in 68ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 11:15:03 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to 
+Completed 404 Not Found in 1ms
+
+ActionController::RoutingError (No route matches {:controller=>"Application"}):
+  app/controllers/shnack_controller.rb:3:in `logged_in'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 11:15:14 -0700
+
+SyntaxError (/Users/anshul/Documents/projects/shnack/app/controllers/shnack_controller.rb:3: syntax error, unexpected =>, expecting '}'
+		redirect_to { :controller => "Application", :action => "index" }
+		                            ^
+/Users/anshul/Documents/projects/shnack/app/controllers/shnack_controller.rb:3: syntax error, unexpected ',', expecting '}'
+		redirect_to { :controller => "Application", :action => "index" }
+		                                           ^):
+  activesupport (3.2.13) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.13) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.13) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.13) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:612:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1274307180971979071__call__3052867808665602253__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (32.6ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (38.2ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 11:16:03 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 11:16:03 -0700
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 2ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: The stadium's name is  <%= @s.name %>
+    2: 
+    3: <p> It has the vendors: </p>
+    4: 	<ul>
+  app/views/application/index.html.erb:1:in `_app_views_application_index_html_erb___2763531036482848838_70122846251460'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 11:16:51 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered application/select_stadium.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 65ms (Views: 57.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:16:52 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:16:52 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 11:16:52 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:16:52 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:16:52 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:16:52 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:16:52 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 11:16:52 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:16:52 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:16:52 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:16:52 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:16:52 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 11:16:53 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[36mStadium Load (0.2ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered application/select_stadium.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:16:53 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:16:54 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 11:16:54 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:16:54 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:16:54 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:16:54 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:16:54 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 11:16:54 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:16:54 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:16:54 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:16:54 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:16:54 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[36mStadium Load (0.2ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered application/select_stadium.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:17:44 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/stadiums" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Processing by StadiaController#index as HTML
+  [1m[36mStadium Load (0.2ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  Rendered stadia/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:17:46 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"17AzHuYN0urUJIVtLc4KdsPIqbUIgAd28AH015LrmYw="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 38ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  Rendered application/select_stadium.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:17:55 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/shared/_links.erb (0.5ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:17:57 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TwFWL+u1G5Pt+OVqEjh7u/sJqPJdN9Sx0wxHy1Gsx+g=", "user"=>{"email"=>"shnack@shnackapp.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'shnack@shnackapp.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2013-10-23 18:15:03.000000', "current_sign_in_at" = '2013-10-23 18:18:02.214634', "sign_in_count" = 3, "updated_at" = '2013-10-23 18:18:02.215191' WHERE "users"."id" = 1
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/user_root
+Completed 302 Found in 65ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[35mStadium Load (0.2ms)[0m  SELECT "stadia".* FROM "stadia" 
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered application/select_stadium.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 11:18:02 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 12:01:21 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[35mStadium Load (0.1ms)[0m  SELECT "stadia".* FROM "stadia" 
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered application/select_stadium.html.erb within layouts/application (30.5ms)
+Completed 200 OK in 69ms (Views: 60.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:21 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:21 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:21 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:22 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:22 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:22 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:22 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:22 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:22 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:22 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:22 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 12:01:22 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Ew6TMstZPTfzudwYhHDCXlg+TQQ2nWB8/ieWCNNUs0o="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[36mStadium Load (0.2ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  Rendered application/select_stadium.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 12:01:23 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/sessions/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 56ms (Views: 54.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 12:01:24 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-10-23 12:01:41 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pYNhw9twPpuK3/v3Z8OVG25NO7TcFJazL1dFUH0j7tM=", "user"=>{"email"=>"shnack@shnackapp.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'shnack@shnackapp.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2013-10-23 18:18:02.000000', "current_sign_in_at" = '2013-10-23 19:01:41.614750', "sign_in_count" = 4, "updated_at" = '2013-10-23 19:01:41.615610' WHERE "users"."id" = 1
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/user_root
+Completed 302 Found in 77ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 12:01:41 -0700
+
+SyntaxError (/Users/anshul/Documents/projects/shnack/app/controllers/shnack_controller.rb:7: syntax error, unexpected end-of-input, expecting keyword_end):
+  activesupport (3.2.13) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.13) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.13) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.13) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.13) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:612:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__1274307180971979071__call__3052867808665602253__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.6ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 12:01:49 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to 
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `index_url' for #<ShnackController:0x007f8d7ec8f290>):
+  app/controllers/shnack_controller.rb:3:in `logged_in'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.7ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 12:02:16 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to 
+Completed 404 Not Found in 1ms
+
+ActionController::RoutingError (No route matches {:controller=>"shnack"}):
+  app/controllers/shnack_controller.rb:3:in `logged_in'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 12:03:05 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to 
+Completed 404 Not Found in 1ms
+
+ActionController::RoutingError (No route matches {:controller=>"shnack"}):
+  app/controllers/shnack_controller.rb:3:in `logged_in'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 12:03:05 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to 
+Completed 404 Not Found in 0ms
+
+ActionController::RoutingError (No route matches {:controller=>"shnack"}):
+  app/controllers/shnack_controller.rb:3:in `logged_in'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 12:03:06 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to 
+Completed 404 Not Found in 1ms
+
+ActionController::RoutingError (No route matches {:controller=>"shnack"}):
+  app/controllers/shnack_controller.rb:3:in `logged_in'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 12:04:15 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to 
+Completed 404 Not Found in 1ms
+
+ActionController::RoutingError (No route matches {:controller=>"shnack"}):
+  app/controllers/shnack_controller.rb:3:in `logged_in'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 12:04:16 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to 
+Completed 404 Not Found in 0ms
+
+ActionController::RoutingError (No route matches {:controller=>"shnack"}):
+  app/controllers/shnack_controller.rb:3:in `logged_in'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 12:07:37 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to http://localhost:3000shnack#index
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 12:10:09 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to http://localhost:3000/shnack/index
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/shnack/index" for 127.0.0.1 at 2013-10-23 12:10:09 -0700
+Processing by ShnackController#index as HTML
+  Rendered shnack/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 109ms (Views: 108.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+Served asset /application.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+Served asset /stadiums.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+Served asset /stadia.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+Served asset /shnack.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+Served asset /vendors.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+Served asset /shnack.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+Served asset /stadiums.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+Served asset /vendors.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (1ms)
+
+
+Started GET "/shnack/images/favicon.ico" for 127.0.0.1 at 2013-10-23 12:10:10 -0700
+
+ActionController::RoutingError (No route matches [GET] "/shnack/images/favicon.ico"):
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/anshul/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-10-23 13:17:06 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/user_root
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 148ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 13:17:06 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to http://localhost:3000/shnack/index
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 13:17:06 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 13:17:06 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 13:17:06 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 13:17:07 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 13:17:07 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 13:17:07 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 13:17:07 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 13:17:07 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 13:17:07 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 13:17:07 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 13:17:07 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 13:17:07 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[35mStadium Load (0.1ms)[0m  SELECT "stadia".* FROM "stadia" 
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered application/select_stadium.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 61ms (Views: 54.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 13:17:09 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[35mStadium Load (0.1ms)[0m  SELECT "stadia".* FROM "stadia" 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered application/select_stadium.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 59ms (Views: 57.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 13:44:27 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JXyaArC1lFHhjiTd6b8BVQdHa3Gfc9UhdlqI9ZaQkLY="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  Rendered application/select_stadium.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 46ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 13:44:28 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Processing by ApplicationController#select_stadium as HTML
+  [1m[35mStadium Load (0.2ms)[0m  SELECT "stadia".* FROM "stadia" 
+  Rendered application/select_stadium.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 13:44:30 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-10-23 13:44:32 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/shared/_links.erb (1.4ms)
+  Rendered /Users/anshul/.rvm/gems/ruby-2.0.0-p247/gems/devise-3.1.1/app/views/devise/sessions/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 57ms (Views: 55.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:33 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:33 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:33 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:33 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:33 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:33 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:33 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:33 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:33 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:33 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:33 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 13:44:33 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hYQnMlMN2gWfpQyRIUet0AC15NOuSVDhe2C3WpWguYc=", "user"=>{"email"=>"shnack@shnackapp.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'shnack@shnackapp.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = '2013-10-23 19:01:41.000000', "current_sign_in_at" = '2013-10-23 20:44:37.243987', "sign_in_count" = 5, "updated_at" = '2013-10-23 20:44:37.261748' WHERE "users"."id" = 1[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/user_root
+Completed 302 Found in 144ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/user_root" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Processing by ShnackController#logged_in as HTML
+Redirected to http://localhost:3000/shnack/index
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/shnack/index" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Processing by ShnackController#index as HTML
+  Rendered shnack/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 14ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-10-23 13:44:37 -0700
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
