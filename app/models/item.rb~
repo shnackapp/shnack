@@ -8,11 +8,20 @@
 #  updated_at :datetime         not null
 #  price      :decimal(8, 2)
 #  menu_id    :integer          default(0), not null
-
+<<<<<<< Updated upstream
+#  type       :string(255)
+#
 
 class Item < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :name, :price, :item_type, :requires_id
+
+  attr_accessible :name, :price, :item_type 
+=======
+
+class Item < ActiveRecord::Base
+  # attr_accessible :title, :body
+  attr_accessible :name, :price, :requires_id
+>>>>>>> Stashed changes
   belongs_to :menu
 
   validates_presence_of :menu
