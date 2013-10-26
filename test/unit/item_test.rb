@@ -8,6 +8,7 @@
 #  updated_at :datetime         not null
 #  price      :decimal(8, 2)
 #  menu_id    :integer          default(0), not null
+#  type       :string(255)
 #
 
 require 'test_helper'

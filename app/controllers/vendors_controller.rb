@@ -29,7 +29,7 @@ class VendorsController < ApplicationController
 
 	def add_item
 		vendor = Vendor.find(params[:item][:vendor_id])
-		vendor.menu.add_item(params[:item][:name], params[:item][:price])
+		vendor.menu.add_item(params[:item][:name],params[:item][:price],params[:item][:type])
 		redirect_to stadium_vendor_path(@stadium, vendor)
 	end
 

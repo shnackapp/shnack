@@ -3,18 +3,30 @@
 
 Menu: <br />
 
-	<dl>
+	<table>
+		<tr>
+			<th>name</th>
+			<th>type</th>
+			<th>price </th>
+		</tr>
 		<% @vendor.menu.items.each do |item| %>
-			<dt><%= item.name %></dt>
-			<dd><%= number_to_currency item.price %></dd>
+		<tr>
+			<td><%= item.name %></td>
+			<td><%= item.item_type %></td>
+			<td><%= number_to_currency item.price %></td>
+		</tr>
 		<% end %>
-	</dl>
+	</table>
 	<table class="item_form">
 		<%= form_for @vendor.menu.items.new, :url => url_for(:controller => "vendors", :action => 'add_item') do  |f| %>
 			<%= f.hidden_field :vendor_id, :value => @vendor.id %>
 			<tr>
 				<td><%= f.label :name %></td>
 				<td><%= f.text_field :name %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :item_type %></td>
+				<td><%= f.text_field :item_type %></td>
 			</tr>
 			<tr>
 				<td> <%= f.label :price %></td>
