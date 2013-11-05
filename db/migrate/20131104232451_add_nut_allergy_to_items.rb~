@@ -1,0 +1,4 @@
+class AddNutAllergyToItems < ActiveRecord::Migration
+  def change
+  end
+end
