@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131026021102) do
+ActiveRecord::Schema.define(:version => 20131104232623) do
 
   create_table "items", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20131026021102) do
     t.integer  "menu_id",                                   :default => 0, :null => false
     t.string   "item_type"
     t.boolean  "requires_id"
+    t.boolean  "nut_allergy"
+    t.boolean  "vegetarian"
   end
 
   create_table "menus", :force => true do |t|

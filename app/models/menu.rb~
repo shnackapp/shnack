@@ -14,7 +14,7 @@ class Menu < ActiveRecord::Base
   belongs_to :vendor
   has_many :items
 
-  def add_item(name, price, item_type)
-  	items.create(:name => name, :price => price, :item_type => item_type)
+  def add_item(name, price, item_type, requires_id, nut_allergy, vegetarian)
+  	items.create(:name => name, :price => price, :item_type => item_type, :requires_id => requires_id, :nut_allergy => nut_allergy, :vegetarian => vegetarian)
   end
 end

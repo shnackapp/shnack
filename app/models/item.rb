@@ -12,7 +12,7 @@
 
 class Item < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :name, :price, :item_type, :requires_id
+  attr_accessible :name, :price, :item_type, :requires_id, :nut_allergy, :vegetarian
   belongs_to :menu
 
   validates_presence_of :menu
