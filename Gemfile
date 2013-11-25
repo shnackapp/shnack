@@ -12,6 +12,7 @@ gem 'devise'
 group :development, :test do
 	gem 'byebug'
 	gem 'sqlite3'
+	gem 'quiet_assets'
 end
 
 group :production do
