@@ -1,0 +1,11 @@
+<h1> <%= @stadium.name %> </h1>
+
+
+<h2>Select your vendor:</h2>
+<ul>
+	<% @stadium.vendors.each do |vendor| %>
+		<li> <%= link_to vendor.name, :action => "select_items", :object_id  => vendor.id %> </li>
+	<% end %>
+</ul>
+<br />
+<%= link_to "Back to stadiums list", select_stadia_path %>

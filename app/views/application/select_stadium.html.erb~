@@ -1,0 +1,10 @@
+<h1> Welcome to Shnack! </h1>
+
+
+<h2>Select your stadium:</h2>
+<ul>
+	<% @stadiums.each do |stadium| %>
+		<li> <%= link_to stadium.name, :action => "select_vendor" %> </li>
+	<% end %>
+</ul>
+
