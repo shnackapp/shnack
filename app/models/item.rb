@@ -8,7 +8,7 @@
 #  updated_at :datetime         not null
 #  price      :decimal(8, 2)
 #  menu_id    :integer          default(0), not null
-#  type       :string(255)
+#  item_type  :string(255)
 #
 
 class Item < ActiveRecord::Base

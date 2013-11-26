@@ -1,2 +1,15 @@
 Thanks for checking out Shnack!<br />
- Functionality coming soon!
+Functionality coming soon! <br />
+
+<%= current_user.is_super ? "I am a super user" : "I am not a super user </3" %> <br />
+<%= current_user.role_type == 0 ? "I am a customer" : "I am a manager" %> <br />
+<% if current_user.is_manager? %>
+ 	I currently manage in <%= current_user.stadium.name %> 
+ 	<ul>
+ 	<% for v in current_user.role.vendors %>
+ 	<li> <%= v.name %>
+ 		<% end %>
+
+<% end %>
+
+

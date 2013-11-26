@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: roles
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  is_super   :boolean          default(FALSE)
+#  type       :integer          default(0)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 1
+
+two:
+  type: 1

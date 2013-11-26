@@ -1,19 +1,17 @@
 # == Schema Information
 #
-# Table name: items
+# Table name: roles
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  price      :decimal(8, 2)
-#  menu_id    :integer          default(0), not null
-#  item_type  :string(255)
+#  is_super   :boolean          default(FALSE)
+#  type       :integer          default(0)
 #
 
 require 'test_helper'
 
-class ItemTest < ActiveSupport::TestCase
+class RoleTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

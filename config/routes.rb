@@ -1,6 +1,5 @@
 Shnack::Application.routes.draw do
   devise_for :users
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -13,7 +12,16 @@ Shnack::Application.routes.draw do
     post '/:controller/:action'
   end
 
-  get '/shnack/:action', :controller => 'shnack'
+  resource :user, :only => [:edit, :update], :path => "u" do 
+    get '/:controller/:action'
+    post '/:controller/:action'
+  end
+
+  # get '/u/edit', :controller => "users", :action => "edit"
+
+  get '/shnack/:action', :controller => 'shnack' 
+
+
 
 
 

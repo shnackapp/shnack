@@ -17,4 +17,5 @@ class Menu < ActiveRecord::Base
   def add_item(name, price, item_type)
   	items.create(:name => name, :price => price, :item_type => item_type)
   end
+
 end

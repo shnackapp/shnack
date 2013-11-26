@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131026012158) do
+ActiveRecord::Schema.define(:version => 20131126054001) do
 
   create_table "items", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(:version => 20131026012158) do
     t.integer  "vendor_id"
   end
 
+  create_table "roles", :force => true do |t|
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "is_super",   :default => false
+    t.integer  "role_type",  :default => 0
+    t.integer  "user_id"
+    t.integer  "stadium_id"
+  end
+
   create_table "stadia", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -35,19 +44,18 @@ ActiveRecord::Schema.define(:version => 20131026012158) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "",    :null => false
-    t.string   "encrypted_password",     :default => "",    :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,     :null => false
+    t.integer  "sign_in_count",          :default => 0,  :null => false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.boolean  "is_super",               :default => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -58,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20131026012158) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "stadium_id"
+    t.integer  "role_id"
   end
 
 end

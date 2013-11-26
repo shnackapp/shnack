@@ -18,12 +18,44 @@
 #
 
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+	# Include default devise modules. Others available are:
+	# :confirmable, :lockable, :timeoutable and :omniauthable
+	devise :database_authenticatable, :registerable,
+	 :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :is_super
-  # attr_accessible :title, :body
+	has_one :role
+	has_one :stadium, :through => :role
+
+	# Setup accessible (or protected) attributes for your model
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :is_super
+	# attr_accessible :title, :body
+
+	validates_presence_of :role
+
+
+	def is_super
+		return role.is_super
+	end
+	
+	def role_type
+		return role.role_type
+	end
+
+	def stadium_id
+		return role.stadium.nil? ? 1 : role.stadium.id
+	end
+
+	def is_manager?
+		return role.role_type == 1
+	end
+
+
+	def is_owner_of?(item) 
+		return true if role.is_super
+
+
+	end
+
+
+
 end
