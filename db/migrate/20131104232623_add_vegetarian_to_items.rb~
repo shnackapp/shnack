@@ -1,0 +1,4 @@
+class AddVegetarianToItems < ActiveRecord::Migration
+  def change
+  end
+end

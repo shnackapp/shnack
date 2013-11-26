@@ -23,4 +23,5 @@ dd {
 
 .item_form {
 	padding-top:10px;
+	min-width: 300px;
 }

@@ -1,0 +1,4 @@
+class AddRequiresIdToItems < ActiveRecord::Migration
+  def change
+  end
+end

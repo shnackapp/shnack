@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def select_items
+
 		@vendor = Vendor.find(params[:object_id])
 		@stadium = @vendor.stadium
 	end

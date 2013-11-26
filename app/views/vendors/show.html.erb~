@@ -8,9 +8,6 @@ Menu: <br />
 			<th>name</th>
 			<th>type</th>
 			<th>price </th>
-			<th>requires id</th>
-			<th>nut allergy</th>
-			<th>vegetarian</th>
 		</tr>
 		<% @vendor.menu.items.each do |item| %>
 		<tr>

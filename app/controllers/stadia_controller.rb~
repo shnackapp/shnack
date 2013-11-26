@@ -24,5 +24,7 @@ class StadiaController < ApplicationController
 		Stadium.find(params[:id]).destroy
 		redirect_to :action => :index
 	end
-
+	def select_vendor
+		@vendors = Vendor.all
+	end
 end

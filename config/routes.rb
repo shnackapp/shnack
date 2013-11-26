@@ -19,9 +19,8 @@ Shnack::Application.routes.draw do
 
   # get '/u/edit', :controller => "users", :action => "edit"
 
-  get '/shnack/:action', :controller => 'shnack' 
-
-
+  get '/shnack/:action', :controller => 'shnack'
+	get '/:action/:object_id', :controller => 'application'
 
 
 

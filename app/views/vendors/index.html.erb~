@@ -10,5 +10,5 @@
 			</td>
 		</tr>
 	<% end %>
-</table>
+</ul>
 <%= link_to "Add a Vendor", new_stadium_vendor_path(@stadium) %>
