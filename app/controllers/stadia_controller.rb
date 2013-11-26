@@ -24,4 +24,5 @@ class StadiaController < ApplicationController
 		Stadium.find(params[:id]).destroy
 		redirect_to :action => :index
 	end
+
 end
