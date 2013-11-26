@@ -36729,3 +36729,745 @@ Served asset /application.js - 304 Not Modified (1ms)
 Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:19:27 -0800
 Served asset /shnack_with_text.png - 304 Not Modified (0ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-25 19:57:32 -0800
+Processing by ApplicationController#select_stadium as HTML
+  [1m[36mStadium Load (0.2ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  Rendered application/select_stadium.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 88ms (Views: 56.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:33 -0800
+Served asset /application.css - 304 Not Modified (78ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:33 -0800
+Served asset /shnack.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:33 -0800
+Served asset /jquery.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:33 -0800
+Served asset /vendors.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:33 -0800
+Served asset /stadia.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:33 -0800
+Served asset /stadiums.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:33 -0800
+Served asset /shnack.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:33 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:33 -0800
+Served asset /stadiums.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:33 -0800
+Served asset /vendors.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:57:33 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:33 -0800
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/select_vendor/1" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Processing by ApplicationController#select_vendor as HTML
+  Parameters: {"object_id"=>"1"}
+  [1m[35mStadium Load (0.3ms)[0m  SELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT "vendors".* FROM "vendors" [0m
+  [1m[35mVendor Load (0.2ms)[0m  SELECT "vendors".* FROM "vendors" WHERE "vendors"."stadium_id" = 1
+  Rendered application/select_vendor.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 109ms (Views: 50.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Served asset /application.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Served asset /shnack.js - 304 Not Modified (14ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:57:36 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/select_vendor/1" for 127.0.0.1 at 2013-11-25 19:57:58 -0800
+Processing by ApplicationController#select_vendor as HTML
+  Parameters: {"object_id"=>"1"}
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mVendor Load (0.2ms)[0m  SELECT "vendors".* FROM "vendors" 
+  [1m[36mVendor Load (0.3ms)[0m  [1mSELECT "vendors".* FROM "vendors" WHERE "vendors"."stadium_id" = 1[0m
+  Rendered application/select_vendor.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 39ms (Views: 35.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Served asset /stadia.css - 304 Not Modified (49ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Served asset /stadiums.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/select_items/2" for 127.0.0.1 at 2013-11-25 19:57:59 -0800
+Processing by ApplicationController#select_items as HTML
+  Parameters: {"object_id"=>"2"}
+  [1m[35mVendor Load (0.2ms)[0m  SELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mStadium Load (0.2ms)[0m  [1mSELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = 1 LIMIT 1[0m
+  [1m[35mMenu Load (0.2ms)[0m  SELECT "menus".* FROM "menus" WHERE "menus"."vendor_id" = 2 LIMIT 1
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."menu_id" = 1[0m
+  Rendered application/select_items.html.erb within layouts/application (49.1ms)
+Completed 200 OK in 85ms (Views: 77.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:00 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:00 -0800
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:00 -0800
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:00 -0800
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:00 -0800
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:00 -0800
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:00 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:00 -0800
+Served asset /shnack.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:00 -0800
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:00 -0800
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:58:00 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:00 -0800
+Served asset /application.js - 304 Not Modified (51ms)
+
+
+Started GET "/select_items/6" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Processing by ApplicationController#select_items as HTML
+  Parameters: {"object_id"=>"6"}
+  [1m[35mVendor Load (0.2ms)[0m  SELECT "vendors".* FROM "vendors" WHERE "vendors"."id" = ? LIMIT 1  [["id", "6"]]
+  [1m[36mStadium Load (0.2ms)[0m  [1mSELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = 1 LIMIT 1[0m
+  [1m[35mMenu Load (0.2ms)[0m  SELECT "menus".* FROM "menus" WHERE "menus"."vendor_id" = 6 LIMIT 1
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."menu_id" = 7[0m
+  Rendered application/select_items.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Served asset /stadiums.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:03 -0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Processing by ApplicationController#select_stadium as HTML
+  [1m[35mStadium Load (0.2ms)[0m  SELECT "stadia".* FROM "stadia" 
+  Rendered application/select_stadium.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Served asset /vendors.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:05 -0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/select_vendor/17" for 127.0.0.1 at 2013-11-25 19:58:06 -0800
+Processing by ApplicationController#select_vendor as HTML
+  Parameters: {"object_id"=>"17"}
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1[0m  [["id", "17"]]
+  [1m[35mVendor Load (0.2ms)[0m  SELECT "vendors".* FROM "vendors" 
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT "vendors".* FROM "vendors" WHERE "vendors"."stadium_id" = 17[0m
+  Rendered application/select_vendor.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 79ms (Views: 76.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:07 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:07 -0800
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:07 -0800
+Served asset /stadiums.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:07 -0800
+Served asset /stadia.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:07 -0800
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:07 -0800
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:07 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:07 -0800
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:07 -0800
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:07 -0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:07 -0800
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:58:07 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Processing by ApplicationController#select_stadium as HTML
+  [1m[35mStadium Load (0.2ms)[0m  SELECT "stadia".* FROM "stadia" 
+  Rendered application/select_stadium.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 33ms (Views: 31.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Served asset /shnack.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Served asset /stadia.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Served asset /shnack.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Served asset /stadiums.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:58:09 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/select_vendor/1" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Processing by ApplicationController#select_vendor as HTML
+  Parameters: {"object_id"=>"1"}
+  [1m[36mStadium Load (0.1ms)[0m  [1mSELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mVendor Load (0.2ms)[0m  SELECT "vendors".* FROM "vendors" 
+  [1m[36mVendor Load (0.3ms)[0m  [1mSELECT "vendors".* FROM "vendors" WHERE "vendors"."stadium_id" = 1[0m
+  Rendered application/select_vendor.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 34ms (Views: 31.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:58:10 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/select_vendor/3" for 127.0.0.1 at 2013-11-25 19:58:12 -0800
+Processing by ApplicationController#select_vendor as HTML
+  Parameters: {"object_id"=>"3"}
+  [1m[35mStadium Load (0.2ms)[0m  SELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT "vendors".* FROM "vendors" [0m
+  [1m[35mVendor Load (0.2ms)[0m  SELECT "vendors".* FROM "vendors" WHERE "vendors"."stadium_id" = 3
+  Rendered application/select_vendor.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 31ms (Views: 28.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:12 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:12 -0800
+Served asset /stadiums.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:12 -0800
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:12 -0800
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:12 -0800
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:12 -0800
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:12 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:12 -0800
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:12 -0800
+Served asset /stadiums.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:12 -0800
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:13 -0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:58:13 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Processing by ApplicationController#select_stadium as HTML
+  [1m[36mStadium Load (0.2ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  Rendered application/select_stadium.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:14 -0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/select_vendor/17" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Processing by ApplicationController#select_vendor as HTML
+  Parameters: {"object_id"=>"17"}
+  [1m[35mStadium Load (0.1ms)[0m  SELECT "stadia".* FROM "stadia" WHERE "stadia"."id" = ? LIMIT 1  [["id", "17"]]
+  [1m[36mVendor Load (0.2ms)[0m  [1mSELECT "vendors".* FROM "vendors" [0m
+  [1m[35mVendor Load (0.2ms)[0m  SELECT "vendors".* FROM "vendors" WHERE "vendors"."stadium_id" = 17
+  Rendered application/select_vendor.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 32ms (Views: 30.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Served asset /stadia.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Served asset /shnack.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Served asset /vendors.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:15 -0800
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Processing by ApplicationController#select_stadium as HTML
+  [1m[36mStadium Load (0.2ms)[0m  [1mSELECT "stadia".* FROM "stadia" [0m
+  Rendered application/select_stadium.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 32ms (Views: 30.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadia.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Served asset /stadia.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stadiums.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Served asset /stadiums.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Served asset /shnack.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Served asset /vendors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/shnack.css?body=1" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Served asset /shnack.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/stadiums.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Served asset /stadiums.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendors.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Served asset /vendors.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Served asset /application.js - 304 Not Modified (54ms)
+
+
+Started GET "/assets/shnack_with_text.png" for 127.0.0.1 at 2013-11-25 19:58:17 -0800
+Served asset /shnack_with_text.png - 304 Not Modified (0ms)

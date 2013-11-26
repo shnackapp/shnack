@@ -1,0 +1,11 @@
+<h1>Stadiums</h1>
+<ul>
+	<% @stadiums.each do |stadium| %>
+		<li> <%= link_to(stadium.name, stadium) %> | 
+			<%= link_to "Edit", [:edit, stadium] %> |
+			<%= link_to "Delete", stadium, :method => :delete %> </li>
+	<% end %>
+</ul>
+<br />
+
+<%= link_to "Create new stadium", new_stadium_path %>

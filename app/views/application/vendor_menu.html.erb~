@@ -1,0 +1,4 @@
+<h2> <%= @vendor.name %> </h2>
+<h3> <%= @stadium.name %> </h3>
+
+
