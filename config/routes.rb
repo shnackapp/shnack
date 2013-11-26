@@ -7,13 +7,14 @@ Shnack::Application.routes.draw do
   match 'user_root' => 'Shnack#logged_in', as: :user_root
 
   root to: "application#select_stadium"
-  resources :stadia, :path => "stadiums" do
+  resources :stadia, :path => "select_stadia" do
     resources :vendors
     get '/:controller/:action'
     post '/:controller/:action'
   end
 
   get '/shnack/:action', :controller => 'shnack'
+	get '/:action/:object_id', :controller => 'application'
 
 
 

@@ -11,4 +11,16 @@ class ApplicationController < ActionController::Base
   def select_stadium
   	@stadiums = Stadium.all
   end
+
+	def select_vendor
+		@stadium = Stadium.find(params[:object_id])
+		@vendors = Vendor.all
+	end
+
+	def select_items
+		@vendor = Vendor.find(params[:object_id])
+		@stadium = @vendor.stadium
+	end
+
+
 end
