@@ -21,6 +21,7 @@ Shnack::Application.routes.draw do
 
   get '/shnack/:action', :controller => 'shnack'
 	get '/:action/:object_id', :controller => 'application'
+  get '/:action' , :controller => 'application'
 
 
 

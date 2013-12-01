@@ -2,9 +2,10 @@
 
 
 <h2>Select your stadium:</h2>
-<ul>
-	<% @stadiums.each do |stadium| %>
-		<li> <%= link_to stadium.name, :action => "select_vendor", :object_id  => stadium.id %> </li>
-	<% end %>
-</ul>
 
+
+
+<%= form_tag("/select_vendor/", method: "get") do %>
+<%= select_tag(:object_id, options_for_select(@stadiums.map { |s| [s.name, s.id]})) %>
+<%= submit_tag("Go to Vendors") %>
+<% end %>
