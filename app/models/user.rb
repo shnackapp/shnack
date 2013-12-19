@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
 	before_validation :create_role
 
 	def create_role
+		#defaults to customer
 		r = Role.create(:role_type => 0)
 		self.role = r
 	end

@@ -17,10 +17,7 @@ Shnack::Application.routes.draw do
     post '/:controller/:action'
   end
 
-  resource :user, :only => [:edit, :update], :path => "u" do 
-    get '/:controller/:action'
-    post '/:controller/:action'
-  end
+  resource :user, :path => "u"
 
   
 

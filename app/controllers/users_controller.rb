@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @user = params[:id].nil? ? current_user : User.find(params[:id])
   end
 
+  def show
+    @users = User.all
+  end
+
   def new
   	super
   end
