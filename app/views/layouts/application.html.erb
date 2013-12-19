@@ -18,8 +18,11 @@
     </li>
     <li>   
       <%=link_to "Edit Profile", :controller => "users", :action => "edit", :id => current_user.id %>
-      
     </li>
+    <% if current_user.is_super || current_user.is_manager? %>
+      <li><%= link_to "Manage", stadia_path %></li>
+    <% end %>
+
   <% else %>
     <li>
       Welcome to Shnack

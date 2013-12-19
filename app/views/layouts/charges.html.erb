@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="nav"> 
-  <%= image_tag "shnack_with_text.png", :class => "logo"  %>
+  <%= link_to image_tag("shnack_with_text.png", :class => "logo"), root_path  %>
   <ul>
   <% if user_signed_in? %>
     <li>
