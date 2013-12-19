@@ -4,7 +4,7 @@
 <h2>Select your vendor:</h2>
 <ul>
 	<% @stadium.vendors.each do |vendor| %>
-		<li> <%= link_to vendor.name, :action => "select_items", :object_id  => vendor.id %> </li>
+		<li> <%= link_to vendor.name, new_order_path(:vendor_id  => vendor.id) %> </li>
 	<% end %>
 </ul>
 <br />

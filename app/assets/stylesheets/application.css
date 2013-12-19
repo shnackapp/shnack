@@ -24,6 +24,11 @@ body {
 	font-family: 'Poiret One';		
 	background-color: #F0F0F0;
 }
+
+.hidden {
+	display: none;
+}
+
 .top_bar {
 	height:30px;
 }

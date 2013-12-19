@@ -1,0 +1,38 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+
+  <% end %>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :vendor_id, :value => @vendor.id %>
+  <%= f.hidden_field :amount, :value => "0" %>
+  <table>
+  <% @vendor.menu.items.each do |item| %>
+    <tr class="menu_item" data-id="<%=item.id%>">
+      <td class="item_id hidden"><%= item.id %></td>
+      <td><%= item.name %></td>
+      <td id="<%=item.id%>_price" data-price="<%=item.price%>"><%= number_to_currency item.price %></td>
+      <td > <a href="#" class="plus">+</a> </td>
+      <td id="<%=item.id%>_num"class="num"> 0 </td>
+      <td> <a href="#" class="minus" >-</a> </td>
+      <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
+  <% end %>
+
+  <tr>
+    <td> Total: </td>
+    <td class="total" data-total="000"> $0.00 </td>
+</table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
