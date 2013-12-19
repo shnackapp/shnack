@@ -11,10 +11,19 @@
     </div>
 
   <% end %>
+  <% if user_signed_in? %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  <% else %>
 
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.label :first_name %>: <%= f.text_field "guest[first_name]", :value => ""%> <br />
+    <%= f.label :last_name %>: <%= f.text_field "guest[last_name]", :value => "" %> <br />
+    <%= f.label :email %>: 
+    <%= f.text_field "guest[email]", :value => "" %>
+  <% end %>
   <%= f.hidden_field :vendor_id, :value => @vendor.id %>
   <%= f.hidden_field :amount, :value => "0" %>
+
+  <h2> Menu </h2>
   <table>
   <% @vendor.menu.items.each do |item| %>
     <tr class="menu_item" data-id="<%=item.id%>">

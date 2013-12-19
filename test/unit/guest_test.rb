@@ -1,21 +1,18 @@
 # == Schema Information
 #
-# Table name: orders
+# Table name: guests
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  charge_id  :string(255)
-#  amount     :integer
-#  vendor_id  :integer
+#  email      :string(255)
+#  first_name :string(255)
+#  last_name  :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  details    :string(255)
-#  guest_id   :integer
 #
 
 require 'test_helper'
 
-class OrderTest < ActiveSupport::TestCase
+class GuestTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

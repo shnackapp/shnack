@@ -1,4 +1,4 @@
 <% @users.each do |user| %>
-	<% user.email %><br />
+	<% link_to user.email, edit_user_path(:id=>user.id)%><br />
 
 <% end %>

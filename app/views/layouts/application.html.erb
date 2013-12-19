@@ -12,12 +12,17 @@
   <%= image_tag "shnack_with_text.png", :class => "logo"  %>
   <ul>
   <% if user_signed_in? %>
+    <li> <%= current_user.email %> </li>
     <li>
       <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>   
+    </li>
     <li>   
       <%= link_to "Change your password", :controller => "users", :action => "edit", :id => current_user.id %>
     </li>
   <% else %>
+    <li>
+      Welcome to Shnack
+    </li>
     <li>
     <%= link_to('Login', new_user_session_path)  %>  
     </li>

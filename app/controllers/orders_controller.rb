@@ -56,7 +56,7 @@ class OrdersController < ApplicationController
     items_price = Hash[items.map { |it| [it.id, (it.price*100).to_int]}]
 
     params[:order].delete(:item).each { |id, qty|
-      unless qty == 0
+      unless qty.to_i == 0
         details += "#{id} #{qty} "
 
         cost = qty.to_i * items_price[id.to_i]
@@ -67,11 +67,18 @@ class OrdersController < ApplicationController
     params[:order][:amount] = amount
     params[:order][:details] = details
 
+    guest_params = params[:order].delete(:guest)
+
 
     @order = Order.new(params[:order])
 
     @order.vendor = v
-    @order.user = current_user
+    if user_signed_in?
+      @order.user = current_user
+    else
+      guest = Guest.create(guest_params)
+      @order.guest = guest
+    end
 
     redirect_to new_order_charge_path(@order) if @order.save
 

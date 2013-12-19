@@ -17,7 +17,10 @@ Shnack::Application.routes.draw do
     post '/:controller/:action'
   end
 
-  resource :user, :path => "u"
+  resource :user, :path => "u" do
+    get '/:controller/:action'
+    post '/:controller/:action'
+  end
 
   
 

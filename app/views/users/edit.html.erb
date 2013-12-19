@@ -1,6 +1,6 @@
 <h1> Edit <%= @user.email %> </h1>
 
-<%= form_for(@user, :url => { :action => "update" } ) do |f| %>
+<%= form_for(@user, :url => { :action => "update", :id => @user.id } ) do |f| %>
   <div class="field">
     <%= f.label :password, "Password" %><br />
     <%= f.password_field :password, :autocomplete => "off"  %>
@@ -24,7 +24,7 @@
 
   <div class="field"> 
     <%= f.label :role %>
-    <%= f.select :role_type, [["Customer", 0], ["Manager", 1]]  %>
+    <%= f.select :role_type, [["Customer", 0], ["Manager", 1]], :value => @user.role.role_type  %>
   </div>
 
   <% if current_user.is_super && @user.is_manager? %>

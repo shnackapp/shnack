@@ -1,4 +1,10 @@
+<h1> Order For <%= @vendor.name %> </h1>
+
 <%= form_tag order_charges_path(@order) do %>
+
+	Name: <%= "#{@user.first_name} #{@user.last_name}" %> <br />
+	Email: <%= @user.email %> 
+
 	<table class="order_details">
 		<thead>
 			<td> Item </td>
@@ -16,15 +22,15 @@
 		</tr>
 		<% end %>
 
+		<tfoot>
+			<td colspan="3"> Amount </td>
+			<td> <%= integer_to_currency(@order.amount) %> </td>
+		</tfoot>
 	</table>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= integer_to_currency(@order.amount) %></span>
-    </label>
-  </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
+          data-description="<%=@vendor.name %>"
+          data-email="<%= @user.email%>"
           data-amount="<%= @order.amount %>"></script>
 <% end %>

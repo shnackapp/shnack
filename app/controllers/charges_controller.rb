@@ -5,6 +5,8 @@ class ChargesController < ApplicationController
 		@vendor = @order.vendor
 		@items = Hash[@order.vendor.menu.items.map{|it| [it.id, it]}]
 		@order_details = parse_order_details @order.details
+
+		@user = user_signed_in? ? current_user : @order.guest
 	end
 
 	def create

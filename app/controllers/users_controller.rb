@@ -17,23 +17,23 @@ class UsersController < ApplicationController
   end
 
   def update
-
     #Update things from Role 
     r = @user.role
-    r.is_super = params[:user].delete(:is_super)
-    r.role_type = params[:user].delete(:role_type)
-    r.stadium = Stadium.find(params[:user].delete(:stadium_id))
+    r.is_super = params[:user].delete(:is_super) unless params[:user][:is_super].nil?
+    r.role_type = params[:user].delete(:role_type) unless params[:user][:role_type].nil?
+    r.stadium = Stadium.find(params[:user].delete(:stadium_id)) unless params[:user][:stadium_id].nil?
     r.save
     
+    render "edit"
 
-    if params[:user][:password].empty? || @user.update_with_password(params[:user])
-      # Sign in the user by passing validation in case his password changed
-      sign_in @user, :bypass => true unless params[:user][:password].nil?
-  	  redirect_to user_root_path
+    # if !params[:user][:password].empty? || @user.update_with_password(params[:user])
+    #   # Sign in the user by passing validation in case his password changed
+    #   sign_in @user, :bypass => true unless params[:user][:password].empty? && current_user.id != @user.id
+  	 #  redirect_to user_root_path
 
-    else
-      render "edit"
-    end
+    # else
+    #  
+    # end
 
 
   end
