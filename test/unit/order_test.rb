@@ -1,19 +1,20 @@
 # == Schema Information
 #
-# Table name: roles
+# Table name: orders
 #
 #  id         :integer          not null, primary key
+#  user_id    :integer
+#  charge_id  :string(255)
+#  amount     :integer
+#  vendor_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  is_super   :boolean          default(FALSE)
-#  role_type  :integer          default(0)
-#  user_id    :integer
-#  stadium_id :integer
+#  details    :string(255)
 #
 
 require 'test_helper'
 
-class RoleTest < ActiveSupport::TestCase
+class OrderTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

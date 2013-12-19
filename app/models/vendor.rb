@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  stadium_id :integer
+#  role_id    :integer
 #
 
 class Vendor < ActiveRecord::Base

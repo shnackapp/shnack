@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<%= @order.id %>
+
+	<table class="order_details">
+		<thead>
+			<td> Item </td>
+			<td> Qty </td>
+			<td> Price </td>
+			<td> Total </td>
+		</thead>
+		<% @order_details.each_pair do |id, qty| %>
+		<tr>
+
+			<td><%= @items[id].name %></td> 
+			<td><%= qty %> </td>
+			<td> <%= number_to_currency @items[id].price %></td>
+			<td> <%= number_to_currency(@items[id].price * qty) %></td>
+		</tr>
+		<% end %>
+
+	</table>
