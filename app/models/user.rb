@@ -31,7 +31,12 @@ class User < ActiveRecord::Base
 	# attr_accessible :title, :body
 
 	validates_presence_of :role
+	before_validation :create_role
 
+	def create_role
+		r = Role.create(:role_type => 0)
+		self.role = r
+	end
 
 	def is_super
 		return role.is_super
