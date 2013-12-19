@@ -1,5 +1,7 @@
 <h1>New order</h1>
-
+<% unless flash[:error].nil?  %>
+	<p id="error_explanation"><%= flash[:error] %></p>
+	<% end %>
 <%= render 'form' %>
 
 <%= link_to 'Back', orders_path %>

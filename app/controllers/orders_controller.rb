@@ -32,15 +32,17 @@ class OrdersController < ApplicationController
   def new
     @vendor = Vendor.find(params[:vendor_id])
     @order = Order.new
+    
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @order }
-    end
+    # respond_to do |format|
+    #   format.html # new.html.erb
+    #   format.json { render json: @order }
+    # end
   end
 
   # GET /orders/1/edit
   def edit
+    @vendor = Vendor.find(params[:vendor_id])
     @order = Order.find(params[:id])
   end
 
@@ -64,23 +66,31 @@ class OrdersController < ApplicationController
       end
     }
 
-    params[:order][:amount] = amount
-    params[:order][:details] = details
-
-    guest_params = params[:order].delete(:guest)
-
-
-    @order = Order.new(params[:order])
-
-    @order.vendor = v
-    if user_signed_in?
-      @order.user = current_user
+    #if total order price = 0, redirect to new order
+    if amount == 0 
+      flash[:error] = "Order cannot be empty"
+      redirect_to new_order_path(:vendor_id => v.id)
     else
-      guest = Guest.create(guest_params)
-      @order.guest = guest
-    end
 
-    redirect_to new_order_charge_path(@order) if @order.save
+
+      params[:order][:amount] = amount
+      params[:order][:details] = details
+
+      guest_params = params[:order].delete(:guest)
+
+
+      @order = Order.new(params[:order])
+
+      @order.vendor = v
+      if user_signed_in?
+        @order.user = current_user
+      else
+        guest = Guest.create(guest_params)
+        @order.guest = guest
+      end
+
+      redirect_to new_order_charge_path(@order) if @order.save
+    end
 
     # respond_to do |format|
     #   if @order.save
