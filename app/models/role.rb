@@ -13,7 +13,8 @@
 
 # Type values:
 # 0 = CUSTOMER
-# 1 = MANAGER OR VENDOR
+# 1 = MANAGER OF STADIUM
+# 2 = MANAGER OF VENDOR
 
 # If it's a manager, they must belong to a stadium
 

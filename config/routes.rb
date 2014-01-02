@@ -23,6 +23,8 @@ Shnack::Application.routes.draw do
   end
 
   
+  get '/manage/:action', :controller => 'manage'
+  get '/manage', :controller => 'manage', :action => 'index'
 
   # get '/u/edit', :controller => "users", :action => "edit"
 

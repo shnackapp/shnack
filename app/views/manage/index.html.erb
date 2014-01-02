@@ -1,0 +1,5 @@
+<% if current_user.is_stadium_manager? %>
+	<%= render 'stadium_index.html.erb' %>
+<% else %>
+	<%= render 'vendor_index.html.erb' %>
+<% end %>

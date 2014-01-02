@@ -23,6 +23,18 @@ class UsersController < ApplicationController
     r.role_type = params[:user].delete(:role_type) unless params[:user][:role_type].nil?
     r.stadium = Stadium.find(params[:user].delete(:stadium_id)) unless params[:user][:stadium_id].nil?
     r.save
+
+    if params[:user][:current_password].empty? 
+      params[:user].delete(:current_password)
+
+      #if they tried to update the password, flash an error saying current password needs to be filled
+      flash[:error] = "We need your current password to change your password" if !params[:user][:password].empty?
+
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+
+      @user.update_attributes(params[:user])
+    end
     
     render "edit"
 

@@ -20,6 +20,9 @@
 #
 
 class User < ActiveRecord::Base
+	STADIUM_MANAGER = 1
+    CUSTOMER = 0
+    VENDOR_MANAGER = 2
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable,
@@ -29,7 +32,7 @@ class User < ActiveRecord::Base
 	has_one :stadium, :through => :role
 
 	# Setup accessible (or protected) attributes for your model
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :is_super
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :is_super, :first_name, :last_name
 	# attr_accessible :title, :body
 
 	validates_presence_of :role
@@ -37,8 +40,7 @@ class User < ActiveRecord::Base
 
 	def create_role
 		#defaults to customer
-		r = Role.create(:role_type => 0)
-		self.role = r
+		self.role = Role.create(:role_type => 0) if self.role.nil?
 	end
 
 	def is_super
@@ -54,14 +56,24 @@ class User < ActiveRecord::Base
 	end
 
 	def is_manager?
-		return role.role_type == 1
+		return role.is_super || role.role_type == STADIUM_MANAGER || role.role_type == VENDOR_MANAGER
+	end
+
+	def is_stadium_manager?
+		return role.is_super || role.role_type == STADIUM_MANAGER
+	end
+
+	#Returns the names of all stadiums/vendors managed by this user in a 
+	# ul li list
+	def manages_list
+
 	end
 
 
 	def is_owner_of?(item) 
+		# Stub Method
 		return true if role.is_super
-
-
+		return false
 	end
 
 

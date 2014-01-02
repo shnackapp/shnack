@@ -11,4 +11,5 @@
 class Stadium < ActiveRecord::Base
   attr_accessible :name
   has_many :vendors
+  belongs_to :role
 end

@@ -1,0 +1,10 @@
+<h1><%= @managed.name %></h1>
+
+<table class="manage-vendors">
+	<% @managed.vendors.each do |v| %>
+		<tr>
+			<td><%= v.name %></td>
+			<td><%= link_to "Statistics", "#" %></td>
+		</tr>
+	<% end %>
+</table>

@@ -1,6 +1,7 @@
 <h1> Edit <%= @user.email %> </h1>
 
 <%= form_for(@user, :url => { :action => "update", :id => @user.id } ) do |f| %>
+
   <div class="field">
     <%= f.label :password, "Password" %><br />
     <%= f.password_field :password, :autocomplete => "off"  %>
@@ -15,6 +16,13 @@
     <%= f.password_field :current_password %>
   </div>
 
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
   <% if current_user.is_super %>
     <div class="field"> 
       <%= f.label :is_super %>  <br />
@@ -24,7 +32,7 @@
 
   <div class="field"> 
     <%= f.label :role %>
-    <%= f.select :role_type, [["Customer", 0], ["Manager", 1]], :value => @user.role.role_type  %>
+    <%= f.select :role_type, [["Customer", 0], ["Stadium Manager", 1], ["Vendor Manager", 2]], :value => @user.role.role_type  %>
   </div>
 
   <% if current_user.is_super && @user.is_manager? %>
@@ -32,8 +40,6 @@
       <%= f.label :stadium %>
       <%= f.select :stadium_id, Stadium.all.map { |s| [s.name, s.id] } %>
     </div>
-
-
   <% end %>
 
   <div class="action_container">
@@ -43,11 +49,3 @@
 
 
 
-    <% unless @user.stadium.nil? %>
-      <%= form_for(Vendor.new, :url => { :action => "create_vendor" } ) do |f| %>
-        <%= f.hidden_field :stadium_id, :value => @user.stadium_id %>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-        <%= f.submit %>
-      <% end %>
-    <% end %>
