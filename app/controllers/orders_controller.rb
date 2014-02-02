@@ -32,6 +32,7 @@ class OrdersController < ApplicationController
   def new
     @vendor = Vendor.find(params[:vendor_id])
     @order = Order.new
+    @stadium = @vendor.stadium
 
     respond_to do |format|
       format.html # new.html.erb
