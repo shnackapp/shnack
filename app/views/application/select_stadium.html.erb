@@ -1,10 +1,11 @@
-<h1> Welcome to Shnack! </h1>
+<h1 class="headline"> Welcome to Shnack! </h1>
+<p>This is the official order page.</p>
+</br>
 
-
-<h2>Select your stadium:</h2>
-<ul>
+<h2 class="headline">Select your stadium:</h2>
+<ul class="general-list">
 	<% @stadiums.each do |stadium| %>
-		<li> <%= link_to stadium.name, :action => "select_vendor", :object_id  => stadium.id %> </li>
+		<li class="general-list"> <%= link_to stadium.name, :action => "select_vendor", :object_id  => stadium.id %> </li>
 	<% end %>
 </ul>
 

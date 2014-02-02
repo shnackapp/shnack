@@ -1,3 +1,23 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.menu-table {
+	padding: 10px;
+}
+
+.item_id hidden {
+	visibility: collapse;
+}
+
+.menu_item {
+	font-size: 22px;
+}
+
+#total-style {
+	font-size: 22px;
+	color: #a61c00;
+	text-transform: uppercase;
+	font-family: "Poiret One", Arial;
+	font-weight: bold;
+}

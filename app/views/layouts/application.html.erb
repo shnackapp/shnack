@@ -7,28 +7,37 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
-<div class="nav"> 
-  <%= image_tag "shnack_with_text.png", :class => "logo"  %>
-  <ul>
-  <% if user_signed_in? %>
-    <li>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>   
-    <li>   
-      <%= link_to "Change your password", :controller => "users", :action => "edit", :id => current_user.id %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to('Login', new_user_session_path)  %>  
-    </li>
-  <% end %>
-  </ul>
-</div>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+	<div id="main-content">
+		<div id="side-bar">
+			<div id="nav"> 
+			  <%= image_tag "shnack_with_text.png", :class => "logo"  %>
+			  <ul id="nav">
+			  <% if user_signed_in? %>
+				<li>
+				  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>   
+				<li>   
+				  <%= link_to "Change your password", edit_user_registration_path %>
+				</li>
+			  <% else %>
+				<li>
+				<%= link_to('Login', new_user_session_path)  %>  
+				</li>
+			  <% end %>
+			  </ul>
+			</div>
+		</div>
+
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
 
 
-<%= yield %>
+	<div id="order-form">
+		<%= yield %>
+	</div>
 
+	</div> <!-- ends main-content -->
 </body>
+
 </html>
