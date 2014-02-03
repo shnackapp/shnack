@@ -15,8 +15,6 @@ class ApplicationController < ActionController::Base
     # An example of the token sent back when a device registers for notifications
     token = "<2410d83b 257e501b 73cb9bc6 c44a9b4e fa46aab1 99694c8e fb01088c 3c5aca75>"
 
-
-    byebug
     # Create a notification that alerts a message to the user, plays a sound, and sets the badge on the app
     notification = Houston::Notification.new(device: token)
     notification.alert = "Hello, World!"
