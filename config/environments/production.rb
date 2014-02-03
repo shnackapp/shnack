@@ -64,4 +64,12 @@ Shnack::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+
+
+  # Environment variables are automatically read, or can be overridden by any specified options. You can also
+  # conveniently use `Houston::Client.development` or `Houston::Client.production`.
+  APN = Houston::Client.production
+
+  APN.certificate = File.read(Rails.root.join('app', 'assets', 'apple_push_notification.pem'))
 end
