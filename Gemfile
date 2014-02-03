@@ -8,7 +8,7 @@ gem 'rails', '3.2.13'
 gem 'annotate', ">=2.5.0"
 gem 'devise'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-
+gem 'apns', ">=1.0.0"
 
 group :development, :test do
 	gem 'byebug'

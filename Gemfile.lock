@@ -39,6 +39,7 @@ GEM
       multi_json (~> 1.0)
     annotate (2.5.0)
       rake
+    apns (1.0.0)
     arel (3.0.2)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
@@ -137,6 +138,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (>= 2.5.0)
+  apns (>= 1.0.0)
   byebug
   coffee-rails (~> 3.2.1)
   devise
