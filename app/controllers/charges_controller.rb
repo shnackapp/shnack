@@ -27,6 +27,7 @@ class ChargesController < ApplicationController
 	  )
 
 	  #Tell Vendor an Order has been placed using push notifications
+	  
 	  #send User an email letting them know their order has been placed
 
 	
