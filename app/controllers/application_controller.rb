@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     notification.badge = 57
     notification.sound = "sosumi.aiff"
     notification.content_available = true
-    notification.custom_data = {foo: "bar"}
+    notification.custom_data = {order_number: "bar"}
 
     # And... sent! That's all it takes.
     APN.push(notification)

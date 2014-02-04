@@ -16,7 +16,7 @@
 
   <% end %>
 
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :user_id, :value => user_signed_in? ? current_user.id : 0 %>
   <%= f.hidden_field :vendor_id, :value => @vendor.id %>
   <%= f.hidden_field :amount, :value => "0" %>
   <table cellspacing="10" class="menu-table">
