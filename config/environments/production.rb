@@ -69,7 +69,7 @@ Shnack::Application.configure do
 
   # Environment variables are automatically read, or can be overridden by any specified options. You can also
   # conveniently use `Houston::Client.development` or `Houston::Client.production`.
-  APN = Houston::Client.production
+  APN = Houston::Client.development
 
   APN.certificate = File.read(Rails.root.join('app', 'assets', 'apple_push_notification.pem'))
 end
