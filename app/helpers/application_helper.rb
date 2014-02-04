@@ -26,11 +26,15 @@ module ApplicationHelper
 		return order_details
 	end
 
-	# #Convert array of Items to a hash with id => price
+	#converts a orders details hash:  Hash: {item_id => qty, item_id => qty ... }
+	# to a hash:
+	# Hash: { "item_name" => qty, "item_name" => qty }
 
-	# def convert_to_hash(items)
-		
+	def convert_details_to_description(order_details)
+		description = ""
+		order_details.each { |id, qty| description = description + "#{qty} #{Item.find(id).name}\n"}
 
-	# end
+		description
+	end
 
 end
