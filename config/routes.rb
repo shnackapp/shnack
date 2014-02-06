@@ -3,6 +3,11 @@ Shnack::Application.routes.draw do
     resources :charges
   end
 
+    constraints subdomain: 'api' do 
+      get '/:action', :controller => 'api'
+      post '/:action', :controller => 'api'
+    end
+
 
   devise_for :users
   # The priority is based upon order of creation:
