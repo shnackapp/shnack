@@ -18,12 +18,16 @@ Shnack::Application.routes.draw do
 
   match 'user_root' => 'Shnack#logged_in', as: :user_root
 
+
+
   root to: "application#select_stadium"
   resources :stadia, :path => "stadiums" do
     resources :vendors
     get '/:controller/:action'
     post '/:controller/:action'
   end
+
+
 
   resource :user, :path => "u"
 
@@ -33,6 +37,10 @@ Shnack::Application.routes.draw do
 
   get '/shnack/:action', :controller => 'shnack'
 	get '/:action/:object_id', :controller => 'application'
+
+	resources :inquiries, :only => [:new, :create] do
+  		get 'thank_you', :on => :collection
+	end
 
 
 
