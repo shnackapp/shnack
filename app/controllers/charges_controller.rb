@@ -12,7 +12,7 @@ class ChargesController < ApplicationController
 
 	  @order = Order.find(params[:order_id])
 	  @amount = @order.amount
-
+	  @vendor = @order.vendor
 
 	  customer = Stripe::Customer.create(
 	    :email => 'anshul.jain242@gmail.com',
@@ -27,25 +27,27 @@ class ChargesController < ApplicationController
 	  )
 
   	# An example of the token sent back when a device registers for notifications
-    token = "<2410d83b 257e501b 73cb9bc6 c44a9b4e fa46aab1 99694c8e fb01088c 3c5aca75>"
+    # token = "<2410d83b 257e501b 73cb9bc6 c44a9b4e fa46aab1 99694c8e fb01088c 3c5aca75>"
+    # byebug
+   	  @vendor.devices.each { |d|
 
-    order_details = parse_order_details(@order.details)
-    order_description = convert_details_to_description(order_details)
+	    order_details = parse_order_details(@order.details)
+	    order_description = convert_details_to_description(order_details)
 
-    # Create a notification that alerts a message to the user, plays a sound, and sets the badge on the app
-    notification = Houston::Notification.new(device: token)
-    notification.alert = "Hello, World!"
+	    # Create a notification that alerts a message to the user, plays a sound, and sets the badge on the app
+	    notification = Houston::Notification.new(device: d.token)
+	    notification.alert = "New order made!"
 
-    # Notifications can also change the badge count, have a custom sound, indicate available Newsstand content, or pass along arbitrary data.
-    notification.badge = 57
-    notification.sound = "sosumi.aiff"
-    notification.content_available = true
-    notification.custom_data = {order_number: @order.id, order_description: order_description, order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
+	    # Notifications can also change the badge count, have a custom sound, indicate available Newsstand content, or pass along arbitrary data.
+	    # notification.badge = 57
+	    # notification.sound = "sosumi.aiff"
+	    notification.content_available = true
+	    notification.custom_data = {order_number: @order.id, order_description: order_description, order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
 
-    # And... sent! That's all it takes.
-    APN.push(notification)
-
-    
+	    # And... sent! That's all it takes.
+	    APN.push(notification)
+ 
+      }
 	  #send User an email letting them know their order has been placed
 
 	
