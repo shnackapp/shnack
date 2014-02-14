@@ -37,6 +37,7 @@ Shnack::Application.routes.draw do
 	get '/:action/:object_id', :controller => 'application'
 
 
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
