@@ -23,5 +23,9 @@ class ApplicationController < ActionController::Base
 		@stadium = @vendor.stadium
 	end
 
+  def index
+    @stadiums = Stadium.all
+    @vendors = Vendor.all
+  end
 
 end

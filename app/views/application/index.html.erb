@@ -1,8 +1,158 @@
-The stadium's name is  <%= @s.name %>
+<html>
 
-<p> It has the vendors: </p>
-	<ul>
-		<% @s.vendors.each do |v| %>
-			<li> <%= v.name %> </li>
-		<% end %>
-	</ul>
+  <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="javascript.js"></script>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+      <title>Shnack | Improved Concession Operations for Stadiums</title>
+
+  </head>
+
+  <body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '{461658543935056}',
+          status     : true,
+          xfbml      : true
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div id="wrapper">
+
+      <div id="level-1">      
+        <center>
+          <a href="http://www.shnackapp.com" style="text-decoration:none">
+            <img id="shnack-logo" src="images/logo.png"></img>
+            <div id="shnack-name">Shnack</div>
+          </a>
+          <div id="select-dropdowns">
+          <%= form_tag("/select_vendor", method: "get") do %>
+      <%= select_tag(:object_id, options_for_select(@stadiums.map { |s| [s.name, s.id]})) %>
+      <%= submit_tag("Go to Vendors") %>
+      <% end %>
+            <%#= form_tag("/select_vendor/", method: "get") do %>
+            <%#= select_tag 'object', options_for_select(@stadiums.map { |s| [s.name, s.id]}) %>
+            <%#= link_to ("Go to Vendors"), :action => 'select_vendor', :object_id => 1;%>
+            <%#= link_to params[:object],:action => 'select_vendor', :object_id => params[:object] %>
+            <%# link_to 'name', :action => "select_vendor", :object_id => 1 %>
+            <%# end %>
+
+            <a href="" class="order-button">x</a>
+          </div>
+        </center>
+        <!--
+          <span id="stadium-dropdown">Select your stadium</span>
+          <span id="vendor-dropdown">Select your vendor</span>
+        -->
+      <!-- ENDS LEVEL 1 --> </div> 
+      
+      <div id="level-2">
+        <div id="howto">
+          <div class="box">
+            <h1 class="box-style">Select</hl>
+            </br>
+            <img class="box-style" src='images/step1.png' alt='phone'></img>
+            <p class="box-style">From your seat, select your stadium and vendor you want to purchase from.</p>
+          </div>
+        
+        <div class="box">
+          <h1 class="box-style">Order</hl>
+            </br>
+            <img class="box-style" src='images/step2.png' alt='order'></img>
+          <p class="box-style">View the menu and pick your meal. Place your order.</p>
+        </div>
+        
+        <div class="box">
+          <h1 class="box-style">Pick Up</hl>
+            </br>
+            <img class="box-style" src='images/step3.png' alt='food'></img>
+          <p class="box-style">When your order is ready, a notification will be sent. Pick up and enjoy.</p>
+        </div>
+        
+        </div>
+      <!-- ENDS LEVEL 2 --> </div> 
+      
+      <div id="level-3">
+        <div class="container">
+            <div id="left-container">
+              <div id="detail-word">Never miss a moment<span id="comma">,</span>
+              </br> never miss a meal.</div>
+              <p id="detail-text">
+                Shnack is a mobile application designed for concessions at large and small scale events, that lets customers order and pay for a vendor's food via their phone. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. Customers will order food from their phone and will be notified when their food is ready to be picked up. By eliminating the need to wait in line, we can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers.
+              </p>    
+            </div>
+
+              <img id="phone" src="images/phone_welcome.png" />
+        </div>
+      <!-- ENDS LEVEL 3 --> </div>
+
+      <div id="level-4">
+        <div class="container">
+          <span class="power-words">for fans</span>
+          <span class="power-words">for vendors</span>
+          <span class="power-words">for analytics</span>
+        </div>
+
+
+
+          </br>
+          </br>
+          </br>
+
+
+
+        <div id="footer">
+          <div class="foot-wrap">
+            <h2 class="foot-wrap">Are you interested in never waiting in line again?</h2>
+            <h1 class="foot-wrap">Sign up for our mailing list to be informed about our product's steps.</h1>
+              <form name="htmlform" id="contact" method="post" action="html_form_send.php">
+                  <table id="contact">
+                    <tr>
+                      <td>
+                        <input type="text" name="email" id="email" placeholder="Email Address" autocomplete="on" />
+                      </td>
+                      <td></td>       
+                      <td rowspan="2">
+                        <textarea name="comments" placeholder="Or are you looking to contact us? (optional)"></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                         <input type="text" name="name" id="name" placeholder="Your name">
+                      </td> 
+                      <td>
+                        <p class="submit">
+                          <input type="submit" value="Submit">
+                         </p>
+                      </td>
+                    </tr>
+                  </table>
+                </form>
+          </div>
+
+
+          <div class="foot-wrap">
+            <h1 class="foot-wrap">Or follow us on our Facebook page. You just might see us at a game.</h1>
+            <div id="fb-root"></div>
+              <div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="450" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+            </div> <!-- END FB CODE -->
+        </div>
+        <div id="thanks">Thank you for visiting our website. <br/>Shnack was imaged, developed, and deployed by students of UC Santa Barbara. <br />Our mission is to see the Shnack ordering platform deployed nationwide and effectively solve the ordering processes for events.</div>
+
+
+
+    <!-- ENDS WRAPPER --> </div> 
+
+  </body>
+
+</html>
