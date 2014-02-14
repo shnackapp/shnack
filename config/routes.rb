@@ -18,8 +18,6 @@ Shnack::Application.routes.draw do
 
   match 'user_root' => 'Shnack#logged_in', as: :user_root
 
-<<<<<<< HEAD
-
 
 
 
@@ -43,7 +41,10 @@ Shnack::Application.routes.draw do
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of a981850... /public/index.html addition
 
 
   # Sample of regular route:
