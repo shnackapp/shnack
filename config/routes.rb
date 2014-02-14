@@ -20,8 +20,7 @@ Shnack::Application.routes.draw do
 
 
 
-
-  root to: "application#index"
+  root to: "application#select_stadium"
   resources :stadia, :path => "stadiums" do
     resources :vendors
     get '/:controller/:action'
@@ -34,14 +33,17 @@ Shnack::Application.routes.draw do
 
   # get '/u/edit', :controller => "users", :action => "edit"
 
-	get '/shnack/:action', :controller => 'shnack'
+  get '/shnack/:action', :controller => 'shnack'
 	get '/:action/:object_id', :controller => 'application'
+<<<<<<< HEAD
   get '/:action', :controller => 'application'
 
 
 
 
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 5bc2f6e... landingPpage UI
 
 =======
 >>>>>>> parent of a981850... /public/index.html addition
