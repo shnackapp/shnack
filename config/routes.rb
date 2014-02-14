@@ -36,12 +36,15 @@ Shnack::Application.routes.draw do
   get '/shnack/:action', :controller => 'shnack'
 	get '/:action/:object_id', :controller => 'application'
 <<<<<<< HEAD
+<<<<<<< HEAD
   get '/:action', :controller => 'application'
 
 
 
 
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 5bc2f6e... landingPpage UI
 =======
 >>>>>>> parent of 5bc2f6e... landingPpage UI
 
