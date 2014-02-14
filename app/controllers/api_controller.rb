@@ -8,15 +8,13 @@ class ApiController < ApplicationController
 	end
 
 	def register_device_token
-		byebug
 		@vendor = Vendor.find(params[:vendor_id])
-		# unless Device.exists?(:token => params[:device_token])
-		# 	@device = @vendor.devices.create(:token => params[:device_token])
-		# else	
-		# 	#There should only be one device with this token in the database
-			
-		# end
-		@device = Device.where(:token => params[:device_token]).first_or_create 
+		unless Device.exists?(:token => params[:device_token])
+			@device = @vendor.devices.create(:token => params[:device_token])
+		else	
+			#There should only be one device with this token in the database
+			@device = Device.where(:token => params[:device_token]).first 
+		end
 		render :json => @device
 	end
 
