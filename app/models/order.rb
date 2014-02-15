@@ -16,6 +16,32 @@ class Order < ActiveRecord::Base
   attr_accessible :amount, :charge_id, :details 
   belongs_to :vendor
   belongs_to :user
+  has_many :order_states
+
+
+  #returns current order_state
+  def current_order_state
+  	self.order_states.descending.first
+  end
+
+
+	#converts a orders details hash:  Hash: {item_id => qty, item_id => qty ... }
+	# to a hash:
+	# Hash: { "item_name" => qty, "item_name" => qty }
+
+	def description
+		order_details = self.details.split
+		order_details = order_details.map.with_index { |v, i|[order_details[i].to_i, order_details[i+1].to_i] if i.even? && order_details[i+1].to_i != 0 }
+		order_details.reject! { |v| v.nil? }
+		order_details = Hash[order_details]
+
+
+		description = ""
+		order_details.each { |id, qty| description = description + "#{qty} #{Item.find(id).name}\n"}
+
+		description
+	end
+
 
   #details is in the form "item_id qty item_id qty ... "
 end

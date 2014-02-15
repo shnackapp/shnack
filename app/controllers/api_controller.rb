@@ -9,26 +9,32 @@ class ApiController < ApplicationController
 
 
 	# HTTP Request for when the device turns on and sends in it's device token
-	def receive_device_token
+	def send_device_token
 		@device = Device.where(:token =>params[:device_token])
-		if @device
-			render :json => @device
+		if @device.length > 0
+			render :json => @device.first
 		else
 			render :json => {:error => "unregistered_device", :token => params[:device_token]}
 		end
 
 	end
 
+	def get_open_orders
+		@device = Device.where(:token =>params[:device_token]).first
+		@vendor = @device.vendor
+		@orders = @vendor.open_orders
+		@result = @orders.map { |o| {:id => o.id, :created_at => o.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description }} 
 
+
+		respond_with @result, :location => nil
+	end
+
+	# Register a device token with a vendor
 	def register_device_token
 		@vendor = Vendor.find(params[:vendor_id])
-		# unless Device.exists?(:token => params[:device_token])
-		# 	@device = @vendor.devices.create(:token => params[:device_token])
-		# else	
-		# 	#There should only be one device with this token in the database
-			
-		# end
-		@device = Device.where(:token => params[:device_token]).first_or_create 
+		@device = Device.where(:token => params[:device_token]).first_or_create
+		@device.vendor = @vendor
+		@device.save
 		render :json => @device
 	end
 
@@ -49,6 +55,18 @@ class ApiController < ApplicationController
 		end
 
 		respond_with(@response, :location => nil)
+	end
+
+
+	def vendors_by_user_token
+		@user = User.where(:authentication_token => params[:auth_token]).first
+		if @user.is_super
+			@vendors = Vendor.all
+		else
+			@vendors = Vendor.where(:roles => {:id => @user.role.id})
+
+		end
+		render :json => @vendors
 	end
 
 
