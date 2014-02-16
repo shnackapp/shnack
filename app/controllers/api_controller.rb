@@ -11,12 +11,11 @@ class ApiController < ApplicationController
 	# HTTP Request for when the device turns on and sends in it's device token
 	def send_device_token
 		@device = Device.where(:token =>params[:device_token])
-		if @device.length > 0
+		if @device.length > 0 && !@device.first.vendor.nil?
 			render :json => @device.first
 		else
 			render :json => {:error => "unregistered_device", :token => params[:device_token]}
 		end
-
 	end
 
 	def get_open_orders
@@ -25,18 +24,26 @@ class ApiController < ApplicationController
 		@orders = @vendor.open_orders
 		@result = @orders.map { |o| {:id => o.id, :created_at => o.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description }} 
 
-
 		respond_with @result, :location => nil
 	end
 
 	# Register a device token with a vendor
-	def register_device_token
+	def register_device_token_for_vendor
 		@vendor = Vendor.find(params[:vendor_id])
 		@device = Device.where(:token => params[:device_token]).first_or_create
 		@device.vendor = @vendor
 		@device.save
 		render :json => @device
 	end
+
+	# Unregister a device token with a vendor
+	def unregister_device
+		@device = Device.where(:token => params[:device_token]).first
+		@device.vendor = nil
+
+		respond_with @device, :location => nil
+	end
+
 
 	# Post request to log a user in.
 	# If the user is successfully logged in, it sends back the users authentication token
