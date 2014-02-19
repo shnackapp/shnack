@@ -19,7 +19,25 @@ class OrdersController < ApplicationController
     @items = Hash[@order.vendor.menu.items.map{|it| [it.id, it]}]
     @order_details = parse_order_details @order.details
     # @charge = Stripe::Charge.retrieve(params[:charge])
-    
+    @vendor.devices.each { |d|
+      
+      order_details = parse_order_details(@order.details)
+      order_description = convert_details_to_description(order_details)
+
+      # Create a notification that alerts a message to the user, plays a sound, and sets the badge on the app
+      notification = Houston::Notification.new(device: d.token)
+      notification.alert = "New order made!"
+
+      # Notifications can also change the badge count, have a custom sound, indicate available Newsstand content, or pass along arbitrary data.
+      # notification.badge = 57
+      # notification.sound = "sosumi.aiff"
+      notification.content_available = true
+      notification.custom_data = {order_number: @order.id, order_description: order_description, order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
+
+      # And... sent! That's all it takes.
+      APN.push(notification)
+ 
+      }
 
     # respond_to do |format|
     #   format.html # show.html.erb

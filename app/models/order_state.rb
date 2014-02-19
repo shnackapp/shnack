@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: order_states
+#
+#  id         :integer          not null, primary key
+#  order_id   :integer
+#  state      :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class OrderState < ActiveRecord::Base
   attr_accessible :state
   belongs_to :order

@@ -11,6 +11,7 @@ class ChargesController < ApplicationController
 	  # Amount in cents
 
 	  @order = Order.find(params[:order_id])
+	  @order.order_states.create(:state => 0)
 	  @amount = @order.amount
 	  @vendor = @order.vendor
 

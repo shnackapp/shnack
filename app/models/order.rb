@@ -21,7 +21,8 @@ class Order < ActiveRecord::Base
 
   #returns current order_state
   def current_order_state
-  	self.order_states.descending.first
+  	o = self.order_states.descending.first
+  	o.nil? ? self.order_states.create(:state => 0) : o
   end
 
 
