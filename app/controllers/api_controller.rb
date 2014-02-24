@@ -44,6 +44,8 @@ class ApiController < ApplicationController
 		respond_with @device, :location => nil
 	end
 
+	 
+
 
 	# Post request to log a user in.
 	# If the user is successfully logged in, it sends back the users authentication token
