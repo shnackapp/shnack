@@ -3,8 +3,9 @@
 // You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready(function() {
-	$("a.plus").click(function() {
+	$("span.plus").click(function() {
 		//increment up
+
 		var id = $(this).parent().parent().data("id");
 		var val = $("#"+id+"_num").html();
 		val++;
@@ -13,7 +14,7 @@ $(document).ready(function() {
 		 updatePrice();
 	});
 
-	$("a.minus").click(function() {
+	$("span.minus").click(function() {
 		//increment down
 		var id = $(this).parent().parent().data("id");
 		var val = $("#"+id+"_num").html();
