@@ -28,7 +28,6 @@ class Role < ActiveRecord::Base
   def owns?(place) 
   	# STUB METHOD
   	return true
-
   end
 
 end

@@ -1,0 +1,11 @@
+
+<div class="panel panel-default">
+<% @vendors.each_key do |s| %>
+	<div class="panel-heading"><h3 class="panel-title">	<%= s %> </h3> </div>
+	<div class="list-group">
+		<% @vendors[s].each do |v| %>
+		<%= link_to v.name, edit_stadium_vendor_path(Stadium.where(:name => s).first.id, v), :class=> "list-group-item" %>
+		<% end %>
+	</div>
+<% end %>
+</div>
