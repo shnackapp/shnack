@@ -22,14 +22,16 @@ class ApiController < ApplicationController
 		@device = Device.where(:token =>params[:device_token]).first
 		@vendor = @device.vendor
 		@orders = @vendor.open_orders
-		@result = @orders.map { |o| {:id => o.id, :created_at => o.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description }} 
+		@result = @orders.map { |o| {:id => o.id, :created_at => o.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description, :state => o.current_order_state.state}} 
 
 		respond_with @result, :location => nil
 	end
 
 	# Register a device token with a vendor
 	def register_device_token_for_vendor
-		@vendor = Vendor.find(params[:vendor_id])
+		@vendor = Vendor.where(:registration_code => params[:registration_code]).first
+		render :json => { :error => "incorrect_registration_code" } if @vendor.nil? 
+
 		@device = Device.where(:token => params[:device_token]).first_or_create
 		@device.vendor = @vendor
 		@device.save
@@ -40,11 +42,21 @@ class ApiController < ApplicationController
 	def unregister_device
 		@device = Device.where(:token => params[:device_token]).first
 		@device.vendor = nil
+		@device.save
 
 		respond_with @device, :location => nil
 	end
 
-	 
+
+	def update_order_state
+		@order = Order.find(params[:order_id])
+		render :json => { :error => "Order not found in table" } if @order.nil?
+
+		@order.update_state
+
+		render :json => @order.current_order_state
+
+	end
 
 
 	# Post request to log a user in.

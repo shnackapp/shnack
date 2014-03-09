@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140214061838) do
+ActiveRecord::Schema.define(:version => 20140309062215) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(:version => 20140214061838) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "vendor_id"
+  end
+
+  create_table "order_items", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "quantity"
+    t.integer  "order_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "order_states", :force => true do |t|
@@ -98,10 +106,11 @@ ActiveRecord::Schema.define(:version => 20140214061838) do
 
   create_table "vendors", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.integer  "stadium_id"
     t.integer  "role_id"
+    t.string   "registration_code"
   end
 
 end

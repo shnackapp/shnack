@@ -25,6 +25,11 @@ class Order < ActiveRecord::Base
   	o.nil? ? self.order_states.create(:state => 0) : o
   end
 
+  def update_state
+  	o = current_order_state
+  	self.order_states.create(:state => o.state + 1) if o.state < 3
+  end
+
 
 	#converts a orders details hash:  Hash: {item_id => qty, item_id => qty ... }
 	# to a hash:
