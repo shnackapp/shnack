@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140206204519) do
+ActiveRecord::Schema.define(:version => 20140309085519) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(:version => 20140206204519) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "hours", :force => true do |t|
+    t.time     "opening_time"
+    t.time     "closing_time"
+    t.integer  "day"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "items", :force => true do |t|
     t.string   "name"
     t.datetime "created_at",                                               :null => false
@@ -38,10 +46,17 @@ ActiveRecord::Schema.define(:version => 20140206204519) do
     t.boolean  "vegetarian"
   end
 
-  create_table "menus", :force => true do |t|
+  create_table "locations", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "menus", :force => true do |t|
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "vendor_id"
+    t.integer  "location_id"
   end
 
   create_table "orders", :force => true do |t|
@@ -52,6 +67,11 @@ ActiveRecord::Schema.define(:version => 20140206204519) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "details"
+  end
+
+  create_table "restaurants", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "roles", :force => true do |t|

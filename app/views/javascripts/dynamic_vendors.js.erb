@@ -1,0 +1,27 @@
+alert('hi');
+var vendors = new Array();
+
+<% for vendor in @vendors -%>
+	vendors.push(new Array(<%= vendor.stadium_id %>, '<%=h vendor.name %>', <%= vendor.id %>));
+<% end -%>
+
+function stadiumSelected() {
+	stadium_id = $('st_id').getValue();
+	options = $('st').options;
+	options.length = 1;
+	vendors.each(function(vendor){
+		if(vendor[0]==stadium_id){
+			options[options.length] = new Option(vendor[1],vendor[2]);
+		}
+	});
+	if (options.length ==1) {
+		$('vendor_field').hide();
+	} else {
+		$('vendor_field').show();
+	}
+}
+
+document.observe('dom:loaded', function(){
+	$('vendor_field').hide();
+	$('st').observe('change', stadiumSelected);
+});
