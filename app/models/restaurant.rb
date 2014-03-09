@@ -9,7 +9,7 @@
 #  type       :string(255)
 #
 
-class Stadium < Location
-  attr_accessible :name
-  has_many :vendors
+class Restaurant < Location
+  # attr_accessible :title, :body
+  has_many :hours
 end

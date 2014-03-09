@@ -9,7 +9,9 @@
 #  type       :string(255)
 #
 
-class Stadium < Location
-  attr_accessible :name
-  has_many :vendors
+class Location < ActiveRecord::Base
+  attr_accessible :created_at, :id, :name, :updated_at, :type
+  has_one :menu
+  has_many :stadiums
+  has_many :restaurants
 end

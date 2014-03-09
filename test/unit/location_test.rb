@@ -9,7 +9,10 @@
 #  type       :string(255)
 #
 
-class Stadium < Location
-  attr_accessible :name
-  has_many :vendors
+require 'test_helper'
+
+class LocationTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end
