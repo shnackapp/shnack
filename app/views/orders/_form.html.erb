@@ -1,6 +1,5 @@
-<h1 class="headline"> <%= @vendor.name %> </h1>
-<h3 class="headline"> <%= @stadium.name %> </h3>
-<h2 class="headline">New order</h2>
+<h3 class="headline"> <%= @vendor.name %> <br/>
+<small><%= @stadium.name %></small> </h3>
 
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
@@ -19,23 +18,28 @@
   <%= f.hidden_field :user_id, :value => user_signed_in? ? current_user.id : 0 %>
   <%= f.hidden_field :vendor_id, :value => @vendor.id %>
   <%= f.hidden_field :amount, :value => "0" %>
-  <table cellspacing="10" class="menu-table">
+  <table cellspacing="10" class="table">
   
  
   <% @vendor.menu.items.each do |item| %>
     <tr class="menu_item" data-id="<%=item.id%>">
       <td><%= item.name %></td>
       <td id="<%=item.id%>_price" data-price="<%=item.price%>"><%= number_to_currency item.price %></td>
-      <td> <a href="#" class="plus">+</a> </td>
+      <td> 
+      <span class="glyphicon glyphicon-plus plus"></span>
+ </td>
       <td id="<%=item.id%>_num" class="num"> 0 </td>
-      <td> <a href="#" class="minus" >-</a> </td>
+      <td> <span class="glyphicon glyphicon-minus minus"></span> </td>
       <td class="item_id hidden"><%= item.id %></td>
 
       <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
   <% end %>
+    <tfoot>
+      <td>Total: </td>
+      <td></td>
+      <td class="total text-center" data-total="000" colspan="3"> $0.00</td>
+    </tfoot>
   </table>
-    <span id="total-style"> Total: </span>
-    <span id="total-style" class="total" data-total="000"> $0.00 </span>
 
 
   <div class="actions">

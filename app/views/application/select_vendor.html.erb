@@ -1,10 +1,8 @@
-<h1 class="headline"> <%= @stadium.name %> </h1>
+<h2 class="headline"> <%= @stadium.name %> </h1>
 
-
-<h2 class="headline">Select your vendor:</h2>
-<ul class="general-list">
+<div class="list-group">
 	<% @stadium.vendors.each do |vendor| %>
-		<li class="general-list"> <%= link_to vendor.name, new_order_path(:vendor_id  => vendor.id) %> </li>
+		<%= link_to vendor.name, new_order_path(:vendor_id  => vendor.id), :class=>"list-group-item" %> 
 	<% end %>
 </ul>
 <br />
