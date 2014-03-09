@@ -7,8 +7,6 @@ class ApiController < ApplicationController
 		respond_with User.all
 	end
 
-<<<<<<< HEAD
-
 	# HTTP Request for when the device turns on and sends in it's device token
 	def send_device_token
 		@device = Device.where(:token =>params[:device_token])
@@ -54,9 +52,7 @@ class ApiController < ApplicationController
 		render :json => { :error => "Order not found in table" } if @order.nil?
 
 		@order.update_state
-
 		render :json => @order.current_order_state
-
 	end
 
 
