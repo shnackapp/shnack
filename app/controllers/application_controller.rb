@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def select_stadium
+    @locations = Location.all
   	@stadiums = Stadium.all
   end
 
