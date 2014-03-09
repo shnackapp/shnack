@@ -5,4 +5,8 @@ class ShnackController < ApplicationController
 
 	def index
 	end
+
+	def manage_vendors
+		
+	end
 end
