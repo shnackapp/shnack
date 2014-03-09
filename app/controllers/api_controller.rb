@@ -7,6 +7,7 @@ class ApiController < ApplicationController
 		respond_with User.all
 	end
 
+<<<<<<< HEAD
 
 	# HTTP Request for when the device turns on and sends in it's device token
 	def send_device_token

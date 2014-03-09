@@ -59,14 +59,12 @@ class User < ActiveRecord::Base
 	end
 
 	def is_manager?
-		return role.role_type == 1
+		return role.role_type == 1 || role.is_super
 	end
 
 
 	def is_owner_of?(item) 
 		return true if role.is_super
-
-
 	end
 
 
