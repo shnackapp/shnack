@@ -1,4 +1,5 @@
 class ApiController < ApplicationController
+	include ApiHelper
 	# http_basic_authenticate_with name: "admin", password: "secret"
 	before_filter :restrict_access
 
@@ -51,10 +52,12 @@ class ApiController < ApplicationController
 		@order = Order.find(params[:order_id])
 		render :json => { :error => "Order not found in table" } if @order.nil?
 
-		@order.update_state
-		render :json => @order.current_order_state
-	end
+		@order_state = @order.update_state
 
+		notify_user_of_completed_order @order if @order_state.state == 2
+
+		render :json => @order_state
+	end
 
 	# Post request to log a user in.
 	# If the user is successfully logged in, it sends back the users authentication token

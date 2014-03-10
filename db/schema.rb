@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140309093546) do
+ActiveRecord::Schema.define(:version => 20140310041351) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -80,9 +80,11 @@ ActiveRecord::Schema.define(:version => 20140309093546) do
     t.string   "charge_id"
     t.integer  "amount"
     t.integer  "vendor_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "details"
+    t.boolean  "paid",        :default => false
+    t.integer  "location_id"
   end
 
   create_table "restaurants", :force => true do |t|
@@ -119,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20140309093546) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "authentication_token"
+    t.string   "number"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

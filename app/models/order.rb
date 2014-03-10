@@ -15,6 +15,7 @@
 class Order < ActiveRecord::Base
   attr_accessible :amount, :charge_id, :details 
   belongs_to :vendor
+  belongs_to :location
   belongs_to :user
   has_many :order_states
 
@@ -30,6 +31,9 @@ class Order < ActiveRecord::Base
   	self.order_states.create(:state => o.state + 1) if o.state < 3
   end
 
+  def location_name
+    self.vendor.nil? ? self.location.name : self.vendor.name
+  end
 
 	#converts a orders details hash:  Hash: {item_id => qty, item_id => qty ... }
 	# to a hash:

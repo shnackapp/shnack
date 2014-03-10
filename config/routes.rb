@@ -1,6 +1,7 @@
 Shnack::Application.routes.draw do
   resources :orders do 
     resources :charges
+    post '/:action'
   end
 
     get '/api/:action', :controller => 'api'

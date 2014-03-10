@@ -31,8 +31,7 @@ class User < ActiveRecord::Base
 	attr_accessible :email, :password, :password_confirmation, :remember_me, :is_super
 	# attr_accessible :title, :body
 
-	validates_presence_of :role
-	before_create :create_role, :create_authentication_token
+	before_create :create_authentication_token
 
 	def create_role
 		#defaults to customer
