@@ -1,0 +1,6 @@
+Your order #<%= @order.id %> at <%= @order.location_name %> has been placed
+=============================================================================
+
+<% @order_details.each_pair do |id, qty| %>
+   <%= @items[id].name %>  <%= qty %> <%= number_to_currency @items[id].price %> <%= number_to_currency(@items[id].price * qty) %>
+<% end %>

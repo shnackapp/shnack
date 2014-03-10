@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+<h4 class="text-center"> # <%= @order.id %> </h4>
+
+  <table class="table">
+    <thead>
+      <td> Item </td>
+      <td> Qty </td>
+      <td> Price </td>
+      <td> Total </td>
+    </thead>
+    <% @order_details.each_pair do |id, qty| %>
+    <tr>
+
+      <td><%= @items[id].name %></td> 
+      <td><%= qty %> </td>
+      <td> <%= number_to_currency @items[id].price %></td>
+      <td> <%= number_to_currency(@items[id].price * qty) %></td>
+    </tr>
+    <% end %>
+
+  </table>
+
+<h5 class="text-center"> Thank you for using Shnack! </h5>
+  </body>
+</html>
