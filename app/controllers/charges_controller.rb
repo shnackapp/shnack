@@ -1,7 +1,11 @@
 class ChargesController < ApplicationController
 
+
 	def new
 		@order = Order.find(params[:order_id], :include => {:vendor => {:menu => :items}})
+		# if the order has already been paid for, 
+		redirect_to order_path(@order) if @order.paid
+
 		@vendor = @order.vendor
 		@items = Hash[@order.vendor.menu.items.map{|it| [it.id, it]}]
 		@order_details = parse_order_details @order.details
@@ -15,8 +19,10 @@ class ChargesController < ApplicationController
 	  @amount = @order.amount
 	  @vendor = @order.vendor
 
+	  @order.user.email = params[:stripeEmail]
+
 	  customer = Stripe::Customer.create(
-	    :email => 'anshul.jain242@gmail.com',
+	    :email => params[:stripeEmail],
 	    :card  => params[:stripeToken]
 	  )
 
@@ -49,9 +55,10 @@ class ChargesController < ApplicationController
 	    APN.push(notification)
  
       }
+      @order.update_attribute(:paid, true)
 	  #send User an email letting them know their order has been placed
 
-	
+
 	  redirect_to order_path(@order)
 	
 	rescue Stripe::CardError => e

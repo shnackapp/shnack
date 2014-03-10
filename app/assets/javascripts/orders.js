@@ -24,6 +24,8 @@ $(document).ready(function() {
 		updatePrice();
 	});
 
+	
+
 });
 
 function updatePrice() {

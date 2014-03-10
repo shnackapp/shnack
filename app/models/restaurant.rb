@@ -12,4 +12,5 @@
 class Restaurant < Location
   # attr_accessible :title, :body
   has_many :hours
+  has_many :orders
 end
