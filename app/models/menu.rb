@@ -2,16 +2,18 @@
 #
 # Table name: menus
 #
-#  id         :integer          not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  vendor_id  :integer
+#  id          :integer          not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  vendor_id   :integer
+#  location_id :integer
 #
 
 class Menu < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :vendor_id
+  attr_accessible :vendor_id, :location_id
   belongs_to :vendor
+  belongs_to :location
   has_many :items
 
   def add_item(name, price, item_type, requires_id, nut_allergy, vegetarian)

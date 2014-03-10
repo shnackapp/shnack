@@ -1,73 +1,58 @@
-// $(document).ready(function () {
-//     ////
-//     // Initalize balanced.js
-//     //
-//     // server: The backend Balanced server to tokenize with
-//     // revision: The specific revision of the Balanced API to tokenize with
-//     ////
-    
-//     // For example purposes, create a bin at http://requestb.in/
-//     // Make sure it doesn't end in ?inspect and set it as responseTarget.
-//     // e.g. var responseTarget = http://requestb.in/nyqkn8ny
-//     var responseTarget = 'http://localhost';  
-//     var marketplaceUri = 'ak-test-lZIjauN5kloCGhkQKLHh5Oznc8JLRrjr';
-    
-//     balanced.init(marketplaceUri);
-    
-//     ////
-//     // Click event for tokenize credit card
-//     ////
-//     $('#cc-submit').click(function (e) {
-//         e.preventDefault();
-//         alert('hi');
+$(document).ready(function() {
+   $("#order-phone-number").keypress(function(e) {
+   		if(e.which<48 || e.which > 57)
+   			e.preventDefault();
+   });
+   $("#order-phone-number").mask("(000) 000-0000");
+   $("#order-phone-number").blur(function(e) {
+   		validateInputs();
+   });
 
-//         $('#response').hide();
+   $(".stripe-button-el").prop('disabled', true);
+   // $("#order-email").blur(function(e) {
+   // 		validateInputs();
+   // });
+	
+	
+	$(".stripe-button-el").click(function(e) {
+		var pathname = window.location.pathname;
+		var num = $("#order-phone-number").val();
+		num = num.replace("(", "").replace(")", "").replace("-", "").replace(" ", "");
 
-//         var payload = {
-//             name: $('#cc-name').val(),
-//             card_number: $('#cc-number').val(),
-//             expiration_month: $('#cc-ex-month').val(),
-//             expiration_year: $('#cc-ex-year').val(),
-//             security_code: $('#ex-csc').val()
-//         };
-        
-//         // Tokenize credit card
-//         balanced.card.create(payload, function (response) {
-//             // Successful tokenization
-//             if(response.status === 201 && response.uri) {
-//                 // Send to your backend
-//                 jQuery.post(responseTarget, {
-//                     uri: response.uri
-//                 }, function(r) {
-//                     // Check your backend response
-//                     if (r.status === 201) {
-//                         // Your successful logic here from backend
-//                     } else {
-//                         // Your failure logic here from backend
-//                     }
-//                 });
-//             } else {
-//                 // Failed to tokenize, your error logic here
-//             }
-            
-//             // Debuging, just displays the tokenization result in a pretty div
-//             $('#response .panel-body pre').html(JSON.stringify(response, false, 4));
-//             $('#response').slideDown(300);
-//         });
-//     });
-    
-    
-//     ////
-//     // Click event for tokenize bank account
-//     ////
-    
-//     $('#populate').click(function () {
-//         $(this).attr("disabled", true);
 
-//         $('#cc-name').val('John Doe');
-//         $('#cc-number').val('4111111111111111');
-//         $('#cc-ex-month').val('12');
-//         $('#cc-ex-year').val('2020');
-//         $('#ex-csc').val('123');
-//     });
-// });
+		$.ajax({
+			url: "/orders/" +pathname.split('/')[2] + "/add_number_to_order",
+			type: "POST",
+			data: 
+			{ number: num}
+		});
+	});
+
+});
+
+function validateInputs()
+{
+	// var email_valid = validateEmail($("#order-email").val());
+	var phone_valid = validatePhoneNumber($("#order-phone-number").val());
+	if(phone_valid) {
+		$(".stripe-button-el").prop('disabled', false);
+	}
+	else {
+		$(".stripe-button-el").prop('disabled', true);
+	}
+
+};
+
+function validatePhoneNumber(number)
+{
+	if(number.length == 14)
+		return true;
+	else
+		return false;
+}
+
+function validateEmail(email) 
+{ 
+ var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
+ return email.match(re);
+};

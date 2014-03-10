@@ -15,13 +15,14 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  authentication_token   :string(255)
 #
 
 class User < ActiveRecord::Base
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable,
-	 :recoverable, :rememberable, :trackable, :validatable
+	 :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
 
 	has_one :role
 	has_one :stadium, :through => :role
@@ -30,13 +31,18 @@ class User < ActiveRecord::Base
 	attr_accessible :email, :password, :password_confirmation, :remember_me, :is_super
 	# attr_accessible :title, :body
 
-	validates_presence_of :role
-	before_validation :create_role
+	before_create :create_authentication_token
 
 	def create_role
 		#defaults to customer
 		r = Role.create(:role_type => 0)
 		self.role = r
+	end
+
+	def create_authentication_token
+		begin
+			self.authentication_token = SecureRandom.hex
+		end while self.class.exists?(authentication_token: authentication_token)
 	end
 
 	def is_super

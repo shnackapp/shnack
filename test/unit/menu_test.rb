@@ -2,10 +2,11 @@
 #
 # Table name: menus
 #
-#  id         :integer          not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  vendor_id  :integer
+#  id          :integer          not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  vendor_id   :integer
+#  location_id :integer
 #
 
 require 'test_helper'

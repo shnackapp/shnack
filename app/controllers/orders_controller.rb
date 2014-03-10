@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
     @items = Hash[@order.vendor.menu.items.map{|it| [it.id, it]}]
     @order_details = parse_order_details @order.details
     # @charge = Stripe::Charge.retrieve(params[:charge])
-    
+
 
     # respond_to do |format|
     #   format.html # show.html.erb
@@ -109,4 +109,13 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def add_number_to_order
+    @order = Order.find(params[:order_id])
+    @user = User.where(:number => params[:number]).first_or_create(:email => "guest@shnackapp.com", :password => "welcome_to_shnack")
+    @order.user = @user
+    @order.save
+    render :json => @order
+  end
+
 end
