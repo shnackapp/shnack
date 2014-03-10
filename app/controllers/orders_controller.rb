@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
     @items = Hash[@order.vendor.menu.items.map{|it| [it.id, it]}]
     @order_details = parse_order_details @order.details
     # @charge = Stripe::Charge.retrieve(params[:charge])
-    
+
 
     # respond_to do |format|
     #   format.html # show.html.erb

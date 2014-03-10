@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140309085519) do
+ActiveRecord::Schema.define(:version => 20140309093546) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20140309085519) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "type"
   end
 
   create_table "menus", :force => true do |t|
@@ -57,6 +58,21 @@ ActiveRecord::Schema.define(:version => 20140309085519) do
     t.datetime "updated_at",  :null => false
     t.integer  "vendor_id"
     t.integer  "location_id"
+  end
+
+  create_table "order_items", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "quantity"
+    t.integer  "order_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "order_states", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "orders", :force => true do |t|
@@ -102,17 +118,20 @@ ActiveRecord::Schema.define(:version => 20140309085519) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "authentication_token"
   end
 
+  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "vendors", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.integer  "stadium_id"
     t.integer  "role_id"
+    t.string   "registration_code"
   end
 
 end
