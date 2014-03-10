@@ -19,7 +19,7 @@ class ChargesController < ApplicationController
 	  @amount = @order.amount
 	  @vendor = @order.vendor
 
-	  @order.user.email = params[:stripeEmail]
+	  @order.user.update_attribute(:email, params[:stripeEmail])
 
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
@@ -57,7 +57,7 @@ class ChargesController < ApplicationController
       }
       @order.update_attribute(:paid, true)
 	  #send User an email letting them know their order has been placed
-
+	  ReceiptMailer.receipt_email(@order).deliver
 
 	  redirect_to order_path(@order)
 	

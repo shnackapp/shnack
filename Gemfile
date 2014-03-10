@@ -29,7 +29,6 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'twilio-ruby'
 
-
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', :platforms => :ruby
 

@@ -28,23 +28,28 @@ class Order < ActiveRecord::Base
 
   def update_state
   	o = current_order_state
-  	self.order_states.create(:state => o.state + 1) if o.state < 3
+  	o.state < 3 ? self.order_states.create(:state => o.state + 1) : o
   end
 
   def location_name
     self.vendor.nil? ? self.location.name : self.vendor.name
   end
 
+  def details_hash
+    order_details = self.details.split
+    order_details = order_details.map.with_index { |v, i|[order_details[i].to_i, order_details[i+1].to_i] if i.even? && order_details[i+1].to_i != 0 }
+    order_details.reject! { |v| v.nil? }
+    order_details = Hash[order_details]
+    order_details
+  end
+
 	#converts a orders details hash:  Hash: {item_id => qty, item_id => qty ... }
 	# to a hash:
 	# Hash: { "item_name" => qty, "item_name" => qty }
 
-	def description
-		order_details = self.details.split
-		order_details = order_details.map.with_index { |v, i|[order_details[i].to_i, order_details[i+1].to_i] if i.even? && order_details[i+1].to_i != 0 }
-		order_details.reject! { |v| v.nil? }
-		order_details = Hash[order_details]
 
+	def description
+		order_details = self.details_hash
 
 		description = ""
 		order_details.each { |id, qty| description = description + "#{qty} #{Item.find(id).name}\n"}
