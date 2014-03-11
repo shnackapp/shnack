@@ -16,6 +16,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  authentication_token   :string(255)
+#  number                 :string(255)
 #
 
 class User < ActiveRecord::Base

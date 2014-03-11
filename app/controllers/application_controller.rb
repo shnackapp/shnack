@@ -15,8 +15,13 @@ class ApplicationController < ActionController::Base
   end
 
 	def select_vendor
-		@stadium = Stadium.find(params[:object_id])
-		@vendors = Vendor.all
+    @loc = Location.find(params[:object_id])
+    if @loc.instance_of?(Restaurant)
+      redirect_to new_order_path(:restaurant_id => @loc.id) 
+    else
+  		@stadium = Stadium.find(params[:object_id])
+  		@vendors = Vendor.all
+    end
 	end
 
 	def select_items

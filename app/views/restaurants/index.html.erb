@@ -1,0 +1,6 @@
+<div class="list-group">
+	<% @restaurants.each do |restaurant| %>
+
+		<%= link_to restaurant.name, restaurant, :class => "list-group-item" %>
+	<% end %>
+</ul>

@@ -2,11 +2,11 @@
 #
 # Table name: menus
 #
-#  id          :integer          not null, primary key
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  vendor_id   :integer
-#  location_id :integer
+#  id            :integer          not null, primary key
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  vendor_id     :integer
+#  restaurant_id :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

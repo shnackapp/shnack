@@ -1,18 +1,17 @@
 # == Schema Information
 #
-# Table name: locations
+# Table name: categories
 #
 #  id         :integer          not null, primary key
+#  menu_id    :integer
 #  name       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  type       :string(255)
 #
 
-class Restaurant < Location
-  # attr_accessible :title, :body
-  has_many :hours
-  has_many :orders
-  has_many :devices
-  has_one :menu
+class Category < ActiveRecord::Base
+  attr_accessible :menu_id, :name
+  belongs_to :menu
+  has_many :items
+
 end

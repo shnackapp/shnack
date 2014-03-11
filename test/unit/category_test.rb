@@ -1,18 +1,18 @@
 # == Schema Information
 #
-# Table name: locations
+# Table name: categories
 #
 #  id         :integer          not null, primary key
+#  menu_id    :integer
 #  name       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  type       :string(255)
 #
 
-class Restaurant < Location
-  # attr_accessible :title, :body
-  has_many :hours
-  has_many :orders
-  has_many :devices
-  has_one :menu
+require 'test_helper'
+
+class CategoryTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

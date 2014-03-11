@@ -2,22 +2,25 @@
 #
 # Table name: orders
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  charge_id  :string(255)
-#  amount     :integer
-#  vendor_id  :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  details    :string(255)
+#  id            :integer          not null, primary key
+#  user_id       :integer
+#  charge_id     :string(255)
+#  amount        :integer
+#  vendor_id     :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  details       :string(255)
+#  paid          :boolean          default(FALSE)
+#  restaurant_id :integer
 #
 
 class Order < ActiveRecord::Base
-  attr_accessible :amount, :charge_id, :details 
+  attr_accessible :amount, :charge_id, :details
   belongs_to :vendor
-  belongs_to :location
+  belongs_to :restaurant
   belongs_to :user
   has_many :order_states
+  has_many :order_items
 
 
   #returns current order_state
@@ -32,7 +35,7 @@ class Order < ActiveRecord::Base
   end
 
   def location_name
-    self.vendor.nil? ? self.location.name : self.vendor.name
+    self.vendor.nil? ? self.restaurant.name : self.vendor.name
   end
 
   def details_hash
@@ -57,6 +60,9 @@ class Order < ActiveRecord::Base
 		description
 	end
 
+  def owner
+    self.vendor.nil? ? self.restaurant : self.vendor
+  end
 
   #details is in the form "item_id qty item_id qty ... "
 end

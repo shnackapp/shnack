@@ -8,11 +8,10 @@ class ShnackController < ApplicationController
 
 	def manage_vendors
 		if current_user.is_super
-			vendors = Vendor.group(:stadium_id)
+			@stadium = Stadium.all
 			@vendors = Hash.new
-			vendors.each do |v|
-				tmp = Vendor.where(:stadium_id => v.stadium_id)
-				@vendors[v.stadium.name] = tmp
+			@stadium.each do |s|
+				@vendors[s.name] = s.vendors
 			end
 		else
 			@vendors = Vendor.where(:role_id => current_user.role.id)

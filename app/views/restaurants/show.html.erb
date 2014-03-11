@@ -1,0 +1,49 @@
+<h2 class="headline"> <%= @restaurant.name %> </h2>
+
+
+	<div class ="panel panel-default">
+		<% @restaurant.menu.categories.each do |category| %>
+			<div class="panel-heading"><h3 class="panel-title"><%= category.name %></h3></div>
+			<table class="table">
+			<% category.items.each do |item| %>
+				<tr>
+					<td ><%= item.name %></td>
+					<td class="text-right"><%= number_to_currency item.price %></td>
+					<td class="text-right" style="width:5%"><%= link_to content_tag(:span, nil, :class=> "glyphicon glyphicon-minus"), { :controller => 'menu', :action => 'delete_item', :item_id => item.id } %></td>
+
+				</tr>
+			<% end %>
+			</table>
+		<% end %>
+	</div>
+	
+	<table class="table">
+		<%= form_for @restaurant.menu.categories.new, :url => url_for(:controller => "menu", :action => 'add_category') do  |f| %>
+			<%= f.hidden_field :menu_id, :value => @restaurant.menu.id %>
+			<tr>
+				<td><%= f.label :name %></td>
+				<td><%= f.text_field :name %></td>
+			</tr>
+			<tr colspan="2"> <td> <%= f.submit %></td> </tr>
+		<% end %>
+	</table>
+
+
+	<table class="table">
+		<%= form_for @restaurant.menu.items.new, :url => url_for(:controller => "menu", :action => 'add_item') do  |f| %>
+			<%= f.hidden_field :menu_id, :value => @restaurant.menu.id %>
+			<tr>
+				<td colspan="2"><%= collection_select(:item, :category_id, @restaurant.menu.categories, :id, :name, {}, {:class=>"form-control"}) %> </td>
+			</tr>
+			<tr>
+				<td><%= f.label :name %></td>
+				<td><%= f.text_field :name, :class=>"form-control" %></td>
+			</tr>
+
+			<tr>
+				<td> <%= f.label :price %></td>
+				<td> <%= f.text_field :price , :class=>"form-control"%></td>
+			</tr>
+			<tr colspan="2"> <td> <%= f.submit %></td> </tr>
+		<% end %>
+	</table>

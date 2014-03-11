@@ -14,6 +14,10 @@ Shnack::Application.routes.draw do
   match 'user_root' => 'Shnack#logged_in', as: :user_root
 
 
+  resources :restaurants
+    post '/:controller/:action'
+    delete '/restaurants/delete_item' => 'Restaurants#delete_item'
+  
 
   root to: "application#select_stadium"
   resources :stadia, :path => "stadiums" do
@@ -27,9 +31,10 @@ Shnack::Application.routes.draw do
   
 
   # get '/u/edit', :controller => "users", :action => "edit"
-
+  get '/menu/:action', :controller => 'menu'
   get '/shnack/:action', :controller => 'shnack'
 	get '/:action/:object_id', :controller => 'application'
+
 
 
 

@@ -12,5 +12,6 @@
 class Device < ActiveRecord::Base
   attr_accessible :token
   belongs_to :vendor
+  belongs_to :restaurant
 
 end

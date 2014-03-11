@@ -1,5 +1,5 @@
 class VendorsController < ApplicationController
-	before_filter :setup_vendor, :except => [:index, :create, :new, :add_item] 
+	before_filter :setup_vendor, :except => [:index, :create, :new, :add_item, :add_category] 
 	def index
 		@vendors = Vendor.where(:stadium_id => @stadium.id)
 	end
@@ -24,6 +24,12 @@ class VendorsController < ApplicationController
 	def destroy
 		@vendor.destroy
 		redirect_to stadium_vendors_path(@stadium)
+	end
+
+	def add_category
+		vendor = Vendor.find(params[:category].delete(:vendor_id))
+		vendor.menu.categories.create(:name => params[:category][:name])
+		redirect_to stadium_vendor_path(@stadium, vendor)
 	end
 
 

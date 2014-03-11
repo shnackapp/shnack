@@ -14,9 +14,15 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @order = Order.find(params[:id])
+    if @order.vendor.nil?
+      @owner = @order.restaurant
+    else
+      @owner = @order.vendor 
+    end
+    @menu = @owner.menu
 
-    @vendor = @order.vendor
-    @items = Hash[@order.vendor.menu.items.map{|it| [it.id, it]}]
+
+    @items = Hash[@menu.items.map{|it| [it.id, it]}]
     @order_details = parse_order_details @order.details
     # @charge = Stripe::Charge.retrieve(params[:charge])
 
@@ -30,9 +36,17 @@ class OrdersController < ApplicationController
   # GET /orders/new
   # GET /orders/new.json
   def new
-    @vendor = Vendor.find(params[:vendor_id])
+
+    if params[:vendor_id].nil?
+      @owner = Restaurant.find(params[:restaurant_id])
+    else
+      @owner = Vendor.find(params[:vendor_id])
+    end
+    @menu = @owner.menu
+
+    # @vendor = Vendor.find(params[:vendor_id])
     @order = Order.new
-    @stadium = @vendor.stadium
+    # @stadium = @vendor.stadium
 
     respond_to do |format|
       format.html # new.html.erb
@@ -51,9 +65,14 @@ class OrdersController < ApplicationController
     details = ""
     amount = 0
 
-    v = Vendor.find(params[:order].delete(:vendor_id), :include => {:menu => :items})
+    if params[:order][:vendor_id].nil?
+      owner = Restaurant.find(params[:order].delete(:restaurant_id), :include => {:menu => :items})
+    else
+      owner = Vendor.find(params[:order].delete(:vendor_id), :include => {:menu => :items})
+    end
+
     user_id = params[:order].delete(:user_id)
-    items = v.menu.items
+    items = owner.menu.items
     items_price = Hash[items.map { |it| [it.id, (it.price*100).to_int]}]
 
     params[:order].delete(:item).each { |id, qty|
@@ -70,8 +89,7 @@ class OrdersController < ApplicationController
 
 
     @order = Order.new(params[:order])
-
-    @order.vendor = v
+    owner.instance_of?(Vendor) ? @order.vendor = owner : @order.restaurant = owner
     @order.user = current_user
 
     redirect_to new_order_charge_path(@order) if @order.save
