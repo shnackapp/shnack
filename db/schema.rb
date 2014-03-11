@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140311083306) do
+ActiveRecord::Schema.define(:version => 20140311094953) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -57,11 +57,13 @@ ActiveRecord::Schema.define(:version => 20140311083306) do
 
   create_table "locations", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                                                         :null => false
+    t.datetime "updated_at",                                                         :null => false
     t.string   "type"
     t.string   "registration_code"
     t.boolean  "open"
+    t.boolean  "add_tax",                                         :default => false
+    t.decimal  "tax",               :precision => 6, :scale => 6
   end
 
   create_table "menus", :force => true do |t|
@@ -89,13 +91,14 @@ ActiveRecord::Schema.define(:version => 20140311083306) do
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.string   "charge_id"
-    t.integer  "amount"
+    t.integer  "subtotal"
     t.integer  "vendor_id"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.string   "details"
     t.boolean  "paid",          :default => false
     t.integer  "restaurant_id"
+    t.integer  "total"
   end
 
   create_table "restaurants", :force => true do |t|
@@ -141,11 +144,13 @@ ActiveRecord::Schema.define(:version => 20140311083306) do
 
   create_table "vendors", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                                                         :null => false
+    t.datetime "updated_at",                                                         :null => false
     t.integer  "stadium_id"
     t.integer  "role_id"
     t.string   "registration_code"
+    t.boolean  "add_tax",                                         :default => false
+    t.decimal  "tax",               :precision => 6, :scale => 6
   end
 
 end

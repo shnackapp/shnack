@@ -91,7 +91,11 @@ class OrdersController < ApplicationController
       end
     }
 
-    params[:order][:amount] = amount
+    params[:order][:subtotal] = amount
+
+    total = owner.add_tax ? amount + amount*owner.tax : amount
+
+    params[:order][:total] = total
     params[:order][:details] = details
 
 

@@ -1,3 +1,7 @@
 development:
-  secret_key: 'sk_test_xDJ5KS0I8VgJvHSQT1Iuxy56'
-  publishable_key: 'pk_test_AUn823FKTadliNg29onudWm0'
+  secret_key: 'sk_test_avDrSKCRw5jUyMLwgrnEkEb0'
+  publishable_key: 'pk_test_6dS5FE4fLaWhFMrVwjHZD9cX'
+production:
+  secret_key: 'sk_live_pGwqmb0IUu3XwbA1ny1EUgqe'
+  publishable_key: 'pk_live_wbqve2jAv5GunIKtPNYuiF72'
+

@@ -15,10 +15,11 @@ class ChargesController < ApplicationController
 	  # Amount in cents
 
 	  @order = Order.find(params[:order_id])
-	  @amount = @order.amount
+	  @amount = @order.total
 	  @owner = @order.owner
-
+ 
 	  redirect_to root_path unless @owner.is_open?
+	  redirect_to order_path(@order) if @order.paid
 
 	  @order.user.update_attribute(:email, params[:stripeEmail])
 
@@ -46,9 +47,6 @@ class ChargesController < ApplicationController
 	    notification = Houston::Notification.new(device: d.token)
 	    notification.alert = "New order made!"
 
-	    # Notifications can also change the badge count, have a custom sound, indicate available Newsstand content, or pass along arbitrary data.
-	    # notification.badge = 57
-	    # notification.sound = "sosumi.aiff"
 	    notification.content_available = true
 	    notification.custom_data = {order_number: @order.id, order_description: order_description, order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
 

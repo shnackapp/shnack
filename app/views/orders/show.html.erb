@@ -18,6 +18,38 @@
 		</tr>
 		<% end %>
 
+		
+		<tfoot>
+			<% if @order.subtotal != @order.total %>
+				<tr>
+					<td>Subtotal</td>
+					<td></td>
+					<td></td>
+					<td> <%= integer_to_currency(@order.subtotal) %> </td>
+				</tr>
+				<tr>
+					<td>Tax</td>
+					<td></td>
+					<td></td>
+					<td> <%= integer_to_currency(@order.total-@order.subtotal) %></td>
+				</tr>
+				<tr>
+					<td>Total</td>
+					<td></td>
+					<td></td>
+					<td> <%= integer_to_currency(@order.total) %> </td>
+				</tr>
+			<% else %>
+				<tr>
+					<td>Total</td>
+					<td></td>
+					<td></td>
+					<td> <%= integer_to_currency(@order.total) %> </td>
+				</tr>
+			<% end %> 
+
+		</tfoot>
+
 	</table>
 
 <h5 class="text-center"> Currently <%= @order.current_order_state.state_text %> </h5>

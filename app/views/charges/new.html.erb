@@ -19,10 +19,34 @@
 		<% end %>
 
 		<tfoot>
-			<td>Total</td>
-			<td></td>
-			<td></td>
-			<td> <%= integer_to_currency(@order.amount) %> </td>
+			<% if @order.subtotal != @order.total %>
+				<tr>
+					<td>Subtotal</td>
+					<td></td>
+					<td></td>
+					<td> <%= integer_to_currency(@order.subtotal) %> </td>
+				</tr>
+				<tr>
+					<td>Tax</td>
+					<td></td>
+					<td></td>
+					<td> <%= integer_to_currency(@order.total-@order.subtotal) %></td>
+				</tr>
+				<tr>
+					<td>Total</td>
+					<td></td>
+					<td></td>
+					<td> <%= integer_to_currency(@order.total) %> </td>
+				</tr>
+			<% else %>
+				<tr>
+					<td>Total</td>
+					<td></td>
+					<td></td>
+					<td> <%= integer_to_currency(@order.total) %> </td>
+				</tr>
+			<% end %> 
+
 		</tfoot>
 
 	</table>
@@ -37,6 +61,6 @@
           data-name="Shnack"
           data-label="Pay For Your Order"
           data-description="Pay For Your Order"
-          data-amount="<%= @order.amount %>"></script>
+          data-amount="<%= @order.total %>"></script>
       </div>
 <% end %>
