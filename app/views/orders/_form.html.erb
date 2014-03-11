@@ -16,7 +16,7 @@
 
   <%= f.hidden_field :user_id, :value => user_signed_in? ? current_user.id : 0 %>
   <%= @owner.instance_of?(Restaurant) ?  f.hidden_field(:restaurant_id, :value => @owner.id) : f.hidden_field(:vendor_id, :value => @owner.id) %>
-  <%= f.hidden_field :amount, :value => "0" %>
+  <%= f.hidden_field :subtotal, :value => "0" %>
   <div class ="panel panel-default">
 
     <% @menu.categories.each do |category| %>
@@ -43,7 +43,7 @@
 
     <table class="table">
       <tr>
-        <td>Total: </td>
+        <td>Subtotal: </td>
         <td></td>
         <td class="total text-center" data-total="000" colspan="3"> $0.00</td>
     </table>

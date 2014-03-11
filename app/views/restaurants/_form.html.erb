@@ -2,7 +2,13 @@
 <%= form_for(@restaurant) do |f| %> 
 	<%= f.label :name %>
 	<%= f.text_field :name, :class => "form-control" %>
+	<%= f.label :add_tax %>
+	<%= f.check_box :add_tax %>
+	<%= f.label :tax %>
+	<%= f.text_field :tax %>
 
+	<%= f.label :open %>
+	<%= f.check_box :open %>
 	<%= fields_for "restaurant[hours]" do |i| %>
 	<table class="table">
 		<tr>

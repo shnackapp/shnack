@@ -2,16 +2,20 @@
 #
 # Table name: locations
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  type       :string(255)
+#  id                :integer          not null, primary key
+#  name              :string(255)
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  type              :string(255)
+#  registration_code :string(255)
+#  open              :boolean
+#  add_tax           :boolean          default(FALSE)
+#  tax               :decimal(6, 6)
 #
 
 class Restaurant < Location
   # attr_accessible :title, :body
-  attr_accessible :registration_code, :open
+  attr_accessible :registration_code, :open, :add_tax, :tax
   has_many :hours
   has_many :orders
   has_many :devices
@@ -25,7 +29,7 @@ class Restaurant < Location
     time = Time.now
     h = self.hours.where(:day => time.wday).first
     return false if h.nil? || !self.open
-
+    
     if time.hour < h.opening_hour || (time.hour == h.opening_hour && time.min < h.opening_min)
       # Check that it's not open in the previous day.
       day = time.wday == 0 ? 6 : time.wday-1

@@ -5,17 +5,18 @@
 #  id            :integer          not null, primary key
 #  user_id       :integer
 #  charge_id     :string(255)
-#  amount        :integer
+#  subtotal      :integer
 #  vendor_id     :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  details       :string(255)
 #  paid          :boolean          default(FALSE)
 #  restaurant_id :integer
+#  total         :integer
 #
 
 class Order < ActiveRecord::Base
-  attr_accessible :amount, :charge_id, :details
+  attr_accessible :subtotal, :total, :charge_id, :details
   belongs_to :vendor
   belongs_to :restaurant
   belongs_to :user

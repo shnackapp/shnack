@@ -18,7 +18,7 @@ class RestaurantsController < ApplicationController
 		@restaurant = Restaurant.find(params[:id])
 		hours_params = params[:restaurant].delete(:hours)
 		i = 0
-		byebug
+		
 		while i <= Hour.saturday 
 			hours = @restaurant.hours.where(:day => i).first_or_create
 			hours.opening_time = hours_params[i.to_s][:open]

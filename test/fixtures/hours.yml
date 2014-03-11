@@ -2,12 +2,13 @@
 #
 # Table name: hours
 #
-#  id           :integer          not null, primary key
-#  opening_time :time
-#  closing_time :time
-#  day          :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id            :integer          not null, primary key
+#  opening_time  :string(255)
+#  closing_time  :string(255)
+#  day           :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  restaurant_id :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

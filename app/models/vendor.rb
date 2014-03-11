@@ -9,6 +9,8 @@
 #  stadium_id        :integer
 #  role_id           :integer
 #  registration_code :string(255)
+#  add_tax           :boolean          default(FALSE)
+#  tax               :decimal(6, 6)
 #
 
 class Vendor < ActiveRecord::Base
