@@ -6,8 +6,8 @@ class ChargesController < ApplicationController
 		# if the order has already been paid for, 
 		redirect_to order_path(@order) if @order.paid
 
-		@vendor = @order.vendor
-		@items = Hash[@order.vendor.menu.items.map{|it| [it.id, it]}]
+		@owner = @order.owner
+		@items = Hash[@order.owner.menu.items.map{|it| [it.id, it]}]
 		@order_details = parse_order_details @order.details
 	end
 
@@ -15,9 +15,10 @@ class ChargesController < ApplicationController
 	  # Amount in cents
 
 	  @order = Order.find(params[:order_id])
-	  @order.order_states.create(:state => 0)
 	  @amount = @order.amount
-	  @vendor = @order.vendor
+	  @owner = @order.owner
+
+	  redirect_to root_path unless @owner.is_open?
 
 	  @order.user.update_attribute(:email, params[:stripeEmail])
 
@@ -36,7 +37,7 @@ class ChargesController < ApplicationController
   	# An example of the token sent back when a device registers for notifications
     # token = "<2410d83b 257e501b 73cb9bc6 c44a9b4e fa46aab1 99694c8e fb01088c 3c5aca75>"
     # byebug
-   	  @vendor.devices.each { |d|
+   	  @owner.devices.each { |d|
 
 	    order_details = parse_order_details(@order.details)
 	    order_description = convert_details_to_description(order_details)
@@ -55,6 +56,8 @@ class ChargesController < ApplicationController
 	    APN.push(notification)
  
       }
+
+	  @order.order_states.create(:state => 0)
       @order.update_attribute(:paid, true)
 	  #send User an email letting them know their order has been placed
 	  ReceiptMailer.receipt_email(@order).deliver

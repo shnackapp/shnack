@@ -12,5 +12,14 @@
 class Device < ActiveRecord::Base
   attr_accessible :token
   belongs_to :vendor
+  belongs_to :restaurant
+
+  def update_owner(owner)
+  	owner.instance_of?(Vendor) ? self.vendor = owner : self.restaurant = owner
+  end
+
+  def owner
+  	self.vendor.nil? ? self.restaurant : self.vendor
+  end
 
 end

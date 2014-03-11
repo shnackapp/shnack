@@ -11,11 +11,18 @@ Shnack::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  match 'user_root' => 'Shnack#logged_in', as: :user_root
-
-
-
   root to: "application#select_stadium"
+  match 'user_root' => 'application#select_stadium', as: :user_root
+
+
+  resources :restaurants do
+    member do
+      get 'new_registration_code'
+    end
+  end
+  
+
+  
   resources :stadia, :path => "stadiums" do
     resources :vendors
     get '/:controller/:action'
@@ -27,9 +34,10 @@ Shnack::Application.routes.draw do
   
 
   # get '/u/edit', :controller => "users", :action => "edit"
-
+  get '/menu/:action', :controller => 'menu'
   get '/shnack/:action', :controller => 'shnack'
 	get '/:action/:object_id', :controller => 'application'
+
 
 
 

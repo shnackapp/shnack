@@ -1,4 +1,6 @@
 class StadiaController < ApplicationController
+	before_filter :check_manager
+
 	def index
 	  	@stadiums = Stadium.all
 	end
@@ -25,4 +27,7 @@ class StadiaController < ApplicationController
 		redirect_to :action => :index
 	end
 
+	def check_manager
+		redirect_to root_path unless user_signed_in? && current_user.is_super
+	end
 end

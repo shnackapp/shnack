@@ -1,4 +1,8 @@
 development:
-  from: '+16692228741'
-  sid: 'AC63e0aa4a13b5b79c3b53ba4146af261c'
-  token: '5941053332ab41e78e1c68e05ff9ba79'
+  from: '+16692228769'
+  sid: 'AC582630bd5c3ee79933bf794fe8a6618e'
+  token: 'e6543c85fa93d1ad790fc45f535d91e3'
+production:
+  from: '+16692228769'
+  sid: 'AC582630bd5c3ee79933bf794fe8a6618e'
+  token: 'e6543c85fa93d1ad790fc45f535d91e3'

@@ -1,54 +1,46 @@
 <h2 class="headline"> <%= @vendor.name %> </h2>
 <h3> <%= @stadium.name %> </h3>
 
-Menu: <br />
-
-	<table>
-		<tr>
-			<th>name</th>
-			<th>type</th>
-			<th>price </th>
-			<th>requires id</th>
-			<th>nut allergy</th>
-			<th>vegetarian</th>
-		</tr>
-		<% @vendor.menu.items.each do |item| %>
-		<tr>
-			<td><%= item.name %></td>
-			<td><%= item.item_type %></td>
-			<td><%= number_to_currency item.price %></td>
-			<td><%= item.requires_id %></td>
-			<td><%= item.nut_allergy %></td>
-			<td><%= item.vegetarian %></td>
-		</tr>
+	<div class ="panel panel-default">
+		<% @vendor.menu.categories.each do |category| %>
+			<div class="panel-heading"><h3 class="panel-title"><%= category.name %></h3></div>
+			<table class="table">
+			<% category.items.each do |item| %>
+				<tr>
+					<td colspan="2"><%= item.name %></td>
+					<td class="text-right"><%= number_to_currency item.price %></td>
+				</tr>
+			<% end %>
+			</table>
 		<% end %>
-	</table>
-	<table class="item_form">
-		<%= form_for @vendor.menu.items.new, :url => url_for(:controller => "vendors", :action => 'add_item') do  |f| %>
+	</div>
+
+	<table class="table">
+		<%= form_for @vendor.menu.categories.new, :url => url_for(:controller => "vendors", :action => 'add_category') do  |f| %>
 			<%= f.hidden_field :vendor_id, :value => @vendor.id %>
 			<tr>
 				<td><%= f.label :name %></td>
 				<td><%= f.text_field :name %></td>
 			</tr>
+			<tr colspan="2"> <td> <%= f.submit %></td> </tr>
+		<% end %>
+	</table>
+	
+	<table class="table">
+		<%= form_for @vendor.menu.items.new, :url => url_for(:controller => "vendors", :action => 'add_item') do  |f| %>
+			<%= f.hidden_field :vendor_id, :value => @vendor.id %>
 			<tr>
-				<td><%= f.label :item_type %></td>
-				<td><%= f.text_field :item_type %></td>
+				<td colspan="2"><%= collection_select(:item, :category_id, @vendor.menu.categories, :id, :name, {}, {:class=>"form-control"}) %> </td>
 			</tr>
+
+			<tr>
+				<td><%= f.label :name %></td>
+				<td><%= f.text_field :name %></td>
+			</tr>
+
 			<tr>
 				<td> <%= f.label :price %></td>
 				<td> <%= f.text_field :price %></td>
-			</tr>
-			<tr>
-				<td> <%= f.label :requires_id %></td>
-				<td> <%= f.check_box :requires_id %></td>
-			</tr>
-			<tr>
-				<td> <%= f.label :nut_allergy%></td>
-				<td> <%= f.check_box :nut_allergy %></td>
-			</tr>
-			<tr>
-				<td> <%= f.label :vegetarian %></td>
-				<td> <%= f.check_box :vegetarian %></td>
 			</tr>
 			<tr colspan="2"> <td> <%= f.submit %></td> </tr>
 		<% end %>

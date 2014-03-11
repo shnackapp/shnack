@@ -1,5 +1,6 @@
 class VendorsController < ApplicationController
-	before_filter :setup_vendor, :except => [:index, :create, :new, :add_item] 
+	before_filter :setup_vendor, :except => [:index, :create, :new, :add_item, :add_category] 
+	before_filter :check_manager
 	def index
 		@vendors = Vendor.where(:stadium_id => @stadium.id)
 	end
@@ -26,6 +27,12 @@ class VendorsController < ApplicationController
 		redirect_to stadium_vendors_path(@stadium)
 	end
 
+	def add_category
+		vendor = Vendor.find(params[:category].delete(:vendor_id))
+		vendor.menu.categories.create(:name => params[:category][:name])
+		redirect_to stadium_vendor_path(@stadium, vendor)
+	end
+
 
 	def add_item
 		vendor = Vendor.find(params[:item][:vendor_id])
@@ -35,6 +42,9 @@ class VendorsController < ApplicationController
 
 	def setup_vendor
 		@vendor = Vendor.find(params[:id])
+	end
 
+	def check_manager
+		redirect_to root_path unless user_signed_in? && current_user.is_super
 	end
 end

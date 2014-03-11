@@ -10,6 +10,11 @@
 #
 
 class Stadium < Location
-  attr_accessible :name
+  attr_accessible :name, :open
   has_many :vendors
+
+  def is_open?
+  	return self.open
+  end
+
 end

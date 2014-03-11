@@ -1,6 +1,6 @@
 <h2 class="headline">Select your Location:</h2>
 <div class="list-group">
 	<% @locations.each do |location| %>
-		<%= link_to location.name, {:action => "select_vendor", :object_id  => location.id},:class=>"list-group-item"  %> 
+		<%= location.is_open? ? link_to(location.name, {:action => "select_vendor", :object_id  => location.id}, :class=>"list-group-item open") :  link_to(location.name + " - Currently Closed", '#', :class=>"list-group-item list-group-item-danger") %> 
 	<% end %>
 

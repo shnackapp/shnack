@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140310041351) do
+ActiveRecord::Schema.define(:version => 20140311083306) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -19,45 +19,56 @@ ActiveRecord::Schema.define(:version => 20140310041351) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "devices", :force => true do |t|
-    t.string   "token"
-    t.integer  "vendor_id"
+  create_table "categories", :force => true do |t|
+    t.integer  "menu_id"
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  create_table "devices", :force => true do |t|
+    t.string   "token"
+    t.integer  "vendor_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "restaurant_id"
+  end
+
   create_table "hours", :force => true do |t|
-    t.time     "opening_time"
-    t.time     "closing_time"
+    t.string   "opening_time"
+    t.string   "closing_time"
     t.integer  "day"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "restaurant_id"
   end
 
   create_table "items", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",                                               :null => false
-    t.datetime "updated_at",                                               :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.decimal  "price",       :precision => 8, :scale => 2
-    t.integer  "menu_id",                                   :default => 0, :null => false
     t.string   "item_type"
     t.boolean  "requires_id"
     t.boolean  "nut_allergy"
     t.boolean  "vegetarian"
+    t.integer  "category_id"
   end
 
   create_table "locations", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "type"
+    t.string   "registration_code"
+    t.boolean  "open"
   end
 
   create_table "menus", :force => true do |t|
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "vendor_id"
-    t.integer  "location_id"
+    t.integer  "restaurant_id"
   end
 
   create_table "order_items", :force => true do |t|
@@ -80,11 +91,11 @@ ActiveRecord::Schema.define(:version => 20140310041351) do
     t.string   "charge_id"
     t.integer  "amount"
     t.integer  "vendor_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "details"
-    t.boolean  "paid",        :default => false
-    t.integer  "location_id"
+    t.boolean  "paid",          :default => false
+    t.integer  "restaurant_id"
   end
 
   create_table "restaurants", :force => true do |t|
