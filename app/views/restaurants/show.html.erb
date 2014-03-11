@@ -62,4 +62,8 @@
 		<li class="list-group-item">
 			<%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %>
 		</li>
+		<li class="list-group-item">
+			<%= link_to "Delete Restaurant", restaurant_path(@restaurant), :method => :delete %>
+		</li>
+
 	</ul>
