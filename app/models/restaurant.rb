@@ -33,10 +33,13 @@ class Restaurant < Location
     if time.hour < h.opening_hour || (time.hour == h.opening_hour && time.min < h.opening_min)
       # Check that it's not open in the previous day.
       day = time.wday == 0 ? 6 : time.wday-1
-      h = self.hours.where(:day => day).first
+      h2 = self.hours.where(:day => day).first
       return false if h.nil?
-      return time.hour < h.closing_hour || (time.hour == h.closing_hour && time.min < h.closing_min)
-
+      if h2.closing_hour < h.opening_hour || (h2.closing_hour == h.opening_hour && h2.closing_min < h.opening_min)
+        return (time.hour < h2.closing_hour || (time.hour == h2.closing_hour && time.min < h2.closing_min))
+      else
+        return false
+      end
     else
       #This else statement means the current time is past opening time
       # Check that it's before closing time
