@@ -48,9 +48,9 @@ class RestaurantsController < ApplicationController
 
 		i = 0
 		while i <= Hour.saturday 
-			hours = @restaurant.where(:day => i).first_or_create
-			hours.opening_time = hours_params[i.to_s][open]
-			hours.closing_time = hours_params[i.to_s][close]
+			hours = @restaurant.hours.where(:day => i).first_or_create
+			hours.opening_time = hours_params[i.to_s][:open]
+			hours.closing_time = hours_params[i.to_s][:close]
 			i = i + 1
 		end
 

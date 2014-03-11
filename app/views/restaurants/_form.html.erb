@@ -13,7 +13,7 @@
 	<table class="table">
 		<tr>
 			<td> Sunday </td>
-			<td> <%=i.text_field "0[open]", :value => @restaurant.hours.where(:day => 0).first.opening_time, :class => "form-control hours-input" %> </td>
+			<td> <%=i.text_field "0[open]", :value => @restaurant.hours.where(:day => 0).first.opening_time , :class => "form-control hours-input" %> </td>
 			<td><%= i.text_field "0[close]", :value => @restaurant.hours.where(:day => 0).first.closing_time, :class => "form-control hours-input" %> </td>
 		</tr>
 
