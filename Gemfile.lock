@@ -157,7 +157,7 @@ DEPENDENCIES
   devise
   houston
   jquery-rails
-  pg
+  pg (= 0.17.0)
   quiet_assets
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
