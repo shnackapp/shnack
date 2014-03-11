@@ -9,6 +9,12 @@ class RestaurantsController < ApplicationController
 	end
 	def new
 		@restaurant = Restaurant.new
+		while i <= Hour.saturday 
+			hours = @restaurant.hours.where(:day => i).first_or_create
+			hours.opening_time = '0000'
+			hours.closing_time = '0000'
+			hours.save
+		end
 	end
 	def edit
 		@restaurant = Restaurant.find(params[:id])

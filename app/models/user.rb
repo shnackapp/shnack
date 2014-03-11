@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
 	end
 
 	def is_super
-		self.create_role if role.nil?
+		
 		return role.is_super
 	end
 	
