@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   before_filter :find_user
 
   def create
-    @user = User.new(params[:user])
- 
+    @user = User.create(params[:user])
+    @user.create_role
+
     respond_to do |format|
       if @user.save
         # Tell the UserMailer to send a welcome Email after save

@@ -7,6 +7,7 @@ class ShnackController < ApplicationController
 	end
 
 	def manage_vendors
+		# byebug
 		if user_signed_in? && current_user.is_super
 			@locations = Location.all
 

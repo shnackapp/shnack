@@ -37,7 +37,8 @@ class User < ActiveRecord::Base
 	def create_role
 		#defaults to customer
 		r = Role.create(:role_type => 0)
-		self.role = r
+		r.user = self
+		r.save
 	end
 
 	def create_authentication_token
@@ -47,6 +48,7 @@ class User < ActiveRecord::Base
 	end
 
 	def is_super
+		self.create_role if role.nil?
 		return role.is_super
 	end
 	
