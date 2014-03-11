@@ -1,6 +1,53 @@
 
 <%= form_for(@restaurant) do |f| %> 
 	<%= f.label :name %>
-	<%= f.text_field :name %>
+	<%= f.text_field :name, :class => "form-control" %>
+
+	<%= fields_for "restaurant[hours]" do |i| %>
+	<table class="table">
+		<tr>
+			<td> Sunday </td>
+			<td> <%=i.text_field "0[open]", :value => @restaurant.hours.where(:day => 0).first.opening_time, :class => "form-control hours-input" %> </td>
+			<td><%= i.text_field "0[close]", :value => @restaurant.hours.where(:day => 0).first.closing_time, :class => "form-control hours-input" %> </td>
+		</tr>
+
+		<tr>
+			<td> Monday </td>
+			<td> <%=i.text_field "1[open]", :value => @restaurant.hours.where(:day => 1).first.opening_time, :class => "form-control hours-input" %> </td>
+			<td><%= i.text_field "1[close]",  :value => @restaurant.hours.where(:day => 1).first.closing_time, :class => "form-control hours-input" %> </td>
+		</tr>
+
+		<tr>
+			<td> Tuesday </td>
+			<td> <%=i.text_field "2[open]", :value => @restaurant.hours.where(:day => 2).first.opening_time, :class => "form-control hours-input" %> </td>
+			<td><%= i.text_field "2[close]", :value => @restaurant.hours.where(:day => 2).first.closing_time, :class => "form-control hours-input" %> </td>
+		</tr>
+
+		<tr>
+			<td> Wednesday </td>
+			<td> <%=i.text_field "3[open]", :value => @restaurant.hours.where(:day => 3).first.opening_time,:class => "form-control hours-input" %> </td>
+			<td><%= i.text_field "3[close]",  :value => @restaurant.hours.where(:day => 3).first.closing_time, :class => "form-control hours-input" %> </td>
+		</tr>
+		<tr>
+			<td> Thursday </td>
+			<td> <%=i.text_field "4[open]", :value => @restaurant.hours.where(:day => 4).first.opening_time, :class => "form-control hours-input" %> </td>
+			<td><%= i.text_field "4[close]",  :value => @restaurant.hours.where(:day => 4).first.closing_time, :class => "form-control hours-input" %> </td>
+		</tr>
+
+		<tr>
+			<td> Friday </td>
+			<td> <%=i.text_field "5[open]", :value => @restaurant.hours.where(:day => 5).first.opening_time, :class => "form-control hours-input" %> </td>
+			<td><%= i.text_field "5[close]",  :value => @restaurant.hours.where(:day => 5).first.closing_time, :class => "form-control hours-input" %> </td>
+		</tr>
+
+		<tr>
+			<td> Saturday </td>
+			<td> <%=i.text_field "6[open]", :value => @restaurant.hours.where(:day => 6).first.opening_time, :class => "form-control hours-input" %> </td>
+			<td><%= i.text_field "6[close]",  :value => @restaurant.hours.where(:day => 6).first.closing_time, :class => "form-control hours-input" %> </td>
+		</tr>
+		
+	</table>
+	<% end %>
+
 	<%= f.submit %>
 <% end %>

@@ -51,6 +51,6 @@
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= @owner.is_open? ? f.submit(:class => "button") : f.submit(:disabled => true)%>
   </div>
 <% end %>

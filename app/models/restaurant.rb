@@ -11,8 +11,44 @@
 
 class Restaurant < Location
   # attr_accessible :title, :body
+  attr_accessible :registration_code, :open
   has_many :hours
   has_many :orders
   has_many :devices
   has_one :menu
+
+  def open_orders
+  	self.orders.select { |o| o.current_order_state.state < 3 && o.paid }
+  end
+
+  def is_open?
+    time = Time.now
+    h = self.hours.where(:day => time.wday).first
+    return false if h.nil? || !self.open
+
+    if time.hour < h.opening_hour || (time.hour == h.opening_hour && time.min < h.opening_min)
+      # Check that it's not open in the previous day.
+      day = time.wday == 0 ? 6 : time.wday-1
+      h = self.hours.where(:day => day).first
+      return false if h.nil?
+      return time.hour < h.closing_hour || (time.hour == h.closing_hour && time.min < h.closing_min)
+
+    else
+      #This else statement means the current time is past opening time
+      # Check that it's before closing time
+
+       # if closing time is before the opening time, then it's open past midnight and open right now
+      return true if h.closing_hour < h.opening_hour || (h.closing_hour == h.opening_hour && h.closing_min < h.opening_min)
+      # If current time is before closing time, it's open right now
+      return time.hour < h.closing_hour || (time.hour == h.closing_hour && time.min < h.closing_min)
+
+    end
+  end
+
+  def generate_registration_code
+    begin
+      self.registration_code = SecureRandom.hex[0..6]
+    end while Vendor.exists?(registration_code:registration_code) || Location.exists?(registration_code:registration_code)
+  end
+
 end

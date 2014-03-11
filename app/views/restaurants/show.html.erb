@@ -47,3 +47,5 @@
 			<tr colspan="2"> <td> <%= f.submit %></td> </tr>
 		<% end %>
 	</table>
+
+	Registration Code: <%= @restaurant.registration_code %> <%= link_to "Generate new code", new_registration_code_restaurant_path(@restaurant) %>

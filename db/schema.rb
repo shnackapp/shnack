@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140311045213) do
+ActiveRecord::Schema.define(:version => 20140311083306) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -35,11 +35,12 @@ ActiveRecord::Schema.define(:version => 20140311045213) do
   end
 
   create_table "hours", :force => true do |t|
-    t.time     "opening_time"
-    t.time     "closing_time"
+    t.string   "opening_time"
+    t.string   "closing_time"
     t.integer  "day"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "restaurant_id"
   end
 
   create_table "items", :force => true do |t|
@@ -56,9 +57,11 @@ ActiveRecord::Schema.define(:version => 20140311045213) do
 
   create_table "locations", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "type"
+    t.string   "registration_code"
+    t.boolean  "open"
   end
 
   create_table "menus", :force => true do |t|

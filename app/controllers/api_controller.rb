@@ -11,7 +11,7 @@ class ApiController < ApplicationController
 	# HTTP Request for when the device turns on and sends in it's device token
 	def send_device_token
 		@device = Device.where(:token =>params[:device_token])
-		if @device.length > 0 && !@device.first.vendor.nil?
+		if @device.length > 0 && (!@device.first.vendor.nil? || !@device.first.restaurant.nil?)
 			render :json => @device.first
 		else
 			render :json => {:error => "unregistered_device", :token => params[:device_token]}
@@ -20,8 +20,8 @@ class ApiController < ApplicationController
 
 	def get_open_orders
 		@device = Device.where(:token =>params[:device_token]).first
-		@vendor = @device.vendor
-		@orders = @vendor.open_orders
+		@owner = @device.owner
+		@orders = @owner.open_orders
 		@result = @orders.map { |o| {:id => o.id, :created_at => o.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description, :state => o.current_order_state.state}} 
 
 		respond_with @result, :location => nil
@@ -29,11 +29,13 @@ class ApiController < ApplicationController
 
 	# Register a device token with a vendor
 	def register_device_token_for_vendor
-		@vendor = Vendor.where(:registration_code => params[:registration_code]).first
-		render :json => { :error => "incorrect_registration_code" } if @vendor.nil? 
+		@owner = Vendor.where(:registration_code => params[:registration_code]).first
+		@owner = Restaurant.where(:registration_code => params[:registration_code]).first if @owner.nil?
+
+		render :json => { :error => "incorrect_registration_code" } if @owner.nil? 
 
 		@device = Device.where(:token => params[:device_token]).first_or_create
-		@device.vendor = @vendor
+		@device.update_owner @owner
 		@device.save
 		render :json => @device
 	end
@@ -42,6 +44,7 @@ class ApiController < ApplicationController
 	def unregister_device
 		@device = Device.where(:token => params[:device_token]).first
 		@device.vendor = nil
+		@device.restaurant = nil
 		@device.save
 
 		respond_with @device, :location => nil

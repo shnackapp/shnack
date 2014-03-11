@@ -24,6 +24,9 @@ class Vendor < ActiveRecord::Base
 
   validates_presence_of :menu
 
+  def is_open?
+    return true
+  end
 
   def open_orders
   	self.orders.select { |o| o.current_order_state.state < 3 && o.paid }
@@ -32,7 +35,7 @@ class Vendor < ActiveRecord::Base
   def generate_registration_code
     begin
       self.registration_code = SecureRandom.hex[0..6]
-    end while self.class.exists?(registration_code:registration_code)
+    end while self.class.exists?(registration_code:registration_code) || Location.exists?(registration_code:registration_code)
   end
 
 end

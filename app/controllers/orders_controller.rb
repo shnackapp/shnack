@@ -1,7 +1,9 @@
 class OrdersController < ApplicationController
+  before_filter :check_manager, :only => [:index, :show]
   # GET /orders
   # GET /orders.json
   def index
+
     @orders = Order.all
 
     respond_to do |format|
@@ -71,6 +73,11 @@ class OrdersController < ApplicationController
       owner = Vendor.find(params[:order].delete(:vendor_id), :include => {:menu => :items})
     end
 
+    unless owner.is_open?
+      flash[:notice] = "#{owner.name} is currently not taking orders."
+      redirect_to root_path
+    end
+
     user_id = params[:order].delete(:user_id)
     items = owner.menu.items
     items_price = Hash[items.map { |it| [it.id, (it.price*100).to_int]}]
@@ -136,4 +143,7 @@ class OrdersController < ApplicationController
     render :json => @order
   end
 
+  def check_manager
+    redirect_to root_path unless user_signed_in? && current_user.is_super
+  end
 end

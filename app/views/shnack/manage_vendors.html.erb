@@ -1,11 +1,23 @@
 
-<div class="panel panel-default">
-<% @vendors.each_key do |s| %>
-	<div class="panel-heading"><h3 class="panel-title">	<%= s %> </h3> </div>
-	<div class="list-group">
-		<% @vendors[s].each do |v| %>
-		<%= link_to v.name, edit_stadium_vendor_path(Stadium.where(:name => s).first.id, v), :class=> "list-group-item" %>
-		<% end %>
+<% @locations.each do |location| %>
+	<% if location.instance_of?(Stadium) %>
+	<div class="panel panel-default">
+		<div class="panel-heading"><h3 class="panel-title">	<%= location.name %> </h3> </div>
+		<div class="list-group">
+			<% location.vendors.each do |v| %>
+				<%= link_to v.name, edit_stadium_vendor_path(location, v), :class=> "list-group-item" %>
+			<% end %>
+			<%= link_to "Create New Vendor For This Stadium", new_stadium_vendor_path(location), :class => "list-group-item" %>
+		</div>
 	</div>
+	<% else %>
+		<div class="list-group">
+			<%= link_to location.name, location, :class => "list-group-item" %>
+		</div>
+	<% end %>
+
 <% end %>
-</div>
+	<div class="list-group">
+		<%= link_to "Create New Stadium", new_stadium_path, :class=>"list-group-item" %>
+		<%= link_to "Create New Restaurant", new_restaurant_path, :class => "list-group-item" %>
+	</div>

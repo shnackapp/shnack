@@ -1,4 +1,6 @@
 class RestaurantsController < ApplicationController
+	before_filter :check_manager
+
 	def index
 	  	@restaurants = Restaurant.all
 	end
@@ -11,16 +13,46 @@ class RestaurantsController < ApplicationController
 	def edit
 		@restaurant = Restaurant.find(params[:id])
 	end
+
 	def update
 		@restaurant = Restaurant.find(params[:id])
+		hours_params = params[:restaurant].delete(:hours)
+		i = 0
+		byebug
+		while i <= Hour.saturday 
+			hours = @restaurant.hours.where(:day => i).first_or_create
+			hours.opening_time = hours_params[i.to_s][:open]
+			hours.closing_time = hours_params[i.to_s][:close]
+			hours.save
+			i = i + 1
+		end
+		
+
 		@restaurant.update_attributes(params[:restaurant])
 		redirect_to @restaurant
 	end
+
+
 	def create
+
+		hours_params = params[:restaurant].delete(:hours)
 		@restaurant = Restaurant.create(params[:restaurant])
+
+		i = 0
+		while i <= Hour.saturday 
+			hours = @restaurant.where(:day => i).first_or_create
+			hours.opening_time = hours_params[i.to_s][open]
+			hours.closing_time = hours_params[i.to_s][close]
+			i = i + 1
+		end
+
+		
 		@menu = Menu.create
 		@menu.restaurant = @restaurant
 		@menu.save
+
+		@restaurant.generate_registration_code
+		@restaurant.save
 		
 		redirect_to @restaurant
 	end
@@ -28,23 +60,17 @@ class RestaurantsController < ApplicationController
 		Restaurant.find(params[:id]).destroy
 		redirect_to :action => :index
 	end
+	def new_registration_code
+		@restaurant = Restaurant.find(params[:id])
 
-	def add_item
-		restaurant = Restaurant.find(params[:item].delete(:restaurant_id))
-		category = Category.where(:id => params[:item].delete(:category_id)).first
-	category.items.create(:name => params[:item][:name], :price => params[:item][:price])
+		@restaurant.generate_registration_code
+		@restaurant.save
 
-		redirect_to restaurant
+		redirect_to @restaurant
 	end
 
-	def add_category
-		restaurant = Restaurant.find(params[:item][:restaurant_id])
-		restaurant.menu.categories.create(:name => params[:item][:name])
-		redirect_to restaurant
+	def check_manager
+		redirect_to root_path unless user_signed_in? && current_user.is_super
 	end
 
-	def delete_item
-		Item.find(params[:item_id]).delete
-		redirect_to restaurant
-	end
 end

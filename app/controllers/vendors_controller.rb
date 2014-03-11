@@ -1,5 +1,6 @@
 class VendorsController < ApplicationController
 	before_filter :setup_vendor, :except => [:index, :create, :new, :add_item, :add_category] 
+	before_filter :check_manager
 	def index
 		@vendors = Vendor.where(:stadium_id => @stadium.id)
 	end
@@ -41,6 +42,9 @@ class VendorsController < ApplicationController
 
 	def setup_vendor
 		@vendor = Vendor.find(params[:id])
+	end
 
+	def check_manager
+		redirect_to root_path unless user_signed_in? && current_user.is_super
 	end
 end

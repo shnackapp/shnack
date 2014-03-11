@@ -18,6 +18,8 @@ class ChargesController < ApplicationController
 	  @amount = @order.amount
 	  @owner = @order.owner
 
+	  redirect_to root_path unless @owner.is_open?
+
 	  @order.user.update_attribute(:email, params[:stripeEmail])
 
 	  customer = Stripe::Customer.create(
