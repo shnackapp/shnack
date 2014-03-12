@@ -146,9 +146,9 @@ class OrdersController < ApplicationController
       email =generate_fake_email
       @user = User.where(:number => params[:number]).first_or_create(:email => "guest@shnackapp.com", :password => "welcome_to_shnack")
       @order.user = @user
-      do
+      begin
         saved = @order.save
-      while !saved
+      end while !saved
     else
       @order.user.update_attribute(:number, params[:number])
     end
