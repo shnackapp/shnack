@@ -25,7 +25,7 @@ class ChargesController < ApplicationController
 	  	@user = User.create(:email => params[:stripeEmail])
 	  else
 	  	if User.exists?(:email => params[:stripeEmail])
-	  		@user = User.where(:email => params[:stripeEmail])
+	  		@user = User.where(:email => params[:stripeEmail]).first
 	  		@user.update_attribute(:number, @order.user.number)
 	  		@order.user = @user
 	  		@order.save
