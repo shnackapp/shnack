@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
 	  redirect_to root_path unless @owner.is_open?
 	  redirect_to order_path(@order) if @order.paid
 
-	  @order.user.update_attribute(:email, params[:stripeEmail])
+	  @order.user.update_attribute(:email, params[:stripeEmail]) unless @order.user.nil?
 
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],

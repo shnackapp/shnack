@@ -83,7 +83,7 @@ class OrdersController < ApplicationController
     items_price = Hash[items.map { |it| [it.id, (it.price*100).to_int]}]
 
     params[:order].delete(:item).each { |id, qty|
-      unless qty.to_i == 0
+      if qty.to_i != 0
         details += "#{id} #{qty} "
 
         cost = qty.to_i * items_price[id.to_i]
