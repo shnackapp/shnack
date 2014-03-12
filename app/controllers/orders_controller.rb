@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   include OrdersHelper
-  before_filter :check_manager, :only => [:index, :show]
+  before_filter :check_manager, :only => [:index]
   # GET /orders
   # GET /orders.json
   def index
@@ -144,7 +144,8 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:order_id])
     if @order.user.nil? 
       email =generate_fake_email
-      @user = User.where(:number => params[:number]).first_or_create(:email => "guest@shnackapp.com", :password => "welcome_to_shnack")
+      @user = User.where(:number => params[:number]).first
+      @user = User.create(:email => email, :password => "welcome_to_shnack", :number => params[:number])
       @order.user = @user
       begin
         saved = @order.save

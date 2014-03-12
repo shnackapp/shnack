@@ -24,10 +24,15 @@ class ChargesController < ApplicationController
 	  if @order.user.nil?
 	  	@user = User.create(:email => params[:stripeEmail])
 	  else
-	  	@order.user.update_attribute(:email, params[:stripeEmail])
+	  	if User.exists?(:email => params[:stripeEmail])
+	  		@user = User.where(:email => params[:stripeEmail])
+	  		@user.update_attribute(:number, @order.user.number)
+	  		@order.user = @user
+	  		@order.save
+	  	end
 	  end
 
-	  
+
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
 	    :card  => params[:stripeToken]

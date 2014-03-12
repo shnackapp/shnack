@@ -65,5 +65,17 @@ class Order < ActiveRecord::Base
     self.vendor.nil? ? self.restaurant : self.vendor
   end
 
+  def integer_to_currency(amount, options = {})
+    options[:unit] = "$" if options[:unit].nil?
+    options[:separator] = "." if options[:separator].nil?
+
+    amount_str = amount.to_s
+    cents = amount_str[-2,2]
+    dollars = amount_str[0..-3]
+
+    return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
+  end
+
+
   #details is in the form "item_id qty item_id qty ... "
 end
