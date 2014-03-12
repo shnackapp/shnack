@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  include OrdersHelper
   before_filter :check_manager, :only => [:index, :show]
   # GET /orders
   # GET /orders.json
@@ -101,7 +102,7 @@ class OrdersController < ApplicationController
 
     @order = Order.new(params[:order])
     owner.instance_of?(Vendor) ? @order.vendor = owner : @order.restaurant = owner
-    @order.user = current_user
+    @order.user = current_user || User.create()
 
     redirect_to new_order_charge_path(@order) if @order.save
 
@@ -141,9 +142,16 @@ class OrdersController < ApplicationController
 
   def add_number_to_order
     @order = Order.find(params[:order_id])
-    @user = User.where(:number => params[:number]).first_or_create(:email => "guest@shnackapp.com", :password => "welcome_to_shnack")
-    @order.user = @user
-    @order.save
+    if @order.user.nil? 
+      email =generate_fake_email
+      @user = User.where(:number => params[:number]).first_or_create(:email => "guest@shnackapp.com", :password => "welcome_to_shnack")
+      @order.user = @user
+      do
+        saved = @order.save
+      while !saved
+    else
+      @order.user.update_attribute(:number, params[:number])
+    end
     render :json => @order
   end
 
