@@ -142,14 +142,15 @@ class OrdersController < ApplicationController
 
   def add_number_to_order
     @order = Order.find(params[:order_id])
+    
     if @order.user.nil? 
-      email =generate_fake_email
       @user = User.where(:number => params[:number]).first
-      @user = User.create(:email => email, :password => "welcome_to_shnack", :number => params[:number])
+      while @user.nil? || @user.id.nil?
+        email =generate_fake_email
+        @user = User.create(:email => email, :password => "welcome_to_shnack", :number => params[:number])
+      end
       @order.user = @user
-      begin
-        saved = @order.save
-      end while !saved
+      @order.save
     else
       @order.user.update_attribute(:number, params[:number])
     end

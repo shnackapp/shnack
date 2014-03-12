@@ -21,14 +21,20 @@ class ChargesController < ApplicationController
 	  redirect_to root_path unless @owner.is_open?
 	  redirect_to order_path(@order) if @order.paid
 
+
+	  byebug
 	  if @order.user.nil?
 	  	@user = User.create(:email => params[:stripeEmail])
+	  	@order.user = @user
+	  	@order.save
 	  else
 	  	if User.exists?(:email => params[:stripeEmail])
 	  		@user = User.where(:email => params[:stripeEmail]).first
 	  		@user.update_attribute(:number, @order.user.number)
 	  		@order.user = @user
 	  		@order.save
+	  	else
+	  		@order.user.update_attribute(:email, params[:stripeEmail])
 	  	end
 	  end
 

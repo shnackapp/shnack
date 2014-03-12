@@ -5,6 +5,7 @@ class ReceiptMailer < ActionMailer::Base
   	@order = order
 
   	@user = @order.user
+  	
     @owner = @order.owner
     @items = Hash[@owner.menu.items.map{|it| [it.id, it]}]
     @order_details = @order.details_hash
