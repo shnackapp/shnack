@@ -26,7 +26,7 @@ class Restaurant < Location
   end
 
   def is_open?
-    time = Time.now
+    time = Time.now.in_time_zone("Pacific Time (US & Canada)")
     h = self.hours.where(:day => time.wday).first
     return false if h.nil? || !self.open
     
