@@ -62,6 +62,7 @@ class ChargesController < ApplicationController
 	    # Create a notification that alerts a message to the user, plays a sound, and sets the badge on the app
 	    notification = Houston::Notification.new(device: d.token)
 	    notification.alert = "New order made!"
+	    notification.sound = "Glass.aiff"
 
 	    notification.content_available = true
 	    notification.custom_data = {order_number: @order.id, order_description: order_description, order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
