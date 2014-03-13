@@ -68,6 +68,7 @@ class RestaurantsController < ApplicationController
 		Restaurant.find(params[:id]).destroy
 		redirect_to :action => :index
 	end
+	
 	def new_registration_code
 		@restaurant = Restaurant.find(params[:id])
 

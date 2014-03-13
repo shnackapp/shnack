@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
+  force_ssl
   protect_from_forgery
   before_filter :setup
 

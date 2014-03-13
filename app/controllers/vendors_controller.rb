@@ -44,6 +44,16 @@ class VendorsController < ApplicationController
 		@vendor = Vendor.find(params[:id])
 	end
 
+	def new_registration_code
+		@vendor = Vendor.find(params[:id])
+
+		@vendor.generate_registration_code
+		@vendor.save
+
+		redirect_to stadium_vendor_path(@vendor.stadium, @vendor)
+	end
+
+
 	def check_manager
 		redirect_to root_path unless user_signed_in? && current_user.is_super
 	end

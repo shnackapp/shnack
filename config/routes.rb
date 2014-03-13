@@ -24,7 +24,11 @@ Shnack::Application.routes.draw do
 
   
   resources :stadia, :path => "stadiums" do
-    resources :vendors
+    resources :vendors do
+      member do
+        get 'new_registration_code'
+      end
+    end
     get '/:controller/:action'
     post '/:controller/:action'
   end
