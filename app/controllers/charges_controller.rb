@@ -22,7 +22,6 @@ class ChargesController < ApplicationController
 	  redirect_to order_path(@order) if @order.paid
 
 
-	  byebug
 	  if @order.user.nil?
 	  	@user = User.create(:email => params[:stripeEmail])
 	  	@order.user = @user
@@ -63,6 +62,7 @@ class ChargesController < ApplicationController
 	    notification = Houston::Notification.new(device: d.token)
 	    notification.alert = "New order made!"
 	    notification.sound = "Glass.aiff"
+	    notification.badge = 1
 
 	    notification.content_available = true
 	    notification.custom_data = {order_number: @order.id, order_description: order_description, order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
