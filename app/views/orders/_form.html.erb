@@ -21,7 +21,8 @@
 
     <% @menu.categories.each do |category| %>
       <div class="panel-heading"><h3 class="panel-title"><%= category.name %></h3></div>
-      <table cellspacing="10" class="table">
+      <div class="order-items" style="display:none;">
+      <table cellspacing="10" class="table" >
   
  
       <% category.items.each do |item| %>
@@ -39,9 +40,10 @@
         </tr>
       <% end %>
       </table>
+    </div>
     <% end %>
 
-    <table class="table">
+    <table class="table subtotal">
       <tr>
         <td>Subtotal: </td>
         <td></td>

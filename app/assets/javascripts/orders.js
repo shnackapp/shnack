@@ -24,7 +24,9 @@ $(document).ready(function() {
 		updatePrice();
 	});
 
-	
+	$(".panel-heading").click(function() {
+		$(this).next().slideToggle(400);
+	});
 
 });
 
