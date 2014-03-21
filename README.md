@@ -5,12 +5,8 @@ The Official Shnack Application
 
 Using ruby 2
 
-
-Iteration 1
-==================
-1. Select a stadium
-2. See the menu
-3. Place an order
-4. There's a stubbed payment authorization
-5. Confirmation Page
-6. Vendor receives information
+Next To-Do's
+==============
+1. Vendor Management
+2. Be able to have multiple vendors and transfer money to them with bank account details they provide
+3. Rewrite orders to use order_items instead of details string
