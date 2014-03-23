@@ -1,55 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h4 class="text-center"> # <%= @order.id %> </h4>
 
-	<table class="table">
-		<thead>
-			<td> Item </td>
-			<td> Qty </td>
-			<td> Price </td>
-			<td> Total </td>
-		</thead>
-		<% @order_details.each_pair do |id, qty| %>
-		<tr>
-
-			<td><%= @items[id].name %></td> 
-			<td><%= qty %> </td>
-			<td> <%= number_to_currency @items[id].price %></td>
-			<td> <%= number_to_currency(@items[id].price * qty) %></td>
-		</tr>
-		<% end %>
-
-		
-		<tfoot>
-			<% if @order.subtotal != @order.total %>
-				<tr>
-					<td>Subtotal</td>
-					<td></td>
-					<td></td>
-					<td> <%= integer_to_currency(@order.subtotal) %> </td>
-				</tr>
-				<tr>
-					<td>Tax</td>
-					<td></td>
-					<td></td>
-					<td> <%= integer_to_currency(@order.total-@order.subtotal) %></td>
-				</tr>
-				<tr>
-					<td>Total</td>
-					<td></td>
-					<td></td>
-					<td> <%= integer_to_currency(@order.total) %> </td>
-				</tr>
-			<% else %>
-				<tr>
-					<td>Total</td>
-					<td></td>
-					<td></td>
-					<td> <%= integer_to_currency(@order.total) %> </td>
-				</tr>
-			<% end %> 
-
-		</tfoot>
-
-	</table>
+<%= render 'shared/order_details' %>	
 
 <h5 class="text-center"> Currently <%= @order.current_order_state.state_text %> </h5>

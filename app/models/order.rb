@@ -16,7 +16,7 @@
 #
 
 class Order < ActiveRecord::Base
-  attr_accessible :subtotal, :total, :charge_id, :details
+  attr_accessible :subtotal, :total, :charge_id, :details, :user_id
   belongs_to :vendor
   belongs_to :restaurant
   belongs_to :user
@@ -39,6 +39,8 @@ class Order < ActiveRecord::Base
     self.vendor.nil? ? self.restaurant.name : self.vendor.name
   end
 
+
+  ## DEPRECATED METHOD -- SHOULDNT BE USED ANYMORE
   def details_hash
     order_details = self.details.split
     order_details = order_details.map.with_index { |v, i|[order_details[i].to_i, order_details[i+1].to_i] if i.even? && order_details[i+1].to_i != 0 }
@@ -53,10 +55,10 @@ class Order < ActiveRecord::Base
 
 
 	def description
-		order_details = self.details_hash
+    order_items = self.order_items
 
 		description = ""
-		order_details.each { |id, qty| description = description + "#{qty} #{Item.find(id).name}\n"}
+		order_items.each { |order_item| description = description + "#{order_item.quantity} #{Item.find(order_item.item_id).name}\n"}
 
 		description
 	end
