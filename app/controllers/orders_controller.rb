@@ -66,7 +66,6 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    # details = ""
     amount = 0
 
     if params[:order][:vendor_id].nil?

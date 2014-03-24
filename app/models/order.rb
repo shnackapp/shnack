@@ -39,21 +39,6 @@ class Order < ActiveRecord::Base
     self.vendor.nil? ? self.restaurant.name : self.vendor.name
   end
 
-
-  ## DEPRECATED METHOD -- SHOULDNT BE USED ANYMORE
-  def details_hash
-    order_details = self.details.split
-    order_details = order_details.map.with_index { |v, i|[order_details[i].to_i, order_details[i+1].to_i] if i.even? && order_details[i+1].to_i != 0 }
-    order_details.reject! { |v| v.nil? }
-    order_details = Hash[order_details]
-    order_details
-  end
-
-	#converts a orders details hash:  Hash: {item_id => qty, item_id => qty ... }
-	# to a hash:
-	# Hash: { "item_name" => qty, "item_name" => qty }
-
-
 	def description
     order_items = self.order_items
 

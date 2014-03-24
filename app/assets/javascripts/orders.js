@@ -3,6 +3,8 @@
 // You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready(function() {
+	initializeValues();
+
 	$("span.plus").click(function() {
 		//increment up
 
@@ -29,6 +31,19 @@ $(document).ready(function() {
 	});
 
 });
+
+function initializeValues() {
+	//Initialize all the values of the form.
+	$(".num").each(function() {
+		// $(".num:eq(1)").parent().children().last().val()
+		var val = $(this).parent().children().last().val();
+		$(this).html(val);
+
+	})
+	updatePrice();
+
+
+};
 
 function updatePrice() {
 	var total = 0;
