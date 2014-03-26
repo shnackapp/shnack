@@ -13,6 +13,9 @@
 #  paid          :boolean          default(FALSE)
 #  restaurant_id :integer
 #  total         :integer
+#  slug          :string(255)
+#  slug_id       :string(255)
+#  order_number  :integer
 #
 
 require 'test_helper'

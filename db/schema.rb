@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140322080520) do
+ActiveRecord::Schema.define(:version => 20140326052105) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -99,7 +99,12 @@ ActiveRecord::Schema.define(:version => 20140322080520) do
     t.boolean  "paid",          :default => false
     t.integer  "restaurant_id"
     t.integer  "total"
+    t.string   "slug"
+    t.string   "slug_id"
+    t.integer  "order_number"
   end
+
+  add_index "orders", ["slug"], :name => "index_orders_on_slug", :unique => true
 
   create_table "restaurants", :force => true do |t|
     t.datetime "created_at", :null => false

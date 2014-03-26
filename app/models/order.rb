@@ -13,15 +13,38 @@
 #  paid          :boolean          default(FALSE)
 #  restaurant_id :integer
 #  total         :integer
+#  slug          :string(255)
+#  slug_id       :string(255)
+#  order_number  :integer
 #
 
 class Order < ActiveRecord::Base
-  attr_accessible :subtotal, :total, :charge_id, :details, :user_id
+  extend FriendlyId
+  attr_accessible :subtotal, :total, :charge_id, :details, :user_id, :slug_id, :order_number
+
+  friendly_id :slug_id, use: :slugged
   belongs_to :vendor
   belongs_to :restaurant
   belongs_to :user
   has_many :order_states
   has_many :order_items
+
+  before_create :set_slug_id
+  before_save :set_order_number
+
+  def set_slug_id
+    begin
+      self.slug_id = SecureRandom.hex[0..6]
+    end while Order.exists?(:slug_id => slug_id)
+  end
+
+  def set_order_number
+    self.order_number = (self.owner.paid_orders.count + 1)%100 unless self.owner.nil? || !self.order_number.nil?
+  end
+
+  def to_param
+    "#{slug_id}"
+  end
 
 
   #returns current order_state
@@ -62,6 +85,7 @@ class Order < ActiveRecord::Base
 
     return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
   end
+
 
 
   #details is in the form "item_id qty item_id qty ... "
