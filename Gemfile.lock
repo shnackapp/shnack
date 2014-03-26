@@ -67,6 +67,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    friendly_id (4.0.10.1)
+      activerecord (>= 3.0, < 4.0)
     highline (1.6.20)
     hike (1.2.3)
     houston (2.0.0)
@@ -155,6 +157,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 3.2.1)
   devise
+  friendly_id (~> 4.0.10)
   houston
   jquery-rails
   pg (= 0.17.0)

@@ -25,6 +25,11 @@ class Restaurant < Location
   	self.orders.select { |o| o.current_order_state.state < 3 && o.paid }
   end
 
+
+  def paid_orders
+    self.orders.where(:paid => true)
+  end
+
   def is_open?
     time = Time.now.in_time_zone("Pacific Time (US & Canada)")
     h = self.hours.where(:day => time.wday).first

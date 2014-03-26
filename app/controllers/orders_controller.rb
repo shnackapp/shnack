@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @order = Order.find(params[:id])
+    @order = Order.includes(:order_items).find(params[:id])
     if @order.vendor.nil?
       @owner = @order.restaurant
     else
@@ -26,7 +26,8 @@ class OrdersController < ApplicationController
 
 
     @items = Hash[@menu.items.map{|it| [it.id, it]}]
-    @order_details = parse_order_details @order.details
+    @order_items = @order.order_items
+
     # @charge = Stripe::Charge.retrieve(params[:charge])
 
 
@@ -65,7 +66,6 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    details = ""
     amount = 0
 
     if params[:order][:vendor_id].nil?
@@ -83,24 +83,22 @@ class OrdersController < ApplicationController
     items = owner.menu.items
     items_price = Hash[items.map { |it| [it.id, (it.price*100).to_int]}]
 
+    @order = Order.create(:user_id => user_id)
+
     params[:order].delete(:item).each { |id, qty|
       if qty.to_i != 0
-        details += "#{id} #{qty} "
+        @order.order_items.create(:item_id => id.to_i, :quantity => qty.to_i)
 
         cost = qty.to_i * items_price[id.to_i]
         amount += cost
       end
     }
 
-    params[:order][:subtotal] = amount
+    
 
-    total = owner.add_tax ? amount + amount*owner.tax : amount
+    @order.subtotal = amount
+    @order.total = owner.add_tax ? amount + amount*owner.tax : amount
 
-    params[:order][:total] = total
-    params[:order][:details] = details
-
-
-    @order = Order.new(params[:order])
     owner.instance_of?(Vendor) ? @order.vendor = owner : @order.restaurant = owner
     @order.user = current_user || User.create()
 

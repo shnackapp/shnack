@@ -13,15 +13,38 @@
 #  paid          :boolean          default(FALSE)
 #  restaurant_id :integer
 #  total         :integer
+#  slug          :string(255)
+#  slug_id       :string(255)
+#  order_number  :integer
 #
 
 class Order < ActiveRecord::Base
-  attr_accessible :subtotal, :total, :charge_id, :details
+  extend FriendlyId
+  attr_accessible :subtotal, :total, :charge_id, :details, :user_id, :slug_id, :order_number
+
+  friendly_id :slug_id, use: :slugged
   belongs_to :vendor
   belongs_to :restaurant
   belongs_to :user
   has_many :order_states
   has_many :order_items
+
+  before_create :set_slug_id
+  before_save :set_order_number
+
+  def set_slug_id
+    begin
+      self.slug_id = SecureRandom.hex[0..6]
+    end while Order.exists?(:slug_id => slug_id)
+  end
+
+  def set_order_number
+    self.order_number = (self.owner.paid_orders.count + 1)%100 unless self.owner.nil? || !self.order_number.nil?
+  end
+
+  def to_param
+    "#{slug_id}"
+  end
 
 
   #returns current order_state
@@ -39,24 +62,11 @@ class Order < ActiveRecord::Base
     self.vendor.nil? ? self.restaurant.name : self.vendor.name
   end
 
-  def details_hash
-    order_details = self.details.split
-    order_details = order_details.map.with_index { |v, i|[order_details[i].to_i, order_details[i+1].to_i] if i.even? && order_details[i+1].to_i != 0 }
-    order_details.reject! { |v| v.nil? }
-    order_details = Hash[order_details]
-    order_details
-  end
-
-	#converts a orders details hash:  Hash: {item_id => qty, item_id => qty ... }
-	# to a hash:
-	# Hash: { "item_name" => qty, "item_name" => qty }
-
-
 	def description
-		order_details = self.details_hash
+    order_items = self.order_items
 
 		description = ""
-		order_details.each { |id, qty| description = description + "#{qty} #{Item.find(id).name}\n"}
+		order_items.each { |order_item| description = description + "#{order_item.quantity} #{Item.find(order_item.item_id).name}\n"}
 
 		description
 	end
@@ -75,6 +85,7 @@ class Order < ActiveRecord::Base
 
     return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
   end
+
 
 
   #details is in the form "item_id qty item_id qty ... "

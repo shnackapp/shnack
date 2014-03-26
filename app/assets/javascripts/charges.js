@@ -19,7 +19,6 @@ $(document).ready(function() {
 		var num = $("#order-phone-number").val();
 		num = num.replace("(", "").replace(")", "").replace("-", "").replace(" ", "");
 
-
 		$.ajax({
 			url: "/orders/" +pathname.split('/')[2] + "/add_number_to_order",
 			type: "POST",
