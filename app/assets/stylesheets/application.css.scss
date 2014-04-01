@@ -16,17 +16,57 @@
 
 
 .logo {
-	width:45%;
+	width:85%;
 	margin: 0 auto;
 }
 
 .container {
 	padding-top:15px;
+	width: 100%;
+background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #FCFCFC),
+	color-stop(1, #EBEBEB)
+);
+background-image: -o-linear-gradient(bottom, #FCFCFC 0%, #EBEBEB 100%);
+background-image: -moz-linear-gradient(bottom, #FCFCFC 0%, #EBEBEB 100%);
+background-image: -webkit-linear-gradient(bottom, #FCFCFC 0%, #EBEBEB 100%);
+background-image: -ms-linear-gradient(bottom, #FCFCFC 0%, #EBEBEB 100%);
+background-image: linear-gradient(to bottom, #FCFCFC 0%, #EBEBEB 100%);
 }
 
+.works_container {
+	width: 100%;
+	height: 365px;
+	margin-bottom: 60px;
+background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #9E1919),
+	color-stop(1, #A62424)
+);
+background-image: -o-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
+background-image: -moz-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
+background-image: -webkit-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
+background-image: -ms-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
+background-image: linear-gradient(to bottom, #9E1919 0%, #A62424 100%);
+}
+.row {
+	margin-bottom: 75px;
+}
+.row_2 {
 
+}
 
-@media (min-width: 768px) { 
+.step1 {
+	margin-top: 75px;
+	height: 150px;
+}
+
+@media (min-width: 992px) { 
 
 .logo {
 	width:100%
