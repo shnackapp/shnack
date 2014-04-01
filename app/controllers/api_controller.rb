@@ -8,6 +8,15 @@ class ApiController < ApplicationController
 		respond_with User.all
 	end
 
+	def get_stadia
+		respond_with Location.all
+	end
+
+	def get_vendor_for_location
+		#respond_with Vendor.where(params[:stadium_id => @stadium_id])
+		respond_with Vendor.all
+	end
+
 	# HTTP Request for when the device turns on and sends in it's device token
 	def send_device_token
 		@device = Device.where(:token =>params[:device_token])
