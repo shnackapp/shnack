@@ -11,11 +11,13 @@
 #  open              :boolean
 #  add_tax           :boolean          default(FALSE)
 #  tax               :decimal(6, 6)
+#  recipient_id      :string(255)
+#  transfer_total    :integer
 #
 
 class Restaurant < Location
   # attr_accessible :title, :body
-  attr_accessible :registration_code, :open, :add_tax, :tax
+  attr_accessible :registration_code, :open, :add_tax, :tax, :recipient_id, :transfer_total
   has_many :hours
   has_many :orders
   has_many :devices

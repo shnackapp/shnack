@@ -11,6 +11,8 @@
 #  open              :boolean
 #  add_tax           :boolean          default(FALSE)
 #  tax               :decimal(6, 6)
+#  recipient_id      :string(255)
+#  transfer_total    :integer
 #
 
 require 'test_helper'

@@ -50,6 +50,10 @@ class ChargesController < ApplicationController
 	    :currency    => 'usd'
 	  )
 
+	  # THIS IS WHERE WE FIGURE OUT THE AMOUNT WE OWE THE RESTAURANT.
+	  amount_owed = @amount - @amount * .029 - 30
+	  @restaurant.transfer_total = @restaurant.transfer_total + amount_owed
+
   	# An example of the token sent back when a device registers for notifications
     # token = "<2410d83b 257e501b 73cb9bc6 c44a9b4e fa46aab1 99694c8e fb01088c 3c5aca75>"
     # byebug

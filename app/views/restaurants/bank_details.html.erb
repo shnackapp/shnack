@@ -1,0 +1,51 @@
+<script type="text/javascript" src="https://js.stripe.com/v2/">
+</script>
+
+
+<h1> <%= @restaurant.name %> </h1>
+<div class="error" style="display:none;"></div>
+<%= form_for :bank_account, url: [:update_bank_details, @restaurant] do |f| %>
+
+<table>
+	<tr>
+		<td>
+		 	Legal Corporation Name:
+	 	</td>
+	  	<td>
+	  		<%= f.text_field :legal_name %>
+	  	</td>
+	</tr>
+	<tr>
+		<td>
+		 	EIN: 
+	 	</td>
+	  	<td>
+	  		<%= f.text_field :ein %> 
+	  	</td>
+	</tr>
+	<tr>
+		<td>
+		 	Routing Number: 
+	 	</td>
+	  	<td>
+	  		<%= text_field_tag "routing_number" %> 
+	  	</td>
+	</tr>
+	<tr>
+		<td>
+		 	Bank Account Number: 
+	 	</td>
+	  	<td>
+	  		<%= text_field_tag "bank_number" %> 
+	  	</td>
+	</tr>
+</table>
+
+<button id="verify_bank_details">Verify Bank Details</button>
+
+<%= f.hidden_field :stripe_token %>
+
+<%= f.submit%>
+
+
+<% end %>

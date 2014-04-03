@@ -6,6 +6,19 @@ class RestaurantsController < ApplicationController
 	end
 	def show
 		@restaurant = Restaurant.find(params[:id])
+
+		unless @restaurant.recipient_id.nil?
+		transfer = Stripe::Transfer.create(
+			:amount => 1000, # amount in cents
+			:currency => "usd",
+			:recipient => @restaurant.recipient_id,
+			:statement_description => "JULY SALES"
+			) 
+
+		end
+
+
+
 	end
 	def new
 		@restaurant = Restaurant.new
@@ -37,6 +50,32 @@ class RestaurantsController < ApplicationController
 		
 
 		@restaurant.update_attributes(params[:restaurant])
+		redirect_to @restaurant
+	end
+
+	def bank_details
+		@restaurant = Restaurant.find(params[:id])
+
+	end
+
+	def update_bank_details
+		@restaurant = Restaurant.find(params[:id])
+
+		recipient = Stripe::Recipient.create(
+  			:name => params[:bank_account][:legal_name],
+  			:type => "corporation",
+  			:tax_id => params[:bank_account][:ein],
+  			:bank_account => params[:bank_account][:stripe_token]
+		)
+
+		byebug
+
+		@restaurant.recipient_id = recipient.id
+		@restaurant.save
+
+
+
+
 		redirect_to @restaurant
 	end
 
