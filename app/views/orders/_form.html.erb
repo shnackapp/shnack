@@ -53,6 +53,14 @@
 
 
   <div class="actions">
-    <%= @owner.is_open? ? f.submit(:class => "button") : f.submit(:disabled => true)%>
+  <% if @owner.is_open? %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary btn-danger") do %>
+      <i class="glyphicon glyphicon-cutlery icon-white"></i> Place Order
+    <% end %>
+  <% else %> 
+    <%= button_tag(type: 'submit', class: "btn btn-primary btn-danger", :disabled => true) do %>
+      <i class="glyphicon glyphicon-cutlery icon-white"></i> Place Order
+    <% end %>
   </div>
+  <% end %>
 <% end %>
