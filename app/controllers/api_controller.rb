@@ -16,12 +16,7 @@ class ApiController < ApplicationController
     @loc = Location.find(params[:object_id])
     if @loc.instance_of?(Restaurant)
       redirect_to new_order_path(:restaurant_id => @loc.id) 
-     @rest= @loc.vendor.find(params[:object_id])
-      respond_with @rest.menu.items
-       
     else
-  		#@stadium = Stadium.find(params[:object_id])
-  		#@vendors = Vendor.all
   		respond_with @loc.vendors
     end
 	end
