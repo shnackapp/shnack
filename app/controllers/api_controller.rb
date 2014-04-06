@@ -13,9 +13,24 @@ class ApiController < ApplicationController
 	end
 
 	def get_vendor_for_location
-		#respond_with Vendor.where(params[:stadium_id => @stadium_id])
-		respond_with Vendor.all
+    @loc = Location.find(params[:object_id])
+    if @loc.instance_of?(Restaurant)
+      redirect_to new_order_path(:restaurant_id => @loc.id) 
+     @rest= @loc.vendor.find(params[:object_id])
+      respond_with @rest.menu.items
+       
+    else
+  		#@stadium = Stadium.find(params[:object_id])
+  		#@vendors = Vendor.all
+  		respond_with @loc.vendors
+    end
 	end
+
+	def get_menu_for_vendor
+	@vendor = Vendor.find(params[:object_id])
+    respond_with @vendor.menu.items
+	end
+
 
 	# HTTP Request for when the device turns on and sends in it's device token
 	def send_device_token
