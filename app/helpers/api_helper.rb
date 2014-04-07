@@ -8,7 +8,7 @@ module ApiHelper
 		  	@client.account.messages.create({
 				:from => Rails.configuration.twilio[:from],
 				:to => order.user.number,
-		  		:body => "Your order ##{order.id} at #{order.owner.name} is ready to be picked up."    
+		  		:body => "Your order ##{order.order_number} at #{order.owner.name} is ready to be picked up."    
 		  	})
 		end
 
