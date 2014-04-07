@@ -12,67 +12,101 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="row">
+		<div class="container">
+			<div class="row add_margin">
+
+				<div id="nav" class="col-md-3 col-md-push-4 col-md-offset-3"> 
+				  <%= link_to(image_tag("shnack_beta3.png", :class => "logo img-responsive"), root_path)   %>
+				  <ul id="account-manage" class="nav nav-pills nav-stacked hidden-xs">
+				  <% if user_signed_in? %>
+					<li>
+					  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>   
+					<li>   
+					  <%= link_to "Change your password", edit_user_registration_path %>
+					  <%= link_to "Manage Your Vendors", :controller => "shnack", :action => "manage_vendors" %>
+					</li>
+				  <% else %>
+					<li>
+					<%= link_to('Login', new_user_session_path)  %>  
+					</li>
+				  <% end %>
+				  </ul>
+				</div>
 
 
-			<div id="nav" class="col-md-3 col-md-push-4 col-md-offset-3"> 
-			  <%= link_to(image_tag("shnack_beta3.png", :class => "logo img-responsive"), root_path)   %>
-			  <ul id="account-manage" class="nav nav-pills nav-stacked hidden-xs">
-			  <% if user_signed_in? %>
-				<li>
-				  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>   
-				<li>   
-				  <%= link_to "Change your password", edit_user_registration_path %>
-				  <%= link_to "Manage Your Vendors", :controller => "shnack", :action => "manage_vendors" %>
-				</li>
-			  <% else %>
-				<li>
-				<%= link_to('Login', new_user_session_path)  %>  
-				</li>
-			  <% end %>
-			  </ul>
+				<div class="col-md-4 col-md-pull-3">
+
+					<div id="order-form" class="row">
+						<%= yield %>
+					</div>
+				</div>
+
 			</div>
+		</div>
 
 
-			<div class="col-md-4 col-md-pull-3">
+		<div id="level-2">
+			<div class="row">
+				<div class="col-sm-4 step step-style">
+					<h1 class="step-style">Select</h1>
+					<%= image_tag("step1.png", :class => "step-style")   %>
+					<p class="step-style">From your seat, select your stadium and vendor you want to purchase from.</p>
+				</div>
+	
 
-				<div id="order-form" class="row">
-					<%= yield %>
+				<div class="col-sm-4 step step-style">
+					<h1 class="step-style">Order</h1>
+					<%= image_tag("step2.png", :class => "step-style")   %>
+					<p class="step-style">From your seat, select your stadium and vendor you want to purchase from.</p>
+				</div>
+
+				<div class="col-sm-4 step step-style">
+					<h1 class="step-style">Pick Up</h1>
+					<%= image_tag("step3.png", :class => "step-style")   %>
+					<p class="step-style">From your seat, select your stadium and vendor you want to purchase from.</p>
 				</div>
 			</div>
+		</div>
 
+		<div id="level-3" class="container">
+			<div id="size-1">
+
+				<div id="info-tagline">You are going to love the way you eat, I gaurantee it.</div>
+		
+
+
+			<div class="row">
+				<ul class="nav info-links nav-pills nav-justified">
+					<li><a onClick="aboutShnack()">About Shnack</a></li>
+					<li><a onClick="forFans()">For Fans</a></li>
+					<li><a onClick="forVendors()">For Vendors</a></li>
+				</ul>
+			</div>
+					
+ 			
+			<div class="row">
+				<div id="info-text" class="col-md-8">Shnack is a mobile application designed for concessions at large and small scale events, that lets customers order and pay for a vendor's food via their phone. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. Customers will order food from their phone and will be notified when their food is ready to be picked up. By eliminating the need to wait in line, we can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers.</div>
+				<img id="phone" class="col-md-4" src="images/phone_welcome.png" />
+
+			</div>
+		</div>
+		</div>
+		<!-- END LEVEL-3 -->
+
+		<div class="row">
+			<div class="col-xs-12 return-to-top">RETURN TO TOP</div>
 		</div>
 
 
 
-	</div>
-
-	<div class="works_container">
-		<div class="row_2">
-			<div id="works" class="col-md-3" align="center">
-				<%= image_tag("step3.png", :class => "step1")   %>
-
-			</div>
-
-			<div id="works_2" class="col-md-3" align="center">
-				<%= image_tag("step2.png", :class => "step1")   %>
-
-			</div>
-
-			<div id="works_3" class="col-md-3" align="center">
-				<%= image_tag("step1.png", :class => "step1")   %>
-
-			</div>
-
+		<div id="level-4">
+			<div id="fb-root"></div>
+            <p id="footer">Or follow us on our Facebook page. You just might see us at a game.</p>
+            <div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="450" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+          </div>
 		</div>
-	</div>
 
-
-
-
-
-
+	</div> <!-- END WEBSITE-CONTAINER -->
 </body>
 
 </html>
