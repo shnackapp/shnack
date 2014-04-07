@@ -7,6 +7,10 @@ Shnack::Application.routes.draw do
     get '/api/:action', :controller => 'api'
     post '/api/:action', :controller => 'api'
 
+     get '/charges/:action', :controller => 'charges'
+    post '/charges/:action', :controller => 'charges'
+
+
   devise_for :users
   # The priority is based upon order of creation:
   # first created -> highest priority.

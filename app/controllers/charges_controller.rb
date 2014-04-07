@@ -1,5 +1,7 @@
 class ChargesController < ApplicationController
-
+	def index
+			respond_with "Hello"
+	end
 
 	def new
 		@order = Order.includes(:order_items).find(params[:order_id], :include => {:vendor => {:menu => :items}})
