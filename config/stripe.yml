@@ -2,6 +2,8 @@ development:
   secret_key: 'sk_test_avDrSKCRw5jUyMLwgrnEkEb0'
   publishable_key: 'pk_test_6dS5FE4fLaWhFMrVwjHZD9cX'
 production:
-  secret_key: 'sk_live_35tDPk3Tae90nQEHhSrTkPOW'
-  publishable_key: 'pk_live_lmKmL7rwzy22WcsZPN2O4N2m'
+  secret_key: 'sk_test_avDrSKCRw5jUyMLwgrnEkEb0'
+  publishable_key: 'pk_test_6dS5FE4fLaWhFMrVwjHZD9cX'
+  # secret_key: 'sk_live_35tDPk3Tae90nQEHhSrTkPOW'
+  # publishable_key: 'pk_live_lmKmL7rwzy22WcsZPN2O4N2m'
 
