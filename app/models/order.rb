@@ -35,7 +35,7 @@ class Order < ActiveRecord::Base
   def set_slug_id
     begin
       self.slug_id = SecureRandom.hex[0..6]
-    end while Order.exists?(:slug_id => slug_id)
+    end while Order.exists?(:slug_id => self.slug_id)
   end
 
   def set_order_number
