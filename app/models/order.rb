@@ -67,9 +67,7 @@ class Order < ActiveRecord::Base
 
 		description = ""
 		order_items.each do |order_item| 
-
-
-      description = description + "#{order_item.quantity} #{Item.find(order_item.item_id).name}\n" unless Item.exists?(order_item.item_id)
+      description = description + "#{order_item.quantity} #{Item.find(order_item.item_id).name}\n" if Item.exists?(order_item.item_id)
     end
 
 		description
