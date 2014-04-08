@@ -2,6 +2,10 @@ development:
   from: '+16692228769'
   sid: 'AC6a52c7d14c41f301631afdd05a2699f8'
   token: 'f88f12ef8b747adf3b37b9186e8ac4c0'
+staging:
+  from: '+16692228769'
+  sid: 'AC582630bd5c3ee79933bf794fe8a6618e'
+  token: 'e6543c85fa93d1ad790fc45f535d91e3'
 production:
   from: '+16692228769'
   sid: 'AC582630bd5c3ee79933bf794fe8a6618e'

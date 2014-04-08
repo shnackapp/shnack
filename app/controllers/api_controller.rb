@@ -27,6 +27,19 @@ class ApiController < ApplicationController
 		respond_with @result, :location => nil
 	end
 
+
+	def get_past_orders
+		@device = Device.where(:token => params[:device_token]).first
+		@owner = @device.owner
+
+		@orders = @owner.past_orders
+		@result = @orders.map { |o| {:id => o.id, :created_at => o.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description, :state => o.current_order_state.state}} 
+
+		respond_with @result, :location => nil
+
+
+	end
+
 	# Register a device token with a vendor
 	def register_device_token_for_vendor
 		@owner = Vendor.where(:registration_code => params[:registration_code]).first
