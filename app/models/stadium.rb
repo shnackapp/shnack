@@ -21,4 +21,8 @@ class Stadium < Location
   	return self.open
   end
 
+  def has_children
+  	return self.vendors.count >= 1
+  end
+
 end

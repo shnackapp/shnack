@@ -8,8 +8,8 @@ class ApiController < ApplicationController
 		respond_with User.all
 	end
 
-	def get_stadia
-		respond_with Location.all
+	def get_locations
+		respond_with Location.all.map { |loc| {:id => loc.id, :name => loc.name, :has_children => loc.has_children} }
 	end
 
 	def get_vendor_for_location

@@ -30,6 +30,10 @@ class Restaurant < Location
     self.orders.where(:paid => true)
   end
 
+  def has_children
+    false
+  end
+
   def is_open?
     time = Time.now.in_time_zone("Pacific Time (US & Canada)")
     h = self.hours.where(:day => time.wday).first
