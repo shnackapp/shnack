@@ -26,7 +26,7 @@ class Restaurant < Location
   end
 
   def past_orders
-    self.orders.where(:paid => true).select { |o| o.current_order_state.state >= 3 }
+    self.orders.select { |o| o.current_order_state.state >= 3 && o.paid }
   end
   
   def paid_orders
