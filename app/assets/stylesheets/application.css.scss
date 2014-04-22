@@ -13,23 +13,208 @@
  */
 
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+@import url(http://fonts.googleapis.com/css?family=Damion);
 
+$smokewhite: whitesmoke;
+$bgblack: #252525;
+$colorred: #9E1919;
+$shnackred: #a61c00;
+
+body {
+	//margin-right: 0px;
+	//padding-right: 0px;
+}
+
+p {
+	font-family: "Poiret One", Geneva, serif;
+}
 
 .logo {
-	width:45%;
+	width:85%;
 	margin: 0 auto;
 }
 
-.container {
+.website-container {
 	padding-top:15px;
+	width: 100%;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0, #FCFCFC),
+		color-stop(1, #EBEBEB)
+	);
+	background-image: -o-linear-gradient(bottom, #FCFCFC 0%, #EBEBEB 100%);
+	background-image: -moz-linear-gradient(bottom, #FCFCFC 0%, #EBEBEB 100%);
+	background-image: -webkit-linear-gradient(bottom, #FCFCFC 0%, #EBEBEB 100%);
+	background-image: -ms-linear-gradient(bottom, #FCFCFC 0%, #EBEBEB 100%);
+	background-image: linear-gradient(to bottom, #FCFCFC 0%, #EBEBEB 100%);
+}
+
+#level-2 {
+	width: 100%;
+	padding: 20px;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0, #9E1919),
+		color-stop(1, #A62424)
+	);
+	background-image: -o-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
+	background-image: -moz-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
+	background-image: -webkit-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
+	background-image: -ms-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
+	background-image: linear-gradient(to bottom, #9E1919 0%, #A62424 100%);
+}
+
+
+#level-3 {
+  width: 100%;
+  position: relative;
+  margin: 0px auto;
+  background: $bgblack;
+  padding: 25px 15px;
+  min-height: 560px;
+}
+
+#footer {
+	max-width: 500px;
+	margin: 100px auto;
+}
+
+.foot-style {
+	font-family: "Poiret One", Geneva, serif;
+}
+
+.row {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+.container {
+	width: 100%;
+		padding: 0px;
+}
+
+.my-container {
+	max-width: 980px;
+}
+
+
+.step-style {
+  text-align: center;
+  color: $smokewhite;
+}
+
+h1.step-style {
+  font-family: "Damion";
+  font-size: 3.2em;
+	font-weight: 100;
+}
+
+p.step-style {
+  font-size: 1.5em;
+  padding: 0px 25px;
+    font-family: "Poiret One", Geneva, serif;
+
+}
+
+img.step-style {
+  opacity: .9;
+}
+
+#phone{
+position: absolute;
+bottom: -45px;
+z-index: 20;
+  width: 230px;
+
+}
+
+
+#info-tagline {
+ font-family: "Poiret One"; 
+ font-size: 3.8em;
+ color: $smokewhite;
+   font-weight: 600;
+  margin: 25px 0px;
+  letter-spacing: 1;
+  line-height: .9em;
+}
+
+span#info-tagline {
+	font-size: 1.3em;
+  //line-height: 0;
+}
+
+
+#info-text {
+  font-size: 1.5em;
+  color: $smokewhite;
+  //padding: 30px;
+  font-family: "Poiret One", Geneva, serif;
+}
+
+.center {
+	margin: 0px auto;
+	//background: blue;
+	text-align: center;
+}
+
+.add_margin {
+	margin-bottom: 175px;
 }
 
 
 
-@media (min-width: 768px) { 
+ul.info-links {
+ 	list-style: none;
+ 	//margin: 10px 0 0 0;
+	font-size: 3em;
 
-.logo {
-	width:100%
+	font-family: "Damion", serif;
+  	li {
+    	//padding: 0px 60px 0px 0px;
+    	//display:inline;
+  	}
+  	a {
+  		color: $shnackred;
+  		text-decoration: none;
+  		&:hover {
+  			color: $smokewhite;
+  			border-bottom: 2px solid $shnackred;
+  		}
+  	}
 }
 
+#return-to-top{
+	text-align: center;
+	margin: 20px auto;
+	a {
+		color: $shnackred;
+  		text-decoration: none;
+  		&:hover {
+  			color: slategray;
+  		}
+	} 
 }
+
+#nvc-logo {
+	width: 100px;
+}
+
+.headline {
+	font-family: "Poiret One", Geneva, serif;
+	font-weight: 900;
+}
+
+ .btn {
+  padding: 9px 15px;
+  background: #336699;
+  font-size: 14px;
+  color: #FFFFFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  }

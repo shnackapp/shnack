@@ -1,8 +1,9 @@
 
 <%= render 'form' %>
-
-<% if @owner.instance_of?(Vendor) %>
-	<%= link_to 'Cancel', :controller => 'application' , :action => "select_vendor", :object_id  => @owner.stadium.id %>
-<% else %>
-	<%= link_to 'Cancel', :controller => 'application', :action => "select_stadium" %>
-<% end %>
+<div class="cancel">
+	<% if @owner.instance_of?(Vendor) %>
+		<%= link_to 'Cancel', :controller => 'application' , :action => "select_vendor", :object_id  => @owner.stadium.id %>
+	<% else %>
+		<%= link_to 'Cancel', :controller => 'application', :action => "select_stadium" %>
+	<% end %>
+</div>
