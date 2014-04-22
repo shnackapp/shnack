@@ -48,14 +48,19 @@ function initializeValues() {
 function updatePrice() {
 	var total = 0;
 
+
 	$(".menu_item").each(function() {
 		var id = $(this).data("id");
 		var qty = $("#" + id+ "_num").html();
-		var price = $("#" + id + "_price").data("price") * 100;
+		var price = $("#" + id + "_price").data("price");
 		var cost = qty*price;
 		total += cost;
 	});
+
 	total /=100;
+
+		console.log(total);
+
 	$(".total").html(toUSD(total));
 	$(".total").data("price", total);
 };

@@ -21,4 +21,14 @@ class Item < ActiveRecord::Base
   belongs_to :menu
 
 
+  def self.integer_to_currency(amount, options = {})
+    options[:unit] = "$" if options[:unit].nil?
+    options[:separator] = "." if options[:separator].nil?
+
+    amount_str = amount.to_s
+    cents = amount_str[-2,2]
+    dollars = amount_str[0..-3]
+
+    return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
+  end
 end

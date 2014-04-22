@@ -18,37 +18,33 @@ class ChargesController < ApplicationController
 	  @amount = @order.total
 	  @owner = @order.owner
  
-	  redirect_to root_path unless @owner.is_open?
-	  redirect_to order_path(@order) if @order.paid
+	   unless @owner.is_open?
+	  	redirect_to root_path
+	  	return
+	  end
 
+	  if @order.paid
+	  redirect_to order_path(@order)
+	  return
+	end
 
 	  if @order.user.nil?
-	  	@user = User.create(:email => params[:stripeEmail])
+	  	@user = User.where(:email => params[:user][:email]).first_or_create
+	  	@user.password = "temppassword" if @user.password.nil?
+	  	@user.number = params[:user][:number]
+	  	@user.save
 	  	@order.user = @user
 	  	@order.save
 	  else
-	  	if User.exists?(:email => params[:stripeEmail])
-	  		@user = User.where(:email => params[:stripeEmail]).first
+	  	if User.exists?(:email => params[:user][:email])
+	  		@user = User.where(:email => params[:user][:email]).first
 	  		@user.update_attribute(:number, @order.user.number)
 	  		@order.user = @user
 	  		@order.save
 	  	else
-	  		@order.user.update_attribute(:email, params[:stripeEmail])
+	  		@order.user.update_attribute(:email, params[:user][:email])
 	  	end
 	  end
-
-
-	  customer = Stripe::Customer.create(
-	    :email => params[:stripeEmail],
-	    :card  => params[:stripeToken]
-	  )
-
-	  charge = Stripe::Charge.create(
-	    :customer    => customer.id,
-	    :amount      => @amount,
-	    :description => 'Rails Stripe customer',
-	    :currency    => 'usd'
-	  )
 
   	# An example of the token sent back when a device registers for notifications
     # token = "<2410d83b 257e501b 73cb9bc6 c44a9b4e fa46aab1 99694c8e fb01088c 3c5aca75>"
