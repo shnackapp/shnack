@@ -16,7 +16,7 @@
 			<div class="row add_margin">
 
 				<div id="nav" class="col-md-3 col-md-push-4 col-md-offset-3"> 
-				  <%= link_to(image_tag("shnack_beta3.png", :class => "logo img-responsive"), root_path)   %>
+				  <a href="top"><%= link_to(image_tag("shnack_beta3.png", :class => "logo img-responsive"), root_path)   %></a>
 				  <ul id="account-manage" class="nav nav-pills nav-stacked hidden-xs">
 				  <% if user_signed_in? %>
 					<li>
@@ -47,66 +47,77 @@
 
 		<div id="level-2">
 			<div class="row">
-				<div class="col-sm-4 step step-style">
-					<h1 class="step-style">Select</h1>
+				<div class="col-xs-4 step-style">
+					<h1 class="step-style">Order</h1>
 					<%= image_tag("step1.png", :class => "step-style")   %>
-					<p class="step-style">From your seat, select your stadium and vendor you want to purchase from.</p>
+					<p class="step-style">From your seat, view the menus of vendors. Pay and place your order.</p>
 				</div>
 	
 
-				<div class="col-sm-4 step step-style">
-					<h1 class="step-style">Order</h1>
-					<%= image_tag("step2.png", :class => "step-style")   %>
-					<p class="step-style">From your seat, select your stadium and vendor you want to purchase from.</p>
+				<div class="col-xs-4 step-style">
+					<h1 class="step-style">Watch</h1>
+					<%= image_tag("camera.png", :class => "step-style")   %>
+					<p class="step-style">Sit back, stand up, take pictures, cheer for your team.</p>
 				</div>
 
-				<div class="col-sm-4 step step-style">
-					<h1 class="step-style">Pick Up</h1>
+				<div class="col-xs-4 step-style">
+					<h1 class="step-style">PickUp</h1>
 					<%= image_tag("step3.png", :class => "step-style")   %>
-					<p class="step-style">From your seat, select your stadium and vendor you want to purchase from.</p>
+					<p class="step-style">When your order is ready, a notification will be sent. Pick up and enjoy.</p>
 				</div>
 			</div>
 		</div>
 
-		<div id="level-3" class="container">
-			<div id="size-1">
-
-				<div id="info-tagline">You are going to love the way you eat, I gaurantee it.</div>
+		<div id="level-3">
+			<div class="container my-container">
+				<div id="info-tagline">Never miss a moment, never miss a meal.</div>
 		
 
 
-			<div class="row">
-				<ul class="nav info-links nav-pills nav-justified">
-					<li><a onClick="aboutShnack()">About Shnack</a></li>
-					<li><a onClick="forFans()">For Fans</a></li>
-					<li><a onClick="forVendors()">For Vendors</a></li>
-				</ul>
-			</div>
-					
- 			
-			<div class="row">
-				<div id="info-text" class="col-md-8">Shnack is a mobile application designed for concessions at large and small scale events, that lets customers order and pay for a vendor's food via their phone. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. Customers will order food from their phone and will be notified when their food is ready to be picked up. By eliminating the need to wait in line, we can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers.</div>
-				<img id="phone" class="col-md-4" src="images/phone_welcome.png" />
+				<div class="row">
+					<ul class="info-links">
+						<li class="col-sm-4 info-links"><a onClick="forFans()">For Fans</a></li>
+						<li class="col-sm-4 info-links"><a onClick="forVendors()">For Vendors</a></li>
+						<li class="col-sm-4 info-links"><a onClick="aboutShnack()">Contact Us</a></li>
+					</ul>
+				</div>
 
+
+ 			
+				<div class="row">
+					<div id="info-text" class="col-sm-8">Shnack is a mobile application designed for concessions at large and small scale events, that lets customers order and pay for a vendor's food via their phone. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. Customers will order food from their phone and will be notified when their food is ready to be picked up. By eliminating the need to wait in line, we can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers.</div>
+					<img id="phone" class="col-sm-4" src="images/phone_welcome.png" />
+
+				</div>
 			</div>
-		</div>
 		</div>
 		<!-- END LEVEL-3 -->
 
-		<div class="row">
-			<div class="col-xs-12 return-to-top">RETURN TO TOP</div>
-		</div>
+		<div id="return-to-top"><a href="#top">Return to top  |  Place an order</a></div>
 
 
 
-		<div id="level-4">
-			<div id="fb-root"></div>
-            <p id="footer">Or follow us on our Facebook page. You just might see us at a game.</p>
-            <div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="450" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-          </div>
-		</div>
+		<div id="footer">
+			<div class="row">
 
-	</div> <!-- END WEBSITE-CONTAINER -->
+				<div class="col-sm-6">
+	          		<div class="center"><%= image_tag("nvc.png", :class => "nvc-logo")   %></div>
+	          	</div>
+
+				<div class="col-sm-6 center">
+					<!-- <div id="fb-root"></div>
+		            <p style="font-size:1.3em;">Follow us on Facebook.</br>You might see us at a game.</p>
+		            <span class="foot-style"><div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="100%" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></span> -->
+		            <div class="center">
+			            <div id="fb-root"></div>
+			            </br></br>
+			            <p style="font-size:1.3em;">Follow us on Facebook.</br>You might see us at a game.</br></p>
+			            <div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="100" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+		            </div>
+	          	</div>
+	         </div>
+	    </div>
+
 </body>
 
 </html>
