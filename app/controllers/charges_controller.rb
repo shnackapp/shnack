@@ -30,9 +30,16 @@ class ChargesController < ApplicationController
 
 	  if @order.user.nil?
 	  	@user = User.where(:email => params[:user][:email]).first_or_create
-	  	@user.password = "temppassword" if @user.password.nil?
+	  	@user.password = "temppassword"
 	  	@user.number = params[:user][:number]
 	  	@user.save
+	  	
+	  	#Create role
+	  	role = Role.create(:role_type => 0)
+	  	role.user = @user
+	  	role.save
+
+	  	#save order
 	  	@order.user = @user
 	  	@order.save
 	  else
