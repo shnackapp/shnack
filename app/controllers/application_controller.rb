@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   helper :all
-  helper_method :integer_to_currency
   force_ssl
   protect_from_forgery
   before_filter :setup

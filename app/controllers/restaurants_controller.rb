@@ -45,7 +45,7 @@ class RestaurantsController < ApplicationController
 
 		hours_params = params[:restaurant].delete(:hours)
 		@restaurant = Restaurant.create(params[:restaurant])
-
+		
 		i = 0
 		while i <= Hour.saturday 
 			hours = @restaurant.hours.where(:day => i).first_or_create

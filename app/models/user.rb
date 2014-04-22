@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 	attr_accessible :email, :password, :password_confirmation, :remember_me, :is_super, :number
 	# attr_accessible :title, :body
 
-	before_create :create_authentication_token
+	before_create :create_authentication_token, :create_role
 
 	def create_role
 		#defaults to customer
