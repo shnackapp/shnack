@@ -51,7 +51,7 @@ function updatePrice() {
 	$(".menu_item").each(function() {
 		var id = $(this).data("id");
 		var qty = $("#" + id+ "_num").html();
-		var price = $("#" + id + "_price").data("price") * 100;
+		var price = $("#" + id + "_price").data("price");
 		var cost = qty*price;
 		total += cost;
 	});
