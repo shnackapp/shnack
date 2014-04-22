@@ -155,6 +155,7 @@ span#info-tagline {
   color: $smokewhite;
   //padding: 30px;
   font-family: "Poiret One", Geneva, serif;
+  display: block;
 }
 
 .center {
@@ -208,6 +209,14 @@ ul.info-links {
 .headline {
 	font-family: "Poiret One", Geneva, serif;
 	font-weight: 900;
+}
+
+#contact-us {
+	display: none;
+	//background: yellow;
+	width: 100%;
+	height: 200px;
+	margin-top: 15px;
 }
 
  .btn {
