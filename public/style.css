@@ -1,0 +1,406 @@
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+@import url(http://fonts.googleapis.com/css?family=Damion);
+
+body {
+	  background: whitesmoke;
+
+}
+
+h1, h2, h3, h4 {
+ margin: 0px;
+ font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+p {
+ margin: 0px; 
+ font-family: "Poiret One", Geneva, serif;
+}
+
+#wrapper {
+ width: 100%;
+ position: relative;
+ margin-top: -8px;
+}
+
+.container {
+  width: 900px;
+  position: relative;
+  margin: 0px auto;
+}
+
+.upper {
+  z-index: 15;
+}
+ 
+
+
+#level-1 {
+  width: 100%;
+  height: 560px;
+  margin: 0px auto;
+//background: image-url('images/bg1.jpg');
+}
+
+#slideshow {
+  width: 100%;
+  height: 560px;
+  margin: 0px auto;
+  position: absolute;
+  z-index: 5;
+}
+
+#level-2 {
+  width: 100%;
+  margin: 0px auto;
+  width: 100%;
+  background-color: #a61c00;
+  position: relative;
+}
+
+#level-3 {
+  height: 540px;
+  width: 100%;
+  position: relative;
+  margin: 0px auto;
+  background: #252525;
+  padding-top: 25px;
+}
+
+ #level-4 {
+  width: 100%;
+  margin: 0px auto;
+  position: relative;
+	z-index: 10;
+  padding-top: 10px;
+}
+
+
+#welcome {
+  z-index: 15;
+}
+
+.foot-wrap {
+	margin-bottom: 0px auto 80px auto; 
+	 font-family: "Poiret One", Geneva, serif;
+
+}
+
+h1.foot-wrap {
+	font-size: 1.5em;
+	margin-bottom: 5px;
+
+}
+
+h2.foot-wrap {
+	font-style: italic;
+	font-size: 1.3em;
+	margin-bottom: 5px;
+
+}
+
+#footer {
+  position: relative;
+  margin: 0px auto;
+  	width:1000px;
+	min-width: 700px;
+}
+
+#thanks {
+	font-size: .6em;
+	 font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	 width: 450px;
+	 margin: 50px auto 100px auto;
+	 text-align: center;
+}
+
+
+#detail-word {
+ font-family: "Poiret One"; 
+  font-size: 3.8em;
+  color: #a61c00;
+  font-weight: 600;
+  padding-bottom: 15px;
+  letter-spacing: 1;
+}
+
+
+#detail-text {
+  font-size: 1.5em;
+  color: whitesmoke;
+    width: 560px;
+
+}
+
+.power-words {
+  color: #a61c00;
+  text-align: center;
+  font-family: "Damion";
+  font-size: 2.8em;
+  line-height: 1.2em;
+  //margin-bottom: 10px;
+padding-right: 35px;
+
+}
+
+#phone{
+  //margin-top: 180px;
+position: absolute;
+top: 170px;
+//left: 600px;
+right: 40px;
+z-index: 20;
+  width: 230px;
+
+}
+
+#left-container {
+  padding: 25px;
+  position: absolute;
+  float: left;
+  height: 100%;
+}
+
+
+#right-container {
+  //not used anymore
+  padding-top: 25px;
+  width: 200px;
+  margin-left: 10px;
+  position: relative;
+  left: 600px;
+  background-color: yellow;
+}
+
+#comma {
+  font-size: 1.3em;
+  line-height: 0;
+}
+
+#top-buttons {
+ height: 80px;
+ margin-top: 20px;
+ height: 100%;
+ //background-color: yellow;
+ margin: 0px auto;
+}
+
+
+#top-buttons {
+ //background: white;
+ height: 80px;
+ padding-top: 20px;
+}
+
+.member-buttons {
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px;
+  float: right;
+  font-family: "Poiret One";
+  font-weight: bold;
+  font-size: 1.5em;
+  color: white;
+}
+
+#shnack-logo {
+  //background: #a61c00;
+  width: 180px;
+  height: 180px;
+  margin: 80px auto 0px auto;
+  //position: relative;
+}
+
+#shnack-name {
+  color: #a61c00;
+  text-align: center;
+  font-family: "Damion";
+  font-size: 112px;
+	line-height: 112px;
+margin-bottom: 40px;
+
+}
+
+#select-dropdowns {
+ //background: white;
+ margin: 0px auto;
+ width: 550px;
+ height: 50px;
+
+}
+
+#stadium-dropdown {
+  text-align:center;
+  float: left;
+  border: 2px solid whitesmoke;
+  background-color: #a61c00;
+  padding: 10px;
+  margin: 10px;
+  font-family: "Poiret One";
+  font-weight: bold;
+  font-size: 1.5em;
+  color: white;
+}
+
+
+#vendor-dropdown {
+  text-align:center;
+  float: right;
+  border: 2px solid whitesmoke;
+  background-color: #a61c00;
+  padding: 10px;
+  margin: 10px;
+  font-family: "Poiret One";
+  font-weight: bold;
+  font-size: 1.5em;
+  color: white;
+}
+
+#howto {
+  margin: 0px auto;
+  //background: yellow;
+  width: 1020px;
+  height: 280px;
+}
+
+
+.box{
+  float: left;
+  //background: maroon;
+  width: 310px;
+  height: 250px;
+  padding: 15px;
+}
+
+
+
+.box-style {
+  text-align: center;
+  color: whitesmoke;
+}
+
+h1.box-style {
+  font-family: "Damion";
+  font-size: 2.4em;
+	font-weight: 100;
+}
+
+p.box-style {
+  font-size: .5em;
+  padding: 0px 25px;
+  //text-transform: uppercase;
+  //padding-top: 100px;
+}
+
+img.box-style {
+  //position: absolute;
+  //top: 100px;
+  //left: 100px;
+  //height: 20px;
+  //width: 20px;
+  opacity: .8;
+}
+
+.order-button {
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
+  background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+  background-color:#f9f9f9;
+  -webkit-border-top-left-radius:20px;
+  -moz-border-radius-topleft:20px;
+  border-top-left-radius:20px;
+  -webkit-border-top-right-radius:20px;
+  -moz-border-radius-topright:20px;
+  border-top-right-radius:20px;
+  -webkit-border-bottom-right-radius:20px;
+  -moz-border-radius-bottomright:20px;
+  border-bottom-right-radius:20px;
+  -webkit-border-bottom-left-radius:20px;
+  -moz-border-radius-bottomleft:20px;
+  border-bottom-left-radius:20px;
+  text-indent:0;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  color:#666666;
+  font-family:Arial;
+  font-size:20px;
+  font-weight:bold;
+  font-style:normal;
+  height:50px;
+  line-height:50px;
+  width:200px;
+  text-decoration:none;
+  text-align:center;
+  text-shadow:1px 1px 0px #ffffff;
+}
+.order-button:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
+  background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
+  background-color:#e9e9e9;
+}.order-button:active {
+  position:relative;
+  top:1px;
+}
+
+
+
+input, textarea { 
+  padding: 9px;
+  border: solid 1px #E5E5E5;
+  outline: 0;
+  font: normal 13px/100% Verdana, Tahoma, sans-serif;
+  width: 300px;
+  background: #FFFFFF;
+  }
+
+textarea { 
+  width: 300px;
+  max-width: 300px;
+  height: 90px;
+  line-height: 150%;
+  }
+
+input:hover, textarea:hover,
+input:focus, textarea:focus { 
+  border-color: #C9C9C9; 
+  }
+
+.form label { 
+  margin-left: 10px; 
+  color: #999999; 
+  }
+
+.submit input {
+  float: right;
+  width: auto;
+  padding: 9px 15px;
+  background: #009933;
+  border: 0;
+  font-size: 14px;
+  color: #FFFFFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  }
+
+
+  input, textarea {
+  box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+  }
+
+
+@media(max-width: 767px) {
+
+    .banner-head {
+        font-size: 3em;
+    }
+    .pricing-table {
+        margin-bottom: 2em;
+    }
+
+}
+
