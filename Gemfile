@@ -11,6 +11,7 @@ gem 'annotate', ">=2.5.0"
 gem 'devise'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'houston'
+gem 'simple_form'
 
 group :development, :test do
 	gem 'byebug'
