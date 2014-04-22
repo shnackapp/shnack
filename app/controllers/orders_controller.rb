@@ -81,7 +81,7 @@ class OrdersController < ApplicationController
 
     user_id = params[:order].delete(:user_id)
     items = owner.menu.items
-    items_price = Hash[items.map { |it| [it.id, (it.price*100).to_int]}]
+    items_price = Hash[items.map { |it| [it.id, (it.price).to_int]}]
 
     @order = Order.create(:user_id => user_id)
 
