@@ -7,14 +7,14 @@
 
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 755px) {
 	
 	#phone {
 		display:none;
 	}
 }
 
-@media (max-width: 380px) {
+@media (max-width: 520px) {
 	
 	p.step-style {
 		//visibility: hidden;
@@ -34,5 +34,9 @@
 		}
 	h1.step-style {
 		font-size: 2em;
+	}
+
+	ul.info-links {
+		font-size: 2.2em;
 	}
 }
