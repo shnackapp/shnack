@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   helper :all
-  force_ssl
+  force_ssl unless request.subdomain == "nvc"
   protect_from_forgery
   before_filter :setup
 
