@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::Base
   helper :all
-  force_ssl unless request.subdomain == "nvc"
+  force_ssl :unless :is_nvc?
   protect_from_forgery
   before_filter :setup
+
+  def is_nvc?
+     request.subdomain == "nvc"
+   end
 
   def setup
   	unless params[:stadium_id].nil?
