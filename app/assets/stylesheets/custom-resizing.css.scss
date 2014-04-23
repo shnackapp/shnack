@@ -1,45 +1,39 @@
 @media (min-width: 992px) { 
 
-.logo {
-	width:100%
+	.logo {
+		width:100%
+	}
 }
 
-
-}
-
+//awkward tablet
 @media (max-width: 755px) {
 	
 	#phone {
 		display:none;
 	}
-}
-
-@media (max-width: 520px) {
-	
 	p.step-style {
-		//visibility: hidden;
 		display: none;
 	}
-
-	.step{
-		padding: 0px;
-	} 
-
-	#level-2 {
-		padding: 0px;
+	ul.info-links {
+		font-size: 2.2em;
+		margin: 0px;
 	}
+}
 
+//PHONE SIZE
+@media (max-width: 520px) {
 	img.step-style {
 		width: 80px;
 		}
 	h1.step-style {
 		font-size: 2em;
 	}
+.col-sm-8 {
+	padding-left: 0px;
+		padding-right: 0px;
 
-	ul.info-links {
-		font-size: 2.2em;
-		margin: 0px;
-	}
+}
+	
 
 	#info-tagline {
 		font-size: 2.2em;

@@ -27,7 +27,7 @@ body {
 }
 
 p {
-	font-family: "Poiret One", Geneva, serif;
+	font-family: "Poiret One", Geneva, sans-serif;
 }
 
 .logo {
@@ -54,7 +54,7 @@ p {
 
 #level-2 {
 	width: 100%;
-	padding: 20px;
+	padding: 0px 10px 20px 10px;
 	background-image: -webkit-gradient(
 		linear,
 		left top,
@@ -75,7 +75,7 @@ p {
   position: relative;
   margin: 0px auto;
   background: $bgblack;
-  padding: 25px 15px;
+  padding: 45px 10px;
   min-height: 560px;
 }
 
@@ -85,9 +85,14 @@ p {
 }
 
 .foot-style {
-	font-family: "Poiret One", Geneva, serif;
+	font-family: "Poiret One", Geneva, sans-serif;
 }
 
+.col-4 {
+	position: relative;
+	float: left;
+	width: 33.333333%;
+}
 .row {
 	margin-right: 0px;
 	margin-left: 0px;
@@ -102,6 +107,9 @@ p {
 	max-width: 980px;
 }
 
+.col-4 {
+	width: 33.333333%;
+}
 
 .step-style {
   text-align: center;
@@ -109,7 +117,7 @@ p {
 }
 
 h1.step-style {
-  font-family: "Damion";
+  font-family: "Damion", serif;
   font-size: 3.2em;
 	font-weight: 100;
 }
@@ -117,8 +125,6 @@ h1.step-style {
 p.step-style {
   font-size: 1.5em;
   padding: 0px 25px;
-    font-family: "Poiret One", Geneva, serif;
-
 }
 
 img.step-style {
@@ -135,32 +141,24 @@ z-index: 20;
 
 
 #info-tagline {
- font-family: "Poiret One"; 
+ font-family: "Poiret One", Geneva, sans-serif; 
  font-size: 3.8em;
  color: $smokewhite;
    font-weight: 600;
-  margin: 25px 0px;
+  margin-bottom: 25px;
   letter-spacing: 1;
   line-height: .9em;
 }
 
-span#info-tagline {
-	font-size: 1.3em;
-  //line-height: 0;
-}
-
-
 #info-text {
   font-size: 1.5em;
   color: $smokewhite;
-  //padding: 30px;
-  font-family: "Poiret One", Geneva, serif;
+  font-family: "Poiret One", Geneva, sans-serif;
   display: block;
 }
 
 .center {
 	margin: 0px auto;
-	//background: blue;
 	text-align: center;
 }
 
@@ -169,16 +167,13 @@ span#info-tagline {
 }
 
 
-
 ul.info-links {
  	list-style: none;
- 	//margin: 10px 0 0 0;
 	font-size: 3em;
-
 	font-family: "Damion", serif;
   	li {
-    	//padding: 0px 60px 0px 0px;
-    	//display:inline;
+    	//padding: 0px 40px 0px 0px;
+    	display:inline;
   	}
   	a {
   		color: $shnackred;
@@ -207,13 +202,12 @@ ul.info-links {
 }
 
 .headline {
-	font-family: "Poiret One", Geneva, serif;
+	font-family: "Poiret One", Geneva, sans-serif;
 	font-weight: 900;
 }
 
 #contact-us {
 	display: none;
-	//background: yellow;
 	width: 100%;
 	height: 200px;
 	margin-top: 15px;
