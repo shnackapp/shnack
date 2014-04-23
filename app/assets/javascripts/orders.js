@@ -48,16 +48,20 @@ function initializeValues() {
 function updatePrice() {
 	var total = 0;
 
-
 	$(".menu_item").each(function() {
 		var id = $(this).data("id");
 		var qty = $("#" + id+ "_num").html();
 		var price = $("#" + id + "_price").data("price");
-		var cost = qty*price;
-		total += cost;
+					console.log(qty);
+
+		if(qty != undefined){
+			var cost = qty*price;
+			total += cost;	
+		}
+		
 	});
 
-	total /=100;
+	total;
 
 		console.log(total);
 
