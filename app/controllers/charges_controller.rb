@@ -31,7 +31,7 @@ class ChargesController < ApplicationController
 	  if @order.user.nil?
 	  	@user = User.where(:email => params[:user][:email]).first_or_create
 	  	@user.password = "temppassword"
-	  	@user.number = params[:user][:phone]
+	  	@user.number = params[:user][:phone].gsub(/[()-]/, '').gsub(' ', '')
 	  	@user.save
 	  	
 	  	#Create role
