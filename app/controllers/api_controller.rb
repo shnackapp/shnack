@@ -23,7 +23,7 @@ class ApiController < ApplicationController
 		@device = Device.where(:token =>params[:device_token]).first
 		@owner = @device.owner
 		@orders = @owner.open_orders
-		@result = @orders.map { |o| {:id => o.order_number, :created_at => o.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description, :state => o.current_order_state.state}} 
+		@result = @orders.map { |o| {:id => o.id, :order_number => o.order_number, :created_at => o.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description, :state => o.current_order_state.state}} 
 
 		respond_with @result, :location => nil
 	end
