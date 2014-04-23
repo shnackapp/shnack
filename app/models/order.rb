@@ -35,7 +35,7 @@ class Order < ActiveRecord::Base
   def set_slug_id
     begin
       self.slug_id = SecureRandom.hex[0..6]
-    end while Order.exists?(:slug_id => slug_id)
+    end while Order.exists?(:slug_id => self.slug_id)
   end
 
   def set_order_number
@@ -66,7 +66,9 @@ class Order < ActiveRecord::Base
     order_items = self.order_items
 
 		description = ""
-		order_items.each { |order_item| description = description + "#{order_item.quantity} #{Item.find(order_item.item_id).name}\n"}
+		order_items.each do |order_item| 
+      description = description + "#{order_item.quantity} #{Item.find(order_item.item_id).name}\n" if Item.exists?(order_item.item_id)
+    end
 
 		description
 	end

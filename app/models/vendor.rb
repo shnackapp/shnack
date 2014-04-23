@@ -34,6 +34,10 @@ class Vendor < ActiveRecord::Base
   	self.orders.select { |o| o.current_order_state.state < 3 && o.paid }
   end
 
+  def past_orders
+    self.orders.where(:paid => true).select { |o| o.current_order_state.state >= 3 }
+  end
+
   def paid_orders
     self.orders.where(:paid => true)
   end

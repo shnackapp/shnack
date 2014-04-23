@@ -5,6 +5,15 @@ development:
   :user_name: shnackapp@gmail.com
   :password: AJogfScMJHT6VWsnP29_HQ
   :enable_starttls_auto: true
+
+staging:  
+  :address: smtp.mandrillapp.com
+  :port: 587
+  :authentication: plain
+  :user_name: shnackapp@gmail.com
+  :password: AJogfScMJHT6VWsnP29_HQ
+  :enable_starttls_auto: true
+
 production:
   :address: smtp.mandrillapp.com
   :port: 587

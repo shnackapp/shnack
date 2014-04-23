@@ -10,8 +10,8 @@
 
 			<td><%= @items[order_item.item_id].name %></td> 
 			<td><%= order_item.quantity %> </td>
-			<td> <%= number_to_currency @items[order_item.item_id].price %></td>
-			<td> <%= number_to_currency(@items[order_item.item_id].price * order_item.quantity) %></td>
+			<td> <%= integer_to_currency @items[order_item.item_id].price %></td>
+			<td> <%= integer_to_currency(@items[order_item.item_id].price * order_item.quantity) %></td>
 		</tr>
 		<% end %>
 

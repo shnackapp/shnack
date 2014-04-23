@@ -21,15 +21,12 @@ class ApiController < ApplicationController
     end
 	end
 
-	def get_menu_for_vendor
-	@vendor = Vendor.find(params[:object_id])
-    respond_with @vendor.menu.items
-	end
 
 
 	# HTTP Request for when the device turns on and sends in it's device token
 	def send_device_token
 		@device = Device.where(:token =>params[:device_token])
+		
 		if @device.length > 0 && (!@device.first.vendor.nil? || !@device.first.restaurant.nil?)
 			render :json => @device.first
 		else
@@ -46,12 +43,46 @@ class ApiController < ApplicationController
 		respond_with @result, :location => nil
 	end
 
+
+	def get_past_orders
+		@device = Device.where(:token => params[:device_token]).first
+		@owner = @device.owner
+
+		@orders = @owner.past_orders
+		@result = @orders.map { |o| {:id => o.id, :created_at => o.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description, :state => o.current_order_state.state}} 
+
+		respond_with @result, :location => nil
+	end
+
+
+	def get_menu_for_vendor
+	@vendor = Vendor.find(params[:object_id])
+    respond_with @vendor.menu.items
+	end
+
+
+	def get_menu_for_vendor
+		unless params[:device_token].nil?
+			@device = Device.where(:token => params[:device_token]).first
+			@owner = @device.owner
+		else
+			@owner = Vendor.exists?(params[:object_id]) ? Vendor.find(params[:object_id]) : Restaurant.find(params[:object_id])
+		end
+		# respond_with {:error => "Please create a menu at #{request.domain}"}, :location=>nil if @menu.nil?
+
+
+		@menu = @owner.menu
+		@categories = @menu.categories
+
+		respond_with @categories.map { |cat| {:name => cat.name, :items => cat.items} }, :location => nil
+	end
+
 	# Register a device token with a vendor
 	def register_device_token_for_vendor
 		@owner = Vendor.where(:registration_code => params[:registration_code]).first
 		@owner = Restaurant.where(:registration_code => params[:registration_code]).first if @owner.nil?
 
-		render :json => { :error => "incorrect_registration_code" } if @owner.nil? 
+		# render :json => { :error => "incorrect_registration_code" } if @owner.nil? 
 
 		@device = Device.where(:token => params[:device_token]).first_or_create
 		@device.update_owner @owner
@@ -76,7 +107,6 @@ class ApiController < ApplicationController
 
 		@order_state = @order.update_state
 
-
 		notify_user_of_completed_order @order if @order_state.state == 2
 
 		render :json => @order_state
@@ -99,6 +129,16 @@ class ApiController < ApplicationController
 		end
 
 		respond_with(@response, :location => nil)
+	end
+
+	def toggle_item_sold_out
+		@item = Item.find(params[:item_id])
+		if @item.nil?
+			render :json => {:error => "Item not found"}
+		else
+			@item.update_attribute(:sold_out, !@item.sold_out)
+			render :json => {:success => "success", :item_id => @item.id, :sold_out => @item.sold_out }
+		end
 	end
 
 

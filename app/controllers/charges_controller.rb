@@ -66,7 +66,7 @@ class ChargesController < ApplicationController
 	    notification.badge = 1
 
 	    notification.content_available = true
-	    notification.custom_data = {order_number: @order.id, order_description: order_description, order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
+	    notification.custom_data = {order_number: @order.order_number, order_description: order_description, order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
 
 	    # And... sent! That's all it takes.
 	    APN.push(notification)
