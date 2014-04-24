@@ -5,9 +5,9 @@
 
 	<%= telephone_field(:user, :phone, :class => "form-control",:id => "order-phone-number", :placeholder => "Phone #") %> 
 	<br />
-  <%= email_field(:user, :email, :class => "form-control", :id => "order-phone-number", :placeholder => "E-mail address") %>
+  <%= email_field(:user, :email, :class => "form-control", :id => "order-phone-email", :placeholder => "E-mail address") %>
  
-  <%= button_tag(type: 'submit', class: "btn btn-primary btn-danger") do %>
+  <%= button_tag(type: 'submit', class: "btn btn-primary btn-danger", id: "submit-order") do %>
       <i class="glyphicon glyphicon-cutlery icon-white"></i> Submit Your Order
     <% end %>
 
