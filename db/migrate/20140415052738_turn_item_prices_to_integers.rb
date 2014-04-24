@@ -1,7 +1,7 @@
 class TurnItemPricesToIntegers < ActiveRecord::Migration
   def up
   	Item.all.each do |item|
-  		item.price = item.price*100
+  		item.price = item.price*100 unless item.price.nil?
   		item.save
   	end
 
