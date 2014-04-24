@@ -8,6 +8,21 @@ class ApiController < ApplicationController
 		respond_with User.all
 	end
 
+	def get_locations
+		respond_with Location.all.map { |loc| {:id => loc.id, :name => loc.name, :has_children => loc.has_children} }
+	end
+
+	def get_vendor_for_location
+    @loc = Location.find(params[:object_id])
+    if @loc.instance_of?(Restaurant)
+      redirect_to new_order_path(:restaurant_id => @loc.id) 
+    else
+  		respond_with @loc.vendors
+    end
+	end
+
+
+
 	# HTTP Request for when the device turns on and sends in it's device token
 	def send_device_token
 		@device = Device.where(:token =>params[:device_token])
@@ -41,11 +56,22 @@ class ApiController < ApplicationController
 
 
 	def get_menu_for_vendor
-		@device = Device.where(:token => params[:device_token]).first
-		@owner = @device.owner
-		@menu = @owner.menu
+	@vendor = Vendor.find(params[:object_id])
+    respond_with @vendor.menu.items
+	end
+
+
+	def get_menu_for_vendor
+		unless params[:device_token].nil?
+			@device = Device.where(:token => params[:device_token]).first
+			@owner = @device.owner
+		else
+			@owner = Vendor.exists?(params[:object_id]) ? Vendor.find(params[:object_id]) : Restaurant.find(params[:object_id])
+		end
 		# respond_with {:error => "Please create a menu at #{request.domain}"}, :location=>nil if @menu.nil?
 
+
+		@menu = @owner.menu
 		@categories = @menu.categories
 
 		respond_with @categories.map { |cat| {:name => cat.name, :items => cat.items} }, :location => nil
