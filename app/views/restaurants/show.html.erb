@@ -8,7 +8,7 @@
 			<% category.items.each do |item| %>
 				<tr>
 					<td ><%= item.name %></td>
-					<td class="text-right"><%= integer_to_currency item.price %></td>
+					<td class="text-right"><%= Item.integer_to_currency item.price %></td>
 					<td class="text-right" style="width:5%"><%= link_to content_tag(:span, nil, :class=> "glyphicon glyphicon-minus"), { :controller => 'menu', :action => 'delete_item', :item_id => item.id } %></td>
 
 				</tr>

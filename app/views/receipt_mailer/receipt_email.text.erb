@@ -2,5 +2,5 @@ Your order #<%= @order.id %> at <%= @order.location_name %> has been placed
 =============================================================================
 
 <% @order_items.each do |order_item| %>
-   <%= @items[order_item.item_id].name %>  <%= order_item.quantity %> <%= integer_to_currency @items[order_item.item_id].price %> <%= integer_to_currency(@items[order_item.item_id].price * order_item.quantity) %>
+   <%= @items[order_item.item_id].name %>  <%= order_item.quantity %> <%= Item.integer_to_currency @items[order_item.item_id].price %> <%= Item.integer_to_currency(@items[order_item.item_id].price * order_item.quantity) %>
 <% end %>

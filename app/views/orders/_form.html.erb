@@ -28,7 +28,7 @@
       <% category.items.each do |item| %>
         <tr class="menu_item" data-id="<%=item.id%>">
           <td><%= item.name %></td>
-          <td id="<%=item.id%>_price" data-price="<%=item.price%>"><%= integer_to_currency item.price %></td>
+          <td id="<%=item.id%>_price" data-price="<%=item.price%>"><%= Item.integer_to_currency item.price %></td>
           <td> 
           <span class="glyphicon glyphicon-plus plus"></span>
           </td>
