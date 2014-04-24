@@ -19,9 +19,16 @@ class ChargesController < ApplicationController
 	  @order = Order.find(params[:order_id])
 	  @amount = @order.total
 	  @owner = @order.owner
- 
-	  redirect_to root_path unless @owner.is_open?
-	  redirect_to order_path(@order) if @order.paid
+
+	  unless @owner.is_open?
+	  	redirect_to root_path 
+	  	return
+	  end
+	  
+	  if @order.paid
+	  	redirect_to order_path(@order)
+	  	return
+	  end
 
 
 	  if @order.user.nil?
