@@ -2,6 +2,8 @@
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+var orderHasItems = false;
+
 $(document).ready(function() {
 	initializeValues();
 
@@ -30,6 +32,13 @@ $(document).ready(function() {
 		$(this).next().slideToggle(400);
 	});
 
+	$("#place-order").click(function(e) {
+		if(!orderHasItems) {
+			e.preventDefault();
+			alert("Please select at least 1 item to order!");
+		}
+	})
+
 });
 
 function initializeValues() {
@@ -47,6 +56,7 @@ function initializeValues() {
 
 function updatePrice() {
 	var total = 0;
+	orderHasItems = false;
 
 	$(".menu_item").each(function() {
 		var id = $(this).data("id");
@@ -55,8 +65,11 @@ function updatePrice() {
 					console.log(qty);
 
 		if(qty != undefined){
-			var cost = qty*price;
-			total += cost;	
+			if(qty>0) { 
+				orderHasItems = true;
+				var cost = qty*price;
+				total += cost;	
+			}
 		}
 		
 	});
@@ -67,6 +80,7 @@ function updatePrice() {
 
 	$(".total").html(toUSD(total));
 	$(".total").data("price", total);
+
 };
 
 function toUSD(number) {
