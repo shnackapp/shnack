@@ -20,15 +20,17 @@ class ChargesController < ApplicationController
 	  @amount = @order.total
 	  @owner = @order.owner
  
-	   unless @owner.is_open?
-	  	redirect_to root_path
+
+	  unless @owner.is_open?
+	  	redirect_to root_path 
+	  	return
+	  end
+	  
+	  if @order.paid
+	  	redirect_to order_path(@order)
 	  	return
 	  end
 
-	  if @order.paid
-	  redirect_to order_path(@order)
-	  return
-	end
 
 	  if @order.user.nil?
 	  	@user = User.where(:email => params[:user][:email]).first_or_create
