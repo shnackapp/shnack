@@ -13,6 +13,11 @@
 
 <body onload="checkDevice();">
 		<div class="container">
+			<% if flash[:notice] %>
+				<div class="notice"><%= flash[:notice] %></div>
+			<% end %>
+
+
 			<div class="row add_margin">
 
 				<div id="nav" class="col-md-3 col-md-push-4 col-md-offset-3"> 
@@ -31,10 +36,14 @@
 					</li>
 				  <% end %>
 				  </ul>
+
+				 
+
 				</div>
 
 
 				<div class="col-md-4 col-md-pull-3">
+					
 
 					<div id="order-form" class="row">
 						<%= yield %>
@@ -78,7 +87,7 @@
 					<ul class="info-links">
 						<li id="about-links1" class="info-links col-4"><a onClick="forFans()">For Fans</a></li>
 						<li id="about-links2" class="info-links col-4"><a onClick="forVendors()">For Vendors</a></li>
-						<li class="info-links col-4"><a onClick="contactUs()">Contact Us</a></li>
+						<li id="about-links3" class="info-links col-4"><a onClick="contactUs()">Contact Us</a></li>
 					</ul>
 				</div>
 
@@ -90,14 +99,15 @@
 						</div>
 
 						<div id="contact-us" class="row">
-							<form name="htmlform" id="contact-us-form" method="post" action="#">
+							<%= render 'contact_us_mailer/contact_us_mailer' %>
+							<!-- <form name="htmlform" id="contact-us-form" method="post" action="#">
 								<input type="text" name="email" id="email" class="col-md-6" placeholder="Email Address" autocomplete="on" />
 								<input type="text" name="name" id="name"  class="col-md-6" placeholder="Your name">
 								<div class="row">
 									<textarea name="comments"  class="col-md-12" placeholder="What would you like to say" rows="4"></textarea>
 								</div>
 								<input type="submit" class="buttn" value="Submit">
-							</form>
+							</form> -->
 						</div>
 
 
@@ -114,27 +124,24 @@
 		<div id="return-to-top"><a href="#top">Return to top  |  Place an order</a></div>
 
 
-
 		<div id="footer">
 			<div class="row">
 
-				<div class="col-sm-6">
-	          		<div class="center"><%= image_tag("nvc.png", :class => "nvc-logo")   %></div>
+				<div class="col-sm-6 center">
+	          		<%= image_tag("nvc.png", :class => "nvc-logo")   %>
 	          	</div>
 
 				<div class="col-sm-6 center">
-					<!-- <div id="fb-root"></div>
+		            <div id="fb-root"></div>
+		            </br></br>
 		            <p style="font-size:1.3em;">Follow us on Facebook.</br>You might see us at a game.</p>
-		            <span class="foot-style"><div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="100%" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></span> -->
-		            <div class="center">
-			            <div id="fb-root"></div>
-			            </br></br>
-			            <p style="font-size:1.3em;">Follow us on Facebook.</br>You might see us at a game.</br></p>
-			            <div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="100" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-		            </div>
+		            </br>
+		            <div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="100" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 	          	</div>
 	         </div>
 	    </div>
+	    <!-- END FOOTER -->
+
 
 </body>
 

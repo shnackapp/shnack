@@ -19,7 +19,7 @@
 
 function checkDevice() {
   var windowWidth = $(window).width();
-  alert(windowWidth);
+  //alert(windowWidth);
   if (windowWidth <= 520) { mobileInfoText(); }
 }
 
@@ -51,7 +51,7 @@ function hideInfoTextShowContact() {
 }
 
 function hideAboutLinks() {
-    document.getElementById("about-links1").style.display="None";
+  document.getElementById("about-links1").style.display="None";
   document.getElementById("about-links2").style.display="None";
 }
 
@@ -60,7 +60,11 @@ function hideAboutLinks() {
 
 function mobileInfoText() {
     hideAboutLinks();
-    document.getElementById("info-tagline").innerHTML="For a better fan experience, discover a new customer segment";
+    document.getElementById("about-links3").style.width="100%";
+    document.getElementById("about-links3").style.marginBottom="0px";
+    document.getElementById("about-links3").style.marginTop="0px";
+
+    document.getElementById("info-tagline").innerHTML="For a better fan experience";
     document.getElementById("info-text").innerHTML="Shnack is a mobile application designed for concessions at large and small scale events. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. We can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers."
 }
 
@@ -78,5 +82,5 @@ function forVendors(){
 
 function contactUs(){
   hideInfoTextShowContact();
-  document.getElementById("info-tagline").innerHTML="Shnack is beautiful";
+  document.getElementById("info-tagline").innerHTML="Contact the Shnack Team";
 }
