@@ -46,6 +46,7 @@ Shnack::Application.routes.draw do
   post '/menu/:action', :controller => 'menu'
  
   get '/shnack/:action', :controller => 'shnack'
+  post '/shnack/:action', :controller => 'shnack'
 	get '/:action/:object_id', :controller => 'application'
 
 
