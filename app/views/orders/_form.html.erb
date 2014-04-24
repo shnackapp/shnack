@@ -19,33 +19,58 @@
   <%= f.hidden_field :subtotal, :value => "0" %>
   <div class ="panel panel-default">
 
-    <% @menu.categories.each do |category| %>
-      <div class="panel-heading"><h3 class="panel-title"><%= category.name %></h3></div>
-      <div class="order-items" style="display:none;">
-      <table cellspacing="10" class="table" >
-  
- 
-      <% category.items.each do |item| %>
-        <tr class="menu_item" data-id="<%=item.id%>">
-          <td><%= item.name %></td>
-          <td id="<%=item.id%>_price" data-price="<%=item.price%>"><%= Item.integer_to_currency item.price %></td>
-                    <% if(item.sold_out) %>
-            <td colspan="3">Item Sold Out</td>
-          <% else %>
-            <td> 
-            <span class="glyphicon glyphicon-plus plus"></span>
-            </td>
-            <td id="<%=item.id%>_num" class="num"> 0 </td>
-            <td> <span class="glyphicon glyphicon-minus minus"></span> </td>
-            <td class="item_id hidden"><%= item.id %></td>
-              <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
+    <% if @menu.categories.count > 1 %>
 
-          <% end %>
+      <% @menu.categories.each do |category| %>
+        <div class="panel-heading"><h3 class="panel-title"><%= category.name %></h3></div>
+        <div class="order-items" style="display:none;">
+        <table cellspacing="10" class="table" >
+    
+   
+        <% category.items.each do |item| %>
+          <tr class="menu_item" data-id="<%=item.id%>">
+            <td><%= item.name %></td>
+            <td id="<%=item.id%>_price" data-price="<%=item.price%>"><%= Item.integer_to_currency item.price %></td>
+                      <% if(item.sold_out) %>
+              <td colspan="3">Item Sold Out</td>
+            <% else %>
+              <td> 
+              <span class="glyphicon glyphicon-plus plus"></span>
+              </td>
+              <td id="<%=item.id%>_num" class="num"> 0 </td>
+              <td> <span class="glyphicon glyphicon-minus minus"></span> </td>
+              <td class="item_id hidden"><%= item.id %></td>
+                <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
+            <% end %>
 
-        </tr>
+          </tr>
+        <% end %>
+        </table>
+      </div>
       <% end %>
+    <% else %>
+      <table cellspacing="10" class="table" >
+      
+     
+          <% @menu.items.each do |item| %>
+            <tr class="menu_item" data-id="<%=item.id%>">
+              <td><%= item.name %></td>
+              <td id="<%=item.id%>_price" data-price="<%=item.price%>"><%= Item.integer_to_currency item.price %></td>
+                        <% if(item.sold_out) %>
+                <td colspan="3">Item Sold Out</td>
+              <% else %>
+                <td> 
+                <span class="glyphicon glyphicon-plus plus"></span>
+                </td>
+                <td id="<%=item.id%>_num" class="num"> 0 </td>
+                <td> <span class="glyphicon glyphicon-minus minus"></span> </td>
+                <td class="item_id hidden"><%= item.id %></td>
+                  <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
+              <% end %>
+
+            </tr>
+          <% end %>
       </table>
-    </div>
     <% end %>
 
     <table class="table subtotal">
