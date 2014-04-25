@@ -80,6 +80,8 @@ class Order < ActiveRecord::Base
   def integer_to_currency(amount, options = {})
     options[:unit] = "$" if options[:unit].nil?
     options[:separator] = "." if options[:separator].nil?
+    return "Free" if amount == 0
+
 
     amount_str = amount.to_s
     cents = amount_str[-2,2]

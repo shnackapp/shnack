@@ -9,7 +9,7 @@ class ReceiptMailer < ActionMailer::Base
     @owner = @order.owner
     @items = Hash[@owner.menu.items.map{|it| [it.id, it]}]
     @order_items = @order.order_items
-	mail(to: @user.email, subject: "Confirmation For Order ##{@order.id}")
+	  mail(to: @user.email, subject: "Confirmation For Order ##{@order.order_number}")
   end
 
 

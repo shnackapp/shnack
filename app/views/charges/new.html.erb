@@ -5,14 +5,10 @@
 
 	<%= telephone_field(:user, :phone, :class => "form-control",:id => "order-phone-number", :placeholder => "Phone #") %> 
 	<br />
+  <%= email_field(:user, :email, :class => "form-control", :id => "order-phone-email", :placeholder => "E-mail address") %>
  
+  <%= button_tag(type: 'submit', class: "btn btn-primary btn-danger", id: "submit-order") do %>
+      <i class="glyphicon glyphicon-cutlery icon-white"></i> Submit Your Order
+    <% end %>
 
-	<div class="text-center">
-  <script src="https://checkout.stripe.com/checkout.js"  class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="Shnack"
-          data-label="Pay For Your Order"
-          data-description="Pay For Your Order"
-          data-amount="<%= @order.total %>"></script>
-      </div>
-<% end %>
+	<% end %>

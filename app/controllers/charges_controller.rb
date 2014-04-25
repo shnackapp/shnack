@@ -19,6 +19,7 @@ class ChargesController < ApplicationController
 	  @order = Order.find(params[:order_id])
 	  @amount = @order.total
 	  @owner = @order.owner
+ 
 
 	  unless @owner.is_open?
 	  	redirect_to root_path 
@@ -32,32 +33,29 @@ class ChargesController < ApplicationController
 
 
 	  if @order.user.nil?
-	  	@user = User.create(:email => params[:stripeEmail])
+	  	@user = User.where(:email => params[:user][:email]).first_or_create
+	  	@user.password = "temppassword"
+	  	@user.number = params[:user][:phone].gsub(/[()-]/, '').gsub(' ', '')
+	  	@user.save
+	  	
+	  	#Create role
+	  	role = Role.create(:role_type => 0)
+	  	role.user = @user
+	  	role.save
+
+	  	#save order
 	  	@order.user = @user
 	  	@order.save
 	  else
-	  	if User.exists?(:email => params[:stripeEmail])
-	  		@user = User.where(:email => params[:stripeEmail]).first
+	  	if User.exists?(:email => params[:user][:email])
+	  		@user = User.where(:email => params[:user][:email]).first
 	  		@user.update_attribute(:number, @order.user.number)
 	  		@order.user = @user
 	  		@order.save
 	  	else
-	  		@order.user.update_attribute(:email, params[:stripeEmail])
+	  		@order.user.update_attribute(:email, params[:user][:email])
 	  	end
 	  end
-
-
-	  customer = Stripe::Customer.create(
-	    :email => params[:stripeEmail],
-	    :card  => params[:stripeToken]
-	  )
-
-	  charge = Stripe::Charge.create(
-	    :customer    => customer.id,
-	    :amount      => @amount,
-	    :description => 'Rails Stripe customer',
-	    :currency    => 'usd'
-	  )
 
   	# An example of the token sent back when a device registers for notifications
     # token = "<2410d83b 257e501b 73cb9bc6 c44a9b4e fa46aab1 99694c8e fb01088c 3c5aca75>"
@@ -73,7 +71,7 @@ class ChargesController < ApplicationController
 	    notification.badge = 1
 
 	    notification.content_available = true
-	    notification.custom_data = {order_number: @order.order_number, order_description: order_description, order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
+	    notification.custom_data = {id: @order.id, order_number: @order.order_number, order_description: order_description, order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
 
 	    # And... sent! That's all it takes.
 	    APN.push(notification)
