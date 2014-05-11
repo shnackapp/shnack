@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   force_ssl
   protect_from_forgery
+  config.relative_url_root = ""
   before_filter :setup
 
   def setup
