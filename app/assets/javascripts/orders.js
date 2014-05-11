@@ -26,7 +26,9 @@ $(document).ready(function() {
 		updatePrice();
 	});
 
-	$(".panel-heading").click(function() {
+	$(".panel-heading").click(function(evt) {
+		evt.stopPropagation();
+		evt.preventDefault();
 		var items = $(this).next();
 		if(!items.is(":visible")) {
 			items.slideDown(400);
