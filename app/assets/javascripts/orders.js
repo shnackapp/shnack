@@ -26,18 +26,8 @@ $(document).ready(function() {
 		updatePrice();
 	});
 
-	$(".panel-heading").click(function(evt) {
-
-		console.log("this got clicked");
-		var items = $(this).next();
-		if(!items.is(":visible")) {
-			items.slideDown(400);
-
-		}
-		else {
-			items.slideUp(400);
-		}
-
+	$(".panel-heading").click(function() {
+		$(this).next().slideToggle(400);
 	});
 
 });
