@@ -27,8 +27,8 @@ $(document).ready(function() {
 	});
 
 	$(".panel-heading").click(function(evt) {
-		evt.stopPropagation();
-		evt.preventDefault();
+
+		console.log("this got clicked");
 		var items = $(this).next();
 		if(!items.is(":visible")) {
 			items.slideDown(400);
