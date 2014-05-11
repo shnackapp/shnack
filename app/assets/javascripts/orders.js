@@ -27,7 +27,15 @@ $(document).ready(function() {
 	});
 
 	$(".panel-heading").click(function() {
-		$(this).next().slideToggle(400);
+		var items = $(this).next();
+		if(!items.is(":visible")) {
+			items.slideDown(400);
+
+		}
+		else {
+			items.slideUp(400);
+		}
+
 	});
 
 });
