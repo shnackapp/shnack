@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   helper :all
-  force_ssl unless: :is_nvc?
+  force_ssl unless: :is_demo?
   protect_from_forgery
   before_filter :setup
 
