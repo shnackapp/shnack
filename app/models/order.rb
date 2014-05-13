@@ -16,16 +16,19 @@
 #  slug          :string(255)
 #  slug_id       :string(255)
 #  order_number  :integer
+#  user_info_id  :integer
 #
 
 class Order < ActiveRecord::Base
   extend FriendlyId
-  attr_accessible :subtotal, :total, :charge_id, :details, :user_id, :slug_id, :order_number
+  attr_accessible :subtotal, :total, :charge_id, :details, 
+    :user_id, :slug_id, :order_number, :user_info
 
   friendly_id :slug_id, use: :slugged
   belongs_to :vendor
   belongs_to :restaurant
   belongs_to :user
+  belongs_to :user_info
   has_many :order_states
   has_many :order_items
 
@@ -44,6 +47,20 @@ class Order < ActiveRecord::Base
 
   def to_param
     "#{slug_id}"
+  end
+
+  def notify_customer_of_completed_order
+    client = Twilio::REST::Client.new Rails.configuration.twilio[:sid], Rails.configuration.twilio[:token] 
+
+    customer = self.customer
+
+    unless customer.nil?
+        client.account.messages.create({
+        :from => Rails.configuration.twilio[:from],
+        :to => customer.number,
+          :body => "Your order ##{self.order_number} at #{self.owner.name} is ready to be picked up."    
+        })
+    end
   end
 
 
@@ -72,6 +89,10 @@ class Order < ActiveRecord::Base
 
 		description
 	end
+
+  def customer
+    self.user.nil? ? self.user_info : self.user
+  end
 
   def owner
     self.vendor.nil? ? self.restaurant : self.vendor

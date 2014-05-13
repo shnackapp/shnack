@@ -100,7 +100,11 @@ class OrdersController < ApplicationController
     @order.total = owner.add_tax ? amount + amount*owner.tax : amount
 
     owner.instance_of?(Vendor) ? @order.vendor = owner : @order.restaurant = owner
-    @order.user = current_user || User.create()
+    if user_signed_in?
+      @order.user = current_user
+    else
+      @order.user_info = UserInfo.create
+    end
 
     redirect_to new_order_charge_path(@order) if @order.save
 
@@ -136,23 +140,6 @@ class OrdersController < ApplicationController
       format.html { redirect_to orders_url }
       format.json { head :no_content }
     end
-  end
-
-  def add_number_to_order
-    @order = Order.find(params[:order_id])
-    
-    if @order.user.nil? 
-      @user = User.where(:number => params[:number]).first
-      while @user.nil? || @user.id.nil?
-        email =generate_fake_email
-        @user = User.create(:email => email, :password => "welcome_to_shnack", :number => params[:number])
-      end
-      @order.user = @user
-      @order.save
-    else
-      @order.user.update_attribute(:number, params[:number])
-    end
-    render :json => @order
   end
 
   def check_manager

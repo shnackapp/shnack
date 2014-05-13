@@ -4,12 +4,11 @@ class ReceiptMailer < ActionMailer::Base
   def receipt_email(order)
   	@order = order
 
-  	@user = @order.user
-  	
+    @customer = @order.customer
     @owner = @order.owner
     @items = Hash[@owner.menu.items.map{|it| [it.id, it]}]
     @order_items = @order.order_items
-	mail(to: @user.email, subject: "Confirmation For Order ##{@order.id}")
+	mail(to: @customer.email, subject: "Confirmation For Order ##{@order.id}")
   end
 
 
