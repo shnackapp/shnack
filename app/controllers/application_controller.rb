@@ -1,9 +1,12 @@
 class ApplicationController < ActionController::Base
-  include ApplicationHelper
-  force_ssl unless request.subdomain == "demo"
+  helper :all
+  force_ssl unless: :is_nvc?
   protect_from_forgery
-  config.relative_url_root = ""
   before_filter :setup
+
+  def is_demo?
+     request.subdomain == "demo"
+   end
 
   def setup
   	unless params[:stadium_id].nil?
@@ -13,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   def select_stadium
     @locations = Location.all
+  	@stadiums = Stadium.all
   end
 
 	def select_vendor
