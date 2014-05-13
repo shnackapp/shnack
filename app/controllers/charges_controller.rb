@@ -38,7 +38,7 @@ class ChargesController < ApplicationController
 	  	# @order.user = @user
 	  	# @order.save
 
-	  	@order.user_info.update_attribute(:email, params[:stripeEmail])
+	  	@order.user_info.update_attributes(:email => params[:stripeEmail], :number => params[:user][:phone])
 	  else
 	  	# if User.exists?(:email => params[:stripeEmail])
 	  	# 	@user = User.where(:email => params[:stripeEmail]).first
@@ -49,7 +49,7 @@ class ChargesController < ApplicationController
 	  	# 	@order.user.update_attribute(:email, params[:stripeEmail])
 	  	# end
 
-	  	@order.user.update_attribute(:email, params[:stripeEmail])
+	  	@order.user.update_attributes(:email => params[:stripeEmail], :number => params[:user][:phone])
 	  end
 
 

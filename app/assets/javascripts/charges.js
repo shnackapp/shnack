@@ -14,18 +14,18 @@ $(document).ready(function() {
    // });
 	
 	
-	$(".stripe-button-el").click(function(e) {
-		var pathname = window.location.pathname;
-		var num = $("#order-phone-number").val();
-		num = num.replace("(", "").replace(")", "").replace("-", "").replace(" ", "");
+	// $(".stripe-button-el").click(function(e) {
+	// 	var pathname = window.location.pathname;
+	// 	var num = $("#order-phone-number").val();
+	// 	num = num.replace("(", "").replace(")", "").replace("-", "").replace(" ", "");
 
-		$.ajax({
-			url: "/orders/" +pathname.split('/')[2] + "/add_number_to_order",
-			type: "POST",
-			data: 
-			{ number: num}
-		});
-	});
+	// 	$.ajax({
+	// 		url: "/orders/" +pathname.split('/')[2] + "/add_number_to_order",
+	// 		type: "POST",
+	// 		data: 
+	// 		{ number: num}
+	// 	});
+	// });
 
 });
 

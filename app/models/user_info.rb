@@ -10,6 +10,6 @@
 #
 
 class UserInfo < ActiveRecord::Base
-	attr_accessible :email, :phone_number
+	attr_accessible :email, :number
 	has_one :order
 end

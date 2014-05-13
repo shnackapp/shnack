@@ -142,17 +142,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  def add_number_to_order
-    @order = Order.find(params[:order_id])
-    
-    if @order.user.nil? 
-      @order.user_info.update_attribute(:number, params[:number])
-    else
-      @order.user.update_attribute(:number, params[:number])
-    end
-    render :json => @order
-  end
-
   def check_manager
     redirect_to root_path unless user_signed_in? && current_user.is_super
   end
