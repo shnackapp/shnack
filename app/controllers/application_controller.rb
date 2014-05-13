@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
-  force_ssl
+  force_ssl unless request.subdomain == "demo"
   protect_from_forgery
   config.relative_url_root = ""
   before_filter :setup
