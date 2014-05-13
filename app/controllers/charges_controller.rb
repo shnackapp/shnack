@@ -1,4 +1,6 @@
 class ChargesController < ApplicationController
+	include ChargesHelper
+
 	def index
 			respond_with "Hello"
 	end
@@ -32,18 +34,22 @@ class ChargesController < ApplicationController
 
 
 	  if @order.user.nil?
-	  	@user = User.create(:email => params[:stripeEmail])
-	  	@order.user = @user
-	  	@order.save
+	  	# @user = User.create(:email => params[:stripeEmail])
+	  	# @order.user = @user
+	  	# @order.save
+
+	  	@order.user_info.update_attribute(:email, params[:stripeEmail])
 	  else
-	  	if User.exists?(:email => params[:stripeEmail])
-	  		@user = User.where(:email => params[:stripeEmail]).first
-	  		@user.update_attribute(:number, @order.user.number)
-	  		@order.user = @user
-	  		@order.save
-	  	else
-	  		@order.user.update_attribute(:email, params[:stripeEmail])
-	  	end
+	  	# if User.exists?(:email => params[:stripeEmail])
+	  	# 	@user = User.where(:email => params[:stripeEmail]).first
+	  	# 	@user.update_attribute(:number, @order.user.number)
+	  	# 	@order.user = @user
+	  	# 	@order.save
+	  	# else
+	  	# 	@order.user.update_attribute(:email, params[:stripeEmail])
+	  	# end
+
+	  	@order.user.update_attribute(:email, params[:stripeEmail])
 	  end
 
 
@@ -84,6 +90,7 @@ class ChargesController < ApplicationController
       @order.update_attribute(:paid, true)
 	  #send User an email letting them know their order has been placed
 	  ReceiptMailer.receipt_email(@order).deliver
+	  @order.notify_customer_of_completed_order
 
 	  redirect_to order_path(@order)
 	

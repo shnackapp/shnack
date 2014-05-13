@@ -16,6 +16,7 @@
 #  slug          :string(255)
 #  slug_id       :string(255)
 #  order_number  :integer
+#  user_info_id  :integer
 #
 
 require 'test_helper'

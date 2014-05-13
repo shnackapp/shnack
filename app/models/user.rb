@@ -48,7 +48,6 @@ class User < ActiveRecord::Base
 	end
 
 	def is_super
-		
 		return role.is_super
 	end
 	

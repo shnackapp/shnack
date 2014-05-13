@@ -107,7 +107,7 @@ class ApiController < ApplicationController
 
 		@order_state = @order.update_state
 
-		notify_user_of_completed_order @order if @order_state.state == 2
+		@order.notify_customer_of_completed_order if @order_state.state == 2
 
 		render :json => @order_state
 	end

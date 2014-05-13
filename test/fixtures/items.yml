@@ -6,12 +6,13 @@
 #  name        :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  price       :decimal(8, 2)
+#  price       :integer
 #  item_type   :string(255)
 #  requires_id :boolean
 #  nut_allergy :boolean
 #  vegetarian  :boolean
 #  category_id :integer
+#  sold_out    :boolean          default(FALSE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

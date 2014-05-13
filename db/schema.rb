@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140415062537) do
+ActiveRecord::Schema.define(:version => 20140512213718) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20140415062537) do
     t.string   "slug"
     t.string   "slug_id"
     t.integer  "order_number"
+    t.integer  "user_info_id"
   end
 
   add_index "orders", ["slug"], :name => "index_orders_on_slug", :unique => true
@@ -123,6 +124,13 @@ ActiveRecord::Schema.define(:version => 20140415062537) do
 
   create_table "stadia", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_infos", :force => true do |t|
+    t.string   "email"
+    t.string   "number"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
