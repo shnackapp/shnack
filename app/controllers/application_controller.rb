@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
 
   def select_stadium
     @locations = Location.all
-  	@stadiums = Stadium.all
   end
 
 	def select_vendor
