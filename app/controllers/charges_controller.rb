@@ -40,7 +40,7 @@ class ChargesController < ApplicationController
 	  if @order.user.nil?
 	  	@order.user_info.update_attributes(:email => params[:stripeEmail], :number => params[:user][:phone])
 	  else
-	  	@order.user.update_attributes(:email => params[:stripeEmail], :number => params[:user][:phone])
+	  	@order.user.update_attributes(:number => params[:user][:phone])
 	  end
 
 	  if @owner.cash_only
@@ -81,7 +81,6 @@ class ChargesController < ApplicationController
 	    APN.push(notification)
  
       }
-
 
 
 	  @order.order_states.create(:state => 0)
