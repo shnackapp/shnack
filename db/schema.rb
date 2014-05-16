@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140512213718) do
+ActiveRecord::Schema.define(:version => 20140515235725) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20140512213718) do
     t.boolean  "open"
     t.boolean  "add_tax",                                         :default => false
     t.decimal  "tax",               :precision => 6, :scale => 6
+    t.boolean  "cash_only",                                       :default => false
   end
 
   create_table "menus", :force => true do |t|
@@ -165,6 +166,7 @@ ActiveRecord::Schema.define(:version => 20140512213718) do
     t.string   "registration_code"
     t.boolean  "add_tax",                                         :default => false
     t.decimal  "tax",               :precision => 6, :scale => 6
+    t.boolean  "cash_only",                                       :default => false
   end
 
 end

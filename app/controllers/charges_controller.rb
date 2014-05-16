@@ -22,6 +22,8 @@ class ChargesController < ApplicationController
 	  @amount = @order.total
 	  @owner = @order.owner
 
+
+
 	  unless @owner.is_open?
 	  	redirect_to root_path 
 	  	return
@@ -33,24 +35,31 @@ class ChargesController < ApplicationController
 	  end
 
 
+
+
 	  if @order.user.nil?
 	  	@order.user_info.update_attributes(:email => params[:stripeEmail], :number => params[:user][:phone])
 	  else
 	  	@order.user.update_attributes(:email => params[:stripeEmail], :number => params[:user][:phone])
 	  end
 
+	  if @owner.cash_only
+	  	@order.update_attribute(:paid, true)
+	  else
+		  customer = Stripe::Customer.create(
+		    :email => params[:stripeEmail],
+		    :card  => params[:stripeToken]
+		  )
 
-	  customer = Stripe::Customer.create(
-	    :email => params[:stripeEmail],
-	    :card  => params[:stripeToken]
-	  )
+		  charge = Stripe::Charge.create(
+		    :customer    => customer.id,
+		    :amount      => @amount,
+		    :description => 'Rails Stripe customer',
+		    :currency    => 'usd'
+		  )
+	      @order.update_attribute(:paid, true)
+	  end
 
-	  charge = Stripe::Charge.create(
-	    :customer    => customer.id,
-	    :amount      => @amount,
-	    :description => 'Rails Stripe customer',
-	    :currency    => 'usd'
-	  )
 
   	# An example of the token sent back when a device registers for notifications
     # token = "<2410d83b 257e501b 73cb9bc6 c44a9b4e fa46aab1 99694c8e fb01088c 3c5aca75>"
@@ -66,18 +75,18 @@ class ChargesController < ApplicationController
 	    notification.badge = 1
 
 	    notification.content_available = true
-	    notification.custom_data = {order_number: @order.order_number, order_description: order_description, order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
+	    notification.custom_data = {order_number: @order.order_number, order_description: order_description, pay_with_cash: @owner.cash_only ,order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
 
 	    # And... sent! That's all it takes.
 	    APN.push(notification)
  
       }
 
+
+
 	  @order.order_states.create(:state => 0)
-      @order.update_attribute(:paid, true)
 	  #send User an email letting them know their order has been placed
-	  ReceiptMailer.receipt_email(@order).deliver
-	  @order.notify_customer_of_completed_order
+	  ReceiptMailer.receipt_email(@order).deliver unless @order.customer.email.nil?
 
 	  redirect_to order_path(@order)
 	

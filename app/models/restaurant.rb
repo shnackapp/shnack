@@ -15,7 +15,7 @@
 
 class Restaurant < Location
   # attr_accessible :title, :body
-  attr_accessible :registration_code, :open, :add_tax, :tax
+  attr_accessible :registration_code, :open, :add_tax, :tax, :cash_only
   has_many :hours
   has_many :orders
   has_many :devices
