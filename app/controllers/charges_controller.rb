@@ -77,7 +77,6 @@ class ChargesController < ApplicationController
       @order.update_attribute(:paid, true)
 	  #send User an email letting them know their order has been placed
 	  ReceiptMailer.receipt_email(@order).deliver
-	  @order.notify_customer_of_completed_order
 
 	  redirect_to order_path(@order)
 	
