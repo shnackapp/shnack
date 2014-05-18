@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   def select_stadium
     @locations = Location.all
+    @locations.reverse!
   	@stadiums = Stadium.all
   end
 
