@@ -30,7 +30,7 @@ $(document).ready(function() {
 		$(this).next().slideToggle(400);
 	});
 
-	$(".order-submit").click(function(e) {
+	$("#order-submit").click(function(e) {
 
 		var total = $(".total").data("price");
 		if(total <= 0) {
