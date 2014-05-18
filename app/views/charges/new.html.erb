@@ -3,13 +3,13 @@
 <%= form_tag order_charges_path(@order) do %>
 	<%= render 'shared/order_details' %>
 
-	<%= telephone_field(:user, :phone, :class => "form-control",:id => "order-phone-number", :placeholder => "Phone #") %> 
+	<%= telephone_field(:user, :phone, :class => "form-control",:id => "order-phone-number", :placeholder => "Enter your Phone # before submitting") %> 
 	<br />
  
   <% if @owner.cash_only %>
       <div class="text-center" style="width:100%">
 
-        <%= button_tag(type: 'submit', class: "btn btn-danger") do %>
+        <%= button_tag(type: 'submit', id: "confirm-button", class: "btn btn-danger") do %>
           <i class="glyphicon glyphicon-cutlery icon-white"></i> Confirm Order
         <% end %> <br />
         Pay with cash when you pick up your food.

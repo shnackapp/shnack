@@ -8,7 +8,7 @@ $(document).ready(function() {
    		validateInputs();
    });
 
-   $(".stripe-button-el").prop('disabled', true);
+   disableButton();
    // $("#order-email").blur(function(e) {
    // 		validateInputs();
    // });
@@ -34,13 +34,25 @@ function validateInputs()
 	// var email_valid = validateEmail($("#order-email").val());
 	var phone_valid = validatePhoneNumber($("#order-phone-number").val());
 	if(phone_valid) {
-		$(".stripe-button-el").prop('disabled', false);
+		enableButton();
 	}
 	else {
-		$(".stripe-button-el").prop('disabled', true);
+		disableButton();
 	}
 
 };
+
+function enableButton() {
+	$(".stripe-button-el").prop('disabled', false);
+   $("#confirm-button").prop('disabled', false);
+
+}
+
+function disableButton() {
+   $(".stripe-button-el").prop('disabled', true);
+   $("#confirm-button").prop('disabled', true);
+
+}
 
 function validatePhoneNumber(number)
 {
