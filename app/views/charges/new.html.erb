@@ -3,16 +3,30 @@
 <%= form_tag order_charges_path(@order) do %>
 	<%= render 'shared/order_details' %>
 
-	<%= telephone_field(:user, :phone, :class => "form-control",:id => "order-phone-number", :placeholder => "Phone #") %> 
+	<%= telephone_field(:user, :phone, :class => "form-control",:id => "order-phone-number", :placeholder => "Phone #") %>
 	<br />
  
+  <% if @owner.cash_only %>
+      <div class="text-center" style="width:100%">
 
-	<div class="text-center">
-  <script src="https://checkout.stripe.com/checkout.js"  class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="Shnack"
-          data-label="Pay For Your Order"
-          data-description="Pay For Your Order"
-          data-amount="<%= @order.total %>"></script>
+        <%= button_tag(type: 'submit', id: "confirm-button", class: "btn btn-danger") do %>
+          <i class="glyphicon glyphicon-cutlery icon-white"></i> Confirm Order
+        <% end %> <br />
       </div>
+
+  <% else %>
+
+  	<div class="text-center">
+    <script src="https://checkout.stripe.com/checkout.js"  class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="Shnack"
+            data-label="Pay For Your Order"
+            data-description="Pay For Your Order"
+            data-amount="<%= @order.total %>"></script>
+        </div>
+  <% end %>
+
+  <div class="error phone-error" style="display:none;">Please enter your phone number or we won't be able to let you know when your order's ready!</div>
+
+
 <% end %>

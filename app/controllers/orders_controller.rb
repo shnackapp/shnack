@@ -93,8 +93,7 @@ class OrdersController < ApplicationController
         amount += cost
       end
     }
-
-    
+        
 
     @order.subtotal = amount
     @order.total = owner.add_tax ? amount + amount*owner.tax : amount
