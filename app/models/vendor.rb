@@ -11,6 +11,7 @@
 #  registration_code :string(255)
 #  add_tax           :boolean          default(FALSE)
 #  tax               :decimal(6, 6)
+#  cash_only         :boolean          default(FALSE)
 #
 
 class Vendor < ActiveRecord::Base
