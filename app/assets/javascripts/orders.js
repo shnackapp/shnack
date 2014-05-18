@@ -30,12 +30,12 @@ $(document).ready(function() {
 		$(this).next().slideToggle(400);
 	});
 
-	$("button").click(function(e) {
+	$(".order-submit").click(function(e) {
 
 		var total = $(".total").data("price");
 		if(total <= 0) {
 			e.preventDefault();
-			$(".phone-error").slideDown(100);
+			$(".order-error").slideDown(100);
 		}
 
 	})

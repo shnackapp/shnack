@@ -85,11 +85,11 @@
 
   <div class="actions">
   <% if @owner.is_open? %>
-    <%= button_tag(type: 'submit', class: "btn btn-primary btn-danger") do %>
+    <%= button_tag(type: 'submit', id:"order-submit", class: "btn btn-primary btn-danger") do %>
       <i class="glyphicon glyphicon-cutlery icon-white"></i> Place Order
     <% end %>
   <% else %> 
-    <%= button_tag(type: 'submit', class: "btn btn-primary btn-danger", :disabled => true) do %>
+    <%= button_tag(type: 'submit', id:"order-submit",  class: "btn btn-primary btn-danger", :disabled => true) do %>
       <i class="glyphicon glyphicon-cutlery icon-white"></i> Place Order
     <% end %>
   </div>

@@ -28,6 +28,8 @@ $(document).ready(function() {
 	$(".stripe-button-el").on('click', function(e){
 		var phone_valid = validatePhoneNumber($("#order-phone-number").val());
 		if(!phone_valid) {
+						console.log("is preventing default and handling error");
+
 			e.preventDefault();
 			$(".phone-error").slideDown(200);
 						$("#order-phone-number").addClass("error");
