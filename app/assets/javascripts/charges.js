@@ -16,6 +16,8 @@ $(document).ready(function() {
 	
 	$("#confirm-button").on('click', function(e){
 		var phone_valid = validatePhoneNumber($("#order-phone-number").val());
+		console.log("phone is " + $("#order-phone-number").val());
+		console.log("Phone valid is" + phone_valid);
 		if(!phone_valid) {
 			e.preventDefault();
 			$(".phone-error").slideDown(200);
