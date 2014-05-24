@@ -17,6 +17,7 @@
 #  updated_at             :datetime         not null
 #  authentication_token   :string(255)
 #  number                 :string(255)
+#  customer_id            :string(255)
 #
 
 require 'test_helper'

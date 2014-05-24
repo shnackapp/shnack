@@ -46,10 +46,14 @@ class ChargesController < ApplicationController
 	  if @owner.cash_only
 	  	@order.update_attribute(:paid, true)
 	  else
+
+	  	unless @order.user.nil?
 		  customer = Stripe::Customer.create(
 		    :email => params[:stripeEmail],
 		    :card  => params[:stripeToken]
 		  )
+
+		  @order.user.update_attribute(:customer_id, customer.id)
 
 		  charge = Stripe::Charge.create(
 		    :customer    => customer.id,
@@ -58,6 +62,16 @@ class ChargesController < ApplicationController
 		    :currency    => 'usd'
 		  )
 	      @order.update_attribute(:paid, true)
+	  	else
+	  	  charge = Stripe::Charge.create(
+    		:amount => @amount, # amount in cents, again
+    		:currency => "usd",
+    		:card => params[:stripeToken],
+    		:description => params[:stripeEmail]
+  			)
+	  	end
+
+
 	  end
 
 
