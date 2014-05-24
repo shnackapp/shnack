@@ -3,7 +3,7 @@
 <%= form_tag order_charges_path(@order) do %>
 	<%= render 'shared/order_details' %>
 
-  <% if user_signed_in? %>
+  <% if user_signed_in? && !current_user.number.nil? %>
     <%= telephone_field(:user, :phone, :class=>"form-control", :id => "order-phone-number", :value => current_user.number) %>
   <% else %>
   	<%= telephone_field(:user, :phone, :class => "form-control",:id => "order-phone-number", :placeholder => "Phone #") %>
