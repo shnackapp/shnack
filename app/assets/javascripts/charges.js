@@ -25,12 +25,9 @@ $(document).ready(function() {
 	$(".stripe-button-el").on('click', function(e){
 		var phone_valid = validatePhoneNumber($("#order-phone-number").val());
 		if(!phone_valid) {
-						console.log("is preventing default and handling error");
-
 			e.preventDefault();
 			$(".phone-error").slideDown(200);
-						$("#order-phone-number").addClass("error");
-
+			$("#order-phone-number").addClass("error");
 		}
 	});
 
@@ -64,7 +61,7 @@ function validateInputs()
 };
 
 function enableButton() {
-	$(".stripe-button-el").prop('disabled', false);
+   $(".stripe-button-el").prop('disabled', false);
    $("#confirm-button").prop('disabled', false);
 }
 

@@ -3,7 +3,11 @@
 <%= form_tag order_charges_path(@order) do %>
 	<%= render 'shared/order_details' %>
 
-	<%= telephone_field(:user, :phone, :class => "form-control",:id => "order-phone-number", :placeholder => "Phone #") %>
+  <% if user_signed_in? %>
+    <%= telephone_field(:user, :phone, :class=>"form-control", :id => "order-phone-number", :value => current_user.number) %>
+  <% else %>
+  	<%= telephone_field(:user, :phone, :class => "form-control",:id => "order-phone-number", :placeholder => "Phone #") %>
+  <% end %>
 	<br />
  
   <% if @owner.cash_only %>
@@ -22,7 +26,11 @@
             data-name="Shnack"
             data-label="Pay For Your Order"
             data-description="Pay For Your Order"
-            data-amount="<%= @order.total %>"></script>
+            data-amount="<%= @order.total %>"
+            <%= "data-email='#{current_user.email}'" if user_signed_in? %>
+
+
+            ></script>
         </div>
   <% end %>
 

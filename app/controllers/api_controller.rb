@@ -13,12 +13,12 @@ class ApiController < ApplicationController
 	end
 
 	def get_vendor_for_location
-    @loc = Location.find(params[:object_id])
-    if @loc.instance_of?(Restaurant)
-      redirect_to new_order_path(:restaurant_id => @loc.id) 
-    else
-  		respond_with @loc.vendors
-    end
+	    @loc = Location.find(params[:object_id])
+	    if @loc.instance_of?(Restaurant)
+	      redirect_to new_order_path(:restaurant_id => @loc.id) 
+	    else
+	  		respond_with @loc.vendors
+	    end
 	end
 
 

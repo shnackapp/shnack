@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140515235725) do
+ActiveRecord::Schema.define(:version => 20140524224417) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(:version => 20140515235725) do
     t.datetime "updated_at",                             :null => false
     t.string   "authentication_token"
     t.string   "number"
+    t.string   "customer_id"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
