@@ -48,6 +48,21 @@
 		<% end %>
 	</table>
 
+
+	<table class="table">
+		<tr> <th colspan="2"> Managers </th> </tr>
+
+		
+		
+		<tr>
+			<td> Add Manager By Email </td>
+			<td> <%= text_field_tag :email %> </td>
+		</tr>
+		<tr>
+			<td colspan="2"> 
+
+	</table>
+
 	<ul class="list-group">
 		<li class="list-group-item">
 		Registration Code: <%= @restaurant.registration_code %> <%= link_to "Generate new code", new_registration_code_restaurant_path(@restaurant) %>
