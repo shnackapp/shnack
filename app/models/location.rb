@@ -12,6 +12,7 @@
 #  add_tax           :boolean          default(FALSE)
 #  tax               :decimal(6, 6)
 #  cash_only         :boolean          default(FALSE)
+#  initial_state     :integer          default(0)
 #
 
 class Location < ActiveRecord::Base
