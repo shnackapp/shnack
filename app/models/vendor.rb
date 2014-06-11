@@ -12,10 +12,11 @@
 #  add_tax           :boolean          default(FALSE)
 #  tax               :decimal(6, 6)
 #  cash_only         :boolean          default(FALSE)
+#  initial_state     :integer          default(0)
 #
 
 class Vendor < ActiveRecord::Base
-  attr_accessible :name, :stadium_id, :registration_code
+  attr_accessible :name, :stadium_id, :registration_code, :initial_state
   has_one :menu
   has_many :orders
   has_many :devices
