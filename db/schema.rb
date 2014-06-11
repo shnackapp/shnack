@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140609060037) do
+ActiveRecord::Schema.define(:version => 20140611061223) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20140609060037) do
     t.boolean  "cash_only",                                       :default => false
     t.integer  "shnack_fee",                                      :default => 50
     t.integer  "shnack_percent",                                  :default => 5
+    t.string   "bank_account_id"
   end
 
   create_table "locations_roles", :id => false, :force => true do |t|
@@ -114,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20140609060037) do
     t.integer  "user_info_id"
     t.integer  "shnack_cut",    :default => 0
     t.integer  "location_cut"
+    t.boolean  "withdrawn",     :default => false
   end
 
   add_index "orders", ["slug"], :name => "index_orders_on_slug", :unique => true
@@ -179,6 +181,7 @@ ActiveRecord::Schema.define(:version => 20140609060037) do
     t.boolean  "cash_only",                                       :default => false
     t.integer  "shnack_fee",                                      :default => 50
     t.integer  "shnack_percent",                                  :default => 5
+    t.string   "bank_account_id"
   end
 
 end

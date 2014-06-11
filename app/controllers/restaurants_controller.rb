@@ -7,7 +7,9 @@ class RestaurantsController < ApplicationController
 	def show
 		@restaurant = Restaurant.find(params[:id])
 		@amount = 0
-		@restaurant.orders.each { |order| @amount = @amount + order.location_cut unless order.location_cut.nil? }
+		@restaurant.orders.available.each { |order| @amount = @amount + order.location_cut unless order.location_cut.nil? }
+
+		@account = @restaurant.bank_account_id.nil? ? nil : Stripe::Recipient.retrieve(@restaurant.bank_account_id).active_account
 	end
 	def new
 		@restaurant = Restaurant.new
@@ -78,6 +80,17 @@ class RestaurantsController < ApplicationController
 	
 	def save_bank_account
 		@restaurant = Restaurant.find(params[:id])
+		byebug
+
+		recipient = Stripe::Recipient.create(
+  			:name => @restaurant.name,
+  			:type => "individual",
+  			:email => current_user.email,
+  			:bank_account => params[:stripeToken]
+		)
+
+		@restaurant.update_attribute(:bank_account_id, recipient.id)
+
 
 		redirect_to @restaurant
 	end

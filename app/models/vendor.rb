@@ -14,10 +14,11 @@
 #  cash_only         :boolean          default(FALSE)
 #  shnack_fee        :integer          default(50)
 #  shnack_percent    :integer          default(5)
+#  bank_account_id   :string(255)
 #
 
 class Vendor < ActiveRecord::Base
-  attr_accessible :name, :stadium_id, :registration_code
+  attr_accessible :name, :stadium_id, :registration_code, :bank_account_id
   has_one :menu
   has_many :orders
   has_many :devices

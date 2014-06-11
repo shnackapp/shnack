@@ -24,7 +24,7 @@
 class Order < ActiveRecord::Base
   extend FriendlyId
   attr_accessible :subtotal, :total, :charge_id, :details, 
-    :user_id, :slug_id, :order_number, :user_info
+    :user_id, :slug_id, :order_number, :user_info, :withdrawn
 
   friendly_id :slug_id, use: :slugged
   belongs_to :vendor
@@ -33,6 +33,9 @@ class Order < ActiveRecord::Base
   belongs_to :user_info
   has_many :order_states
   has_many :order_items
+
+
+  scope :available, -> { where(:withdrawn => false)}
 
   before_create :set_slug_id
   before_save :set_order_number
@@ -46,6 +49,7 @@ class Order < ActiveRecord::Base
   def set_order_number
     self.order_number = (self.owner.paid_orders.count + 1)%100 unless self.owner.nil? || !self.order_number.nil?
   end
+
 
   def to_param
     "#{slug_id}"

@@ -14,6 +14,7 @@
 #  cash_only         :boolean          default(FALSE)
 #  shnack_fee        :integer          default(50)
 #  shnack_percent    :integer          default(5)
+#  bank_account_id   :string(255)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

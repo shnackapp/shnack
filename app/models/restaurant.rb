@@ -14,11 +14,12 @@
 #  cash_only         :boolean          default(FALSE)
 #  shnack_fee        :integer          default(50)
 #  shnack_percent    :integer          default(5)
+#  bank_account_id   :string(255)
 #
 
 class Restaurant < Location
   # attr_accessible :title, :body
-  attr_accessible :registration_code, :open, :add_tax, :tax, :cash_only, :shnack_fee, :shnack_percent
+  attr_accessible :registration_code, :open, :add_tax, :tax, :cash_only, :shnack_fee, :shnack_percent, :bank_account_id
   has_many :hours
   has_many :orders
   has_many :devices
