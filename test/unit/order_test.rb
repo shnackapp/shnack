@@ -17,6 +17,8 @@
 #  slug_id       :string(255)
 #  order_number  :integer
 #  user_info_id  :integer
+#  shnack_cut    :integer          default(0)
+#  location_cut  :integer
 #
 
 require 'test_helper'

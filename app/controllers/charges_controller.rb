@@ -47,8 +47,16 @@ class ChargesController < ApplicationController
 	  	@order.update_attribute(:paid, true)
 	  else
 
-	  	unless @order.user.nil?
-		  customer = Stripe::Customer.create(
+	  	if @order.user.nil?
+	  	  charge = Stripe::Charge.create(
+    		:amount => @amount, # amount in cents, again
+    		:currency => "usd",
+    		:card => params[:stripeToken],
+    		:description => params[:stripeEmail]
+  			)
+		
+	  	else
+  		  customer = Stripe::Customer.create(
 		    :email => params[:stripeEmail],
 		    :card  => params[:stripeToken]
 		  )
@@ -62,17 +70,15 @@ class ChargesController < ApplicationController
 		    :currency    => 'usd'
 		  )
 	      @order.update_attribute(:paid, true)
-	  	else
-	  	  charge = Stripe::Charge.create(
-    		:amount => @amount, # amount in cents, again
-    		:currency => "usd",
-    		:card => params[:stripeToken],
-    		:description => params[:stripeEmail]
-  			)
 	  	end
 
 
 	  end
+
+	  @order.shnack_cut = @owner.shnack_fee + @owner.shnack_percent * @order.subtotal/100
+	  @order.location_cut = @order.total - @order.shnack_cut
+
+	  @order.save
 
 
   	# An example of the token sent back when a device registers for notifications

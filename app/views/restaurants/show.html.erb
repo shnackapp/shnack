@@ -1,4 +1,21 @@
+
 <h2 class="headline"> <%= @restaurant.name %> </h2>
+
+	<div class="well">
+		<div>
+			<strong> Amount Available: <%= Order.first.integer_to_currency @amount %> </strong><br />
+			<button type="button" class="btn btn-success">Withdraw</button>  <button class="btn btn-info"> View Recent Orders </button>
+		</div>
+
+
+
+		<div style="padding-top:10px; padding-bottom:30px;">
+			<strong>Bank Account:		</strong>
+			<%= button_to "Change Bank Account", bank_account_restaurant_path(@restaurant), { :class => "btn btn-primary", :method => 'get' } %>
+		</div>
+
+
+	</div>
 
 
 	<div class ="panel panel-default">

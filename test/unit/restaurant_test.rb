@@ -12,6 +12,8 @@
 #  add_tax           :boolean          default(FALSE)
 #  tax               :decimal(6, 6)
 #  cash_only         :boolean          default(FALSE)
+#  shnack_fee        :integer          default(50)
+#  shnack_percent    :integer          default(5)
 #
 
 require 'test_helper'

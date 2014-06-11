@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140525060559) do
+ActiveRecord::Schema.define(:version => 20140609060037) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(:version => 20140525060559) do
     t.boolean  "add_tax",                                         :default => false
     t.decimal  "tax",               :precision => 6, :scale => 6
     t.boolean  "cash_only",                                       :default => false
+    t.integer  "shnack_fee",                                      :default => 50
+    t.integer  "shnack_percent",                                  :default => 5
   end
 
   create_table "locations_roles", :id => false, :force => true do |t|
@@ -110,6 +112,8 @@ ActiveRecord::Schema.define(:version => 20140525060559) do
     t.string   "slug_id"
     t.integer  "order_number"
     t.integer  "user_info_id"
+    t.integer  "shnack_cut",    :default => 0
+    t.integer  "location_cut"
   end
 
   add_index "orders", ["slug"], :name => "index_orders_on_slug", :unique => true
@@ -173,6 +177,8 @@ ActiveRecord::Schema.define(:version => 20140525060559) do
     t.boolean  "add_tax",                                         :default => false
     t.decimal  "tax",               :precision => 6, :scale => 6
     t.boolean  "cash_only",                                       :default => false
+    t.integer  "shnack_fee",                                      :default => 50
+    t.integer  "shnack_percent",                                  :default => 5
   end
 
 end

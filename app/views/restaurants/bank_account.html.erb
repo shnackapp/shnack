@@ -1,0 +1,15 @@
+<h3> Bank Account for <%= @restaurant.name %> </h3>
+<script type="text/javascript" src="https://js.stripe.com/v2/"> </script>
+
+<script type="text/javascript">
+	Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
+</script>
+
+
+<%= form_tag(save_bank_account_restaurant_path(@restaurant), :method => "POST", :id => "bank-form") do  %>
+	Routing Number: <%= text_field_tag :routing_number %> <br />
+	Account Number: <%= text_field_tag :account_number %> <br />
+	<%= submit_tag "Submit" %>
+<% end %>
+
+

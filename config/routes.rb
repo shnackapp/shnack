@@ -22,6 +22,8 @@ Shnack::Application.routes.draw do
   resources :restaurants do
     member do
       get 'new_registration_code'
+      get 'bank_account'
+      post 'save_bank_account'
     end
   end
   

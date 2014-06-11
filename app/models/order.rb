@@ -17,6 +17,8 @@
 #  slug_id       :string(255)
 #  order_number  :integer
 #  user_info_id  :integer
+#  shnack_cut    :integer          default(0)
+#  location_cut  :integer
 #
 
 class Order < ActiveRecord::Base
@@ -104,7 +106,7 @@ class Order < ActiveRecord::Base
 
     amount_str = amount.to_s
     cents = amount_str[-2,2]
-    dollars = amount_str[0..-3]
+    dollars = amount_str.length < 3 ? "0" : amount_str[0..-3]
 
     return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
   end

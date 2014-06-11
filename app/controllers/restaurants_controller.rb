@@ -6,6 +6,8 @@ class RestaurantsController < ApplicationController
 	end
 	def show
 		@restaurant = Restaurant.find(params[:id])
+		@amount = 0
+		@restaurant.orders.each { |order| @amount = @amount + order.location_cut unless order.location_cut.nil? }
 	end
 	def new
 		@restaurant = Restaurant.new
@@ -64,11 +66,22 @@ class RestaurantsController < ApplicationController
 		
 		redirect_to @restaurant
 	end
+
 	def destroy
 		Restaurant.find(params[:id]).destroy
 		redirect_to :action => :index
 	end
+
+	def bank_account
+		@restaurant = Restaurant.find(params[:id])
+	end
 	
+	def save_bank_account
+		@restaurant = Restaurant.find(params[:id])
+
+		redirect_to @restaurant
+	end
+
 	def new_registration_code
 		@restaurant = Restaurant.find(params[:id])
 
