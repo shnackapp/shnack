@@ -12,12 +12,15 @@
 #  add_tax           :boolean          default(FALSE)
 #  tax               :decimal(6, 6)
 #  cash_only         :boolean          default(FALSE)
+#  hide_when_closed  :boolean          default(FALSE)
 #  initial_state     :integer          default(0)
 #
 
 class Restaurant < Location
   # attr_accessible :title, :body
-  attr_accessible :registration_code, :open, :add_tax, :tax, :cash_only, :initial_state
+
+  attr_accessible :registration_code, :open, :add_tax, :tax, :cash_only, :initial_state, :hide_when_closed
+
   has_many :hours
   has_many :orders
   has_many :devices
@@ -37,6 +40,14 @@ class Restaurant < Location
 
   def has_children
     false
+  end
+
+  def hide_when_closed?
+    if self.hide_when_closed
+      return true
+    else
+      return false
+    end
   end
 
   def is_open?
