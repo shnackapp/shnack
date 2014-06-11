@@ -13,6 +13,8 @@
 #  tax               :decimal(6, 6)
 #  cash_only         :boolean          default(FALSE)
 #  hide_when_closed  :boolean          default(FALSE)
+#  initial_state     :integer          default(0)
+
 #
 
 require 'test_helper'

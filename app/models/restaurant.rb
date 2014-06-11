@@ -13,11 +13,14 @@
 #  tax               :decimal(6, 6)
 #  cash_only         :boolean          default(FALSE)
 #  hide_when_closed  :boolean          default(FALSE)
+#  initial_state     :integer          default(0)
 #
 
 class Restaurant < Location
   # attr_accessible :title, :body
-  attr_accessible :registration_code, :open, :add_tax, :tax, :cash_only, :hide_when_closed
+
+  attr_accessible :registration_code, :open, :add_tax, :tax, :cash_only, :initial_state, :hide_when_closed
+
   has_many :hours
   has_many :orders
   has_many :devices

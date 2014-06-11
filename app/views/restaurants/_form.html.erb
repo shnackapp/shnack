@@ -13,8 +13,16 @@
 	<%= f.label :open %>
 	<%= f.check_box :open %>
 
+
 	<%= f.label :hide_when_closed %>
 	<%= f.check_box :hide_when_closed %>
+
+	<br />
+
+	<%= f.label :initial_state %>
+	<%= f.select :initial_state, [0, 1, 2, 3] %> 
+
+
 	<%= fields_for "restaurant[hours]" do |i| %>
 	<table class="table">
 		<tr>
