@@ -45,6 +45,10 @@ class ChargesController < ApplicationController
 
 	  if @owner.cash_only
 	  	@order.update_attribute(:paid, true)
+
+	  	@order.shnack_cut = 0
+	  	@order.location_cut = 0
+	  	@order.withdrawn = true
 	  else
 
 	  	if @order.user.nil?
@@ -73,10 +77,11 @@ class ChargesController < ApplicationController
 	  	end
 
 
+		@order.shnack_cut = @owner.shnack_fee + @owner.shnack_percent * @order.subtotal/100
+		@order.location_cut = @order.total - @order.shnack_cut
+
 	  end
 
-	  @order.shnack_cut = @owner.shnack_fee + @owner.shnack_percent * @order.subtotal/100
-	  @order.location_cut = @order.total - @order.shnack_cut
 
 	  @order.save
 

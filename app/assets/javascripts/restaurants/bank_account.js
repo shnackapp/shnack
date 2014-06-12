@@ -6,6 +6,8 @@ $(document).ready(function() {
 	    // Show the errors on the form
 	    // $form.find('.payment-errors').text(response.error.message);
 	    // $form.find('button').prop('disabled', false);
+	   	$(".error").text(response.error.message);
+	   	$(".error").slideDown(300);
 	    console.log("hello you had an error");
 	  } else {
 	    // token contains id, last4, and card type
@@ -19,12 +21,11 @@ $(document).ready(function() {
 	};
 
 
-	$("#bank-form").submit(function(event) {
+	$("#bank-account-form").submit(function(event) {
 		event.preventDefault();
 		var $form = $(this);
     	$form.find('button').prop('disabled', true);
 
-		console.log($form);
 		Stripe.bankAccount.createToken({
 			country: 'US',
 			routingNumber: $("#routing_number").val(),

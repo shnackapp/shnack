@@ -10,8 +10,13 @@
 
 
 		<div style="padding-top:10px; padding-bottom:30px;">
-			<strong>Bank Account: 	</strong> <%= @account.bank_name %> <%= @account.last4 %>	
-			<%= button_to "Change Bank Account", bank_account_restaurant_path(@restaurant), { :class => "btn btn-primary", :method => 'get' } %>
+
+			<% if @account.nil? %>
+				<%= button_to "Add Bank Account", bank_account_restaurant_path(@restaurant), { :class => "btn btn-primary", :method => 'get' } %>
+			<% else %>
+				<strong>Bank Account:</strong>  <%= @account.bank_name %> <%= @account.last4 %>	
+				<%= button_to "Change Bank Account", bank_account_restaurant_path(@restaurant), { :class => "btn btn-primary", :method => 'get' } %>
+			<% end %>
 		</div>
 
 

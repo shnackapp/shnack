@@ -10,7 +10,9 @@ class RestaurantsController < ApplicationController
 		@restaurant.orders.available.each { |order| @amount = @amount + order.location_cut unless order.location_cut.nil? }
 
 		@account = @restaurant.bank_account_id.nil? ? nil : Stripe::Recipient.retrieve(@restaurant.bank_account_id).active_account
+
 	end
+
 	def new
 		@restaurant = Restaurant.new
 		i=0
@@ -76,23 +78,31 @@ class RestaurantsController < ApplicationController
 
 	def bank_account
 		@restaurant = Restaurant.find(params[:id])
+		# @recipient = Stripe::Recipient.retrieve(@restaurant.bank_account_id) unless @restaurant.bank_account_id.nil?
 	end
 	
 	def save_bank_account
 		@restaurant = Restaurant.find(params[:id])
-		byebug
+		
+		if @restaurant.bank_account_id.nil?		
+			recipient = Stripe::Recipient.create(
+	  			:name => params[:name],
+	  			:type => params[:account],
+	  			:email => current_user.email,
+	  			:bank_account => params[:stripeToken]
+			)
+			@restaurant.update_attribute(:bank_account_id, recipient.id)
 
-		recipient = Stripe::Recipient.create(
-  			:name => @restaurant.name,
-  			:type => "individual",
-  			:email => current_user.email,
-  			:bank_account => params[:stripeToken]
-		)
-
-		@restaurant.update_attribute(:bank_account_id, recipient.id)
-
-
+		else
+			recipient = Stripe::Recipient.retrieve(@restaurant.bank_account_id)
+			recipient.bank_account = params[:stripeToken]
+		end
 		redirect_to @restaurant
+	end
+
+
+	def withdraw_available_funds
+
 	end
 
 	def new_registration_code
