@@ -15,6 +15,7 @@
 #  shnack_fee        :integer          default(50)
 #  shnack_percent    :integer          default(5)
 #  bank_account_id   :string(255)
+#  initial_state     :integer          default(0)
 #
 
 require 'test_helper'

@@ -73,7 +73,7 @@ class Order < ActiveRecord::Base
   #returns current order_state
   def current_order_state
   	o = self.order_states.descending.first
-  	o.nil? ? self.order_states.create(:state => 0) : o
+  	o.nil? ? self.order_states.create(:state => self.owner.initial_state) : o
   end
 
   def update_state

@@ -18,7 +18,7 @@
 #
 
 class Vendor < ActiveRecord::Base
-  attr_accessible :name, :stadium_id, :registration_code, :bank_account_id
+  attr_accessible :name, :stadium_id, :registration_code, :bank_account_id, :initial_state
   has_one :menu
   has_many :orders
   has_many :devices

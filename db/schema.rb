@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(:version => 20140611061223) do
     t.integer  "shnack_fee",                                      :default => 50
     t.integer  "shnack_percent",                                  :default => 5
     t.string   "bank_account_id"
+    t.integer  "initial_state",                                   :default => 0
+    t.boolean  "hide_when_closed",                                :default => false
   end
 
   create_table "locations_roles", :id => false, :force => true do |t|
@@ -182,6 +184,7 @@ ActiveRecord::Schema.define(:version => 20140611061223) do
     t.integer  "shnack_fee",                                      :default => 50
     t.integer  "shnack_percent",                                  :default => 5
     t.string   "bank_account_id"
+    t.integer  "initial_state",                                   :default => 0
   end
 
 end
