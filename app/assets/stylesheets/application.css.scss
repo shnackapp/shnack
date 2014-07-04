@@ -24,6 +24,8 @@ $shnackred: #a61c00;
 body {
 	//margin-right: 0px;
 	//padding-right: 0px;
+	background: url(welcome4.jpg) no-repeat fixed center;
+	background-size:100% 100%;
 }
 
 p {
@@ -263,4 +265,158 @@ input[type="tel"].error { border: 1px solid #780000  }
 	font-family: "Poiret One", Geneva, sans-serif;
 	color:#780000;
 
+}
+
+/* SHNACK ATTACK */
+table.item-list {
+
+ tr {
+    background-color: #FFF;
+    display: table-row;
+
+    &:nth-child(odd) {
+      background-color: #F9F9F9;
+    }
+
+    &:hover {
+      background-color: #FFFFF2;
+    }
+  }
+
+  td {
+    //border: 1px solid #E0E0E0;
+    padding: 5px;
+
+    button, select, input, textarea {
+      width: 100%;
+    }
+
+    &.single_icon {
+      text-align: center;
+      vertical-align: middle;
+    } 
+
+    &.numeric{
+      text-align: right;
+    }
+  }
+}
+
+button, input, textarea {
+  background: #FFFFFF;
+  border: solid 1px #E5E5E5;
+  font: normal 13px/100% Verdana, Tahoma, sans-serif;
+  margin-bottom: 10px;
+  outline: 0;
+  padding: 9px;
+
+  &.red {
+    background-color: #C35050;
+    color: white;
+  }
+  &.green {
+    background-color: #50C350;
+    color: white;
+  }
+  &.blue {
+    background-color: #5050C3;
+    color: white;
+  }
+  &[disabled=disabled] {
+    background-color: #999;
+    color: white;
+    &:before {
+      font-family: "Damion";
+      content: "X ";
+      font-size: 1.5em;
+    }
+  }
+
+}
+
+
+.top-heading {
+  background-color: #C35050;
+}
+
+/* Brock Noah 7.2.14
+  I noticed there is no consistency in setting up a sidebar 
+  filter with the drop down feature, (li only, ul, divs, labels)
+  here is my attempt to unify into the two common styles.
+
+  Fancy filter similarities with item_list, possibility
+  to 'combine' them. This would be the style for the table */
+
+/* probably should make this the new_item_list */
+table.item-list {
+  border-collapse: collapse;
+  width: 100%;
+
+	&.fixed-table {
+    table-layout: fixed;
+  }
+
+  th, th a{
+    border: 1px solid #E0E0E0;
+    background-color: #FFF;
+    color: #000;
+    font-size: 0.95em;
+    font-weight: bold;
+    padding: 5px;
+    text-decoration: none;
+    text-transform: capitalize;
+    vertical-align: bottom; 
+  }
+
+  tr {
+    background-color: #FFF;
+    display: table-row;
+
+    &:nth-child(even) {
+      background-color: #F9F9F9;
+    }
+
+    &:hover {
+      background-color: #FFFFF2;
+    }
+  }
+
+  td {
+    border: 1px solid #E0E0E0;
+    padding: 5px;
+    /* adpoted from index-action.css */
+    vertical-align: top;
+
+    select, input, textarea {
+      width: 100%;
+    }
+
+    /* adpoted from index-action.css */
+    &.table_icon {
+      text-align: center;
+      vertical-align: middle;
+    } 
+
+    &.numeric{
+      text-align: right;
+    }
+  }
+}
+
+/* Might need to add form selector for backend usability */
+.plain-filter {
+  * {
+    display: block;
+    width: 100%;
+  }
+
+  select,
+  input,
+  textarea {
+    margin-bottom: 5px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
 }

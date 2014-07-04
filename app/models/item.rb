@@ -20,6 +20,7 @@ class Item < ActiveRecord::Base
   attr_accessible :name, :price, :item_type, :requires_id, :nut_allergy, :vegetarian
   belongs_to :category
   belongs_to :menu
+  has_many :modifiers
 
   def self.integer_to_currency(amount, options = {})
     options[:unit] = "$" if options[:unit].nil?

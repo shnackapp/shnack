@@ -82,4 +82,7 @@ class RestaurantsController < ApplicationController
 		redirect_to root_path unless user_signed_in? && current_user.is_super
 	end
 
+	def load_new_modifier
+		
+	end
 end

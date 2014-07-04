@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140524224417) do
+ActiveRecord::Schema.define(:version => 20140611020130) do
+
+  create_table "analytics", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -73,6 +78,23 @@ ActiveRecord::Schema.define(:version => 20140524224417) do
     t.datetime "updated_at",    :null => false
     t.integer  "vendor_id"
     t.integer  "restaurant_id"
+  end
+
+  create_table "modifiers", :force => true do |t|
+    t.integer  "type"
+    t.integer  "price"
+    t.string   "name"
+    t.integer  "item_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "options", :force => true do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.integer  "modifier_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "order_items", :force => true do |t|

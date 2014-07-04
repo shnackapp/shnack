@@ -8,26 +8,33 @@ $(document).ready(function() {
 	$("span.plus").click(function() {
 		//increment up
 
-		var id = $(this).parent().parent().data("id");
+		var id = $(this).parent().parent().parent().data("id");
 		var val = $("#"+id+"_num").html();
 		val++;
 		 $("#"+id+"_num").html(val);
 		 $(".item_" + id).val(val);
 		 updatePrice();
+
+		 //$("#"+id+"_mod").show();
+		 $("#"+id+"_mod").slideDown(400);
+
 	});
 
 	$("span.minus").click(function() {
 		//increment down
-		var id = $(this).parent().parent().data("id");
+		var id = $(this).parent().parent().parent().data("id");
 		var val = $("#"+id+"_num").html();
 		if(val>0) { val--; } 
 		$("#"+id+"_num").html(val);
 		$(".item_" + id).val(val);
 		updatePrice();
+
+		$("#"+id+"_mod").slideUp(200);
+
 	});
 
 	$(".panel-heading").click(function() {
-		$(this).next().slideToggle(400);
+		$(this).next().slideToggle(200);
 	});
 
 	$("#order-submit").click(function(e) {
@@ -78,4 +85,12 @@ function toUSD(number) {
         .replace(/(\d{3}(?!$))/g, '$1,')
         .split('').reverse().join('');
     return '$' + dollars + '.' + cents.slice(0, 2);
+}
+
+function showItemModSection() {
+	document.getElementById("bonus").style.display="Block";
+}
+
+function hideItemModSection() {
+	document.getElementById("bonus").style.display="None";
 }
