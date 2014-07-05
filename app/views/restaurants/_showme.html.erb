@@ -1,0 +1,83 @@
+<h2 class="headline"> <%= @restaurant.name %> </h2>
+
+
+	<div class ="panel panel-default">
+		<% @restaurant.menu.categories.each do |category| %>
+			<div class="panel-heading"><h3 class="panel-title"><%= category.name %></h3></div>
+			<table class="item-list">
+			<% category.items.each do |item| %>
+				<tr>
+					<td ><%= item.name %></td>
+					<td class="numeric"><%= Item.integer_to_currency item.price %></td>
+					<td class="numeric" style="width:5%"><%= link_to content_tag(:span, nil, :class=> "glyphicon glyphicon-minus"), { :controller => 'menu', :action => 'delete_item', :item_id => item.id } %></td>
+
+				</tr>
+			<% end %>
+			</table>
+		<% end %>
+	</div>
+
+
+	<h2>Add A New Category</h2>
+	<table class="item-list">
+		<%= form_for @restaurant.menu.categories.new, :url => url_for(:controller => "menu", :action => 'add_category') do  |f| %>
+			<%= f.hidden_field :menu_id, :value => @restaurant.menu.id %>
+			<tr>
+				<td><%= f.label :name %></td>
+				<td><%= f.text_field :name %></td>
+			</tr>
+			<tr colspan="2"> <td> <%= f.submit %></td> </tr>
+		<% end %>
+	</table>
+
+	<h2>Add A New Item</h2>
+	<table class="item-list">
+		<%= form_for @restaurant.menu.items.new, :url => url_for(:controller => "menu", :action => 'add_item') do  |f| %>
+			<%= f.hidden_field :menu_id, :value => @restaurant.menu.id %>
+			<tr>
+				<td colspan="2"><%= collection_select(:item, :category_id, @restaurant.menu.categories, :id, :name, {}, {:class=>"form-control"}) %> </td>
+			</tr>
+			<tr>
+				<td><%= f.label :name %></td>
+				<td><%= f.text_field :name, :class=>"form-control" %></td>
+			</tr>
+
+			<tr>
+				<td> <%= f.label :price %></td>
+				<td> <%= f.text_field :price , :class=>"form-control"%></td>
+			</tr>
+
+			<tr>
+				<td> <%= f.label :modifiers %></td>
+				<td> <%= button_tag "Add a size option to item"  %>
+							<br>						
+							<%= button_tag "Add a single select option to item"  %>
+<br>
+						<%= button_tag "Add a multi select option to item"  %>
+							<br>						
+							<%= button_tag "Add a custom option to item"  %></td>
+
+			</tr>
+			<tr colspan="2"> <td> <%= f.submit %></td> </tr>
+		<% end %>
+	</table>
+
+	<ul class="list-group">
+		<li class="list-group-item">
+		Registration Code: <%= @restaurant.registration_code %> <%= link_to "Generate new code", new_registration_code_restaurant_path(@restaurant) %>
+		</li>
+		<li class="list-group-item">
+			Add Tax? - <%= @restaurant.add_tax %>
+		</li>
+
+		<li class="list-group-item">
+			Tax: <%= @restaurant.tax %>
+		</li>
+		<li class="list-group-item">
+			<%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %>
+		</li>
+		<li class="list-group-item">
+			<%= link_to "Delete Restaurant", restaurant_path(@restaurant), :method => :delete %>
+		</li>
+
+	</ul>
