@@ -75,6 +75,12 @@ class Restaurant < Location
     end
   end
 
+  def available_amount
+    amount = 0
+    self.orders.available.each { |order| amount = amount + order.location_cut unless order.location_cut.nil? }
+    amount
+  end
+
   def generate_registration_code
     begin
       self.registration_code = SecureRandom.hex[0..6]

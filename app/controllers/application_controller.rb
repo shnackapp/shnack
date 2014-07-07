@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper :all
+  include ApplicationHelper
   force_ssl unless: :is_demo?
   protect_from_forgery
   before_filter :setup

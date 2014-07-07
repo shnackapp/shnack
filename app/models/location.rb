@@ -20,7 +20,7 @@
 #
 
 class Location < ActiveRecord::Base
-  attr_accessible :created_at, :id, :name, :updated_at, :type
+  attr_accessible :created_at, :id, :name, :updated_at, :type	
   has_one :menu
   has_many :stadiums
   has_many :restaurants

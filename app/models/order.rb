@@ -35,7 +35,7 @@ class Order < ActiveRecord::Base
   has_many :order_items
 
 
-  scope :available, -> { where(:withdrawn => false)}
+  scope :available, -> { where(:withdrawn => false).where('created_at < ?', 1.week.ago) }
 
   before_create :set_slug_id
   before_save :set_order_number

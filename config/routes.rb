@@ -23,7 +23,10 @@ Shnack::Application.routes.draw do
     member do
       get 'new_registration_code'
       get 'bank_account'
+      get 'recent_orders'
+      post 'add_manager'
       post 'save_bank_account'
+      post 'withdraw_funds'
     end
   end
   

@@ -6,9 +6,7 @@ class RestaurantsController < ApplicationController
 	end
 	def show
 		@restaurant = Restaurant.find(params[:id])
-		@amount = 0
-		@restaurant.orders.available.each { |order| @amount = @amount + order.location_cut unless order.location_cut.nil? }
-
+		@amount = @restaurant.available_amount
 		@account = @restaurant.bank_account_id.nil? ? nil : Stripe::Recipient.retrieve(@restaurant.bank_account_id).active_account
 
 	end
@@ -24,6 +22,13 @@ class RestaurantsController < ApplicationController
 			i=i+1
 		end
 	end
+
+	def recent_orders
+		@restaurant = Restaurant.find(params[:id])
+		@orders = @restaurant.orders
+
+	end
+
 	def edit
 		@restaurant = Restaurant.find(params[:id])
 	end
@@ -100,9 +105,39 @@ class RestaurantsController < ApplicationController
 		redirect_to @restaurant
 	end
 
+	def add_manager
+		@restaurant = Restaurant.find(params[:id])
+		@user = User.where(:email => params[:email]).first
+		@role = @user.role
 
-	def withdraw_available_funds
+		@role.update_attribute(:role_type, 1)
 
+		@restaurant.roles << @role
+
+		redirect_to @restaurant
+	end
+
+	def withdraw_funds
+		@restaurant = Restaurant.find(params[:id])
+
+		if @restaurant.bank_account_id.nil?
+			flash[:error] = "Please set up a bank account with Shnack before attempting to withdraw funds"
+		else
+			# Check if account has the funds to handle withdrawal.
+			# flash[:error] = "There was a problem. Please contact us at contact@shnackapp.com for assistance."
+			transfer = Stripe::Transfer.create(
+  				:amount => @restaurant.available_amount, # amount in cents
+  				:currency => "usd",
+  				:recipient => @restaurant.bank_account_id,
+  				:statement_description => "Transfer on date"
+			)
+			mark_available_orders_as_withdrawn(@restaurant)
+
+			flash[:notice] = "Funds successfully transferred"
+		end
+
+
+		redirect_to @restaurant
 	end
 
 	def new_registration_code
@@ -115,7 +150,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def check_manager
-		redirect_to root_path unless user_signed_in? && current_user.is_super
+		redirect_to root_path unless user_signed_in? && current_user.is_manager_of?(Location.find(params[:id]))
 	end
 
 end
