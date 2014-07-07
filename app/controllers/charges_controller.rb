@@ -97,7 +97,7 @@ class ChargesController < ApplicationController
       }
 
 
-	  @order.order_states.create(:state => 0)
+	  @order.order_states.create(:state => @owner.initial_state)
 	  #send User an email letting them know their order has been placed
 	  ReceiptMailer.receipt_email(@order).deliver unless @order.customer.email.nil?
 

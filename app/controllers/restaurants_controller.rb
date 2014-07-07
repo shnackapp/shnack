@@ -83,6 +83,9 @@ class RestaurantsController < ApplicationController
 	end
 
 	def load_new_modifier
-		
+		//prepare a page to be seen
+		//might need to save restaurant variables
+		//maybe the values already in the table? javascript?
+		//on close need to confirm
 	end
 end

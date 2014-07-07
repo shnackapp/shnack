@@ -12,6 +12,8 @@
 #  add_tax           :boolean          default(FALSE)
 #  tax               :decimal(6, 6)
 #  cash_only         :boolean          default(FALSE)
+#  hide_when_closed  :boolean          default(FALSE)
+#  initial_state     :integer          default(0)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
