@@ -101,6 +101,7 @@ class RestaurantsController < ApplicationController
 		else
 			recipient = Stripe::Recipient.retrieve(@restaurant.bank_account_id)
 			recipient.bank_account = params[:stripeToken]
+			recipient.save
 		end
 		redirect_to @restaurant
 	end
@@ -125,6 +126,7 @@ class RestaurantsController < ApplicationController
 		else
 			# Check if account has the funds to handle withdrawal.
 			# flash[:error] = "There was a problem. Please contact us at contact@shnackapp.com for assistance."
+
 			transfer = Stripe::Transfer.create(
   				:amount => @restaurant.available_amount, # amount in cents
   				:currency => "usd",
@@ -136,8 +138,12 @@ class RestaurantsController < ApplicationController
 			flash[:notice] = "Funds successfully transferred"
 		end
 
-
 		redirect_to @restaurant
+
+		rescue	Stripe::InvalidRequestError => e
+			flash[:error] = e.message
+			redirect_to @restaurant
+		
 	end
 
 	def new_registration_code
