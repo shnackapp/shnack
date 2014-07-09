@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
 	# attr_accessible :title, :body
 
 	before_create :create_authentication_token
+	after_create :create_role
 
 	def create_role
 		#defaults to customer
@@ -48,25 +49,30 @@ class User < ActiveRecord::Base
 		end while self.class.exists?(authentication_token: authentication_token)
 	end
 
+	# Needs to be phased out.
 	def is_super
-		return role.is_super
+		role.is_super
+	end
+
+	def is_super?
+		role.is_super
 	end
 	
 	def role_type
-		return role.role_type
+		role.role_type
 	end
 
 	def stadium_id
-		return role.stadium.nil? ? 1 : role.stadium.id
+		role.stadium.nil? ? 1 : role.stadium.id
 	end
 
 	def is_manager?
-		return role.role_type == 1 || role.is_super
+		role.role_type == 1 || role.is_super
 	end
 
 
-	def is_owner_of?(item) 
-		return true if role.is_super
+	def is_manager_of?(loc) 
+		return true if role.is_super || role.locations.includes(loc)
 	end
 
 

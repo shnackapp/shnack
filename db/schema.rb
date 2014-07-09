@@ -11,9 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20140611021723) do
-
+ActiveRecord::Schema.define(:version => 20140708224408) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -68,9 +66,16 @@ ActiveRecord::Schema.define(:version => 20140611021723) do
     t.boolean  "add_tax",                                         :default => false
     t.decimal  "tax",               :precision => 6, :scale => 6
     t.boolean  "cash_only",                                       :default => false
-    t.boolean  "hide_when_closed",                                :default => false
+    t.integer  "shnack_fee",                                      :default => 50
+    t.integer  "shnack_percent",                                  :default => 5
+    t.string   "bank_account_id"
     t.integer  "initial_state",                                   :default => 0
+    t.boolean  "hide_when_closed",                                :default => false
+  end
 
+  create_table "locations_roles", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "location_id"
   end
 
   create_table "menus", :force => true do |t|
@@ -110,6 +115,10 @@ ActiveRecord::Schema.define(:version => 20140611021723) do
     t.string   "slug_id"
     t.integer  "order_number"
     t.integer  "user_info_id"
+    t.integer  "shnack_cut",    :default => 0
+    t.integer  "location_cut"
+    t.boolean  "withdrawn",     :default => false
+    t.integer  "transfer_id"
   end
 
   add_index "orders", ["slug"], :name => "index_orders_on_slug", :unique => true
@@ -132,6 +141,13 @@ ActiveRecord::Schema.define(:version => 20140611021723) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "transfers", :force => true do |t|
+    t.string   "transfer_id"
+    t.integer  "location_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "user_infos", :force => true do |t|
@@ -173,6 +189,9 @@ ActiveRecord::Schema.define(:version => 20140611021723) do
     t.boolean  "add_tax",                                         :default => false
     t.decimal  "tax",               :precision => 6, :scale => 6
     t.boolean  "cash_only",                                       :default => false
+    t.integer  "shnack_fee",                                      :default => 50
+    t.integer  "shnack_percent",                                  :default => 5
+    t.string   "bank_account_id"
     t.integer  "initial_state",                                   :default => 0
   end
 

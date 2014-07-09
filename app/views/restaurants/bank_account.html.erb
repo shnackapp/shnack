@@ -1,0 +1,24 @@
+<h3> Bank Account for <%= @restaurant.name %> </h3>
+<script type="text/javascript" src="https://js.stripe.com/v2/"> </script>
+
+<script type="text/javascript">
+	Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
+</script>
+
+<%= form_tag(save_bank_account_restaurant_path(@restaurant), :method => "POST", :id=>"bank-form") do %>
+	Account Type: <%= radio_button_tag(:account, "individual") %> <%= label_tag :account_individual, "Individual" %> <%= radio_button_tag(:account, "corporation") %><%= label_tag :account_corporation, "Corporation" %>  <br />
+
+	Name:* <%= text_field_tag :name, nil, :class => "form-control" %>
+<% end %>
+
+
+<%= form_tag("", :method => "POST", :id => "bank-account-form") do  %>
+	Routing Number: <%= text_field_tag :routing_number, nil, :class => "form-control"  %> <br />
+	Account Number: <%= text_field_tag :account_number, nil,  :class => "form-control"  %> <br />
+	<%= submit_tag "Submit" %>
+<% end %>
+
+<div> *Use the legal name on your account </div>
+
+<div class="error" style="display:none;"> There was an error with your bank information. Please make sure it is correct and try again. </div>
+
