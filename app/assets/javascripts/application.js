@@ -84,3 +84,13 @@ function contactUs(){
   hideInfoTextShowContact();
   document.getElementById("info-tagline").innerHTML="Contact the Shnack Team";
 }
+
+$(document).ready(function() {
+  $('#size_mod_table').hide();
+  var hidden = true;
+  $('#size_mod_btn').click(function() {
+    if(hidden) { $('#size_mod_table').show(); hidden=false; }
+    else { $('#size_mod_table').hide(); hidden=true; }
+  });
+
+});

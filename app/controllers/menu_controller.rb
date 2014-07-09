@@ -12,6 +12,8 @@ class MenuController < ApplicationController
 		menu = Menu.find(params[:item][:menu_id])
 		category = Category.find(params[:item][:category_id])
 		category.items.create(:name => params[:item][:name], :price => params[:item][:price])
+		# add creation modifiers here
+		
 
 		owner = menu.owner
 		owner.instance_of?(Vendor) ?  redirect_to(stadium_vendor_path(owner.stadium, owner)) : redirect_to(owner) 

@@ -50,13 +50,16 @@
 
 	<tr>
 		<td> <%= f.label :modifiers %></td>
-		<td> <%= button_tag "Add a size option to item", data: { mod_type: "size" } %>
-			<br>						
-			<%= button_tag "Add a single select option to item", :class=>"blue", data: { mod_type: "single" } %>
-			<br>
-			<%= button_tag "Add a multi select option to item", :class=>"red", data: { mod_type: "multiple" }  %>
-			<br>						
-			<%= button_tag "Add a custom option to item", :disabled=>"true", data: { mod_type: "custom" } %></td>
+		<td>
+			<button type="button" id="size_mod_btn" data-mod-type="size">Add a size option to item</button>
+
+			<%= render 'new_item_size' %>
+
+			<button type="button" id="single_mod_btn" data-mod-type="single">Add a single select option to item</button>
+			<button type="button" id="multiple_mod_btn" data-mod-type="multiple">Add a multi select option to item</button>
+			<button type="button" id="custom_mod_btn" data-mod-type="custom" disabled="disabled">Add a custom option to item</button>
+
+			</td>
 		</tr>
 		<tr colspan="3"> <td> <%= f.submit 'Ceate new item', :class=>"green" %></td> </tr>
 		<% end %>
