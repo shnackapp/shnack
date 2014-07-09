@@ -19,6 +19,8 @@
 #  user_info_id  :integer
 #  shnack_cut    :integer          default(0)
 #  location_cut  :integer
+#  withdrawn     :boolean          default(FALSE)
+#  transfer_id   :integer
 #
 
 require 'test_helper'

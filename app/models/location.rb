@@ -24,6 +24,7 @@ class Location < ActiveRecord::Base
   has_one :menu
   has_many :stadiums
   has_many :restaurants
+  has_many :transfers
   has_and_belongs_to_many :roles
 
 end

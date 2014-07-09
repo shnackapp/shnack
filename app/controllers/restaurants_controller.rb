@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
 		@restaurant = Restaurant.find(params[:id])
 		@amount = @restaurant.available_amount
 		@account = @restaurant.bank_account_id.nil? ? nil : Stripe::Recipient.retrieve(@restaurant.bank_account_id).active_account
-
+		@transfer =  @restaurant.transfers.length > 0 ?  Stripe::Transfer.retrieve(@restaurant.transfers.last.transfer_id) : nil
 	end
 
 	def new
@@ -127,15 +127,18 @@ class RestaurantsController < ApplicationController
 			# Check if account has the funds to handle withdrawal.
 			# flash[:error] = "There was a problem. Please contact us at contact@shnackapp.com for assistance."
 
-			transfer = Stripe::Transfer.create(
+			stripe_transfer = Stripe::Transfer.create(
   				:amount => @restaurant.available_amount, # amount in cents
   				:currency => "usd",
   				:recipient => @restaurant.bank_account_id,
   				:statement_description => "Transfer on date"
 			)
-			mark_available_orders_as_withdrawn(@restaurant)
 
-			flash[:notice] = "Funds successfully transferred"
+			transfer = @restaurant.transfers.create(:transfer_id => stripe_transfer.id)
+		
+			mark_available_orders_as_withdrawn(@restaurant, transfer)
+			flash[:notice] = "Funds are currently being transferred."
+			
 		end
 
 		redirect_to @restaurant
@@ -143,7 +146,6 @@ class RestaurantsController < ApplicationController
 		rescue	Stripe::InvalidRequestError => e
 			flash[:error] = e.message
 			redirect_to @restaurant
-		
 	end
 
 	def new_registration_code

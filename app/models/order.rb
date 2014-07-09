@@ -19,18 +19,21 @@
 #  user_info_id  :integer
 #  shnack_cut    :integer          default(0)
 #  location_cut  :integer
+#  withdrawn     :boolean          default(FALSE)
+#  transfer_id   :integer
 #
 
 class Order < ActiveRecord::Base
   extend FriendlyId
   attr_accessible :subtotal, :total, :charge_id, :details, 
-    :user_id, :slug_id, :order_number, :user_info, :withdrawn
+    :user_id, :slug_id, :order_number, :user_info, :withdrawn, :transfer_id
 
   friendly_id :slug_id, use: :slugged
   belongs_to :vendor
   belongs_to :restaurant
   belongs_to :user
   belongs_to :user_info
+  belongs_to :transfer
   has_many :order_states
   has_many :order_items
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140611061223) do
+ActiveRecord::Schema.define(:version => 20140708224408) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20140611061223) do
     t.integer  "shnack_cut",    :default => 0
     t.integer  "location_cut"
     t.boolean  "withdrawn",     :default => false
+    t.integer  "transfer_id"
   end
 
   add_index "orders", ["slug"], :name => "index_orders_on_slug", :unique => true
@@ -140,6 +141,13 @@ ActiveRecord::Schema.define(:version => 20140611061223) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "transfers", :force => true do |t|
+    t.string   "transfer_id"
+    t.integer  "location_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "user_infos", :force => true do |t|

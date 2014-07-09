@@ -14,9 +14,9 @@ module ApplicationHelper
 
 	end
 
-	def mark_available_orders_as_withdrawn(vendor)
+	def mark_available_orders_as_withdrawn(vendor, transfer)
 		orders = vendor.orders.available
-		orders.each { |order| order.update_attribute(:withdrawn, true) }
+		orders.each { |order| order.update_attributes(:withdrawn => true, :transfer_id => transfer.id) }
 	end
 
 end

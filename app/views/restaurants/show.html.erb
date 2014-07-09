@@ -4,7 +4,11 @@
 	<div class="well">
 		<div>
 			<strong> Amount Available: </strong> <%= Order.first.integer_to_currency @amount %><br />
-			<%= button_to "Withdraw", withdraw_funds_restaurant_path(@restaurant), { :class => "btn btn-success", :method => 'post' } %>
+			<% if @amount == 0 %>
+				<%= button_to "Withdraw", '/#', { :class => "btn btn-success disabled"} %>
+			<% else %>
+				<%= button_to "Withdraw", withdraw_funds_restaurant_path(@restaurant), { :class => "btn btn-success", :method => 'post' } %>
+			<% end %>
 			<br />
 			<%= button_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get', :class => "btn btn-info" } %>
 		</div>
@@ -21,7 +25,14 @@
 			<% end %>
 		</div>
 
+		<div style="padding-top:10px; padding-bottom:30px;">
+			<strong> Status of Your Last Transfer: </strong> 
+				<% if @transfer.nil? %> None
+				<% else %><strong> <%= @transfer.status %> </strong>
+				<% end %>
 
+
+		</div>
 	</div>
 
 
