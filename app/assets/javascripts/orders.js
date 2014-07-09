@@ -71,13 +71,8 @@ function updatePrice() {
 
 	var total = $(".fee").data("price")/100 + subtotal;
 
-
 	$("td.total").html(toUSD(total));
 	$("td.total").data("total", total);
-
-
-
-
 
 };
 
