@@ -38,7 +38,7 @@ class ChargesController < ApplicationController
 
 
 	  if @order.user.nil?
-	  	@order.user_info.update_attributes(:email => params[:stripeEmail], :number => params[:user][:phone], :name => params[:user][:name])
+	  	@order.user_info.update_attributes(:email => params[:stripeEmail].delete("'"), :number => params[:user][:phone], :name => params[:user][:name])
 	  else
 	  	@order.user.update_attributes(:number => params[:user][:phone], :name => params[:user][:name])
 	  end
@@ -58,6 +58,8 @@ class ChargesController < ApplicationController
     		:card => params[:stripeToken],
     		:description => params[:stripeEmail]
   			)
+
+	  	  @order.update_attribute(:paid, true)
 		
 	  	else
   		  customer = Stripe::Customer.create(
