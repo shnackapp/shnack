@@ -82,10 +82,4 @@ class RestaurantsController < ApplicationController
 		redirect_to root_path unless user_signed_in? && current_user.is_super
 	end
 
-	def load_new_modifier
-		#prepare a page to be seen
-		#might need to save restaurant variables
-		#maybe the values already in the table? javascript?
-		#on close need to confirm
-	end
 end

@@ -12,8 +12,8 @@ class MenuController < ApplicationController
 		menu = Menu.find(params[:item][:menu_id])
 		category = Category.find(params[:item][:category_id])
 		category.items.create(:name => params[:item][:name], :price => params[:item][:price])
-		# add creation modifiers here
-		
+
+		add_modifiers
 
 		owner = menu.owner
 		owner.instance_of?(Vendor) ?  redirect_to(stadium_vendor_path(owner.stadium, owner)) : redirect_to(owner) 
@@ -26,6 +26,30 @@ class MenuController < ApplicationController
 
 		owner = menu.owner
 		owner.instance_of?(Vendor) ?  redirect_to(stadium_vendor_path(owner.stadium, owner)) : redirect_to(owner) 
+	end
+
+	# add this to a helper with item id, category id, and menu id
+	def add_modifiers
+		#byebug
+		# the size mod, type = 3
+		unless params[:size_name_1].nil?
+			# @ necessary?
+			items.modifiers.create(:modtype=>"3", :name=> "size", :price=> nil)
+			items.modifiers.options.create(:name=> params[:size_name_1],:price=> params[:size_price_1])
+		end
+
+		unless params[:size_name_2].nil?
+			items.modifiers.options.create(:name=> params[:size_name_2],:price=> params[:size_price_2])
+		end
+
+		unless params[:size_name_3].nil?
+			items.modifiers.options.create(:name=> params[:size_name_2],:price=> params[:size_price_3])
+		end
+
+		# the single select mod, type = 1
+		# the multiple select mod, type = 2
+		# numeric mod, type = 4
+		# custom mod, type = 5
 	end
 
 end

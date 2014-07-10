@@ -52,11 +52,14 @@
 		<td> <%= f.label :modifiers %></td>
 		<td>
 			<button type="button" id="size_mod_btn" data-mod-type="size">Add a size option to item</button>
-
 			<%= render 'new_item_size' %>
 
-			<button type="button" id="single_mod_btn" data-mod-type="single">Add a single select option to item</button>
-			<button type="button" id="multiple_mod_btn" data-mod-type="multiple">Add a multi select option to item</button>
+			<button type="button" id="single_select_mod_btn" data-mod-type="single">Add a single select option to item</button>
+			<%= render 'new_item_single_select' %>
+
+			<button type="button" id="multiple_select_mod_btn" data-mod-type="multiple">Add a multi select option to item</button>
+			<%= render 'new_item_multiple_select' %>
+
 			<button type="button" id="custom_mod_btn" data-mod-type="custom" disabled="disabled">Add a custom option to item</button>
 
 			</td>

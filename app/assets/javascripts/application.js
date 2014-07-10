@@ -85,6 +85,7 @@ function contactUs(){
   document.getElementById("info-tagline").innerHTML="Contact the Shnack Team";
 }
 
+/* NOTE could clean this up, add to restuarant js */
 $(document).ready(function() {
   $('#size_mod_table').hide();
   var hidden = true;
@@ -92,5 +93,22 @@ $(document).ready(function() {
     if(hidden) { $('#size_mod_table').show(); hidden=false; }
     else { $('#size_mod_table').hide(); hidden=true; }
   });
+});
 
+$(document).ready(function() {
+  $('#single_select_mod_table').hide();
+  var hidden = true;
+  $('#single_select_mod_btn').click(function() {
+    if(hidden) { $('#single_select_mod_table').show(); hidden=false; }
+    else { $('#single_select_mod_table').hide(); hidden=true; }
+  });
+});
+
+$(document).ready(function() {
+  $('#multiple_select_mod_table').hide();
+  var hidden = true;
+  $('#multiple_select_mod_btn').click(function() {
+    if(hidden) { $('#multiple_select_mod_table').show(); hidden=false; }
+    else { $('#multiple_select_mod_table').hide(); hidden=true; }
+  });
 });
