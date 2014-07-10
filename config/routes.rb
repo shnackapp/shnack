@@ -1,4 +1,4 @@
-Shnack::Application.routes.draw do
+ajShnack::Application.routes.draw do
   resources :orders do 
     resources :charges
     post '/:action'
