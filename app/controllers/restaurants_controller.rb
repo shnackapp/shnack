@@ -158,7 +158,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def check_manager
-		redirect_to root_path unless user_signed_in? && current_user.is_manager_of?(Location.find(params[:id]))
+		redirect_to root_path unless user_signed_in? && (current_user.is_super? || current_user.is_manager_of?(Location.find(params[:id])))
 	end
 
 end
