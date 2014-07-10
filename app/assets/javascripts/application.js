@@ -32,6 +32,8 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-52713733-1', 'auto');
+  ga('require', 'displayfeatures');
+
   ga('send', 'pageview');
 
 
