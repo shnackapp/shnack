@@ -38,9 +38,9 @@ class ChargesController < ApplicationController
 
 
 	  if @order.user.nil?
-	  	@order.user_info.update_attributes(:email => params[:stripeEmail], :number => params[:user][:phone])
+	  	@order.user_info.update_attributes(:email => params[:stripeEmail].delete("'"), :number => params[:user][:phone], :name => params[:user][:name])
 	  else
-	  	@order.user.update_attributes(:number => params[:user][:phone])
+	  	@order.user.update_attributes(:number => params[:user][:phone], :name => params[:user][:name])
 	  end
 
 	  if @owner.cash_only
@@ -58,6 +58,8 @@ class ChargesController < ApplicationController
     		:card => params[:stripeToken],
     		:description => params[:stripeEmail]
   			)
+
+	  	  @order.update_attribute(:paid, true)
 		
 	  	else
   		  customer = Stripe::Customer.create(
@@ -100,7 +102,8 @@ class ChargesController < ApplicationController
 	    notification.badge = 1
 
 	    notification.content_available = true
-	    notification.custom_data = {order_number: @order.order_number, order_description: order_description, pay_with_cash: @owner.cash_only ,order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
+	    notification.custom_data = {order_number: @order.order_number, order_description: order_description, 
+	    			pay_with_cash: @owner.cash_only ,order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z"), :name => @order.customer.name, :number => @order.customer.number  }
 
 	    # And... sent! That's all it takes.
 	    APN.push(notification)
