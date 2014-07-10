@@ -21,7 +21,8 @@
 
 class Restaurant < Location
   # attr_accessible :title, :body
-  attr_accessible :registration_code, :open, :add_tax, :tax, :cash_only, :shnack_fee, :shnack_percent, :bank_account_id, :hide_when_closed
+  attr_accessible :registration_code, :open, :add_tax, :tax,
+   :cash_only, :shnack_fee, :shnack_percent, :bank_account_id, :hide_when_closed, :initial_state
 
   has_many :hours
   has_many :orders

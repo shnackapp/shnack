@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-	before_filter :check_manager
+	before_filter :check_manager 
 
 	def index
 	  	@restaurants = Restaurant.all
