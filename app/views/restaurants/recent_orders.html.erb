@@ -1,0 +1,24 @@
+<h3> Recent Orders </h3>
+
+<table class="table">
+	<tr>
+		<th></th>
+		<th> Amount </th>
+		<th> Funds Available? </th>
+	<% @orders.reverse.each do |order| %>
+		<tr>
+			<td> Order #<%= order.order_number %> </td>
+			<td> <%= order.integer_to_currency(order.total) %> </td>
+			<td> 
+				<% if order.withdrawn %>
+					Withdrawn
+				<% elsif order.created_at < 1.week.ago %>
+					Funds are available 
+				<% else %>
+					Funds not yet available 
+				<% end %>
+
+			</td>
+		</tr>
+	<% end %>
+</table>

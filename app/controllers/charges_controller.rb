@@ -38,17 +38,31 @@ class ChargesController < ApplicationController
 
 
 	  if @order.user.nil?
-	  	@order.user_info.update_attributes(:email => params[:stripeEmail], :number => params[:user][:phone])
+	  	@order.user_info.update_attributes(:email => params[:stripeEmail].delete("'"), :number => params[:user][:phone], :name => params[:user][:name])
 	  else
-	  	@order.user.update_attributes(:number => params[:user][:phone])
+	  	@order.user.update_attributes(:number => params[:user][:phone], :name => params[:user][:name])
 	  end
 
 	  if @owner.cash_only
 	  	@order.update_attribute(:paid, true)
+
+	  	@order.shnack_cut = 0
+	  	@order.location_cut = 0
+	  	@order.withdrawn = true
 	  else
 
-	  	unless @order.user.nil?
-		  customer = Stripe::Customer.create(
+	  	if @order.user.nil?
+	  	  charge = Stripe::Charge.create(
+    		:amount => @amount, # amount in cents, again
+    		:currency => "usd",
+    		:card => params[:stripeToken],
+    		:description => params[:stripeEmail]
+  			)
+
+	  	  @order.update_attribute(:paid, true)
+		
+	  	else
+  		  customer = Stripe::Customer.create(
 		    :email => params[:stripeEmail],
 		    :card  => params[:stripeToken]
 		  )
@@ -62,17 +76,16 @@ class ChargesController < ApplicationController
 		    :currency    => 'usd'
 		  )
 	      @order.update_attribute(:paid, true)
-	  	else
-	  	  charge = Stripe::Charge.create(
-    		:amount => @amount, # amount in cents, again
-    		:currency => "usd",
-    		:card => params[:stripeToken],
-    		:description => params[:stripeEmail]
-  			)
 	  	end
 
 
+		@order.shnack_cut = @owner.shnack_fee + @owner.shnack_percent * @order.subtotal/100
+		@order.location_cut = @order.total - @order.shnack_cut
+
 	  end
+
+
+	  @order.save
 
 
   	# An example of the token sent back when a device registers for notifications
@@ -89,7 +102,8 @@ class ChargesController < ApplicationController
 	    notification.badge = 1
 
 	    notification.content_available = true
-	    notification.custom_data = {order_number: @order.order_number, order_description: order_description, pay_with_cash: @owner.cash_only ,order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z")  }
+	    notification.custom_data = {order_number: @order.order_number, order_description: order_description, 
+	    			pay_with_cash: @owner.cash_only ,order_created_at: @order.created_at.strftime("%Y-%m-%d %H:%M:%S %z"), :name => @order.customer.name, :number => @order.customer.number  }
 
 	    # And... sent! That's all it takes.
 	    APN.push(notification)

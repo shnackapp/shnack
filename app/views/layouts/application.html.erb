@@ -17,6 +17,9 @@
 			<% if flash[:notice] %>
 				<div class="notice"><%= flash[:notice] %></div>
 			<% end %>
+			<% if flash[:error] %>
+				<div class="flash-error"> <%= flash[:error] %> </div>
+			<% end %>
 
 
 			<div class="row add_margin">
@@ -29,7 +32,10 @@
 					  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>   
 					<li>   
 					  <%= link_to "Change your password", edit_user_registration_path %>
-					  <%= link_to "Manage Your Vendors", :controller => "shnack", :action => "manage_vendors" %>
+
+					  <% if current_user.is_manager? %>
+					  	<%= link_to "Manage Your Vendors", :controller => "shnack", :action => "manage_vendors" %>
+					  <% end %>
 					</li>
 				  <% else %>
 					<li>

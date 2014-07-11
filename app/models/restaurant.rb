@@ -12,14 +12,17 @@
 #  add_tax           :boolean          default(FALSE)
 #  tax               :decimal(6, 6)
 #  cash_only         :boolean          default(FALSE)
+#  shnack_fee        :integer          default(50)
+#  shnack_percent    :integer          default(5)
+#  bank_account_id   :string(255)
 #  hide_when_closed  :boolean          default(FALSE)
 #  initial_state     :integer          default(0)
 #
 
 class Restaurant < Location
   # attr_accessible :title, :body
-
-  attr_accessible :registration_code, :open, :add_tax, :tax, :cash_only, :initial_state, :hide_when_closed
+  attr_accessible :registration_code, :open, :add_tax, :tax,
+   :cash_only, :shnack_fee, :shnack_percent, :bank_account_id, :hide_when_closed, :initial_state
 
   has_many :hours
   has_many :orders
@@ -44,11 +47,7 @@ class Restaurant < Location
   end
 
   def hide_when_closed?
-    if self.hide_when_closed
-      return true
-    else
-      return false
-    end
+    return self.hide_when_closed
   end
 
   def is_open?
@@ -76,6 +75,12 @@ class Restaurant < Location
       return time.hour < h.closing_hour || (time.hour == h.closing_hour && time.min < h.closing_min)
 
     end
+  end
+
+  def available_amount
+    amount = 0
+    self.orders.available.each { |order| amount = amount + order.location_cut unless order.location_cut.nil? }
+    amount
   end
 
   def generate_registration_code

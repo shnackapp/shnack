@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: transfers
+#
+#  id          :integer          not null, primary key
+#  transfer_id :string(255)
+#  location_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  transfer_id: MyString
+  location_id: 1
+
+two:
+  transfer_id: MyString
+  location_id: 1

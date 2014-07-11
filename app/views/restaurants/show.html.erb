@@ -1,6 +1,40 @@
 
 <h2 class="headline"> <%= @restaurant.name %> </h2>
 
+	<div class="well">
+		<div>
+			<strong> Amount Available: </strong> <%= Order.first.integer_to_currency @amount %><br />
+			<% if @amount == 0 %>
+				<%= button_to "Withdraw", '/#', { :class => "btn btn-success disabled"} %>
+			<% else %>
+				<%= button_to "Withdraw", withdraw_funds_restaurant_path(@restaurant), { :class => "btn btn-success", :method => 'post' } %>
+			<% end %>
+			<br />
+			<%= button_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get', :class => "btn btn-info" } %>
+		</div>
+
+
+
+		<div style="padding-top:10px; padding-bottom:30px;">
+
+			<% if @account.nil? %>
+				<%= button_to "Add Bank Account", bank_account_restaurant_path(@restaurant), { :class => "btn btn-primary", :method => 'get' } %>
+			<% else %>
+				<strong>Bank Account:</strong>  <%= @account.bank_name %> <%= @account.last4 %>	
+				<%= button_to "Change Bank Account", bank_account_restaurant_path(@restaurant), { :class => "btn btn-primary", :method => 'get' } %>
+			<% end %>
+		</div>
+
+		<div style="padding-top:10px; padding-bottom:30px;">
+			<strong> Status of Your Last Transfer: </strong> 
+				<% if @transfer.nil? %> None
+				<% else %><strong> <%= @transfer.status %> </strong>
+				<% end %>
+
+
+		</div>
+	</div>
+
 
 <div class ="panel panel-default">
 	<% @restaurant.menu.categories.each do |category| %>
@@ -67,6 +101,32 @@
 		<tr colspan="3"> <td> <%= f.submit 'Ceate new item', :class=>"green" %></td> </tr>
 		<% end %>
 	</table>
+
+	<% if current_user.is_super? %>
+		<table class="table">
+			
+			<tr> <th colspan="2"> Managers </th> </tr>
+			<% @restaurant.roles.each do |role| %>
+				<tr> <td> <%= role.user.email %> </td></tr>
+			<% end %>
+
+			
+			<%= form_tag add_manager_restaurant_path(@restaurant)  do %>
+			<tr>
+				<td> Add Manager By Email </td>
+				<td> <%= text_field_tag :email %> </td>
+			</tr>
+			<tr>
+				<td colspan="2"> 
+					<%= submit_tag %>
+				</td>
+			</tr>
+
+			<% end %>
+					
+
+		</table>
+	<% end %>
 
 	<ul class="list-group">
 		<li class="list-group-item">

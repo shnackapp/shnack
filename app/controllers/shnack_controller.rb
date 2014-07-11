@@ -26,14 +26,10 @@ class ShnackController < ApplicationController
 		# byebug
 		if user_signed_in? && current_user.is_super
 			@locations = Location.all
-
-
-			# @stadium = Stadium.all
-			# @vendors = Hash.new
-			# @stadium.each do |s|
-			# 	@vendors[s.name] = s.vendors
-			# end
+		elsif user_signed_in? && current_user.is_manager?
+			@locations = current_user.role.locations
 		else
+			flash[:error] = "You are not authorized to view this page"
 			redirect_to root_path
 			# @vendors = Vendor.where(:role_id => current_user.role.id)
 		end

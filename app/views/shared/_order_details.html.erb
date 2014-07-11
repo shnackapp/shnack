@@ -7,7 +7,6 @@
 		</thead>
 		<% @order_items.each do |order_item| %>
 		<tr>
-
 			<td><%= @items[order_item.item_id].name %></td> 
 			<td><%= order_item.quantity %> </td>
 			<td> <%= Item.integer_to_currency @items[order_item.item_id].price %></td>
@@ -25,7 +24,7 @@
 					<td> <%= @order.integer_to_currency(@order.subtotal) %> </td>
 				</tr>
 				<tr>
-					<td>Tax</td>
+					<td>Shnack Fee</td>
 					<td></td>
 					<td></td>
 					<td> <%= @order.integer_to_currency(@order.total-@order.subtotal) %></td>
@@ -43,8 +42,6 @@
 					<td></td>
 					<td> <%= @order.integer_to_currency(@order.total) %> </td>
 				</tr>
-			<% end %> 
-
+			<% end %> 	
 		</tfoot>
-
 	</table>
