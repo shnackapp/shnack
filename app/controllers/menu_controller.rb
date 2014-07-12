@@ -15,7 +15,6 @@ class MenuController < ApplicationController
 
 		# Add modifiers
 		unless params[:size_name_1].nil?
-			# @ necessary?
 			size = item.modifiers.create(:mod_type=>"0", :name=> "size", :price=> nil)
 			size.options.create(:name=> params[:size_name_1],:price=> params[:size_price_1])
 			
@@ -28,9 +27,9 @@ class MenuController < ApplicationController
 			end
 		end
 
+		# ask AJ if meant to have all mod types to be 0
 		unless params[:ss_title].nil? && params[:ss_name_1].nil?
-			# @ necessary?
-			size = item.modifiers.create(:mod_type=>"0", :name=> params[:ss_title, :price=> nil)
+			size = item.modifiers.create(:mod_type=>"0", :name=> params[:ss_title], :price=> nil)
 			size.options.create(:name=> params[:ss_name_1],:price=> params[:ss_price_1])
 			
 			unless params[:ss_name_2].nil?
@@ -44,8 +43,7 @@ class MenuController < ApplicationController
 
 		
 		unless params[:ms_title].nil? && params[:ms_name_1].nil?
-			# @ necessary?
-			size = item.modifiers.create(:mod_type=>"0", :name=> params[:ms_title, :price=> nil)
+			size = item.modifiers.create(:mod_type=>"0", :name=> params[:ms_title], :price=> nil)
 			size.options.create(:name=> params[:ms_name_1],:price=> params[:ms_price_1])
 			
 			unless params[:ms_name_2].nil?
