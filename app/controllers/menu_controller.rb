@@ -55,7 +55,6 @@ class MenuController < ApplicationController
 			end
 		end
 
-
 		owner = menu.owner
 		owner.instance_of?(Vendor) ?  redirect_to(stadium_vendor_path(owner.stadium, owner)) : redirect_to(owner) 
 	end
