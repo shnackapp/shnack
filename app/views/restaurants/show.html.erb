@@ -9,8 +9,8 @@
 			<% else %>
 				<%= button_to "Withdraw", withdraw_funds_restaurant_path(@restaurant), { :class => "btn btn-success", :method => 'post' } %>
 			<% end %>
-			<br />
-			<%= button_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get', :class => "btn btn-info" } %>
+			<div style="padding-top:10px;">
+			<%= button_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get', :class => "btn btn-info" } %> </div>
 		</div>
 
 
@@ -41,12 +41,18 @@
 	<div class="panel-heading top-heading"><h3 class="panel-title"><%= category.name %></h3></div>
 	<table class="item-list">
 		<% category.items.each do |item| %>
-		<tr>
+		<tr class="item-name">
 			<td ><%= item.name %></td>
 			<td class="text-right"><%= Item.integer_to_currency item.price %></td>
 			<td class="text-right" style="width:5%"><%= link_to content_tag(:span, nil, :class=> "glyphicon glyphicon-minus"), { :controller => 'menu', :action => 'delete_item', :item_id => item.id } %></td>
-
 		</tr>
+			<% if item.modifiers.size > 0 %>
+				<% item.modifiers.each do |mod| %>
+					<tr class="item-modifier">
+						<td class="modifier-name"> <%= mod.name %> </td>
+					</tr>
+				<% end %>
+			<% end %>
 		<% end %>
 	</table>
 	<% end %>
@@ -85,7 +91,7 @@
 	<tr>
 		<td> <%= f.label :modifiers %></td>
 		<td>
-			<button type="button" id="size_mod_btn" data-mod-type="size">Add a size option to item</button>
+			<button type="button" id="size_mod_btn" data-mod-type="size">Add a custom option to item</button>
 			<%= render 'new_item_size' %>
 
 			<button type="button" id="single_select_mod_btn" data-mod-type="single">Add a single select option to item</button>
@@ -94,7 +100,7 @@
 			<button type="button" id="multiple_select_mod_btn" data-mod-type="multiple">Add a multi select option to item</button>
 			<%= render 'new_item_multiple_select' %>
 
-			<button type="button" id="custom_mod_btn" data-mod-type="custom" disabled="disabled">Add a custom option to item</button>
+			<button type="button" id="mod_btn" data-mod-type="custom" disabled="disabled">Add a custom option to item</button>
 
 			</td>
 		</tr>

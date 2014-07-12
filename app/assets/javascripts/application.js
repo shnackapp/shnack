@@ -26,15 +26,15 @@
   // ga('create', 'UA-52696113-1', 'auto');
   // ga('send', 'pageview');
 
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-52713733-1', 'auto');
-  ga('require', 'displayfeatures');
+  // ga('create', 'UA-52713733-1', 'auto');
+  // ga('require', 'displayfeatures');
 
-  ga('send', 'pageview');
+  // ga('send', 'pageview');
 
 
 function checkDevice() {
@@ -105,30 +105,4 @@ function contactUs(){
   document.getElementById("info-tagline").innerHTML="Contact the Shnack Team";
 }
 
-/* NOTE could clean this up, add to restuarant js */
-$(document).ready(function() {
-  $('#size_mod_table').hide();
-  var hidden = true;
-  $('#size_mod_btn').click(function() {
-    if(hidden) { $('#size_mod_table').show(); hidden=false; }
-    else { $('#size_mod_table').hide(); hidden=true; }
-  });
-});
 
-$(document).ready(function() {
-  $('#single_select_mod_table').hide();
-  var hidden = true;
-  $('#single_select_mod_btn').click(function() {
-    if(hidden) { $('#single_select_mod_table').show(); hidden=false; }
-    else { $('#single_select_mod_table').hide(); hidden=true; }
-  });
-});
-
-$(document).ready(function() {
-  $('#multiple_select_mod_table').hide();
-  var hidden = true;
-  $('#multiple_select_mod_btn').click(function() {
-    if(hidden) { $('#multiple_select_mod_table').show(); hidden=false; }
-    else { $('#multiple_select_mod_table').hide(); hidden=true; }
-  });
-});

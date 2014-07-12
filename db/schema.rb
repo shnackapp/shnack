@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140709164847) do
+ActiveRecord::Schema.define(:version => 20140711225409) do
 
   create_table "analytics", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -91,10 +91,10 @@ ActiveRecord::Schema.define(:version => 20140709164847) do
   end
 
   create_table "modifiers", :force => true do |t|
-    t.integer  "type"
-    t.integer  "price"
     t.string   "name"
+    t.integer  "price"
     t.integer  "item_id"
+    t.integer  "mod_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

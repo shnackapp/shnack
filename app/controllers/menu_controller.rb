@@ -11,9 +11,52 @@ class MenuController < ApplicationController
 	def add_item
 		menu = Menu.find(params[:item][:menu_id])
 		category = Category.find(params[:item][:category_id])
-		category.items.create(:name => params[:item][:name], :price => params[:item][:price])
+		item = category.items.create(:name => params[:item][:name], :price => params[:item][:price])
 
-		add_modifiers
+		# Add modifiers
+		unless params[:size_name_1].nil?
+			# @ necessary?
+			size = item.modifiers.create(:mod_type=>"0", :name=> "size", :price=> nil)
+			size.options.create(:name=> params[:size_name_1],:price=> params[:size_price_1])
+			
+			unless params[:size_name_2].nil?
+				size.options.create(:name=> params[:size_name_2],:price=> params[:size_price_2])
+			end	
+
+			unless params[:size_name_3].nil?
+				size.options.create(:name=> params[:size_name_3],:price=> params[:size_price_3])
+			end
+		end
+
+		unless params[:ss_title].nil? && params[:ss_name_1].nil?
+			# @ necessary?
+			size = item.modifiers.create(:mod_type=>"0", :name=> params[:ss_title, :price=> nil)
+			size.options.create(:name=> params[:ss_name_1],:price=> params[:ss_price_1])
+			
+			unless params[:ss_name_2].nil?
+				size.options.create(:name=> params[:ss_name_2],:price=> params[:ss_price_2])
+			end	
+
+			unless params[:ss_name_3].nil?
+				size.options.create(:name=> params[:ss_name_3],:price=> params[:ss_price_3])
+			end
+		end
+
+		
+		unless params[:ms_title].nil? && params[:ms_name_1].nil?
+			# @ necessary?
+			size = item.modifiers.create(:mod_type=>"0", :name=> params[:ms_title, :price=> nil)
+			size.options.create(:name=> params[:ms_name_1],:price=> params[:ms_price_1])
+			
+			unless params[:ms_name_2].nil?
+				size.options.create(:name=> params[:ms_name_2],:price=> params[:ms_price_2])
+			end	
+
+			unless params[:ms_name_3].nil?
+				size.options.create(:name=> params[:ms_name_3],:price=> params[:ms_price_3])
+			end
+		end
+
 
 		owner = menu.owner
 		owner.instance_of?(Vendor) ?  redirect_to(stadium_vendor_path(owner.stadium, owner)) : redirect_to(owner) 
@@ -32,19 +75,6 @@ class MenuController < ApplicationController
 	def add_modifiers
 		#byebug
 		# the size mod, type = 3
-		unless params[:size_name_1].nil?
-			# @ necessary?
-			items.modifiers.create(:modtype=>"3", :name=> "size", :price=> nil)
-			items.modifiers.options.create(:name=> params[:size_name_1],:price=> params[:size_price_1])
-		end
-
-		unless params[:size_name_2].nil?
-			items.modifiers.options.create(:name=> params[:size_name_2],:price=> params[:size_price_2])
-		end
-
-		unless params[:size_name_3].nil?
-			items.modifiers.options.create(:name=> params[:size_name_2],:price=> params[:size_price_3])
-		end
 
 		# the single select mod, type = 1
 		# the multiple select mod, type = 2

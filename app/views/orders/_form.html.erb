@@ -30,10 +30,10 @@
         <% category.items.each do |item| %>
             <tbody class="menu_item" data-id= "<%= item.id %>" style="border:none;outline:none;">
               <tr>
-                <td><%= item.name %> XYZ<br/></td>
+                <td><%= item.name %><br/></td>
 
                 <td id="<%=item.id%>_price" data-price="<%=item.price%>"><%= Item.integer_to_currency item.price %></td>
-                          <% if(item.sold_out) %>
+                <% if(item.sold_out) %>
                   <td colspan="3">Item Sold Out</td>
                 <% else %>
                   <td> 
@@ -46,11 +46,10 @@
                 <% end %>
               </tr>
 
-							<%# if item.has_instance_of?(Modifier) %>
-              <% if @item.has_mod? %>
-		            <tr id="<%=item.id%>_mod" style="display:none;border:none;outline:none;">
+              <% if item.has_mod? %>
+		            <tr id="<%=item.id%>_mod" style="border:none;outline:none;">
 		              <td colspan="5">
-		                <div class="well">
+		                <div class="well well-sm">
 		                  <i>Customize this <%= item.name.downcase %></i>
 		                </div>
 		              </td>

@@ -35,4 +35,9 @@ class Item < ActiveRecord::Base
     return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
   end
 
+  def has_mod?
+    self.modifiers.size > 0
+  end
+
+
 end
