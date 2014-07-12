@@ -14,43 +14,42 @@ class MenuController < ApplicationController
 		item = category.items.create(:name => params[:item][:name], :price => params[:item][:price])
 
 		# Add modifiers
-		unless params[:size_name_1].nil?
+		unless params[:size_name_1].empty?
 			size = item.modifiers.create(:mod_type=>"0", :name=> "size", :price=> nil)
 			size.options.create(:name=> params[:size_name_1],:price=> params[:size_price_1])
 			
-			unless params[:size_name_2].nil?
+			unless params[:size_name_2].empty?
 				size.options.create(:name=> params[:size_name_2],:price=> params[:size_price_2])
 			end	
 
-			unless params[:size_name_3].nil?
+			unless params[:size_name_3].empty?
 				size.options.create(:name=> params[:size_name_3],:price=> params[:size_price_3])
 			end
 		end
 
-		# ask AJ if meant to have all mod types to be 0
-		unless params[:ss_title].nil? && params[:ss_name_1].nil?
-			size = item.modifiers.create(:mod_type=>"0", :name=> params[:ss_title], :price=> nil)
+		unless params[:ss_title].empty? && params[:ss_name_1].empty?
+			size = item.modifiers.create(:mod_type=>"1", :name=> params[:ss_title], :price=> nil)
 			size.options.create(:name=> params[:ss_name_1],:price=> params[:ss_price_1])
 			
-			unless params[:ss_name_2].nil?
+			unless params[:ss_name_2].empty?
 				size.options.create(:name=> params[:ss_name_2],:price=> params[:ss_price_2])
 			end	
 
-			unless params[:ss_name_3].nil?
+			unless params[:ss_name_3].empty?
 				size.options.create(:name=> params[:ss_name_3],:price=> params[:ss_price_3])
 			end
 		end
 
 		
-		unless params[:ms_title].nil? && params[:ms_name_1].nil?
-			size = item.modifiers.create(:mod_type=>"0", :name=> params[:ms_title], :price=> nil)
+		unless params[:ms_title].empty? && params[:ms_name_1].empty?
+			size = item.modifiers.create(:mod_type=>"2", :name=> params[:ms_title], :price=> nil)
 			size.options.create(:name=> params[:ms_name_1],:price=> params[:ms_price_1])
 			
-			unless params[:ms_name_2].nil?
+			unless params[:ms_name_2].empty?
 				size.options.create(:name=> params[:ms_name_2],:price=> params[:ms_price_2])
 			end	
 
-			unless params[:ms_name_3].nil?
+			unless params[:ms_name_3].empty?
 				size.options.create(:name=> params[:ms_name_3],:price=> params[:ms_price_3])
 			end
 		end

@@ -1,0 +1,40 @@
+<tbody id="all_item_mods">
+  <tr>
+    <td colspan="5" style="text-align:center;"> <em>Customize this <%= item.name.capitalize %></em> </td>
+  </tr>
+  <% item.modifiers.each do |mod| %>
+    <tr id="<%=item.id%>_mods" class="item-modifier" style="border:none;outline:none;">
+      <td class="modifier-name" colspan="5"> <strong> <%= mod.name.capitalize %> </strong></td>
+      <% mod.options.each do |val| %>
+        <tr>
+          <td> <%= val.name.capitalize %> </td>
+          <td>+ <%= integer_to_currency val.price %></td>
+
+          <% if mod.mod_type == 0 %>
+            <td> <span class="glyphicon glyphicon-plus plus"></span> </td>
+            <td id="<%=val.id%>_num" class="num"> 0 </td>
+            <td> <span class="glyphicon glyphicon-minus minus"></span> </td>
+            <td class="item_id hidden"> <%= val.id %> </td>
+          <%end%>
+
+          <% if mod.mod_type == 1 %>
+            <td></td>
+            <td colspan="2">
+              <%= radio_button("#{val.name.downcase}", "#{val.name.downcase}", "no") %>
+            </td>
+          <%end%>
+
+          <% if mod.mod_type == 2 %>
+            <td></td>
+            <td colspan="2">
+              <%= check_box("#{mod.name.downcase}", "#{val.name.downcase}") %>
+            </td>
+          <%end%>
+
+
+
+        </tr>
+      <% end %>
+    </tr>
+  <% end %>
+</tbody>

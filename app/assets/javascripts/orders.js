@@ -20,6 +20,15 @@ $(document).ready(function() {
 
 	});
 
+$(document).ready(function() {
+  $('#all_item_mods').hide();
+  var hidden = true;
+  $('#multiple_select_mod_btn').click(function() {
+    if(hidden) { $('#multiple_select_mod_table').show(); hidden=false; }
+    else { $('#multiple_select_mod_table').hide(); hidden=true; }
+  });
+});
+
 	$("span.minus").click(function() {
 		//increment down
 		var id = $(this).parent().parent().parent().data("id");

@@ -12,6 +12,7 @@ gem 'devise'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'houston'
 gem 'simple_form'
+gem 'pry', '~> 0.10.0'
 
 group :development, :test do
 	gem 'byebug'

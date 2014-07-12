@@ -10,6 +10,8 @@ module ApplicationHelper
 		cents = amount_str[-2,2]
 		dollars = amount_str[0..-3]
 
+		return "0.00" if amount == 0
+
 		return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
 
 	end

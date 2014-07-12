@@ -54,7 +54,9 @@
 					<% item.modifiers.each do |mod| %>
 						<%  unless mod.name.empty? %>
 							<tr class="item-modifier">
-								<td class="modifier-name" colspan="3"> <em> <%= mod.name.capitalize %> </em> </td>
+								<td class="modifier-name" colspan="3">
+									<em> <%= mod.name.capitalize %> </em>
+								</td>
 									
 									<% mod.options.each do |val| %>
 										<%  unless val.name.empty? %>
