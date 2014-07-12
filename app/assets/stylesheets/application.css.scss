@@ -254,6 +254,18 @@ ul.info-links {
 	background: rgba(140,250,0,.3);
 }
 
+.flash-error {
+	text-align: center;
+	font-family: "Poiret One", Geneva, sans-serif;
+	font-size: 1.6em;
+	padding: 15px 0px;
+	color: #780000;
+	font-weight: bold;
+	margin-top: 10px;
+	background: #F5E6E6;
+
+}
+
 input[type="tel"].error { border: 1px solid #780000  }
 
 .error {

@@ -1,18 +1,58 @@
 
 <h2 class="headline"> <%= @restaurant.name %> </h2>
 
+	<div class="well">
+		<div>
+			<strong> Amount Available: </strong> <%= Order.first.integer_to_currency @amount %><br />
+			<% if @amount == 0 %>
+				<%= button_to "Withdraw", '/#', { :class => "btn btn-success disabled"} %>
+			<% else %>
+				<%= button_to "Withdraw", withdraw_funds_restaurant_path(@restaurant), { :class => "btn btn-success", :method => 'post' } %>
+			<% end %>
+			<div style="padding-top:10px;">
+			<%= button_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get', :class => "btn btn-info" } %> </div>
+		</div>
+
+
+
+		<div style="padding-top:10px; padding-bottom:30px;">
+
+			<% if @account.nil? %>
+				<%= button_to "Add Bank Account", bank_account_restaurant_path(@restaurant), { :class => "btn btn-primary", :method => 'get' } %>
+			<% else %>
+				<strong>Bank Account:</strong>  <%= @account.bank_name %> <%= @account.last4 %>	
+				<%= button_to "Change Bank Account", bank_account_restaurant_path(@restaurant), { :class => "btn btn-primary", :method => 'get' } %>
+			<% end %>
+		</div>
+
+		<div style="padding-top:10px; padding-bottom:30px;">
+			<strong> Status of Your Last Transfer: </strong> 
+				<% if @transfer.nil? %> None
+				<% else %><strong> <%= @transfer.status %> </strong>
+				<% end %>
+
+
+		</div>
+	</div>
+
 
 <div class ="panel panel-default">
 	<% @restaurant.menu.categories.each do |category| %>
 	<div class="panel-heading top-heading"><h3 class="panel-title"><%= category.name %></h3></div>
 	<table class="item-list">
 		<% category.items.each do |item| %>
-		<tr>
+		<tr class="item-name">
 			<td ><%= item.name %></td>
 			<td class="text-right"><%= Item.integer_to_currency item.price %></td>
 			<td class="text-right" style="width:5%"><%= link_to content_tag(:span, nil, :class=> "glyphicon glyphicon-minus"), { :controller => 'menu', :action => 'delete_item', :item_id => item.id } %></td>
-
 		</tr>
+			<% if item.modifiers.size > 0 %>
+				<% item.modifiers.each do |mod| %>
+					<tr class="item-modifier">
+						<td class="modifier-name"> <%= mod.name %> </td>
+					</tr>
+				<% end %>
+			<% end %>
 		<% end %>
 	</table>
 	<% end %>
@@ -51,7 +91,7 @@
 	<tr>
 		<td> <%= f.label :modifiers %></td>
 		<td>
-			<button type="button" id="size_mod_btn" data-mod-type="size">Add a size option to item</button>
+			<button type="button" id="size_mod_btn" data-mod-type="size">Add a custom option to item</button>
 			<%= render 'new_item_size' %>
 
 			<button type="button" id="single_select_mod_btn" data-mod-type="single">Add a single select option to item</button>
@@ -60,13 +100,39 @@
 			<button type="button" id="multiple_select_mod_btn" data-mod-type="multiple">Add a multi select option to item</button>
 			<%= render 'new_item_multiple_select' %>
 
-			<button type="button" id="custom_mod_btn" data-mod-type="custom" disabled="disabled">Add a custom option to item</button>
+			<button type="button" id="mod_btn" data-mod-type="custom" disabled="disabled">Add a custom option to item</button>
 
 			</td>
 		</tr>
 		<tr colspan="3"> <td> <%= f.submit 'Ceate new item', :class=>"green" %></td> </tr>
 		<% end %>
 	</table>
+
+	<% if current_user.is_super? %>
+		<table class="table">
+			
+			<tr> <th colspan="2"> Managers </th> </tr>
+			<% @restaurant.roles.each do |role| %>
+				<tr> <td> <%= role.user.email %> </td></tr>
+			<% end %>
+
+			
+			<%= form_tag add_manager_restaurant_path(@restaurant)  do %>
+			<tr>
+				<td> Add Manager By Email </td>
+				<td> <%= text_field_tag :email %> </td>
+			</tr>
+			<tr>
+				<td colspan="2"> 
+					<%= submit_tag %>
+				</td>
+			</tr>
+
+			<% end %>
+					
+
+		</table>
+	<% end %>
 
 	<ul class="list-group">
 		<li class="list-group-item">

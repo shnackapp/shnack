@@ -63,18 +63,24 @@ function initializeValues() {
 };
 
 function updatePrice() {
-	var total = 0;
+	var subtotal = 0;
 
 	$(".menu_item").each(function() {
 		var id = $(this).data("id");
 		var qty = $("#" + id+ "_num").html();
 		var price = $("#" + id + "_price").data("price");
 		var cost = qty*price;
-		total += cost;
+		subtotal += cost;
 	});
-	total /=100;
-	$(".total").html(toUSD(total));
-	$(".total").data("price", total);
+	subtotal /=100;
+	$("td.subtotal").html(toUSD(subtotal));
+	$("td.subtotal").data("price", subtotal);
+
+	var total = $(".fee").data("price")/100 + subtotal;
+
+	$("td.total").html(toUSD(total));
+	$("td.total").data("total", total);
+
 };
 
 function toUSD(number) {

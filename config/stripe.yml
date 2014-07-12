@@ -1,10 +1,10 @@
 development:
-  secret_key: 'sk_test_avDrSKCRw5jUyMLwgrnEkEb0'
-  publishable_key: 'pk_test_6dS5FE4fLaWhFMrVwjHZD9cX'
+  secret_key: 'sk_test_xDJ5KS0I8VgJvHSQT1Iuxy56'
+  publishable_key: 'pk_test_AUn823FKTadliNg29onudWm0'
 staging:
-  secret_key: 'sk_test_avDrSKCRw5jUyMLwgrnEkEb0'
-  publishable_key: 'pk_test_6dS5FE4fLaWhFMrVwjHZD9cX'
+  secret_key: 'sk_test_xDJ5KS0I8VgJvHSQT1Iuxy56'
+  publishable_key: 'pk_test_AUn823FKTadliNg29onudWm0'
 production:
-  secret_key: 'sk_live_35tDPk3Tae90nQEHhSrTkPOW'
-  publishable_key: 'pk_live_lmKmL7rwzy22WcsZPN2O4N2m'
+  secret_key: 'sk_live_AeXiNKr9exyKoR0iazUO2sY6'
+  publishable_key: 'pk_live_izM2DZiCp32MYwrzjqD4nviT'
 

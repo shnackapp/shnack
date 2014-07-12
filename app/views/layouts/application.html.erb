@@ -4,18 +4,37 @@
 <%= favicon_link_tag 'logo.ico' %>
   <title>Shnack</title>
 
- 
+
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+
+   	<script> 
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52713733-1', 'auto');
+  ga('require', 'displayfeatures');
+
+  ga('send', 'pageview');
+	</script>
 </head>
 
 <body onload="checkDevice();">
+
+
 		<div class="container">
 			<% if flash[:notice] %>
 				<div class="notice"><%= flash[:notice] %></div>
+			<% end %>
+			<% if flash[:error] %>
+				<div class="flash-error"> <%= flash[:error] %> </div>
 			<% end %>
 
 
@@ -29,7 +48,10 @@
 					  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>   
 					<li>   
 					  <%= link_to "Change your password", edit_user_registration_path %>
-					  <%= link_to "Manage Your Vendors", :controller => "shnack", :action => "manage_vendors" %>
+
+					  <% if current_user.is_manager? %>
+					  	<%= link_to "Manage Your Vendors", :controller => "shnack", :action => "manage_vendors" %>
+					  <% end %>
 					</li>
 				  <% else %>
 					<li>

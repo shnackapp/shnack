@@ -12,11 +12,14 @@
 #  add_tax           :boolean          default(FALSE)
 #  tax               :decimal(6, 6)
 #  cash_only         :boolean          default(FALSE)
+#  shnack_fee        :integer          default(50)
+#  shnack_percent    :integer          default(5)
+#  bank_account_id   :string(255)
 #  initial_state     :integer          default(0)
 #
 
 class Vendor < ActiveRecord::Base
-  attr_accessible :name, :stadium_id, :registration_code, :initial_state
+  attr_accessible :name, :stadium_id, :registration_code, :bank_account_id, :initial_state
   has_one :menu
   has_many :orders
   has_many :devices
