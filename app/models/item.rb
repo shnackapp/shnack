@@ -22,6 +22,9 @@ class Item < ActiveRecord::Base
   belongs_to :menu
   has_many :modifiers
 
+  validates :name, presence: true
+  validates :price, presence: true
+
   def self.integer_to_currency(amount, options = {})
     options[:unit] = "$" if options[:unit].nil?
     options[:separator] = "." if options[:separator].nil?
