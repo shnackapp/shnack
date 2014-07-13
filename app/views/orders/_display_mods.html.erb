@@ -8,7 +8,7 @@
       <% mod.options.each do |val| %>
         <tr>
           <td> <%= val.name.capitalize %> </td>
-          <td>+ <%= integer_to_currency val.price %></td>
+          <td>+ <%= Order.integer_to_currency val.price %></td>
 
           <% if mod.mod_type == 0 %>
             <td></td>
