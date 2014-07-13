@@ -21,7 +21,6 @@ $(document).ready(function() {
 	});
 
 $(document).ready(function() {
-  $('#all_item_mods').hide();
   var hidden = true;
   $('#multiple_select_mod_btn').click(function() {
     if(hidden) { $('#multiple_select_mod_table').show(); hidden=false; }
@@ -34,11 +33,12 @@ $(document).ready(function() {
 		var id = $(this).parent().parent().parent().data("id");
 		var val = $("#"+id+"_num").html();
 		if(val>0) { val--; } 
+		if(val==0) {$("#"+id+"_mod").slideUp(400);}
 		$("#"+id+"_num").html(val);
 		$(".item_" + id).val(val);
 		updatePrice();
 
-		$("#"+id+"_mod").slideUp(200);
+		
 
 	});
 
@@ -67,6 +67,8 @@ function initializeValues() {
 
 	})
 	updatePrice();
+
+	$(".all_the_mods").hide();
 
 
 };

@@ -40,7 +40,7 @@
                   <td class="item_id hidden"> <%= item.id %> </td>
                   <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
 
-                  <% if item.has_mod?; @item = item%>
+                  <% if item.has_mod?; @item = item %>
                     <%= render :partial => 'display_mods', :locals => { item: @item } %>
                   <% end %>
                 <% end %>
