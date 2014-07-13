@@ -85,7 +85,6 @@ class OrdersController < ApplicationController
     items_price = Hash[items.map { |it| [it.id, (it.price).to_int]}]
 
     @order = Order.create(:user_id => user_id)
-
     params[:order].delete(:item).each { |id, qty|
       if qty.to_i != 0
         order_item = @order.order_items.create(:item_id => id.to_i, :quantity => qty.to_i)
@@ -109,7 +108,7 @@ class OrdersController < ApplicationController
               cost += qty.to_i * option.price
             end
 
-          else
+          elsif option_id.to_i != 0
             option = Option.find(option_id.to_i)
             order_mod.options << option
 
