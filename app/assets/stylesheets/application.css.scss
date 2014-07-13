@@ -54,6 +54,15 @@ p {
 	background-image: linear-gradient(to bottom, #FCFCFC 0%, #EBEBEB 100%);
 }
 
+.level {
+	width:50%;
+	padding: 15px 10px 0px 10px;
+	background: KHAKI;
+	margin:auto;
+		box-shadow: 0px 0px 5px #888888;
+
+}
+
 #level-2 {
 	width: 100%;
 	padding: 0px 10px 20px 10px;
@@ -185,6 +194,10 @@ z-index: 20;
 	margin-bottom: 175px;
 }
 
+.shnack {
+	font-family: "Damion", serif;
+	font-size:1.5em;
+}
 
 ul.info-links {
  	list-style: none;
@@ -279,6 +292,7 @@ input[type="tel"].error { border: 1px solid #780000  }
 
 }
 
+<<<<<<< HEAD
 /* SHNACK ATTACK */
 table.item-list {
 
@@ -432,4 +446,12 @@ table.item-list {
       margin-bottom: 0px;
     }
   }
+}
+
+.caje-info {
+	font-size:2em;
+	color: dimgray;
+	font-family: "Poiret One", Geneva, sans-serif;
+	text-align:center;
+
 }
