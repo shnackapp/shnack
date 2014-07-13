@@ -33,49 +33,18 @@ $(document).ready(function() {
 
 	});
 
+	var price_temp = 0;
+	$(".modifier_r").click(function(){
+		updatePrice();
+			// updatePrice_num(price_temp);
+			//price_temp = 0;
 
 
-
-	$("input[type=radio]").click(function(){
-		if((this.attributes["name"].value == 'size')) {
-			var s_price = 0;
-			s_price = ($(this).data("add-price"));
-
-			semi_update_price(s_price);
-			updatePrice_mod();
-		}	else {
-			var s_price = 0;
-			s_price = ($(this).data("add-price"));
-
-			semi_update_price_2(s_price);
-			updatePrice_mod();
-		}
 	});
 
 
-$("input[type=checkbox]").click(function(){
-	var the_price = 0;
-	var price = 0;
-	$("input[type=checkbox].checked").each(function() {
-		//var $this = $(this);
-    price = $(this).data('add-price', $(this).val());
 
-    	//price = $(this).val().data("add-price");
-		
-			the_price += price;
-		});
-	// alert(the_price);
-	updatePrice_num(the_price);
-});
 
-/*$("input[type=checkbox]").click(function(){
-			var s_price = 0;
-			s_price = ($(this).data("add-price"));
-
-			//semi_update_price_checkbox(s_price);
-			updatePrice_num(s_price);
-
-});*/
 
 $(document).ready(function() {
   var hidden = true;
@@ -176,6 +145,12 @@ function updatePrice() {
 		var cost = qty*price;
 		subtotal += cost;
 	});
+
+		$('.modifier_r').each(function(index, obj){
+			if ($(this).is(":checked")){
+				subtotal = subtotal + ($(this).data("add-price"));
+			}});
+
 	subtotal /=100;
 	$("td.subtotal").html(toUSD(subtotal));
 	$("td.subtotal").data("price", subtotal);
