@@ -16,4 +16,8 @@ class OrderItem < ActiveRecord::Base
   belongs_to :item
   has_many :order_modifiers
 
+  def has_mods?
+    self.order_modifiers.size > 0
+  end
+
 end

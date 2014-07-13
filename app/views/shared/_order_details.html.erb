@@ -8,10 +8,16 @@
 		<% @order_items.each do |order_item| %>
 		<tr>
 			<td><%= @items[order_item.item_id].name %></td> 
-			<td><%= order_item.quantity %> </td>
-			<td> <%= Item.integer_to_currency @items[order_item.item_id].price %></td>
-			<td> <%= Item.integer_to_currency(@items[order_item.item_id].price * order_item.quantity) %></td>
-		</tr>
+				<td><%= order_item.quantity %> </td>
+
+				<td> <%= Item.integer_to_currency @items[order_item.item_id].price %></td>
+				<%# update this below price to include the price of the item modifiers %>
+				<td> <%= Item.integer_to_currency(@items[order_item.item_id].price * order_item.quantity) %></td>
+			</tr>
+			<% if order_item.has_mods?; @order_item = order_item %>
+				<%= render :partial => 'shared/display_order_mods', :locals => { order_item: @order_item } %>
+
+			<% end %>
 		<% end %>
 
 		
