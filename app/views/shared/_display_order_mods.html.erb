@@ -4,9 +4,7 @@
       <%#binding.pry%>
       <% mod.options.each do |val| %>
           <td colspan="2"> <%= val.name.capitalize %> </td>
-          <td colspan="2" style="text-align:left;">+ <%= integer_to_currency val.price %></td>
-
-
+          <td colspan="2" style="text-align:left; font-style:italic; color: dimgray;"> <%= Order.integer_to_currency val.price %></td>
       <% end %>
     </tr>
   <% end %>

@@ -20,4 +20,15 @@ class OrderItem < ActiveRecord::Base
     self.order_modifiers.size > 0
   end
 
+  def price
+  	total = Item.find(self.item_id).price
+
+  	self.order_modifiers.each do |order_modifier|
+  		order_modifier.options.each { |option| total+= option.price }
+  	end
+
+  	total
+
+  end
+
 end
