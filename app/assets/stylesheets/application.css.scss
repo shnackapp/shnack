@@ -57,6 +57,8 @@ p {
 	padding: 15px 10px 0px 10px;
 	background: KHAKI;
 	margin:auto;
+		box-shadow: 0px 0px 5px #888888;
+
 }
 
 #level-2 {
@@ -294,4 +296,5 @@ input[type="tel"].error { border: 1px solid #780000  }
 	color: dimgray;
 	font-family: "Poiret One", Geneva, sans-serif;
 	text-align:center;
+
 }
