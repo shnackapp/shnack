@@ -13,21 +13,24 @@
           <% if mod.mod_type == 0 %>
             <td></td>
             <td colspan="2">
-              <%= radio_button_tag("#{mod.name.downcase}", "#{val.name.downcase}") %>
+              <%#= radio_button_tag("#{mod.name.downcase}", "#{val.name.downcase}") %>
+              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= mod.name.downcase %>" type="radio" value="<%= val.name.downcase %>" data-add-price="<%= val.price %>">
             </td>
           <%end%>
 
           <% if mod.mod_type == 1 %>
             <td></td>
             <td colspan="2">
-              <%= radio_button_tag("#{mod.name.downcase}", "#{val.name.downcase}") %>
+              <%#= radio_button_tag("#{mod.name.downcase}", "#{val.name.downcase}") %>
+              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= mod.name.downcase %>" type="radio" value="<%= val.name.downcase %>" data-add-price="<%= val.price %>">
             </td>
           <%end%>
 
           <% if mod.mod_type == 2 %>
             <td></td>
             <td colspan="2">
-              <%= check_box("#{mod.name.downcase}", "#{val.name.downcase}") %>
+              <%#= check_box("#{mod.name.downcase}", "#{val.name.downcase}") %>
+              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= mod.name.downcase %>" type="checkbox" value="<%= val.name.downcase %>" data-add-price="<%= val.price %>">
             </td>
           <%end%>
 
