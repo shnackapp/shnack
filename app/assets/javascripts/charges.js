@@ -16,18 +16,47 @@ $(document).ready(function() {
 	
 	$("#confirm-button").on('click', function(e){
 		var phone_valid = validatePhoneNumber($("#order-phone-number").val());
+		var name_valid = validateName($("#order-name").val());
 		if(!phone_valid) {
 			e.preventDefault();
 			$(".phone-error").slideDown(200);
 			$("#order-phone-number").addClass("error");
 		}
+		else {
+			$(".phone-error").slideUp(200);
+			$("#order-phone-number").removeClass("error");
+		}
+		if(!name_valid) {
+			e.preventDefault();
+			$(".name-error").slideDown(200);
+			$("#order-name").addClass("error");
+		}
+		else {
+			$(".name-error").slideUp(200);
+			$("#order-name").removeClass("error");
+		}
 	});
 	$(".stripe-button-el").on('click', function(e){
 		var phone_valid = validatePhoneNumber($("#order-phone-number").val());
+		var name_valid = validateName($("#order-name").val());
+
 		if(!phone_valid) {
 			e.preventDefault();
 			$(".phone-error").slideDown(200);
 			$("#order-phone-number").addClass("error");
+		}
+		else {
+			$(".phone-error").slideUp(200);
+			$("#order-phone-number").removeClass("error");
+		}
+		if(!name_valid) {
+			e.preventDefault();
+			$(".name-error").slideDown(200);
+			$("#order-name").addClass("error");
+		}
+		else{
+			$(".name-error").slideUp(200);
+			$("#order-name").removeClass("error");
 		}
 	});
 
@@ -74,6 +103,14 @@ function disableButton() {
 function validatePhoneNumber(number)
 {
 	if(number.length == 14)
+		return true;
+	else
+		return false;
+}
+
+function validateName(name)
+{
+	if(name.length > 1 && name.match(/[a-zA-Z]/))
 		return true;
 	else
 		return false;
