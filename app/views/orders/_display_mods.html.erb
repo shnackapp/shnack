@@ -30,7 +30,7 @@
             <td></td>
             <td colspan="2">
               <%#= check_box("#{mod.name.downcase}", "#{val.name.downcase}") %>
-              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" type="checkbox" value="<%= val.id %>" data-add-price="<%= val.price %>">
+              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}[]" %>" type="checkbox" value="<%= val.id %>" data-add-price="<%= val.price %>">
             </td>
           <%end%>
 

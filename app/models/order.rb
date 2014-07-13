@@ -93,7 +93,18 @@ class Order < ActiveRecord::Base
 
 		description = ""
 		order_items.each do |order_item| 
-      description = description + "#{order_item.quantity} #{Item.find(order_item.item_id).name}\n" if Item.exists?(order_item.item_id)
+      if Item.exists?(order_item.item_id)
+        description = description + "#{order_item.quantity} #{Item.find(order_item.item_id).name}"
+        description = description + " - " if order_item.order_modifiers.size >= 1
+        order_item.order_modifiers.each do |modifier|
+          mod_description = ""
+          modifier.options.map { |op| mod_description = mod_description + "#{op.name}, "}
+
+          description = description + mod_description
+        end
+        
+        description = description + "\n"
+      end
     end
 
 		description

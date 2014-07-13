@@ -14,6 +14,7 @@
 class Modifier < ActiveRecord::Base
   attr_accessible :name, :price, :mod_type
   belongs_to :item
+  has_many :order_modifiers 
   has_many :options
 
   TYPE_OF_MODIFIER = ['Variable Size','Single Select', 'Multiple Select', 'Numeric Input']

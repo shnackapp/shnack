@@ -64,7 +64,7 @@ $("input[type=checkbox]").click(function(){
 		
 			the_price += price;
 		});
-	alert(the_price);
+	// alert(the_price);
 	updatePrice_num(the_price);
 });
 

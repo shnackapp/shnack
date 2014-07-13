@@ -107,6 +107,11 @@ ActiveRecord::Schema.define(:version => 20140713162843) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "options_order_modifiers", :force => true do |t|
+    t.integer "order_modifier_id"
+    t.integer "option_id"
+  end
+
   create_table "order_items", :force => true do |t|
     t.integer  "item_id"
     t.integer  "quantity"
@@ -118,13 +123,9 @@ ActiveRecord::Schema.define(:version => 20140713162843) do
   create_table "order_modifiers", :force => true do |t|
     t.integer  "order_item_id"
     t.integer  "quantity"
+    t.integer  "modifier_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-  end
-
-  create_table "order_modifiers_options", :force => true do |t|
-    t.integer "order_modifier_id"
-    t.integer "option_id"
   end
 
   create_table "order_states", :force => true do |t|

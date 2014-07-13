@@ -67,6 +67,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+
     amount = 0
     if params[:order][:vendor_id].nil?
       owner = Restaurant.find(params[:order].delete(:restaurant_id), :include => {:menu => :items})
@@ -97,11 +98,24 @@ class OrdersController < ApplicationController
         # for each item.
         item.modifiers.each do |mod|
           option_id = params["#{id}_#{mod.id}"]
-          order_mod = order_item.order_modifiers.create
-          option = Option.find(option_id.to_i)
-          order_mod.options << option
+          order_mod = order_item.order_modifiers.create(:modifier_id => mod.id)
 
-          cost += qty.to_i * option.price
+          # If the modifier was a checkbox modifier
+          # then we go through every selected option and add it.
+          if option_id.is_a?(Array)
+            option_id.each do |op_id|
+              option = Option.find(op_id.to_i)
+              order_mod.options << option
+              cost += qty.to_i * option.price
+            end
+
+          else
+            option = Option.find(option_id.to_i)
+            order_mod.options << option
+
+            cost += qty.to_i * option.price
+          end
+
         end
 
 
