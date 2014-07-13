@@ -33,12 +33,8 @@ $(document).ready(function() {
 
 	});
 
-	var price_temp = 0;
-	$(".modifier_r").click(function(){
+	$(".modifier").click(function(){
 		updatePrice();
-			// updatePrice_num(price_temp);
-			//price_temp = 0;
-
 
 	});
 
@@ -99,41 +95,9 @@ function initializeValues() {
 
 
 };
-var last_click_1 = 0;
-function semi_update_price_2(the_price) {
-	temppp = temppp + the_price - last_click_1;
-	last_click_1 = the_price;
 
-};
 
-var temppp = 0;
-var last_click = 0;
-function semi_update_price(the_price) {
-	temppp = temppp + the_price - last_click;
-	last_click = the_price;
-};
 
-function updatePrice_num(num) {
-	var subtotal = 0;
-
-	$(".menu_item").each(function() {
-		var id = $(this).data("id");
-		var qty = $("#" + id+ "_num").html();
-		var price = $("#" + id + "_price").data("price");
-		price+=num;
-		var cost = qty*price;
-		subtotal += cost;
-	});
-	subtotal /=100;
-	$("td.subtotal").html(toUSD(subtotal));
-	$("td.subtotal").data("price", subtotal);
-
-	var total = $(".fee").data("price")/100 + subtotal;
-
-	$("td.total").html(toUSD(total));
-	$("td.total").data("total", total);
-
-};
 
 function updatePrice() {
 	var subtotal = 0;
@@ -144,35 +108,16 @@ function updatePrice() {
 		var price = $("#" + id + "_price").data("price");
 		var cost = qty*price;
 		subtotal += cost;
-	});
-
-		$('.modifier_r').each(function(index, obj){
+		// console.log("."+ id + '_modifier');
+		$( "."+ id + '_modifier').each(function(index, obj){
+			// console.log('checking this modifier');
 			if ($(this).is(":checked")){
-				subtotal = subtotal + ($(this).data("add-price"));
+				subtotal = subtotal + qty * ($(this).data("add-price"));
 			}});
-
-	subtotal /=100;
-	$("td.subtotal").html(toUSD(subtotal));
-	$("td.subtotal").data("price", subtotal);
-
-	var total = $(".fee").data("price")/100 + subtotal;
-
-	$("td.total").html(toUSD(total));
-	$("td.total").data("total", total);
-
-};
-
-function updatePrice_mod() {
-	var subtotal = 0;
-
-	$(".menu_item").each(function() {
-		var id = $(this).data("id");
-		var qty = $("#" + id+ "_num").html();
-		var price = $("#" + id + "_price").data("price");
-		price= price + temppp;
-		var cost = qty*price;
-		subtotal += cost;
 	});
+
+
+
 	subtotal /=100;
 	$("td.subtotal").html(toUSD(subtotal));
 	$("td.subtotal").data("price", subtotal);
@@ -183,6 +128,7 @@ function updatePrice_mod() {
 	$("td.total").data("total", total);
 
 };
+
 
 
 

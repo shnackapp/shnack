@@ -14,7 +14,7 @@
             <td></td>
             <td colspan="2">
               <%#= radio_button_tag("#{mod.name.downcase}", "#{val.name.downcase}") %>
-              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name='<%= "#{item.id}_#{mod.id}" %>' class="modifier_r" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>">
+              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name='<%= "#{item.id}_#{mod.id}" %>' class="<%="#{item.id}_modifier"%> modifier" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>">
             </td>
           <%end%>
 
@@ -22,7 +22,7 @@
             <td></td>
             <td colspan="2">
               <%#= radio_button_tag("#{mod.name.downcase}", "#{val.name.downcase}") %>
-              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="modifier_r"type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>">
+              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="<%="#{item.id}_modifier"%> modifier" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>">
             </td>
           <%end%>
 
@@ -30,7 +30,7 @@
             <td></td>
             <td colspan="2">
               <%#= check_box("#{mod.name.downcase}", "#{val.name.downcase}") %>
-              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>"class="modifier_r" type="checkbox" value="<%= val.id %>" data-add-price="<%= val.price %>">
+              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="<%="#{item.id}_modifier"%> modifier" type="checkbox" value="<%= val.id %>" data-add-price="<%= val.price %>">
             </td>
           <%end%>
 
