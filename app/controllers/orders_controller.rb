@@ -68,7 +68,6 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     amount = 0
-
     if params[:order][:vendor_id].nil?
       owner = Restaurant.find(params[:order].delete(:restaurant_id), :include => {:menu => :items})
     else
@@ -88,9 +87,24 @@ class OrdersController < ApplicationController
 
     params[:order].delete(:item).each { |id, qty|
       if qty.to_i != 0
-        @order.order_items.create(:item_id => id.to_i, :quantity => qty.to_i)
-
+        order_item = @order.order_items.create(:item_id => id.to_i, :quantity => qty.to_i)
+        item = Item.find(id.to_i)
         cost = qty.to_i * items_price[id.to_i]
+
+        # This assumes that if someone orders multiple of the item, then they want them
+        # all modified exactly the same way.
+        # Changing it when we allow multiple modifiers shouldn't be too difficult, we just need a while loop
+        # for each item.
+        item.modifiers.each do |mod|
+          option_id = params["#{id}_#{mod.id}"]
+          order_mod = order_item.order_modifiers.create
+          option = Option.find(option_id.to_i)
+          order_mod.options << option
+
+          cost += qty.to_i * option.price
+        end
+
+
         amount += cost
       end
     }

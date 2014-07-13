@@ -14,5 +14,6 @@ class OrderItem < ActiveRecord::Base
   attr_accessible :item_id, :order_id, :quantity
   belongs_to :order
   belongs_to :item
+  has_many :order_modifiers
 
 end

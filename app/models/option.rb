@@ -13,5 +13,6 @@
 class Option < ActiveRecord::Base
   attr_accessible :name, :price
   belongs_to :modifier
-
+  has_and_belongs_to_many :order_modifiers
+  
 end

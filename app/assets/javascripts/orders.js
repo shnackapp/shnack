@@ -1,6 +1,20 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+
+/**
+	HOW TO DO MULTIPLE MODIFIERS FOR AN ORDER:
+
+	Fire an ajax request for the modifier partial with the item_id and the qty. 
+	Then have the names of the inputs be itemid_modid_qty
+
+	that way itemid_modid_1  would be the modifiers for the first item.
+	itemid_modid_2  would be the modifiers for the second item
+	and so on.
+
+**/
+
+
 $(document).ready(function() {
 
 	initializeValues();
