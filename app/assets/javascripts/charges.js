@@ -4,6 +4,7 @@ $(document).ready(function() {
    			e.preventDefault();
    });
    $("#order-phone-number").mask("(000) 000-0000");
+   disableButton();
    // $("#order-phone-number").blur(function(e) {
    // 		validateInputs();
    // });
@@ -14,20 +15,53 @@ $(document).ready(function() {
    // });
 	
 	
-	$("#confirm-button").on('click', function(e){
+	$("#order-name").blur(function(e){
+		var name_valid = validateName($("#order-name").val());
 		var phone_valid = validatePhoneNumber($("#order-phone-number").val());
-		if(!phone_valid) {
+
+
+		if(!name_valid) {
 			e.preventDefault();
-			$(".phone-error").slideDown(200);
-			$("#order-phone-number").addClass("error");
+			$(".name-error").slideDown(200);
+			$("#order-name").addClass("error");
+			disableButton();
+		}
+		if(name_valid) {
+			e.preventDefault();
+			$(".name-error").slideUp(200);
+			$("#order-name").removeClass("error");
+		}
+		if(name_valid && phone_valid) {
+			$(".name-error").slideUp(200);
+			$("#order-name").removeClass("error");
+			$(".phone-error").slideUp(200);
+			$("#order-phone-number").removeClass("error");
+			enableButton();
 		}
 	});
-	$(".stripe-button-el").on('click', function(e){
+	$("#order-phone-number").blur(function(e){
 		var phone_valid = validatePhoneNumber($("#order-phone-number").val());
+		var name_valid = validateName($("#order-name").val());
+
 		if(!phone_valid) {
 			e.preventDefault();
 			$(".phone-error").slideDown(200);
 			$("#order-phone-number").addClass("error");
+			disableButton();
+		}
+		if(phone_valid) {
+			e.preventDefault();
+			$(".phone-error-error").slideUp(200);
+			$("#order-phone-number").removeClass("error");
+		}
+
+		if(name_valid && phone_valid)
+		{
+			$(".name-error").slideUp(200);
+			$("#order-name").removeClass("error");
+			$(".phone-error").slideUp(200);
+			$("#order-phone-number").removeClass("error");
+			enableButton();
 		}
 	});
 
@@ -74,6 +108,14 @@ function disableButton() {
 function validatePhoneNumber(number)
 {
 	if(number.length == 14)
+		return true;
+	else
+		return false;
+}
+
+function validateName(name)
+{
+	if(name.length > 1 && name.match(/[a-zA-Z]/))
 		return true;
 	else
 		return false;
