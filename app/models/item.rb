@@ -20,6 +20,10 @@ class Item < ActiveRecord::Base
   attr_accessible :name, :price, :item_type, :requires_id, :nut_allergy, :vegetarian
   belongs_to :category
   belongs_to :menu
+  has_many :modifiers
+
+  validates :name, presence: true
+  validates :price, presence: true
 
   def self.integer_to_currency(amount, options = {})
     options[:unit] = "$" if options[:unit].nil?
@@ -33,5 +37,10 @@ class Item < ActiveRecord::Base
 
     return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
   end
+
+  def has_mod?
+    self.modifiers.size > 0
+  end
+
 
 end

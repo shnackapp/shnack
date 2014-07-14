@@ -93,7 +93,18 @@ class Order < ActiveRecord::Base
 
 		description = ""
 		order_items.each do |order_item| 
-      description = description + "#{order_item.quantity} #{Item.find(order_item.item_id).name}\n" if Item.exists?(order_item.item_id)
+      if Item.exists?(order_item.item_id)
+        description = description + "#{order_item.quantity} #{Item.find(order_item.item_id).name}"
+        description = description + " - " if order_item.order_modifiers.size >= 1
+        order_item.order_modifiers.each do |modifier|
+          mod_description = ""
+          modifier.options.map { |op| mod_description = mod_description + "#{op.name}, "}
+
+          description = description + mod_description
+        end
+        
+        description = description + "\n"
+      end
     end
 
 		description
@@ -107,6 +118,19 @@ class Order < ActiveRecord::Base
     self.vendor.nil? ? self.restaurant : self.vendor
   end
 
+  def self.integer_to_currency(amount, options = {})
+    options[:unit] = "$" if options[:unit].nil?
+    options[:separator] = "." if options[:separator].nil?
+
+    amount_str = amount.to_s
+    cents = amount_str.length < 2 ? "00" : amount_str[-2,2]
+    dollars = amount_str.length < 3 ? "0" : amount_str[0..-3]
+
+    return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
+  end
+
+
+  # NEEDS TO BE DEPRECATED
   def integer_to_currency(amount, options = {})
     options[:unit] = "$" if options[:unit].nil?
     options[:separator] = "." if options[:separator].nil?
@@ -117,6 +141,7 @@ class Order < ActiveRecord::Base
 
     return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
   end
+
 
 
 

@@ -29,6 +29,7 @@ class Restaurant < Location
   has_many :devices
   has_one :menu
 
+
   def open_orders
   	self.orders.select { |o| o.current_order_state.state < 3 && o.paid }
   end

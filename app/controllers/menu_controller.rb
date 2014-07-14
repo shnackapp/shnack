@@ -11,10 +11,58 @@ class MenuController < ApplicationController
 	def add_item
 		menu = Menu.find(params[:item][:menu_id])
 		category = Category.find(params[:item][:category_id])
-		category.items.create(:name => params[:item][:name], :price => params[:item][:price])
 
-		owner = menu.owner
-		owner.instance_of?(Vendor) ?  redirect_to(stadium_vendor_path(owner.stadium, owner)) : redirect_to(owner) 
+		if item = category.items.create(:name => params[:item][:name], :price => params[:item][:price]).valid?
+
+			# size mod
+			unless params[:size_name_1].empty?
+				size = item.modifiers.create(:mod_type=>"0", :name=> "size", :price=> nil)
+				size.options.create(:name=> params[:size_name_1],:price=> params[:size_price_1])
+				
+				unless params[:size_name_2].empty?
+					size.options.create(:name=> params[:size_name_2],:price=> params[:size_price_2])
+				end	
+
+				unless params[:size_name_3].empty?
+					size.options.create(:name=> params[:size_name_3],:price=> params[:size_price_3])
+				end
+			end
+
+			# single select mod
+			unless params[:ss_title].empty? && params[:ss_name_1].empty?
+				size = item.modifiers.create(:mod_type=>"1", :name=> params[:ss_title], :price=> nil)
+				size.options.create(:name=> params[:ss_name_1],:price=> params[:ss_price_1])
+				
+				unless params[:ss_name_2].empty?
+					size.options.create(:name=> params[:ss_name_2],:price=> params[:ss_price_2])
+				end	
+
+				unless params[:ss_name_3].empty?
+					size.options.create(:name=> params[:ss_name_3],:price=> params[:ss_price_3])
+				end
+			end
+			
+			# mutli select mod
+			unless params[:ms_title].empty? && params[:ms_name_1].empty?
+				size = item.modifiers.create(:mod_type=>"2", :name=> params[:ms_title], :price=> nil)
+				size.options.create(:name=> params[:ms_name_1],:price=> params[:ms_price_1])
+				
+				unless params[:ms_name_2].empty?
+					size.options.create(:name=> params[:ms_name_2],:price=> params[:ms_price_2])
+				end	
+
+				unless params[:ms_name_3].empty?
+					size.options.create(:name=> params[:ms_name_3],:price=> params[:ms_price_3])
+				end
+			end
+
+			owner = menu.owner
+			owner.instance_of?(Vendor) ?  redirect_to(stadium_vendor_path(owner.stadium, owner)) : redirect_to(owner)
+		else 
+			flash[:error] = "Item Name or Price Cannot Be Blank"
+			owner = menu.owner
+			owner.instance_of?(Vendor) ?  redirect_to(stadium_vendor_path(owner.stadium, owner)) : redirect_to(owner)
+		end
 	end
 
 
@@ -24,6 +72,17 @@ class MenuController < ApplicationController
 
 		owner = menu.owner
 		owner.instance_of?(Vendor) ?  redirect_to(stadium_vendor_path(owner.stadium, owner)) : redirect_to(owner) 
+	end
+
+	# add this to a helper with item id, category id, and menu id
+	def add_modifiers
+		#byebug
+		# the size mod, type = 3
+
+		# the single select mod, type = 1
+		# the multiple select mod, type = 2
+		# numeric mod, type = 4
+		# custom mod, type = 5
 	end
 
 end

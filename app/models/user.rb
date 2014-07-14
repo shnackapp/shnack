@@ -18,6 +18,7 @@
 #  authentication_token   :string(255)
 #  number                 :string(255)
 #  customer_id            :string(255)
+#  name                   :string(255)
 #
 
 class User < ActiveRecord::Base

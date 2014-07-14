@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140709164847) do
+ActiveRecord::Schema.define(:version => 20140713162843) do
+
+  create_table "analytics", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -66,11 +71,11 @@ ActiveRecord::Schema.define(:version => 20140709164847) do
     t.boolean  "add_tax",                                         :default => false
     t.decimal  "tax",               :precision => 6, :scale => 6
     t.boolean  "cash_only",                                       :default => false
+    t.integer  "initial_state",                                   :default => 0
+    t.boolean  "hide_when_closed",                                :default => false
     t.integer  "shnack_fee",                                      :default => 50
     t.integer  "shnack_percent",                                  :default => 5
     t.string   "bank_account_id"
-    t.integer  "initial_state",                                   :default => 0
-    t.boolean  "hide_when_closed",                                :default => false
   end
 
   create_table "locations_roles", :id => false, :force => true do |t|
@@ -85,12 +90,42 @@ ActiveRecord::Schema.define(:version => 20140709164847) do
     t.integer  "restaurant_id"
   end
 
+  create_table "modifiers", :force => true do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.integer  "item_id"
+    t.integer  "mod_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "options", :force => true do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.integer  "modifier_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "options_order_modifiers", :force => true do |t|
+    t.integer "order_modifier_id"
+    t.integer "option_id"
+  end
+
   create_table "order_items", :force => true do |t|
     t.integer  "item_id"
     t.integer  "quantity"
     t.integer  "order_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "order_modifiers", :force => true do |t|
+    t.integer  "order_item_id"
+    t.integer  "quantity"
+    t.integer  "modifier_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "order_states", :force => true do |t|
@@ -191,10 +226,10 @@ ActiveRecord::Schema.define(:version => 20140709164847) do
     t.boolean  "add_tax",                                         :default => false
     t.decimal  "tax",               :precision => 6, :scale => 6
     t.boolean  "cash_only",                                       :default => false
+    t.integer  "initial_state",                                   :default => 0
     t.integer  "shnack_fee",                                      :default => 50
     t.integer  "shnack_percent",                                  :default => 5
     t.string   "bank_account_id"
-    t.integer  "initial_state",                                   :default => 0
   end
 
 end

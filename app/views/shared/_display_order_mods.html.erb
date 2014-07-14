@@ -1,0 +1,11 @@
+<tbody style="background-color:#EEE;">
+  <% order_item.order_modifiers.each do |mod| %>
+    <tr class="item-modifier" style="border:none;outline:none;">
+      <%#binding.pry%>
+      <% mod.options.each do |val| %>
+          <td colspan="2"> <%= val.name.capitalize %> </td>
+          <td colspan="2" style="text-align:left; font-style:italic; color: dimgray;"> <%= Order.integer_to_currency val.price %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</tbody>
