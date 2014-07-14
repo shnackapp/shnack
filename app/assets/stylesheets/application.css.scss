@@ -108,7 +108,7 @@ p {
 }
 
 .col-6 {
-	poition: relative;
+	position: relative;
 	float: left;
 	width: 50%;
 }
@@ -129,6 +129,24 @@ p {
 
 .col-4 {
 	width: 33.333333%;
+}
+
+.panel-title {
+  font-weight:700;
+  color: white;
+
+  &:before {
+    content: '\00a0        \00a0';
+    background-image: image-url('expand.png');
+    background-repeat:no-repeat;
+  }
+
+  &.expanded:before {
+    content: '\00a0   \00a0  \00a0';
+    background-image: image-url('minimize.png');
+    background-repeat:no-repeat;
+    background-position: center;
+  }
 }
 
 .headline-light {
