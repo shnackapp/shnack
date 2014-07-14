@@ -40,6 +40,14 @@ class MenuController < ApplicationController
 				unless params[:ss_name_3].empty?
 					size.options.create(:name=> params[:ss_name_3],:price=> params[:ss_price_3])
 				end
+
+				unless params[:ss_name_4].empty?
+					size.options.create(:name=> params[:ss_name_4],:price=> params[:ss_price_4])
+				end
+
+				unless params[:ss_name_5].empty?
+					size.options.create(:name=> params[:ss_name_5],:price=> params[:ss_price_5])
+				end
 			end
 			
 			# mutli select mod
