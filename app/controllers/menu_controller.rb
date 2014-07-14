@@ -12,7 +12,7 @@ class MenuController < ApplicationController
 		menu = Menu.find(params[:item][:menu_id])
 		category = Category.find(params[:item][:category_id])
 
-		if item = category.items.create(:name => params[:item][:name], :price => params[:item][:price]).valid?
+		if (item = category.items.create(:name => params[:item][:name], :price => params[:item][:price])).valid?
 
 			# size mod
 			unless params[:size_name_1].empty?
