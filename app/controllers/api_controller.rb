@@ -29,7 +29,7 @@ class ApiController < ApplicationController
 		
 		if @device.length > 0 && (!@device.first.vendor.nil? || !@device.first.restaurant.nil?)
 			d = @device.first
-			render :json => { :vendor_id => d.vendor.id, :initial_state => d.vendor.initial_state }
+			render :json => { :vendor_id => d.owner.id, :initial_state => d.owner.initial_state }
 		else
 			render :json => {:error => "unregistered_device", :token => params[:device_token]}
 		end
