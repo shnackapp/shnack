@@ -14,7 +14,7 @@ class MenuController < ApplicationController
 
 		if item = category.items.create(:name => params[:item][:name], :price => params[:item][:price]).valid?
 
-			# Add modifiers
+			# size mod
 			unless params[:size_name_1].empty?
 				size = item.modifiers.create(:mod_type=>"0", :name=> "size", :price=> nil)
 				size.options.create(:name=> params[:size_name_1],:price=> params[:size_price_1])
@@ -28,6 +28,7 @@ class MenuController < ApplicationController
 				end
 			end
 
+			# single select mod
 			unless params[:ss_title].empty? && params[:ss_name_1].empty?
 				size = item.modifiers.create(:mod_type=>"1", :name=> params[:ss_title], :price=> nil)
 				size.options.create(:name=> params[:ss_name_1],:price=> params[:ss_price_1])
@@ -41,6 +42,7 @@ class MenuController < ApplicationController
 				end
 			end
 			
+			# mutli select mod
 			unless params[:ms_title].empty? && params[:ms_name_1].empty?
 				size = item.modifiers.create(:mod_type=>"2", :name=> params[:ms_title], :price=> nil)
 				size.options.create(:name=> params[:ms_name_1],:price=> params[:ms_price_1])

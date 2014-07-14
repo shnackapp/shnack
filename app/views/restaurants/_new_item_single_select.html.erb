@@ -1,19 +1,37 @@
 <table id="single_select_mod_table">
   <tbody>
     <tr>
-      <td colspan="2"> <%= text_field_tag :ss_title, nil, :placeholder=>"Options Title" %> </td>
+      <td colspan="4"> <%= text_field_tag :ss_title, nil, :placeholder=>"Options Title" %> </td>
     </tr>
     <tr>
-      <td> <%= text_field_tag :ss_name_1, nil, :placeholder=>"Option 1 Name" %> </td>
-      <td> <%= text_field_tag :ss_price_1, nil, :type=>"number", :placeholder=>"Price 1" %> </td>
+      <td colspan="2"> <%= text_field_tag :ss_name_1, nil, :placeholder=>"Option 1 Name" %> </td>
+      <td colspan="2"> <%= text_field_tag :ss_price_1, nil, :type=>"number", :placeholder=>"Price 1" %> </td>
     </tr>
     </tr>
-      <td> <%= text_field_tag :ss_name_2, nil, :placeholder=>"Option 2 Name" %> </td>
-      <td> <%= text_field_tag :ss_price_2, nil, :type=>"number", :placeholder=>"Price 2" %> </td>
+      <td colspan="2"> <%= text_field_tag :ss_name_2, nil, :placeholder=>"Option 2 Name" %> </td>
+      <td colspan="2"> <%= text_field_tag :ss_price_2, nil, :type=>"number", :placeholder=>"Price 2" %> </td>
     </tr>
     <tr>
-      <td> <%= text_field_tag :ss_name_3, nil, :placeholder=>"Option 3 Name" %> </td>
-      <td> <%= text_field_tag :ss_price_3, nil, :type=>"number", :placeholder=>"Price 3" %> </td>
+      <td colspan="2"> <%= text_field_tag :ss_name_3, nil, :placeholder=>"Option 3 Name" %> </td>
+      <td colspan="2"> <%= text_field_tag :ss_price_3, nil, :type=>"number", :placeholder=>"Price 3" %> </td>
     </tr>
+    <!-- <tr>
+      <td colspan="4"><em>Which option should be default</em></td>
+    </tr>
+    <tr id="single_select_default">
+      <td>
+        <label for="first"><i>First</i></label>
+        <input type="radio" name="single_select_deafult" value="first"/>
+      </td>
+      <td>
+        <label for="first"><i>Second</i></label>
+        <input type="radio" name="single_select_deafult" value="second"/>
+      </td>
+      <td>
+        <label for="first"><i>Third</i></label>
+        <input type="radio" name="single_select_deafult"  value="third"/>
+      </td>
+      <td></td>
+    </tr> -->
   </tbody>
 </table>

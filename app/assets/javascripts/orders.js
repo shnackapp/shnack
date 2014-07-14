@@ -88,11 +88,15 @@ function initializeValues() {
 		var val = $(this).parent().children().last().val();
 		$(this).html(val);
 
-	})
+	});
 	updatePrice();
 
 	$(".all_the_mods").hide();
 
+	// var a1 = $(".radio-mod-1");
+	// a1[0].checked = true;
+	// var a2 = $(".radio-mod-2");
+	// a2[0].checked =true;
 
 };
 
