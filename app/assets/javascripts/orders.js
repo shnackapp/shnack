@@ -68,6 +68,10 @@ $(document).ready(function() {
 		$(this).next().slideToggle(200);
 	});
 
+	$(".panel-title").click(function(){
+  	$(this).toggleClass("expanded");
+	});
+
 	$("#order-submit").click(function(e) {
 
 		var total = $(".total").data("price");
