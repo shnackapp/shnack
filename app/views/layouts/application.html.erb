@@ -51,8 +51,8 @@
 					<li>   
 					  <%= link_to "Change your password", edit_user_registration_path %>
 
-					  <% if current_user.is_manager? %>
-					  	<%= link_to "Manage Your Vendors", :controller => "shnack", :action => "manage_vendors" %>
+					  <% if current_user.is_manager?  %>
+					  	<%= link_to "Manage Your Vendors", :controller => "/shnack", :action => "manage_vendors" %>
 					  <% end %>
 					</li>
 				  <% else %>
