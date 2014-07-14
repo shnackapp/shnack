@@ -62,7 +62,7 @@
 										<%  unless val.name.empty? %>
 											<tr>
 												<td colspan="2"> <%= val.name.capitalize %> </td>
-												<td>$<%= val.price %></td>
+												<td><%= Order.integer_to_currency val.price %></td>
 											</tr>
 										<% end %>
 									<% end %>
