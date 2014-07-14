@@ -17,8 +17,8 @@ class Menu < ActiveRecord::Base
   has_many :categories
   has_many :items, through: :categories
 
-  validates :name, presence: true
-  validates :price, presence: true
+  # validates :name, presence: true
+  # validates :price, presence: true
 
   def add_item(name, price, item_type, requires_id, nut_allergy, vegetarian)
   	items.create(:name => name, :price => price, :item_type => item_type, :requires_id => requires_id, :nut_allergy => nut_allergy, :vegetarian => vegetarian)
