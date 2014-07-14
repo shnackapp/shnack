@@ -3,10 +3,10 @@
 # Table name: modifiers
 #
 #  id         :integer          not null, primary key
-#  type       :integer
-#  price      :integer
 #  name       :string(255)
+#  price      :integer
 #  item_id    :integer
+#  mod_type   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
