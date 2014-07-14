@@ -131,6 +131,12 @@ p {
 	width: 33.333333%;
 }
 
+.panel-heading {
+  cursor: pointer;
+  background-color: #555;
+}
+
+
 .panel-title {
   font-weight:700;
   color: white;
@@ -148,6 +154,30 @@ p {
     background-position: center;
   }
 }
+
+.coffee-mug {
+  //position: absolute;
+    background-image: image-url('coffee_mug.png');
+    background-repeat:no-repeat;
+    background-position: center;
+
+}
+
+tbody.all_the_mods tr {
+
+    td.customize-this {
+      background-color: #EEE;
+      color: #C55;
+    }
+
+    &.item-modifier {
+      background-color: #EEE;
+    }
+    &.opt-name {
+      background-color: #EEE;
+    }
+}
+
 
 .headline-light {
 	font-family: "Poiret One", Geneva, sans-serif;
@@ -217,6 +247,11 @@ z-index: 20;
 .shnack {
 	font-family: "Damion", serif;
 	font-size:1.5em;
+}
+
+.caje {
+  font-family: "Georgia", serif;
+  font-size:1.5em;
 }
 
 ul.info-links {
