@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 	has_one :stadium, :through => :role
 
 	# Setup accessible (or protected) attributes for your model
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :is_super, :number, :name
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :number, :name
 	# attr_accessible :title, :body
 
 	before_create :create_authentication_token
