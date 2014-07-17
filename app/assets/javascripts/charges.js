@@ -122,7 +122,7 @@ function disableButton() {
 
 function validatePhoneNumber(number)
 {
-	if(number.length == 14)
+	if(number != null && number.length == 14)
 		return true;
 	else
 		return false;
@@ -130,7 +130,7 @@ function validatePhoneNumber(number)
 
 function validateName(name)
 {
-	if(name.length > 1 && name.match(/[a-zA-Z]/))
+	if(name != null && name.length > 1 && name.match(/[a-zA-Z]/))
 		return true;
 	else
 		return false;
