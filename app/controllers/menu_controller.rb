@@ -12,7 +12,7 @@ class MenuController < ApplicationController
 		menu = Menu.find(params[:item][:menu_id])
 		category = Category.find(params[:item][:category_id])
 
-		if (item = category.items.create(:name => params[:item][:name], :price => params[:item][:price])).valid?
+		if (item = category.items.create(:name => params[:item][:name], :price => params[:item][:price], :description => params[:item][:description])).valid?
 
 			# size mod
 			unless params[:size_name_1].empty?
@@ -71,6 +71,19 @@ class MenuController < ApplicationController
 			owner = menu.owner
 			owner.instance_of?(Vendor) ?  redirect_to(stadium_vendor_path(owner.stadium, owner)) : redirect_to(owner)
 		end
+	end
+
+
+	def edit_item
+		@item = Item.find(params[:item_id])
+	end
+
+	def update_item
+		@item = Item.find(params[:item_id])
+
+		@item.update_attributes(params[:item])
+		redirect_to @item.category.menu.owner
+
 	end
 
 

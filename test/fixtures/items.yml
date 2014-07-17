@@ -13,6 +13,7 @@
 #  vegetarian  :boolean
 #  category_id :integer
 #  sold_out    :boolean          default(FALSE)
+#  description :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

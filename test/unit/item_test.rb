@@ -13,6 +13,7 @@
 #  vegetarian  :boolean
 #  category_id :integer
 #  sold_out    :boolean          default(FALSE)
+#  description :text
 #
 
 require 'test_helper'
