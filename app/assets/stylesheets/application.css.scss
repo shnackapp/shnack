@@ -15,11 +15,8 @@
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
 @import url(https://fonts.googleapis.com/css?family=Damion);
+@import "base/*";
 
-$smokewhite: whitesmoke;
-$bgblack: #252525;
-$colorred: #9E1919;
-$shnackred: #a61c00;
 
 body {
 	//margin-right: 0px;
@@ -95,7 +92,7 @@ p {
   width: 100%;
   position: relative;
   margin: 0px auto;
-  background: $bgblack;
+  background: $black;
   padding: 45px 10px;
   min-height: 560px;
 }
@@ -128,7 +125,7 @@ p {
 
 .container {
 	width: 100%;
-		padding: 0px;
+	padding: 0px;
 }
 
 .my-container {
@@ -181,19 +178,9 @@ tbody.all_the_mods tr {
 }
 
 
-.headline-light {
-	font-family: "Poiret One", Geneva, sans-serif;
-	color: $smokewhite;
-}
-
-.headline {
-	font-family: "Poiret One", Geneva, sans-serif;
-	font-weight: 900;
-}
-
 .step-style {
   text-align: center;
-  color: $smokewhite;
+  color: $white;
 }
 
 h1.step-style {
@@ -223,7 +210,7 @@ z-index: 20;
 #info-tagline {
  font-family: "Poiret One", Geneva, sans-serif; 
  font-size: 3.8em;
- color: $smokewhite;
+ color: $white;
    font-weight: 600;
   margin-bottom: 25px;
   letter-spacing: 1;
@@ -232,7 +219,7 @@ z-index: 20;
 
 #info-text {
   font-size: 1.5em;
-  color: $smokewhite;
+  color: $white;
   font-family: "Poiret One", Geneva, sans-serif;
   display: block;
 }
@@ -240,6 +227,10 @@ z-index: 20;
 .center {
 	margin: 0px auto;
 	text-align: center;
+}
+
+.center-new {
+  margin: 0 auto;
 }
 
 .add_margin {
@@ -265,11 +256,11 @@ ul.info-links {
     	display:inline;
   	}
   	a {
-  		color: $shnackred;
+  		color: $red;
   		text-decoration: none;
   		&:hover {
-  			color: $smokewhite;
-  			border-bottom: 2px solid $shnackred;
+  			color: $white;
+  			border-bottom: 2px solid $red;
   		}
   	}
 }
@@ -278,16 +269,12 @@ ul.info-links {
 	text-align: center;
 	margin: 20px auto;
 	a {
-		color: $shnackred;
+		color: $red;
   		text-decoration: none;
   		&:hover {
   			color: slategray;
   		}
 	} 
-}
-
-#nvc-logo {
-	width: 100px;
 }
 
 
@@ -422,15 +409,6 @@ button, input, textarea {
   background-color: #C35050;
 }
 
-/* Brock Noah 7.2.14
-  I noticed there is no consistency in setting up a sidebar 
-  filter with the drop down feature, (li only, ul, divs, labels)
-  here is my attempt to unify into the two common styles.
-
-  Fancy filter similarities with item_list, possibility
-  to 'combine' them. This would be the style for the table */
-
-/* probably should make this the new_item_list */
 table.item-list {
   border-collapse: collapse;
   width: 100%;
@@ -467,15 +445,13 @@ table.item-list {
   td {
     border: 1px solid #E0E0E0;
     padding: 5px;
-    /* adpoted from index-action.css */
     vertical-align: top;
 
     select, input, textarea {
       width: 100%;
     }
 
-    /* adpoted from index-action.css */
-    &.table_icon {
+    &.dead_center {
       text-align: center;
       vertical-align: middle;
     } 
@@ -486,7 +462,6 @@ table.item-list {
   }
 }
 
-/* Might need to add form selector for backend usability */
 .plain-filter {
   * {
     display: block;
@@ -505,10 +480,48 @@ table.item-list {
 }
 
 .caje-info {
-
 	font-size:2em;
 	color: dimgray;
 	font-family: "Poiret One", Geneva, sans-serif;
 	text-align:center;
+}
 
+
+.topbar {
+  position: relative;
+  max-width: 880px;
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: $red;
+  background: KHAKI;
+  display: block;
+  @include box-shadow(0, 0, 6px, $black);
+}
+
+.to_the_right {
+  position: absolute;
+  //background: yellowgreen;
+  right: 0;
+  bottom: 0;
+  padding: 5px;
+  display: inline-block;
+  &:after { content: '  '; display: table; }
+}
+
+.to_the_left {
+  position: absolute;
+  //background: yellowgreen;
+  left: 0;
+  bottom: 0;
+display: inline-block;
+  &:after { content: '  '; display: table; }
+}
+
+.prgs-bar {
+  vertical-align: middle;
+}
+
+.order-total {
+  font-weight: 900;
 }
