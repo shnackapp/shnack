@@ -1,10 +1,25 @@
 $(document).ready(function() {
    $("#order-phone-number").keypress(function(e) {
-   		if(e.which<48 || e.which > 57)
+   		if(e.which<48 || e.which > 57) {
    			e.preventDefault();
+   		}
+   		else {
+   			var phone_valid = validatePhoneNumber($("#order-phone-number").val());
+			if(phone_valid) {
+				if(validateName($("#order-name").val())) {
+					enableButton();
+				}
+			}
+   		}
+
+
    });
    $("#order-phone-number").mask("(000) 000-0000");
-   disableButton();
+   
+   if(!validateName($("#order-name").val()) || !validatePhoneNumber($("#order-phone-number").val()) )
+   { 
+   		disableButton();
+   }
    // $("#order-phone-number").blur(function(e) {
    // 		validateInputs();
    // });
