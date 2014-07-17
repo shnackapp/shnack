@@ -82,7 +82,7 @@ class MenuController < ApplicationController
 		@item = Item.find(params[:item_id])
 
 		@item.update_attributes(params[:item])
-		@item.update(:description, params[:item][:description])
+		@item.update_attribute(:description, params[:item][:description])
 		redirect_to @item.category.menu.owner
 
 	end
