@@ -1,0 +1,4 @@
+*, *:before, *:after { box-sixing: border-box; }
+.clear-fix:after { content: '  '; display: table; }
+
+
