@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140714021311) do
+ActiveRecord::Schema.define(:version => 20140717020039) do
 
   create_table "analytics", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20140714021311) do
     t.boolean  "vegetarian"
     t.integer  "category_id"
     t.boolean  "sold_out",                 :default => false
+    t.text     "description"
   end
 
   create_table "locations", :force => true do |t|
