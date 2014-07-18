@@ -1,6 +1,7 @@
 class ApiController < ApplicationController
 	include ApiHelper
 	# http_basic_authenticate_with name: "admin", password: "secret"
+
 	before_filter :restrict_access
 
 	respond_to :json
@@ -154,6 +155,33 @@ class ApiController < ApplicationController
 		render :json => @vendors
 	end
 
+	def process_stripe_info
+		# Set your secret key: remember to change this to your live secret key in production
+		# See your keys here https://dashboard.stripe.com/account
+		Stripe.api_key = "sk_test_xDJ5KS0I8VgJvHSQT1Iuxy56"
+		# Get the credit card details submitted by the form
+
+		token = params[:stripeToken]
+		amount= params[:amount]
+
+
+		# Create the charge on Stripe's servers - this will charge the user's card
+		begin
+			charge = Stripe::Charge.create(
+			:amount => amount, # amount in cents, again
+			:currency => "usd",
+			:card => token,
+			:description => "payinguser@example.com"
+			)
+		rescue Stripe::CardError => e
+		# The card has been declined
+		end
+
+		render :json => { :stripe_token => token, :amount =>amount }
+
+
+	end
+
 
 	private
 	# SHOULD BE PRIVATE BUT BREAKS IF I MAKE IT SO (unexpected keyword end when surrounding with private ... end)
@@ -165,4 +193,8 @@ class ApiController < ApplicationController
 			ApiKey.exists?(:access_token => token)
 		end
 	end
+
+	# def payment_params
+ #      params.require(:stripeToken).permit(:amount)
+ #  	end
 end
