@@ -105,14 +105,14 @@ class OrdersController < ApplicationController
             option_id.each do |op_id|
               option = Option.find(op_id.to_i)
               order_mod.options << option
-              cost += qty.to_i * option.price
+              cost += qty.to_i * option.price unless option.price.nil?
             end
 
           elsif option_id.to_i != 0
             option = Option.find(option_id.to_i)
             order_mod.options << option
 
-            cost += qty.to_i * option.price
+            cost += qty.to_i * option.price unless option.price.nil?
           end
 
         end

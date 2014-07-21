@@ -51,8 +51,8 @@
 					<li>   
 					  <%= link_to "Change your password", edit_user_registration_path %>
 
-					  <% if current_user.is_manager? %>
-					  	<%= link_to "Manage Your Vendors", :controller => "shnack", :action => "manage_vendors" %>
+					  <% if current_user.is_manager?  %>
+					  	<%= link_to "Manage Your Vendors", :controller => "/shnack", :action => "manage_vendors" %>
 					  <% end %>
 					</li>
 				  <% else %>
@@ -80,10 +80,10 @@
 
 		<div class="level">
 			<div class="container my-container caje-info">
-				<span class="shnack">Shnack</span> is now being used at Caje<br />
+				<span class="shnack">Shnack</span> is now being used at <soan class="caje">Caje</soan><br />
 				<strong>Order ahead. Skip the line.</strong>
 				<br/>
-					<span style="color:#333; font-weight:900;"> Every order enters you for the chance to win a Logitech Speaker System! </span>
+					<span style="color:#333; font-weight:900;"> Every order enters you for the chance to win a new Logitech Speaker System! </span>
 			</div>
 		</div>
 

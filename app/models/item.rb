@@ -13,11 +13,12 @@
 #  vegetarian  :boolean
 #  category_id :integer
 #  sold_out    :boolean          default(FALSE)
+#  description :text
 #
 
 class Item < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :name, :price, :item_type, :requires_id, :nut_allergy, :vegetarian
+  attr_accessible :name, :price, :item_type, :requires_id, :nut_allergy, :vegetarian, :description
   belongs_to :category
   belongs_to :menu
   has_many :modifiers
@@ -36,6 +37,10 @@ class Item < ActiveRecord::Base
     dollars = amount_str[0..-3]
 
     return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
+  end
+
+  def has_description? 
+    !self.description.nil?
   end
 
   def has_mod?

@@ -24,7 +24,7 @@ class OrderItem < ActiveRecord::Base
   	total = Item.find(self.item_id).price
 
   	self.order_modifiers.each do |order_modifier|
-  		order_modifier.options.each { |option| total+= option.price }
+  		order_modifier.options.each { |option| total+= option.price unless option.price.nil?}
   	end
 
   	total

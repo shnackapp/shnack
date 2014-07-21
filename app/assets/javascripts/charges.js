@@ -1,10 +1,25 @@
 $(document).ready(function() {
    $("#order-phone-number").keypress(function(e) {
-   		if(e.which<48 || e.which > 57)
+   		if(e.which<48 || e.which > 57) {
    			e.preventDefault();
+   		}
+   		else {
+   			var phone_valid = validatePhoneNumber($("#order-phone-number").val());
+			if(phone_valid) {
+				if(validateName($("#order-name").val())) {
+					enableButton();
+				}
+			}
+   		}
+
+
    });
    $("#order-phone-number").mask("(000) 000-0000");
-   disableButton();
+   
+   if(!validateName($("#order-name").val()) || !validatePhoneNumber($("#order-phone-number").val()) )
+   { 
+   		disableButton();
+   }
    // $("#order-phone-number").blur(function(e) {
    // 		validateInputs();
    // });
@@ -107,7 +122,7 @@ function disableButton() {
 
 function validatePhoneNumber(number)
 {
-	if(number.length == 14)
+	if(number != null && number.length == 14)
 		return true;
 	else
 		return false;
@@ -115,7 +130,7 @@ function validatePhoneNumber(number)
 
 function validateName(name)
 {
-	if(name.length > 1 && name.match(/[a-zA-Z]/))
+	if(name != null && name.length > 1 && name.match(/[a-zA-Z]/))
 		return true;
 	else
 		return false;

@@ -15,39 +15,9 @@
     <%= f.password_field :current_password %>
   </div>
 
-  <% if current_user.is_super %>
-    <div class="field"> 
-      <%= f.label :is_super %>  <br />
-      <%= f.check_box :is_super, :checked => @user.is_super %>
-    </div>
-  <% end %>
-
-  <div class="field"> 
-    <%= f.label :role %>
-    <%= f.select :role_type, [["Customer", 0], ["Manager", 1]]  %>
-  </div>
-
-  <% if current_user.is_super && @user.is_manager? %>
-    <div class="field"> 
-      <%= f.label :stadium %>
-      <%= f.select :stadium_id, Stadium.all.map { |s| [s.name, s.id] } %>
-    </div>
-
-
-  <% end %>
 
   <div class="action_container">
     <%= f.submit "Update" %>
   </div>
 <% end %>
 
-
-
-    <% unless @user.stadium.nil? %>
-      <%= form_for(Vendor.new, :url => { :action => "create_vendor" } ) do |f| %>
-        <%= f.hidden_field :stadium_id, :value => @user.stadium_id %>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-        <%= f.submit %>
-      <% end %>
-    <% end %>

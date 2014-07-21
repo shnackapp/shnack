@@ -22,7 +22,7 @@
     <% if @menu.categories.count > 1 %>
 
       <% @menu.categories.each do |category| %>
-        <div class="panel-heading" style="background-color:#555;color:white;"><h3 class="panel-title"><%= category.name %></h3></div>
+        <div class="panel-heading" style="cursor:pointer;background-color:#555;"><h3 class="panel-title"><%= category.name %></h3></div>
         <div class="order-items" style="display:none;">
           <table cellspacing="10" class="table">
 
@@ -39,12 +39,19 @@
                   <td> <span class="glyphicon glyphicon-minus minus"></span> </td>
                   <td class="item_id hidden"> <%= item.id %> </td>
                   <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
-
+             
+                  <% if item.has_description? %>
+                    </tr>
+                    <tr>
+                      <td colspan="5" class="item-description"> <%= item.description %> </td>
+                  <% end %>
                   <% if item.has_mod?; @item = item %>
                     <%= render :partial => 'display_mods', :locals => { item: @item } %>
                   <% end %>
                 <% end %>
               </tr>
+
+
             </tbody>
           <%end%>
         </table>

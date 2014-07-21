@@ -1,12 +1,12 @@
-<tbody id="<%=item.id%>_mod" class="all_the_mods" style="background-color:#EEE;">
+<tbody id="<%=item.id%>_mod" class="all_the_mods">
   <tr>
-    <td colspan="5" style="text-align:center;"> <em>Customize this <%= item.name %></em> </td>
+    <td colspan="5" class="customize-this">Customize this <%= item.name %></td>
   </tr>
   <% item.modifiers.each do |mod| %>
     <tr class="item-modifier" style="border:none;outline:none;">
       <td class="modifier-name" colspan="5"> <strong> <%= mod.name.capitalize %> </strong></td>
       <% mod.options.each_with_index do |val, ind| %>
-        <tr>
+        <tr class="opt-name">
           <td> <%= val.name.capitalize %> </td>
           <td>+ <%= Order.integer_to_currency val.price %></td>
 
@@ -15,9 +15,14 @@
             <td colspan="2">
               <%#= radio_button_tag("#{mod.name.downcase}", "#{val.name.downcase}") %>
               <% unless ind == 0 %>
+                <label class="checkbox">
                 <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name='<%= "#{item.id}_#{mod.id}" %>' class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>">
+              </label>
               <% else %>
+              <label class="checkbox">
               <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name='<%= "#{item.id}_#{mod.id}" %>' class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>" checked>
+                            </label>
+
               <% end %>
             </td>
           <%end%>
