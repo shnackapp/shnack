@@ -1,5 +1,9 @@
-*, *:before, *:after { box-sixing: border-box; }
+*, *:before, *:after { box-sizing: border-box; }
 .clear-fix:after { content: '  '; display: table; }
+
+.pad-sml { padding: 10px; }
+.pad     { padding: 20px; }
+.pad-lrg  { padding: 30px; }
 
 .pad-right-sml { padding-right: 10px; } 
 .pad-left-sml { padding-left: 10px; } 
@@ -48,3 +52,13 @@ h3.new {
 
 .fll { float: left; }
 .flr { float: right; }
+
+.center {
+  margin: 0px auto;
+  text-align: center;
+}
+
+.center-new {
+  margin: 0 auto;
+  position: relative;
+}

@@ -33,26 +33,27 @@
 
 		<div class="container">
 
-					<div class="topbar center-new">
+					<div class="topbar">
 						<div class="to_the_left">
-							<h1 class="new pad-left pad-right-lrg fll">Shnack</h1>
-							<div class="prgs-bar fll">1   2   3</div>
-							<span class="order-total pad-left-lrg pad-right fll"><h3>$18.26</h3></span>
+							<h1 class="new pad-left pad-right-lrg" style="display:inline;">Shnack</h1>
+							<div class="prgs-bar">1   2   3</div>
+							<div class="order-total pad-left-lrg pad-right">$18.26</div>
 						</div>
 						<div class="to_the_right">
 							<% if user_signed_in? %>
-								<ul id="account-manage" class="nav nav-pills nav-stacked hidden-xs">
+								<%= image_tag("gear.png", alt: "settings", class: "my-gear") %>
+								<!-- <ul id="account-manage" class="nav nav-pills nav-stacked hidden-xs">
 									<li>
-									  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>   
+									  <%#= link_to('Logout', destroy_user_session_path, :method => :delete) %>   
 									<li>   
-									  <%= link_to "Change your password", edit_user_registration_path %>
+									  <%#= link_to "Change your password", edit_user_registration_path %>
 
-									  <% if current_user.is_manager?  %>
+									  <%# if current_user.is_manager?  %>
 									  <li>
-									  	<%= link_to "Manage Your Vendors", :controller => "/shnack", :action => "manage_vendors" %>
+									  	<%#= link_to "Manage Your Vendors", :controller => "/shnack", :action => "manage_vendors" %>
 									  	</li>
-									  <% end %>
-								  </ul>
+									  <%# end %>
+								  </ul> -->
 							  <% else %>
 								<%= link_to('Login', new_user_session_path, :class => 'btn btnp')  %> 
 								<%= link_to('Sign Up', new_user_session_path, :class => 'btn btnp')  %>   

@@ -16,6 +16,7 @@
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
 @import url(https://fonts.googleapis.com/css?family=Damion);
 @import "base/*";
+@import "components/*";
 
 
 body {
@@ -175,6 +176,11 @@ tbody.all_the_mods tr {
     &.opt-name {
       background-color: #EEE;
     }
+}
+
+
+.item-description {
+  background: lightgray;
 }
 
 
@@ -488,40 +494,34 @@ table.item-list {
 
 
 .topbar {
-  position: relative;
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  right: 0;
   max-width: 880px;
   height: 50px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  //margin-top: 10px;
+  margin: 8px auto 30px auto;
   color: $red;
   background: KHAKI;
   display: block;
   @include box-shadow(0, 0, 6px, $black);
 }
 
-.to_the_right {
-  position: absolute;
-  //background: yellowgreen;
-  right: 0;
-  bottom: 0;
-  padding: 5px;
-  display: inline-block;
-  &:after { content: '  '; display: table; }
-}
-
-.to_the_left {
-  position: absolute;
-  //background: yellowgreen;
-  left: 0;
-  bottom: 0;
-display: inline-block;
-  &:after { content: '  '; display: table; }
-}
 
 .prgs-bar {
-  vertical-align: middle;
+  display: inline;
 }
 
 .order-total {
   font-weight: 900;
+  display: inline;
+}
+
+
+.my-gear {
+  float: right;
+  display:inline;
+    vertical-align: middle;
+
 }
