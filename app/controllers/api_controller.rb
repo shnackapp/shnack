@@ -6,7 +6,7 @@ class ApiController < ApplicationController
 	respond_to :json
 
 	def create
-    @user = User.create(:name => params[:name],:email => params[:email],:phone => params[:number],:password => params[:password])
+    @user = User.create(:name => params[:name],:email => params[:email],:number => params[:phone],:password => params[:password])
 
    	respond_with  {auth_token:@user.authentication_token}
 
