@@ -3,8 +3,29 @@ class ApiController < ApplicationController
 	# http_basic_authenticate_with name: "admin", password: "secret"
 
 	before_filter :restrict_access
-
 	respond_to :json
+
+	def create
+    @user = User.create(:name => params[:name],:email => params[:email],:phone => params[:phone],:password => params[:password])
+
+   	respond_with  {:auth_token => @user.authentication_token}
+
+
+
+    # respond_to do |format|
+    #   if @user.save
+    #     # Tell the UserMailer to send a welcome Email after save
+    #     UserMailer.welcome_email(@user).deliver
+ 
+    #     format.html { redirect_to(@user, notice: 'User was successfully created.') }
+    #     format.json { render json: @user, status: :created, location: @user }
+    #   else
+    #     format.html { render action: 'new' }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
+  end
+
 	def index
 		respond_with User.all
 	end
@@ -154,6 +175,8 @@ class ApiController < ApplicationController
 		end
 		render :json => @vendors
 	end
+
+	
 
 	def process_stripe_info
 		# Set your secret key: remember to change this to your live secret key in production

@@ -1,0 +1,11 @@
+<%= form_for @item, url: {:controller => "menu", :action => "update_item", :item_id => @item.id}, :method => "post"  do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<br />
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+	<br />
+
+	<%= f.submit %>
+<% end %>
