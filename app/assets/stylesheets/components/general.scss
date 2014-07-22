@@ -4,6 +4,27 @@
 }
 
 #order-form {
-  width: 40%;
-  margin: 30px auto;
+  margin: 50px auto;
+  min-width: 320px;
+  max-width: 660px;
+}
+
+.panel-title {
+  font-weight:700;
+  color: white;
+  cursor: pointer;
+  background-color: #555;
+
+  &:before {
+    content: '\00a0        \00a0';
+    background-image: image-url('expand.png');
+    background-repeat:no-repeat;
+  }
+
+  &.expanded:before {
+    content: '\00a0   \00a0  \00a0';
+    background-image: image-url('minimize.png');
+    background-repeat:no-repeat;
+    background-position: center;
+  }
 }

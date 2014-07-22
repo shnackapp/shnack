@@ -10,6 +10,10 @@ Shnack::Application.routes.draw do
      get '/charges/:action', :controller => 'charges'
     post '/charges/:action', :controller => 'charges'
 
+    get '/super', to: 'super#index'
+
+
+
 
   devise_for :users
   # The priority is based upon order of creation:

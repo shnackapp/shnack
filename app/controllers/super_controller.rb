@@ -1,0 +1,3 @@
+class SuperController < ApplicationController
+
+end
