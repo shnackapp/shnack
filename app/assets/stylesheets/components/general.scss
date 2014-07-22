@@ -1,18 +1,9 @@
-.to_the_right {
-  //position: absolute;
-  background: yellowgreen;
-  //right: 0;
-  //bottom: 0;
-  //padding: 5px;
-  display: inline;
-  //&:after { content: '  '; display: table; }
+.gen_inline {
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.to_the_left {
-  //position: absolute;
-  background: yellowgreen;
-  //left: 0;
-  //bottom: 0;
-display: inline;
-  //&:after { content: '  '; display: table; }
+#order-form {
+  width: 40%;
+  margin: 30px auto;
 }
