@@ -58,7 +58,7 @@ Shnack::Application.routes.draw do
   post '/shnack/:action', :controller => 'shnack'
 	get '/:action/:object_id', :controller => 'application'
 
-
+  get '/:action', :controller => 'application'
 
 
   # Sample of regular route:

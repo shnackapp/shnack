@@ -35,5 +35,8 @@ class ApplicationController < ActionController::Base
 		@stadium = @vendor.stadium
 	end
 
+  def about_shnack
+    render layout: false
+  end
 
 end

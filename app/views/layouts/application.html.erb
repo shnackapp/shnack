@@ -55,7 +55,7 @@
 			<%end%>
 
 			<div class="prgs-bar center">
-				<% if current_page?(controller: '/application', action: 'select_stadium') || current_page?(controller: '/application', action: 'user_root') %>
+				<% if current_page?(controller: '/application', action: 'select_stadium') %>
 	  			<div class="step current">
 	  		<% else %>
 	  			<div class="step">
@@ -124,6 +124,10 @@
 			<br/>
 				<span style="color:#333; font-weight:900;"> Every order enters you for the chance to win a new Logitech Speaker System! </span>
 		</div>
+	</div>
+
+	<div>
+		<%= link_to('This is all about the Shnack', { :controller => "/application", :action => "about_shnack"}) %>
 	</div>
 
 	<div id="level-2">
