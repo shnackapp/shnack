@@ -248,14 +248,7 @@ ul.info-links {
 	//margin-top: 15px;
 }
 
- .btnp {
-  padding: 9px 15px;
-  background: #336699;
-  font-size: 14px;
-  color: #FFFFFF;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  }
+
 
 
 .contact-field {
@@ -457,8 +450,8 @@ table.item-list {
   max-width: 880px;
   margin: 0px auto 40px auto;
   padding: 0px 30px;
-  color: $red;
-  background: #EEE;
+  color: #EEE;
+  background: $red;
   display: block;
   @include box-shadow(0, 0, 6px, $black);
 }
@@ -472,7 +465,8 @@ table.item-list {
   @extend .gen_inline;
 }
 
-.my-gear {
+.user-settings {
+  //width: 25%;
   float: right;
   @extend .gen_inline;
 }
@@ -485,23 +479,22 @@ table.item-list {
   width: 33.33%;
   padding: 0;
   margin: 0;
-  color: #666;
   &.current {
-    color: #333;
+    ///color: #CCC;
     font-weight: 700;
   }
   &.current .circle {
-    background-color: $red;
+    background-color: khaki;
   }
   &.completed .circle {
-    background-color: #444;
+    //background-color: #444;
   }
 }
 
 
 .circle {
-  border: 2px solid #555;
-  background-color: #AAA;
+  border: 2px solid #AAA;
+  //background-color: #AAA;
   border-radius:15px;
   background-image: none;
   width: 12px;

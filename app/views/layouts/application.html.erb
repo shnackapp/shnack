@@ -35,9 +35,9 @@
 			<a href="/"><h1 class="new gen_inline shnack">Shnack</h1></a>
 
 			<% if user_signed_in? %>
-				<ul id="click_me" class="my-gear">
+				<ul id="click_me" class="user-settings">
 					<li>
-						<a href="#" class="opac-fix"><%= image_tag("gear.png", alt: "settings", style: "opacity:0.4;") %></a>
+						<a href="#" class="opac-fix"><%= image_tag("gear-small-w.png", alt: "settings", style: "opacity:0.8;") %></a>
 						<ul>
 							<% if current_user.is_manager?  %>
 								<li><%= link_to "Manage Your Vendors", :controller => "/shnack", :action => "manage_vendors" %></li>
@@ -48,14 +48,14 @@
 					</li>
 				</ul>
 			<%else%>
-				<div class="flr">
-					<%= link_to('Login', new_user_session_path, :class => 'btn btnp')  %> 
-					<%= link_to('Sign Up', new_user_session_path, :class => 'btn btnp')  %>  
+				<div class="user-settings">
+					<%= link_to('Login', new_user_session_path, :class => 'user')  %> 
+					<%= link_to('Sign Up', new_user_session_path, :class => 'user')  %>  
 				</div> 
 			<%end%>
 
 			<div class="prgs-bar center">
-				<% if current_page?(controller: 'application', action: 'select_stadium') %>
+				<% if current_page?(controller: '/application', action: 'select_stadium') || current_page?(controller: '/application', action: 'user_root') %>
 	  			<div class="step current">
 	  		<% else %>
 	  			<div class="step">
@@ -65,7 +65,7 @@
 	  			</div>
 
 
-  			<% if current_page?(controller: 'orders', action: 'new') %>
+  			<% if current_page?(controller: '/orders', action: 'new') %>
 	  			<div class="step current">
 	  		<% else %>
 	  			<div class="step">
@@ -74,7 +74,7 @@
 	      		<div class="circle"></div>
 	  			</div>
 				
-				<% if current_page?(controller: 'charges', action: 'new') %>
+				<% if current_page?(controller: '/charges', action: 'new') %>
 	  			<div class="step current">
 	  		<% else %>
 	  			<div class="step">
@@ -97,11 +97,11 @@
 
 		<div id="order-form" class="the-menu">
 
-	    <div class="row-new">
+	<!--    <div class="row-new">
 	      <div class="panel-heading"><h3>FOODOOD</h3></div>
 	    </div>
 
-	    <div class="row-new">
+	     <div class="row-new">
 	      <div class="item-name col-3">Cheese Pizza</div>
 	      <div class="item-price col-2">$00.00</div>
 	      <div class="cart-add col-1">+</div>
@@ -109,7 +109,7 @@
 	      <div class="cart-minus col-1">-</div>
 	    	<div class="item-desc col-4">This is a simple discription of a CP, do you know what this is.</div>
 	    </div>
- 		</div>
+ 		</div> -->
 
 
 			<%= yield %>
