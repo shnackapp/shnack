@@ -47,26 +47,29 @@
       		<div class="circle"></div>
   			</div>
 			</div>
+
+
+
 			<% if user_signed_in? %>
-				<%= image_tag("gear.png", alt: "settings", class: "my-gear") %>
-				<!-- <ul id="account-manage" class="nav nav-pills nav-stacked hidden-xs">
+				<ul id="click_me" class="my-gear">
 					<li>
-					  <%#= link_to('Logout', destroy_user_session_path, :method => :delete) %>   
-					</li>  
-					<li>
-						<%#= link_to "Change your password", edit_user_registration_path %>
+						<a href="#" class="opac-fix"><%= image_tag("gear.png", alt: "settings", style: "opacity:0.4;") %></a>
+						<ul>
+							<% if current_user.is_manager?  %>
+								<li><%= link_to "Manage Your Vendors", :controller => "/shnack", :action => "manage_vendors" %></li>
+							<%end%>
+							<li><%= link_to "Change your password", edit_user_registration_path %></li>
+							<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+						</ul>
 					</li>
-					<%# if current_user.is_manager?  %>
-					  <li>
-					  	<%#= link_to "Manage Your Vendors", :controller => "/shnack", :action => "manage_vendors" %>
-					 	</li>
-					<%# end %>
-				</ul> -->
-			<% else %>
+				</ul>
+			<%else%>
 				<%= link_to('Login', new_user_session_path, :class => 'btn btnp')  %> 
 				<%= link_to('Sign Up', new_user_session_path, :class => 'btn btnp')  %>   
-			<% end %>
-		</div>
+			<%end%>
+
+
+		</div> <!--ENDS TOPBAR-->
 
 		<% if flash[:notice] %>
 			<div class="notice"><%= flash[:notice] %></div>
