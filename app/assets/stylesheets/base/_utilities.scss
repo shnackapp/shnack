@@ -1,5 +1,6 @@
 *, *:before, *:after { box-sizing: border-box; }
-.clear-fix:after { content: '  '; display: table; }
+.clear-fix:after { content: ' '; display: table; clear: both; }
+.opac-fix:after { content: ' '; display: table; opacity: 1; }
 
 .pad-sml { padding: 10px; }
 .pad     { padding: 20px; }
