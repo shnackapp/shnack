@@ -15,13 +15,11 @@
             <td colspan="2">
               <%#= radio_button_tag("#{mod.name.downcase}", "#{val.name.downcase}") %>
               <% unless ind == 0 %>
-                <label class="checkbox">
                 <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name='<%= "#{item.id}_#{mod.id}" %>' class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>">
-              </label>
+                <label for="<%= mod.name.downcase %>_<%= val.name.downcase %>"></label>
               <% else %>
-              <label class="checkbox">
               <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name='<%= "#{item.id}_#{mod.id}" %>' class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>" checked>
-                            </label>
+              <label for="<%= mod.name.downcase %>_<%= val.name.downcase %>"></label>
 
               <% end %>
             </td>
