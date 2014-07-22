@@ -1,16 +1,24 @@
+<script type="text/javascript" src="https://js.stripe.com/v2/"> </script>
 
+<script type="text/javascript">
+  Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
+</script>
 
-<%= form_tag order_charges_path(@order) do %>
+<%= form_tag order_charges_path(@order), :id => "charges-form" do %>
 	<%= render 'shared/order_details' %>
 
   <% if user_signed_in? && !current_user.number.nil? %>
     <%= text_field(:user, :name, :class=> "form-control", :id => "order-name", :value => current_user.name ) %>
     <%= telephone_field(:user, :phone, :class=>"form-control", :id => "order-phone-number", :value => current_user.number) %>
+
+    <div> Email: <%= current_user.email %> <br /> </div>
   <% else %>
     <%= text_field(:user, :name, :class=> "form-control", :id => "order-name", :placeholder => "Name" ) %>
   	<%= telephone_field(:user, :phone, :class => "form-control",:id => "order-phone-number", :placeholder => "Phone #") %>
+    <%= text_field(:user, :email, :class =>"form-control", :id=> "order-email", :placeholder => "E-mail Address") %>
   <% end %>
 	<br />
+  <% end %>
  
   <% if @owner.cash_only %>
       <div class="text-center" style="width:100%">
@@ -21,22 +29,10 @@
       </div>
 
   <% else %>
-
-  	<div class="text-center">
-    <script src="https://checkout.stripe.com/checkout.js"  class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-name="Shnack"
-            data-label="Pay For Your Order"
-            data-description="Pay For Your Order"
-            data-amount="<%= @order.total %>"
-            <%= "data-email='#{current_user.email}'" if user_signed_in? %>
-
-
-            ></script>
-        </div>
+    <%= render 'credit_card_form' %>
   <% end %>
+  <div class="error stripe-error" style="display:none;"> </div>
   <div class="error name-error" style="display:none;">Please enter your name or we won't be able to let you know when your order's ready!</div>
   <div class="error phone-error" style="display:none;">Please enter your phone number or we won't be able to let you know when your order's ready!</div>
 
 
-<% end %>

@@ -1,4 +1,54 @@
 $(document).ready(function() {
+	var stripeResponseHandler = function(status, response) {
+	  var $form = $('#charges-form');
+
+	  if (response.error) {
+	    // Show the errors on the form
+	    // $form.find('.payment-errors').text(response.error.message);
+	    // $form.find('button').prop('disabled', false);
+	   	$(".stripe-error").text(response.error.message);
+	   	$(".stripe-error").slideDown(300);
+	    $("#credit-card-form").find('button').prop('disabled', false);
+
+	  } else {
+	    // token contains id, last4, and card type
+	    var token = response.id;
+	    // Insert the token into the form so it gets submitted to the server
+	    // console.log(token);
+	    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+	    // and submit
+	    $form.get(0).submit();
+	  }
+	};
+
+
+	//Make sure form submits.
+	   $("#confirm-button").click(function() { 
+	   	$form = $('#charges-form');
+	   	$form.get(0).submit();
+	   });
+
+
+
+
+	$("#credit-card-form").submit(function(event) {
+		event.preventDefault();
+		var $form = $(this);
+
+    	$form.find('button').prop('disabled', true);
+
+		Stripe.card.createToken({
+			number: $("#credit_card_number").val(),
+			cvc: $("#security_code").val(),
+			exp_month: $("#expiration_month").val(),
+			exp_year: $("#expiration_year").val()
+		}, stripeResponseHandler);
+		return false;
+
+	} );
+
+
+
    $("#order-phone-number").keypress(function(e) {
    		if(e.which<48 || e.which > 57) {
    			e.preventDefault();
@@ -15,6 +65,7 @@ $(document).ready(function() {
 
    });
    $("#order-phone-number").mask("(000) 000-0000");
+   $("#credit_card_number").mask("0000 0000 0000 0000");
    
    if(!validateName($("#order-name").val()) || !validatePhoneNumber($("#order-phone-number").val()) )
    { 

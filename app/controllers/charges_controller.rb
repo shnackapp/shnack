@@ -60,7 +60,8 @@ class ChargesController < ApplicationController
   			)
 
 	  	  @order.update_attribute(:paid, true)
-		
+		  @order.update_attributes(:charge_id => charge.id, :paid => true)
+
 	  	else
   		  customer = Stripe::Customer.create(
 		    :email => params[:stripeEmail],
@@ -69,13 +70,14 @@ class ChargesController < ApplicationController
 
 		  @order.user.update_attribute(:customer_id, customer.id)
 
+
 		  charge = Stripe::Charge.create(
 		    :customer    => customer.id,
 		    :amount      => @amount,
 		    :description => 'Rails Stripe customer',
 		    :currency    => 'usd'
 		  )
-	      @order.update_attribute(:paid, true)
+		  @order.update_attributes(:charge_id => charge.id, :paid => true)
 	  	end
 
 
