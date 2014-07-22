@@ -25,11 +25,13 @@ class ChargesController < ApplicationController
 
 
 	  unless @owner.is_open?
+	  	flash[:error] = "#{@owner.name} is currently closed. Sorry for the inconvenience."
 	  	redirect_to root_path 
 	  	return
 	  end
 	  
 	  if @order.paid
+	  	flash[:error] = "Somebody has already paid for this order!"
 	  	redirect_to order_path(@order)
 	  	return
 	  end

@@ -24,7 +24,6 @@ $(document).ready(function() {
 	/**
 		The following 4 functions refocus the user's selected input as 
 		they go through the credit card form
-
 	**/
 
 	$('#credit_card_number').keypress(function(e) {
@@ -147,10 +146,28 @@ $(document).ready(function() {
    			var phone_valid = validatePhoneNumber($("#order-phone-number").val());
 			if(phone_valid) {
 				if(validateName($("#order-name").val())) {
-					enableButton();
+					var valid_email;
+					if($("#order-email")[0]) {
+						email_valid = validateEmail($("#order-email").val());
+					}
+					else {
+						email_valid = true;
+					}
+					if(email_valid) {
+						enableButton();
+					}
 				}
 			}
    		}
+
+   	$("#order-email").keyup(function(e) {
+   		var email_valid = validateEmail($("#order-email").val());
+   		if(email_valid && validatePhoneNumber($("#order-phone-number").val()) && validateName($("#order-name").val())) {
+   			enableButton();
+   		}
+
+
+   	});
 
 
    });
@@ -161,19 +178,23 @@ $(document).ready(function() {
    { 
    		disableButton();
    }
-   // $("#order-phone-number").blur(function(e) {
-   // 		validateInputs();
-   // });
 
-   // disableButton();
-   // $("#order-email").blur(function(e) {
-   // 		validateInputs();
-   // });
-	
+
+   /**
+  		The following functions go along as the user enters their phone and name information
+  		If it's filled out, then it enables the submit button
+  	**/
 	
 	$("#order-name").blur(function(e){
 		var name_valid = validateName($("#order-name").val());
 		var phone_valid = validatePhoneNumber($("#order-phone-number").val());
+		var email_valid;
+		if($("#order-email")[0]) {
+			email_valid = validateEmail($("#order-email").val());
+		}
+		else {
+			email_valid = true;
+		}
 
 
 		if(!name_valid) {
@@ -187,17 +208,28 @@ $(document).ready(function() {
 			$(".name-error").slideUp(200);
 			$("#order-name").removeClass("error");
 		}
-		if(name_valid && phone_valid) {
+		if(name_valid && phone_valid && email_valid) {
 			$(".name-error").slideUp(200);
 			$("#order-name").removeClass("error");
 			$(".phone-error").slideUp(200);
 			$("#order-phone-number").removeClass("error");
+			$(".email-error").slideUp(200);
+			$("#order-email").removeClass(error);
 			enableButton();
 		}
 	});
 	$("#order-phone-number").blur(function(e){
 		var phone_valid = validatePhoneNumber($("#order-phone-number").val());
 		var name_valid = validateName($("#order-name").val());
+
+
+		var email_valid;
+		if($("#order-email")[0]) {
+			email_valid = validateEmail($("#order-email").val());
+		}
+		else {
+			email_valid = true;
+		}
 
 		if(!phone_valid) {
 			e.preventDefault();
@@ -211,29 +243,47 @@ $(document).ready(function() {
 			$("#order-phone-number").removeClass("error");
 		}
 
-		if(name_valid && phone_valid)
+		if(name_valid && phone_valid && email_valid)
 		{
 			$(".name-error").slideUp(200);
 			$("#order-name").removeClass("error");
 			$(".phone-error").slideUp(200);
 			$("#order-phone-number").removeClass("error");
+			$(".email-error").slideUp(200);
+			$("#order-email").removeClass(error);
 			enableButton();
 		}
 	});
 
-	// $(".stripe-button-el").click(function(e) {
-	// 	var pathname = window.location.pathname;
-	// 	var num = $("#order-phone-number").val();
-	// 	num = num.replace("(", "").replace(")", "").replace("-", "").replace(" ", "");
 
-	// 	$.ajax({
-	// 		url: "/orders/" +pathname.split('/')[2] + "/add_number_to_order",
-	// 		type: "POST",
-	// 		data: 
-	// 		{ number: num}
-	// 	});
-	// });
+	$("#order-email").blur(function(e) { 
+		var phone_valid = validatePhoneNumber($("#order-phone-number").val());
+		var name_valid = validateName($("#order-name").val());
+		var email_valid = validateEmail($("#order-email").val());
+		if(!email_valid) {
+			e.preventDefault();
+			$(".email-error").slideDown(200);
+			$("#order-email").addClass("error");
+			disableButton();
+		}
 
+		if(email_valid) {
+			$(".email-error").slideUp(200);
+			$("#order-email").removeClass("error");
+			enableButton();
+		}
+		if(name_valid && phone_valid && email_valid)
+		{
+			$(".name-error").slideUp(200);
+			$("#order-name").removeClass("error");
+			$(".phone-error").slideUp(200);
+			$("#order-phone-number").removeClass("error");
+			$(".email-error").slideUp(200);
+			$("#order-email").removeClass(error);
+			enableButton();
+		}
+
+	}); 
 });
 
 function submitToStripe() {
@@ -255,12 +305,12 @@ function validateInputs()
 }
 
 function enableButton() {
-   $(".stripe-button-el").prop('disabled', false);
+   $("#pay-button").prop('disabled', false);
    $("#confirm-button").prop('disabled', false);
 }
 
 function disableButton() {
-   $(".stripe-button-el").prop('disabled', true);
+   $("#pay-button").prop('disabled', true);
    $("#confirm-button").prop('disabled', true);
 
 }
