@@ -30,16 +30,18 @@ class Restaurant < Location
   has_one :menu
 
 
+  # These two methods are not optimal, but it's ok right now because our DB's aren't huge.
+  # We should look at how to turn these into SQL statements.
   def open_orders
-  	self.orders.select { |o| o.current_order_state.state < 3 && o.paid }
+  	self.orders.paid.select { |o| o.current_order_state.state < 3  }
   end
 
   def past_orders
-    self.orders.select { |o| o.current_order_state.state >= 3 && o.paid }
+    self.orders.paid.select { |o| o.current_order_state.state >= 3 }
   end
   
   def paid_orders
-    self.orders.where(:paid => true)
+    self.orders.paid
   end
 
   def has_children

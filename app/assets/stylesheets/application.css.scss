@@ -24,7 +24,6 @@ $shnackred: #a61c00;
 body {
 	//margin-right: 0px;
 	//padding-right: 0px;
-	background: url(welcome4.jpg) no-repeat fixed center;
 	background-size:100% 100%;
 }
 
@@ -213,6 +212,10 @@ tbody.all_the_mods tr {
     }
 }
 
+
+.item-description {
+  background: lightgray;
+}
 
 .headline-light {
 	font-family: "Poiret One", Geneva, sans-serif;

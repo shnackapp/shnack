@@ -26,7 +26,7 @@
 class Order < ActiveRecord::Base
   extend FriendlyId
   attr_accessible :subtotal, :total, :charge_id, :details, 
-    :user_id, :slug_id, :order_number, :user_info, :withdrawn, :transfer_id
+    :user_id, :slug_id, :order_number, :user_info, :withdrawn, :transfer_id, :paid
 
   friendly_id :slug_id, use: :slugged
   belongs_to :vendor
@@ -39,6 +39,9 @@ class Order < ActiveRecord::Base
 
 
   scope :available, -> { where(:withdrawn => false).where('created_at < ?', 1.week.ago) }
+  scope :paid, -> { where(:paid => true) }
+
+  
 
   before_create :set_slug_id
   before_save :set_order_number
