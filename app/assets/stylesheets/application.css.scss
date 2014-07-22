@@ -486,12 +486,18 @@ table.item-list {
   padding: 0;
   margin: 0;
   color: #666;
+  &.current {
+    color: #333;
+    font-weight: 700;
+  }
+  &.current .circle {
+    background-color: $red;
+  }
+  &.completed .circle {
+    background-color: #444;
+  }
 }
 
-.step.current {
- color: #333;
- font-weight: 700;
-}
 
 .circle {
   border: 2px solid #555;
@@ -501,10 +507,4 @@ table.item-list {
   width: 12px;
   height: 12px;
   margin: 0 auto;
-  &.current {
-    background-color: $red;
-  }
-  &.completed {
-    background-color: #444;
-  }
 }
