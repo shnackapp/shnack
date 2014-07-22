@@ -21,6 +21,41 @@ $(document).ready(function() {
 	  }
 	};
 
+	$('#credit_card_number').keypress(function(e) {
+
+		if(e.which<48 || e.which > 57) {
+			e.preventDefault();
+		} 
+		else if($(this).val().length == 18){
+			$('#expiration_month').focus();
+		}
+
+	});
+
+	$("#expiration_month").keypress(function(e) {
+		if(e.which<48 || e.which > 57 || $(this).val().length > 2) {
+			e.preventDefault();
+		} 
+		else if($(this).val().length == 1){
+			$('#expiration_year').focus();
+		}
+	});
+
+	$("#expiration_year").keypress(function(e) {
+		if(e.which<48 || e.which > 57  || $(this).val().length > 2) {
+			e.preventDefault();
+		} 
+		else if($(this).val().length == 1){
+			$('#security_code').focus();
+		}
+	});
+
+	$("#security_code").keypress(function(e) {
+		if(e.which < 48 || e.which > 57 || $(this).val().length > 3) {
+			e.preventDefault();
+		}
+	});
+
 	if($('.select-card-form')[0]) {
 		$('.new-card-form').hide();
 	}
