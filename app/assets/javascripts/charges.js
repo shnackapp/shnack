@@ -21,6 +21,12 @@ $(document).ready(function() {
 	  }
 	};
 
+	/**
+		The following 4 functions refocus the user's selected input as 
+		they go through the credit card form
+
+	**/
+
 	$('#credit_card_number').keypress(function(e) {
 
 		if(e.which<48 || e.which > 57) {
@@ -55,6 +61,7 @@ $(document).ready(function() {
 			e.preventDefault();
 		}
 	});
+	//END CREDIT CARD FORM FOCUS FUNCTIONS
 
 	if($('.select-card-form')[0]) {
 		$('.new-card-form').hide();
