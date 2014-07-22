@@ -83,7 +83,7 @@ function forFans(){
 function forVendors(){
   hideContactUsShowInfoText();
   document.getElementById("info-tagline").innerHTML="Access a whole new customer segment"
-  document.getElementById("info-text").innerHTML="As a vendor nearly 10-15% of potential customers at any given event will pass on getting food if it means waiting in line or missing the action.  With Shnack you can give your customers the best possible experience and increase your concessions revenue.  Using our streamlined integration process, you can be set up in a matter of minutes and begin using Shnack to capture brand new customers and increase your concession sales."
+  document.getElementById("info-text").innerHTML="Nearly 10-15% of potential customers at any given event will pass on getting food if it means waiting in line or missing the action.  With Shnack you can give your customers the best possible experience and increase your concessions revenue.  Using our streamlined integration process, you can be set up in a matter of minutes and begin using Shnack to capture brand new customers and increase your concession sales."
 }
 
 function contactUs(){
