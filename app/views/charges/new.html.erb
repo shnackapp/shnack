@@ -1,8 +1,4 @@
-<script type="text/javascript" src="https://js.stripe.com/v2/"> </script>
 
-<script type="text/javascript">
-  Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
-</script>
 
 <%= form_tag order_charges_path(@order), :id => "charges-form" do %>
 	<%= render 'shared/order_details' %>
@@ -29,10 +25,35 @@
       </div>
 
   <% else %>
-    <%= render 'credit_card_form' %>
+    <% if user_signed_in? && current_user.has_cards? %>
+      <div class="select-card-form">
+        <% current_user.cards.each_with_index do |card, index| %>
+        <div class="chopped box">
+            <%= radio_button_tag(:user_card, index) %> 
+            <label><%= card.last4 + " " + card.brand %></label>
+        </div>
+        <br />
+        <br />
+        <% end %>
+        <div class ="chopped box">
+            <%= radio_button_tag(:user_card, "new", false, :class => "new-card-button") %>
+            <label> Add a new card </label>
+        </div>
+
+        <%= render 'credit_card_form' %>
+
+      </div>
+
+    <% else %>
+      <%= render 'credit_card_form' %>
+    <% end %>
   <% end %>
   <div class="error stripe-error" style="display:none;"> </div>
   <div class="error name-error" style="display:none;">Please enter your name or we won't be able to let you know when your order's ready!</div>
   <div class="error phone-error" style="display:none;">Please enter your phone number or we won't be able to let you know when your order's ready!</div>
 
+<script type="text/javascript" src="https://js.stripe.com/v2/"> </script>
 
+<script type="text/javascript">
+  Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
+</script>

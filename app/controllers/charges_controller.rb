@@ -63,21 +63,44 @@ class ChargesController < ApplicationController
 		  @order.update_attributes(:charge_id => charge.id, :paid => true)
 
 	  	else
-  		  customer = Stripe::Customer.create(
-		    :email => params[:stripeEmail],
-		    :card  => params[:stripeToken]
-		  )
+	  	  	if(params[:stripeCardIndex])
+		  	  	customer = Stripe::Customer.retrieve(@order.user.customer_id)
+		  	  	charge = Stripe::Charge.create(
+		  	  		:customer => customer.id,
+		  	  		:card => customer.cards.data[params[:stripeCardIndex].to_i].id,
+		  	  		:amount => @amount,
+		  	  		:description => "Shnack Order ##{@order.order_number}",
+		  	  		:currency => 'usd'
+		  	  		)
 
-		  @order.user.update_attribute(:customer_id, customer.id)
+	  	  	else
+	  	  		user = @order.user
+	  	  		if user.customer_id.nil?
+	  	  			customer = Stripe::Customer.create(
+			    		:email => @order.user.email,
+			    		:card  => params[:stripeToken]
+			  		)
 
+			  		card = customer.cards.data.last
+			  		@order.user.update_attribute(:customer_id, customer.id)
 
-		  charge = Stripe::Charge.create(
-		    :customer    => customer.id,
-		    :amount      => @amount,
-		    :description => 'Rails Stripe customer',
-		    :currency    => 'usd'
-		  )
-		  @order.update_attributes(:charge_id => charge.id, :paid => true)
+			  	else
+			  		customer = Stripe::Customer.retrieve(user.customer_id)
+
+			  		card = customer.cards.create(:card => params[:stripeToken])
+
+			  	end
+
+			  	charge = Stripe::Charge.create(
+			    	:customer    => customer.id,
+			    	:card => card.id,
+			    	:amount      => @amount,
+			    	:description => "Shnack Order ##{@order.order_number}",
+			    	:currency    => 'usd'
+			  	)
+
+			  	@order.update_attributes(:charge_id => charge.id, :paid => true)
+			end
 	  	end
 
 

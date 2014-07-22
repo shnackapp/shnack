@@ -1,20 +1,22 @@
 <%= form_tag("", :method => "POST", :id => "credit-card-form") do  %>
   <div class="row">
     <div class="col-md-12">
-      <%= text_field_tag :credit_card_number, nil, :class => "form-control", :placeholder => "Credit Card Number"  %> 
-      <div class="row"> 
-      <div class="col-md-4">
-        <%= text_field_tag :expiration_month, nil,  :class => "form-control", :placeholder => "MM" %>
-      </div>
-      <div class="col-md-4">
-        <%= text_field_tag :expiration_year, nil, :class => "form-control", :placeholder => "YY" %>
-      </div>
-      <div class="col-md-4">
-        <%= text_field_tag :security_code, nil, :class => "form-control", :placeholder => "CVC" %>
-      </div>
+      <div class="new-card-form">
+        <%= text_field_tag :credit_card_number, nil, :class => "form-control", :placeholder => "Credit Card Number"  %> 
+        <div class="row"> 
+          <div class="col-md-4">
+            <%= text_field_tag :expiration_month, nil,  :class => "form-control", :placeholder => "MM" %>
+          </div>
+          <div class="col-md-4">
+            <%= text_field_tag :expiration_year, nil, :class => "form-control", :placeholder => "YY" %>
+          </div>
+          <div class="col-md-4">
+            <%= text_field_tag :security_code, nil, :class => "form-control", :placeholder => "CVC" %>
+          </div>
+        </div>
       </div>
       <%= button_tag(type: 'submit', id: "pay-button", class: "btn btn-primary") do %>
-        Pay For Order
+      Pay For Order
       <% end %>
     </div>
   </div>

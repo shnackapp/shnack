@@ -71,6 +71,13 @@ class User < ActiveRecord::Base
 		role.role_type == 1 || role.is_super
 	end
 
+	def has_cards?
+		!self.customer_id.nil? &&  Stripe::Customer.retrieve(self.customer_id).cards.count > 0
+	end
+
+	def cards
+		Stripe::Customer.retrieve(self.customer_id).cards
+	end
 
 	def is_manager_of?(loc) 
 		return true if role.is_super || role.locations.includes(loc)

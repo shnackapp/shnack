@@ -21,28 +21,76 @@ $(document).ready(function() {
 	  }
 	};
 
-
-	//Make sure form submits.
-	   $("#confirm-button").click(function() { 
-	   	$form = $('#charges-form');
-	   	$form.get(0).submit();
-	   });
+	if($('.select-card-form')[0]) {
+		$('.new-card-form').hide();
+	}
 
 
+	$("[name='user_card']").change(function (evt) {
+		if($(this).hasClass('new-card-button')) { 
+			$('.new-card-form').slideDown(300);
+		}
+		else {
+			$('.new-card-form').slideUp(300);
+		}
+	})
 
 
+	//Make sure form submits on cash only.
+   $("#confirm-button").click(function() { 
+   	$form = $('#charges-form');
+   	$form.get(0).submit();
+   });
+
+
+
+   /**  
+	This method needs to check if the select card form exists.
+	If so, then it needs to check which option was selected; if a new card is being created, then it 
+	sends it to stripe.
+	Otherwise it submits the form with the card index under stripe_card
+
+	If select card form doesn't exist, that means the user isn't signed in or doesn't have
+	any credit cards stored. Submit to stripe then submit the form.
+
+   **/
 	$("#credit-card-form").submit(function(event) {
 		event.preventDefault();
 		var $form = $(this);
 
-    	$form.find('button').prop('disabled', true);
+		if($('.select-card-form')[0]) {
+			//Select card form exists.
+			if($("input[name='user_card']:checked").hasClass('new-card-button')) {	
+		    	$form.find('button').prop('disabled', true);
 
-		Stripe.card.createToken({
-			number: $("#credit_card_number").val(),
-			cvc: $("#security_code").val(),
-			exp_month: $("#expiration_month").val(),
-			exp_year: $("#expiration_year").val()
-		}, stripeResponseHandler);
+				Stripe.card.createToken({
+					number: $("#credit_card_number").val(),
+					cvc: $("#security_code").val(),
+					exp_month: $("#expiration_month").val(),
+					exp_year: $("#expiration_year").val()
+				}, stripeResponseHandler);			
+			}
+			else {
+				var $form = $('#charges-form'); 
+
+				var index = $("input[name='user_card']:checked").val();
+				$form.append($('<input type="hidden" name="stripeCardIndex" />').val(index));
+	    		$form.get(0).submit();
+			}
+
+		}
+
+		else {
+	    	$form.find('button').prop('disabled', true);
+
+			Stripe.card.createToken({
+				number: $("#credit_card_number").val(),
+				cvc: $("#security_code").val(),
+				exp_month: $("#expiration_month").val(),
+				exp_year: $("#expiration_year").val()
+			}, stripeResponseHandler);
+		}
+
 		return false;
 
 	} );
@@ -146,6 +194,10 @@ $(document).ready(function() {
 
 });
 
+function submitToStripe() {
+
+}
+
 function validateInputs()
 {
 	// var email_valid = validateEmail($("#order-email").val());
@@ -158,7 +210,7 @@ function validateInputs()
 		// disableButton();
 	}
 
-};
+}
 
 function enableButton() {
    $(".stripe-button-el").prop('disabled', false);
