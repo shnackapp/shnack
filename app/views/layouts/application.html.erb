@@ -32,9 +32,21 @@
 
 	<div class="container">
 		<div class="topbar clear-fix">
-			<h1 class="new gen_inline pad-right-lrg">Shnack</h1>
-			<div class="prgs-bar">1   2   3</div>
-			<div class="order-total pad-left-lrg pad-right">$00.00</div>
+			<h1 class="new gen_inline pad-right-lrg" style="width:25%;">Shnack</h1>
+			<div class="prgs-bar center" style="width:50%;">
+				<div class="step current">
+  				Select Venue
+    			<div class="circle current"></div>
+  			</div>
+  			<div class="step">
+  				Order Food
+      		<div class="circle"></div>
+  			</div>
+ 				<div class="step">
+ 				  Pay
+      		<div class="circle"></div>
+  			</div>
+			</div>
 			<% if user_signed_in? %>
 				<%= image_tag("gear.png", alt: "settings", class: "my-gear") %>
 				<!-- <ul id="account-manage" class="nav nav-pills nav-stacked hidden-xs">
