@@ -1,3 +1,8 @@
+/* code from http://csswizardry.com/2011/02/creating-a-pure-css-dropdown-menu/ */
+
+$elements: base, phone, menu, topbar, user-settings;
+
+
 #click_me {
   list-style:none;
   font-weight:bold;
@@ -29,6 +34,7 @@
   right:-9999px; 
   padding-left: 0px;
   box-shadow: 0 0 2px #333;
+  z-index: index($elements, user-settings);
 }
 #click_me ul li {
   padding-top:1px; 

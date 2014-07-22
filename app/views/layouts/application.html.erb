@@ -31,24 +31,8 @@
 <body onload="checkDevice();">
 
 	<div class="container">
-		<div class="topbar clear-fix">
-			<h1 class="new gen_inline pad-right-lrg" style="width:25%;">Shnack</h1>
-			<div class="prgs-bar center" style="width:50%;">
-				<div class="step current">
-  				Select Venue
-    			<div class="circle current"></div>
-  			</div>
-  			<div class="step">
-  				Order Food
-      		<div class="circle"></div>
-  			</div>
- 				<div class="step">
- 				  Pay
-      		<div class="circle"></div>
-  			</div>
-			</div>
-
-
+		<div id="topbar" class="topbar clear-fix">
+			<h1 class="new gen_inline shnack">Shnack</h1>
 
 			<% if user_signed_in? %>
 				<ul id="click_me" class="my-gear">
@@ -67,6 +51,21 @@
 				<%= link_to('Login', new_user_session_path, :class => 'btn btnp')  %> 
 				<%= link_to('Sign Up', new_user_session_path, :class => 'btn btnp')  %>   
 			<%end%>
+
+			<div class="prgs-bar center">
+				<div class="step">
+  				Venue
+    			<div class="circle completed"></div>
+  			</div>
+  			<div class="step">
+  				Menu
+      		<div class="circle completed"></div>
+  			</div>
+ 				<div class="step current">
+ 				  Pay
+      		<div class="circle current"></div>
+  			</div>
+			</div>
 
 
 		</div> <!--ENDS TOPBAR-->

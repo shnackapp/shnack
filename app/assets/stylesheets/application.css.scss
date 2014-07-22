@@ -18,6 +18,9 @@
 @import "base/*";
 @import "components/*";
 
+$elements: base, phone, menu, topbar, user-settings;
+
+
 
 body {
 	//margin-right: 0px;
@@ -160,7 +163,7 @@ img.step-style {
 #phone{
 position: absolute;
 bottom: -45px;
-z-index: 20;
+z-index: index($elements, phone);
   width: 230px;
 
 }
@@ -448,12 +451,10 @@ table.item-list {
 
 .topbar {
   position: fixed;
-  z-index: 5;
+  z-index: index($elements, topbar);
   left: 0;
   right: 0;
   max-width: 880px;
-  //height: 50px;
-  //margin-top: 10px;
   margin: 0px auto 40px auto;
   padding: 0px 30px;
   color: $red;
@@ -462,17 +463,14 @@ table.item-list {
   @include box-shadow(0, 0, 6px, $black);
 }
 
+.topbar .shnack {
+  width: 25%;
+}
 
 .prgs-bar {
-  @extend .gen_inline;
-  width: 300px;
-}
-
-.order-total {
-  font-weight: 900;
+  width: 50%;
   @extend .gen_inline;
 }
-
 
 .my-gear {
   float: right;
@@ -481,10 +479,12 @@ table.item-list {
 
 
 .step {
-  display: inline-block; 
+  @extend .gen_inline; 
   text-align: center;
-  width: 32.5%;
-  padding: 0; margin: 0;
+  float: left;
+  width: 33.33%;
+  padding: 0;
+  margin: 0;
   color: #666;
 }
 
@@ -494,15 +494,17 @@ table.item-list {
 }
 
 .circle {
-  border: 2px solid #333;
-  background-color: #999;
-    border-radius:15px;
-   background-image: none;
-  width:10px;
-height: 10px;
-margin: 0 auto;
-}
-
-.circle.current {
-background-color: #555;
+  border: 2px solid #555;
+  background-color: #AAA;
+  border-radius:15px;
+  background-image: none;
+  width: 12px;
+  height: 12px;
+  margin: 0 auto;
+  &.current {
+    background-color: $red;
+  }
+  &.completed {
+    background-color: #444;
+  }
 }
