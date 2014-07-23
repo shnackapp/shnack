@@ -30,7 +30,7 @@
 
 <body onload="checkDevice();">
 
-	<div class="container">
+	<div class="website-wrapper">
 		<div id="topbar" class="topbar clear-fix">
 			<a href="/"><h1 class="new gen_inline shnack">Shnack</h1></a>
 
@@ -126,10 +126,6 @@
 		</div>
 	</div>
 
-	<div>
-		<%= link_to('This is all about the Shnack', { :controller => "/application", :action => "about_shnack"}) %>
-	</div>
-
 	<div id="level-2">
 		<div class="row">
 			<div class="col-4 step-style">
@@ -152,52 +148,17 @@
 		</div>
 	</div>
 
-		<div id="level-3">
-			<div class="container my-container">
-				<div id="info-tagline">Never miss a moment, never miss a meal</div>
-		
+	<footer class="tell-me-more">
+		<%= link_to('This is all about the Shnack', { :controller => "/application", :action => "howdy"}) %>
+	</footer>
 
+	<footer class="fb">
+    <a href="#top" class="place-order">Return to top  |  Place an order</a>
+    <p>Follow us on Facebook.</p>
+    <p>You might see us at a game.</p>
+    </br>
+  	<div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="100" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+  </footer>
 
-				<div class="row">
-					<ul class="info-links">
-						<li id="about-links1" class="info-links col-4"><a onClick="forFans()">For Fans</a></li>
-						<li id="about-links2" class="info-links col-4"><a onClick="forVendors()">For Vendors</a></li>
-						<li id="about-links3" class="info-links col-4"><a onClick="contactUs()">Contact Us</a></li>
-					</ul>
-				</div>
- 			
-				<div class="row">
-					<div class="col-sm-8">
-						<div id="info-text">Shnack is a mobile application designed for concessions at large and small scale events, that lets customers order and pay for a vendor's food via their phone. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. Customers will order food from their phone and will be notified when their food is ready to be picked up. By eliminating the need to wait in line, we can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers.
-						</div>
-
-						<div id="contact-us" class="row">
-							<%= render 'contact_us_mailer/contact_us_mailer' %>
-						</div>
-
-
-					</div>
-
-					<%= image_tag "phone_welcome.png", :class => "col-sm-4", :id => "phone" %>
-					
-
-				</div>
-			</div>
-		</div>
-		<!-- END LEVEL-3 -->
-
-		<div id="return-to-top"><a href="#top">Return to top  |  Place an order</a></div>
-
-
-		<div id="footer">
-				<div class="center">
- 			     	<p style="font-size:1.3em;">Follow us on Facebook.</br>You might see us at a game.</p>
-			      </br>
-			      <div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="100" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-		      	</div>
-	  	</div> <!-- END FOOTER -->
-
-
-</body>
-
+	</body>
 </html>

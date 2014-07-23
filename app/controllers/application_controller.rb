@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
 		@stadium = @vendor.stadium
 	end
 
-  def about_shnack
+  def howdy
     render layout: false
   end
 
