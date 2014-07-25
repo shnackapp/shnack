@@ -10,10 +10,6 @@ Shnack::Application.routes.draw do
      get '/charges/:action', :controller => 'charges'
     post '/charges/:action', :controller => 'charges'
 
-    get '/super', to: 'super#index'
-
-
-
 
   devise_for :users
   # The priority is based upon order of creation:
@@ -58,7 +54,7 @@ Shnack::Application.routes.draw do
   post '/shnack/:action', :controller => 'shnack'
 	get '/:action/:object_id', :controller => 'application'
 
-  get '/:action', :controller => 'application'
+
 
 
   # Sample of regular route:
