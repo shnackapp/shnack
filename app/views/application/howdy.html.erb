@@ -27,7 +27,7 @@
 
 </head>  
 
-  <body>
+  <body onload="checkDevice();">
   <div id="level-3">
       <div class="container my-container">
         <div id="info-tagline">Never miss a moment, never miss a meal</div>
@@ -42,15 +42,13 @@
           </ul>
         </div>
       
-        <div class="row">
+        <div class="row" style="position:relative;">
           <div class="col-sm-8">
-            <div id="info-text">Shnack is a mobile application designed for concessions at large and small scale events, that lets customers order and pay for a vendor's food via their phone. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. Customers will order food from their phone and will be notified when their food is ready to be picked up. By eliminating the need to wait in line, we can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers.
-            </div>
+            <div id="info-text">Shnack is a mobile application designed for concessions at large and small scale events, that lets customers order and pay for a vendor's food via their phone. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. Customers will order food from their phone and will be notified when their food is ready to be picked up. By eliminating the need to wait in line, we can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers.</div>
 
             <div id="contact-us" class="row">
               <%= render 'contact_us_mailer/contact_us_mailer' %>
             </div>
-
 
           </div>
 
@@ -64,7 +62,7 @@
 
 
     <footer class="fb">
-      <a href='/' class="place-order">Place an order</a>
+      <a href='/' class="place-order">Place an order | Return to home</a>
       <p>Follow us on Facebook.</p>
       <p>You might see us at a game.</p>
       </br>

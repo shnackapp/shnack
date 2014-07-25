@@ -1,10 +1,10 @@
 
-input[type="radio"], input[type="checkbox"] {
+input[type="radio"].modifier, input[type="checkbox"].modifier {
   opacity: 0;
   position:absolute;
 }
 
-input[type="radio"] + label {
+input[type="radio"].modifier + label {
   background-color: khaki;
   background-image: none;
   border-radius:15px;
@@ -17,7 +17,7 @@ input[type="radio"] + label {
 
 }
 
-input[type="checkbox"] + label {
+input[type="checkbox"].modifier + label {
   background-color: khaki;
   background-image: none;
   border: 2px solid #555;
@@ -28,12 +28,12 @@ input[type="checkbox"] + label {
   box-shadow: 0 0 2px #333;
 }
 
-input[type=radio]:checked + label { 
+input[type=radio]:checked.modifier + label { 
   background-color:#444;
   border-color: khaki;
 }
 
-input[type="checkbox"]:checked + label { 
+input[type="checkbox"]:checked.modifier + label { 
   background-color:#444;
   border-color: khaki;
 }
