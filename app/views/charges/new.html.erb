@@ -31,7 +31,7 @@
         <div class="chopped box">
             <%= radio_button_tag(:user_card, index) %> 
             <label></label>
-            <label><%= card.last4 + " " + card.brand %></label>
+            <label style="margin-left:5px;"><%= card.last4 + " " + card.brand %></label>
         </div>
         <br />
         <br />
@@ -39,7 +39,7 @@
         <div class ="chopped box">
             <%= radio_button_tag(:user_card, "new", false, :class => "new-card-button") %>
             <label></label>
-            <label> Add a new card </label>
+            <label style="margin-left:5px;"> Add a new card </label>
         </div>
 
         <%= render 'credit_card_form' %>
