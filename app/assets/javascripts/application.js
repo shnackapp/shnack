@@ -20,13 +20,7 @@
 function checkDevice() {
   var windowWidth = $(window).width();
   //alert(windowWidth);
-  if (windowWidth <= 520) {
-    mobileInfoText();
-    /*$("#topbar").addClass("mobile");
-    $("#topbar").children().each( function() {
-      $(this).toggleClass("mobile");
-    });*/
-  }
+  if (windowWidth <= 520) { mobileInfoText(); }
 }
 
 window.fbAsyncInit = function() {

@@ -35,8 +35,5 @@ class ApplicationController < ActionController::Base
 		@stadium = @vendor.stadium
 	end
 
-  def howdy
-    render layout: false
-  end
 
 end
