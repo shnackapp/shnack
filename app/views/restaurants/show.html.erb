@@ -13,8 +13,6 @@
 			<%= button_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get', :class => "btn btn-info" } %> </div>
 		</div>
 
-
-
 		<div style="padding-top:10px; padding-bottom:30px;">
 
 			<% if @account.nil? %>
@@ -32,6 +30,13 @@
 				<% end %>
 
 
+		</div>
+	</div>
+
+	<div class="well">
+		<div style="padding-bottom:30px;">
+			<b> View Analytics </b> 
+			<%= button_to "View Analytics", analytics_restaurant_path(@restaurant), {:method => 'get', :class => "btn btn-primary"} %>
 		</div>
 	</div>
 

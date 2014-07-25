@@ -23,6 +23,9 @@ class RestaurantsController < ApplicationController
 		end
 	end
 
+	def analytics
+	end
+
 	def recent_orders
 		@restaurant = Restaurant.find(params[:id])
 		@orders = @restaurant.orders
