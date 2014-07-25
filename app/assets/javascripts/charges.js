@@ -34,6 +34,10 @@ $(document).ready(function() {
 
 	});
 
+	$('#expiration_month').click(function(e) {
+		$(this).focus();
+	})
+
 	$("#credit_card_number").keyup(function(e){ 
 		if($(this).val().length == 19){
 			$('#expiration_month').click();
