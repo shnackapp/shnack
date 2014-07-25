@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 	$("#credit_card_number").keyup(function(e){ 
 		if($(this).val().length == 19){
-			$('#expiration_month').select().focus();
+			$('#expiration_month').focus().select();
 		}
 	});
 
@@ -49,7 +49,7 @@ $(document).ready(function() {
 	$("#expiration_month").keyup(function(e) {
 
 		if($(this).val().length == 2){
-			$('#expiration_year').select().focus();
+			$('#expiration_year').focus().select();
 		}
 	});
 
@@ -62,7 +62,7 @@ $(document).ready(function() {
 
 	$("#expiration_year").keyup(function(e) {
 		if($(this).val().length == 2){
-			$('#security_code').select().focus();
+			$('#security_code').focus().select();
 		}
 	});
 
