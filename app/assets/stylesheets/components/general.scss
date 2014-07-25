@@ -9,6 +9,8 @@
   margin: 50px auto;
   min-width: 320px;
   max-width: 660px;
+  padding-top:15px;
+  padding-bottom:15px;
 }
 
 .panel-title {
@@ -55,6 +57,7 @@ footer.fb {
 footer.tell-me-more {
   margin: 20px auto;
   text-align: center;
+  display:none;
   a {
     @include box-shadow(0, -3px, 0, #333);
     padding: 10px 25px 10px 25px;
