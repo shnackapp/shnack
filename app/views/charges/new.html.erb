@@ -30,14 +30,16 @@
         <% current_user.cards.each_with_index do |card, index| %>
         <div class="chopped box">
             <%= radio_button_tag(:user_card, index) %> 
-            <label><%= card.last4 + " " + card.brand %></label>
+            <label></label>
+            <label style="margin-left:5px;"><%= card.last4 + " " + card.brand %></label>
         </div>
         <br />
         <br />
         <% end %>
         <div class ="chopped box">
             <%= radio_button_tag(:user_card, "new", false, :class => "new-card-button") %>
-            <label> Add a new card </label>
+            <label></label>
+            <label style="margin-left:5px;"> Add a new card </label>
         </div>
 
         <%= render 'credit_card_form' %>

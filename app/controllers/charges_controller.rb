@@ -75,6 +75,9 @@ class ChargesController < ApplicationController
 		  	  		:currency => 'usd'
 		  	  		)
 
+		  	  	@order.update_attributes(:charge_id => charge.id, :paid => true)
+
+
 	  	  	else
 	  	  		user = @order.user
 	  	  		if user.customer_id.nil?

@@ -66,10 +66,7 @@ $(document).ready(function() {
 
 	$(".panel-heading").click(function() {
 		$(this).next().slideToggle(200);
-	});
-
-	$(".panel-title").click(function(){
-  	$(this).toggleClass("expanded");
+		$(this).children().first().toggleClass("expanded");
 	});
 
 	$("#order-submit").click(function(e) {
