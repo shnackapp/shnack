@@ -48,6 +48,7 @@ GEM
     byebug (2.3.0)
       columnize (~> 0.3.6)
       debugger-linecache (~> 1.2.0)
+    chartkick (1.3.2)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -70,6 +71,8 @@ GEM
     execjs (2.0.2)
     friendly_id (4.0.10.1)
       activerecord (>= 3.0, < 4.0)
+    groupdate (2.2.1)
+      activesupport (>= 3)
     highline (1.6.20)
     hike (1.2.3)
     houston (2.0.0)
@@ -165,9 +168,11 @@ DEPENDENCIES
   annotate (>= 2.5.0)
   bootstrap-sass (~> 3.1.1)
   byebug
+  chartkick
   coffee-rails (~> 3.2.1)
   devise
   friendly_id (~> 4.0.10)
+  groupdate
   houston
   jquery-rails
   pg (= 0.17.0)

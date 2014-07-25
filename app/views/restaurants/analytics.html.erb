@@ -1,5 +1,16 @@
 <h3> Analytics </h3>
 
-<table class="table">
+<div class="panel panel-primary">
+<h3 class="panel-heading">New Customers Aquired</h3>
+	<%= line_chart({"$15" => 40, "$8" => 5,"$4" => 3, "$25" => 12,"$13" => 7}) %>
+</div>
 
-</table>
+<div class="panel panel-primary">
+<h3 class="panel-heading">Order Size in $ (Rounded)</h3>
+	<%= pie_chart({"$15" => 10, "$8" => 5,"$4" => 3, "$25" => 12,"$13" => 7}) %>
+</div>
+
+<div class="panel panel-primary">
+<h3 class="panel-heading">Avg. Fulfillment Time (Decrease)</h3>
+	<%= area_chart({"$15" => -10, "$8" => -5,"$4" => -3, "$25" => -12,"$13" => -7}) %>
+</div>

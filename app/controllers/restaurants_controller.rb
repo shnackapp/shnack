@@ -24,6 +24,15 @@ class RestaurantsController < ApplicationController
 	end
 
 	def analytics
+		@restaurant = Restaurant.find(params[:id])
+		@orders = @restaurant.orders
+		@orderz = Order.where(:restaurant_id => params[:id])
+		@item_names = []
+		@orderz.each do |o|
+			OrderItem.where(:order_id => o.id).each do |oi|
+				@item_names = Item.where(:id => oi.item_id).name
+			end
+		end
 	end
 
 	def recent_orders
