@@ -45,7 +45,7 @@
                     <tr>
                       <td colspan="5" class="item-description"> <%= item.description %> </td>
                   <% end %>
-                  <% if item.has_mod? && !item.sold_out; @item = item %>
+                  <% if item.has_mod? && item.sold_out; @item = item %>
                     <%= render :partial => 'display_mods', :locals => { item: @item } %>
                   <% end %>
                 <% end %>
