@@ -1,0 +1,30 @@
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6  {
+ position: relative;
+ float: left;
+}
+
+.col-1 { width: 8.33333%; }
+.col-2 { width: 16.66666%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.33333%; }
+.col-6 { width: 50%; }
+.col-12 { width: 100%; }
+
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.row-new {
+  min-width: 320px;
+  max-width: 880px;
+  margin-right: 0px;
+  margin-left: 0px;
+  display: block;
+  &:after {
+    clear: both;
+    display: table;
+    content: ' ';
+  }
+}
+

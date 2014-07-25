@@ -15,84 +15,22 @@
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
 @import url(https://fonts.googleapis.com/css?family=Damion);
+@import "base/*";
+@import "components/*";
 
-$smokewhite: whitesmoke;
-$bgblack: #252525;
-$colorred: #9E1919;
-$shnackred: #a61c00;
+$elements: base, phone, menu, topbar, user-settings;
 
-body {
-	//margin-right: 0px;
-	//padding-right: 0px;
-	background-size:100% 100%;
-}
+
+
 
 p {
 	font-family: "Poiret One", Geneva, sans-serif;
 }
 
-.logo {
-	width:85%;
-	margin: 0 auto;
+.website-wrapper {
+  width: 100%;
+  margin: 0;
 }
-
-.website-container {
-	padding-top:15px;
-	width: 100%;
-	background-image: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		color-stop(0, #FCFCFC),
-		color-stop(1, #EBEBEB)
-	);
-	background-image: -o-linear-gradient(bottom, #FCFCFC 0%, #EBEBEB 100%);
-	background-image: -moz-linear-gradient(bottom, #FCFCFC 0%, #EBEBEB 100%);
-	background-image: -webkit-linear-gradient(bottom, #FCFCFC 0%, #EBEBEB 100%);
-	background-image: -ms-linear-gradient(bottom, #FCFCFC 0%, #EBEBEB 100%);
-	background-image: linear-gradient(to bottom, #FCFCFC 0%, #EBEBEB 100%);
-}
-
-input[type="radio"], input[type="checkbox"] {
-  opacity: 0;
-  position:absolute;
-}
-
-input[type="radio"] + label {
-  background-color: khaki;
-  background-image: none;
-  border-radius:15px;
-  border: 2px solid #555;
-  display:block;
-  height: 10px;
-  padding:6px;
-  width:10px;
-  box-shadow: 0 0 2px #333;
-
-}
-
-input[type="checkbox"] + label {
-  background-color: khaki;
-  background-image: none;
-  border: 2px solid #555;
-  display:block;
-  height: 10px;
-  padding:6px;
-  width:10px;
-  box-shadow: 0 0 2px #333;
-}
-
-input[type=radio]:checked + label { 
-  background-color:#444;
-  border-color: khaki;
-}
-
-input[type="checkbox"]:checked + label { 
-  background-color:#444;
-  border-color: khaki;
-}
-
-
 
 .level {
 	width:60%;
@@ -107,8 +45,6 @@ input[type="checkbox"]:checked + label {
     width: 90%;
   }
 }
-
-
 
 #level-2 {
 	width: 100%;
@@ -129,11 +65,14 @@ input[type="checkbox"]:checked + label {
 }
 
 
+
+
+
 #level-3 {
   width: 100%;
   position: relative;
   margin: 0px auto;
-  background: $bgblack;
+  background: $black;
   padding: 45px 10px;
   min-height: 560px;
 }
@@ -147,59 +86,12 @@ input[type="checkbox"]:checked + label {
 	font-family: "Poiret One", Geneva, sans-serif;
 }
 
-.col-4 {
-	position: relative;
-	float: left;
-	width: 33.333333%;
-}
-
-.col-6 {
-	position: relative;
-	float: left;
-	width: 50%;
-}
-
-.row {
-	margin-right: 0px;
-	margin-left: 0px;
-}
-
-.container {
-	width: 100%;
-		padding: 0px;
-}
 
 .my-container {
 	max-width: 980px;
 }
 
-.col-4 {
-	width: 33.333333%;
-}
 
-.panel-heading {
-  cursor: pointer;
-  background-color: #555;
-}
-
-
-.panel-title {
-  font-weight:700;
-  color: white;
-
-  &:before {
-    content: '\00a0        \00a0';
-    background-image: image-url('expand.png');
-    background-repeat:no-repeat;
-  }
-
-  &.expanded:before {
-    content: '\00a0   \00a0  \00a0';
-    background-image: image-url('minimize.png');
-    background-repeat:no-repeat;
-    background-position: center;
-  }
-}
 
 tbody.all_the_mods tr {
 
@@ -223,19 +115,10 @@ tbody.all_the_mods tr {
   background: lightgray;
 }
 
-.headline-light {
-	font-family: "Poiret One", Geneva, sans-serif;
-	color: $smokewhite;
-}
-
-.headline {
-	font-family: "Poiret One", Geneva, sans-serif;
-	font-weight: 900;
-}
 
 .step-style {
   text-align: center;
-  color: $smokewhite;
+  color: $white;
 }
 
 h1.step-style {
@@ -255,17 +138,16 @@ img.step-style {
 
 #phone{
 position: absolute;
-bottom: -45px;
-z-index: 20;
-  width: 230px;
-
+bottom: -120px;
+z-index: index($elements, phone);
+width: 230px;
 }
 
 
 #info-tagline {
  font-family: "Poiret One", Geneva, sans-serif; 
  font-size: 3.8em;
- color: $smokewhite;
+ color: $white;
    font-weight: 600;
   margin-bottom: 25px;
   letter-spacing: 1;
@@ -274,18 +156,9 @@ z-index: 20;
 
 #info-text {
   font-size: 1.5em;
-  color: $smokewhite;
+  color: $white;
   font-family: "Poiret One", Geneva, sans-serif;
   display: block;
-}
-
-.center {
-	margin: 0px auto;
-	text-align: center;
-}
-
-.add_margin {
-	margin-bottom: 175px;
 }
 
 .shnack {
@@ -302,35 +175,20 @@ ul.info-links {
  	list-style: none;
 	font-size: 3em;
 	font-family: "Damion", serif;
-  	li {
-    	//padding: 0px 40px 0px 0px;
-    	display:inline;
+  li {
+   	display: inline-block;
+  }
+  a {
+  	color: $red;
+  	text-decoration: none;
+  	&:hover {
+  		color: $white;
+  		border-bottom: 2px solid $red;
   	}
-  	a {
-  		color: $shnackred;
-  		text-decoration: none;
-  		&:hover {
-  			color: $smokewhite;
-  			border-bottom: 2px solid $shnackred;
-  		}
-  	}
+  }
 }
 
-#return-to-top{
-	text-align: center;
-	margin: 20px auto;
-	a {
-		color: $shnackred;
-  		text-decoration: none;
-  		&:hover {
-  			color: slategray;
-  		}
-	} 
-}
 
-#nvc-logo {
-	width: 100px;
-}
 
 
 
@@ -341,14 +199,7 @@ ul.info-links {
 	//margin-top: 15px;
 }
 
- .btnp {
-  padding: 9px 15px;
-  background: #336699;
-  font-size: 14px;
-  color: #FFFFFF;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  }
+
 
 
 .contact-field {
@@ -464,15 +315,6 @@ button, input, textarea {
   background-color: #C35050;
 }
 
-/* Brock Noah 7.2.14
-  I noticed there is no consistency in setting up a sidebar 
-  filter with the drop down feature, (li only, ul, divs, labels)
-  here is my attempt to unify into the two common styles.
-
-  Fancy filter similarities with item_list, possibility
-  to 'combine' them. This would be the style for the table */
-
-/* probably should make this the new_item_list */
 table.item-list {
   border-collapse: collapse;
   width: 100%;
@@ -509,15 +351,13 @@ table.item-list {
   td {
     border: 1px solid #E0E0E0;
     padding: 5px;
-    /* adpoted from index-action.css */
     vertical-align: top;
 
     select, input, textarea {
       width: 100%;
     }
 
-    /* adpoted from index-action.css */
-    &.table_icon {
+    &.dead_center {
       text-align: center;
       vertical-align: middle;
     } 
@@ -528,7 +368,6 @@ table.item-list {
   }
 }
 
-/* Might need to add form selector for backend usability */
 .plain-filter {
   * {
     display: block;
@@ -547,10 +386,69 @@ table.item-list {
 }
 
 .caje-info {
-
 	font-size:2em;
 	color: dimgray;
 	font-family: "Poiret One", Geneva, sans-serif;
 	text-align:center;
+}
 
+
+.topbar {
+  position: fixed;
+  z-index: index($elements, topbar);
+  left: 0;
+  right: 0;
+  max-width: 880px;
+  margin: 0px auto 40px auto;
+  padding: 0px 30px;
+  color: #EEE;
+  background: $red;
+  display: block;
+  @include box-shadow(0, 0, 6px, $black);
+}
+
+.topbar .shnack {
+  width: 25%;
+}
+
+.prgs-bar {
+  width: 50%;
+  @extend .gen_inline;
+}
+
+.user-settings {
+  //width: 25%;
+  float: right;
+  @extend .gen_inline;
+}
+
+
+.step {
+  @extend .gen_inline; 
+  text-align: center;
+  float: left;
+  width: 33.33%;
+  padding: 0;
+  margin: 0;
+  &.current {
+    ///color: #CCC;
+    font-weight: 700;
+  }
+  &.current .circle {
+    background-color: khaki;
+  }
+  &.completed .circle {
+    //background-color: #444;
+  }
+}
+
+
+.circle {
+  border: 2px solid #AAA;
+  //background-color: #AAA;
+  border-radius:15px;
+  background-image: none;
+  width: 12px;
+  height: 12px;
+  margin: 0 auto;
 }
