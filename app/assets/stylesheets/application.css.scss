@@ -229,6 +229,10 @@ ul.info-links {
 
 }
 
+.tell-me-more {
+  display:none;
+}
+
 input[type="tel"].error { border: 1px solid #780000  }
 
 .error {
@@ -398,6 +402,7 @@ table.item-list {
   z-index: index($elements, topbar);
   left: 0;
   right: 0;
+  top: 0;
   max-width: 880px;
   margin: 0px auto 40px auto;
   padding: 0px 30px;
