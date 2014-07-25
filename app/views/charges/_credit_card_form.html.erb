@@ -2,20 +2,19 @@
   <div class="row">
     <div class="col-md-12">
       <div class="new-card-form">
-        <%= telephone_field_tag :credit_card_number, nil, :class => "form-control", :placeholder => "Credit Card Number"  %> 
+        <%= text_field_tag :credit_card_number, nil, :class => "form-control", :placeholder => "Credit Card Number"  %> 
         <div class="row"> 
           <div class="col-md-4">
-            <%= telephone_field_tag :expiration_month, nil,  :class => "form-control", :placeholder => "MM" %>
+            <%= text_field_tag :expiration_month, nil,  :class => "form-control", :placeholder => "MM" %>
           </div>
           <div class="col-md-4">
-            <%= telephone_field_tag :expiration_year, nil, :class => "form-control", :placeholder => "YY" %>
+            <%= text_field_tag :expiration_year, nil, :class => "form-control", :placeholder => "YY" %>
           </div>
           <div class="col-md-4">
-            <%= telephone_field_tag :security_code, nil, :class => "form-control", :placeholder => "CVC" %>
+            <%= text_field_tag :security_code, nil, :class => "form-control", :placeholder => "CVC" %>
           </div>
         </div>
       </div>
-      <br />
       <%= button_tag(type: 'submit', id: "pay-button", class: "btn btn-primary") do %>
       Pay For Order
       <% end %>
