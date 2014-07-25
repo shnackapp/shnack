@@ -29,9 +29,9 @@
       <div class="select-card-form">
         <% current_user.cards.each_with_index do |card, index| %>
         <div class="chopped box">
-            <%= radio_button_tag(:user_card, index, class: "charges") %> 
-<!--             <label class="charges"></label>
- -->            <label class="charges" style="margin-left:5px;"><%= card.last4 + " " + card.brand %></label>
+            <%= radio_button_tag(:user_card, index) %> 
+            <label></label>
+            <label style="margin-left:5px;"><%= card.last4 + " " + card.brand %></label>
         </div>
         <br />
         <br />

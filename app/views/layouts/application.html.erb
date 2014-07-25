@@ -4,8 +4,9 @@
 <%= favicon_link_tag 'logo.ico' %>
   <title>Shnack</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimum-scale=1" />
 
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -94,8 +95,7 @@
 		<% end %>
 			
 
-		<div id="order-form">
-			<div class="the-menu">
+		<div id="order-form" class="the-menu">
 
 	<!--    <div class="row-new">
 	      <div class="panel-heading"><h3>FOODOOD</h3></div>
@@ -113,7 +113,6 @@
 
 
 			<%= yield %>
-			</div>
 		</div>
 				
 	</div>

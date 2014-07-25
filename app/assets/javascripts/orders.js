@@ -112,12 +112,15 @@ function updatePrice() {
 		var qty = $("#" + id+ "_num").html();
 		var price = $("#" + id + "_price").data("price");
 		var cost = qty*price;
-		subtotal += cost;
+		if(!isNaN(cost))
+			subtotal += cost;
 		// console.log("."+ id + '_modifier');
 		$( "."+ id + '_modifier').each(function(index, obj){
 			// console.log('checking this modifier');
 			if ($(this).is(":checked")){
-				subtotal = subtotal + qty * ($(this).data("add-price"));
+				var cst = qty * ($(this).data("add-price"))
+				if(!isNaN(cst))
+					subtotal = subtotal + cst;
 			}});
 	});
 
