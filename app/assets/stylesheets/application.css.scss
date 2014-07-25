@@ -13,7 +13,8 @@
  */
 
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+//@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import url(http://fonts.googleapis.com/css?family=Dosis:400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Damion);
 @import "base/*";
 @import "components/*";
@@ -31,7 +32,7 @@ html,body
 }
 
 p {
-	font-family: "Poiret One", Geneva, sans-serif;
+	font-family: "Dosis", Geneva, sans-serif;
 }
 
 .website-wrapper {
@@ -43,7 +44,7 @@ p {
 	width:60%;
 	padding: 15px 10px 5px 10px;
 	background: KHAKI;
-	margin:auto;
+	margin: auto;
 	box-shadow: 0px 0px 5px #888888;
   border-top-right-radius: 40px 80px;
   border-top-left-radius: 40px 80px;
@@ -90,7 +91,7 @@ p {
 }
 
 .foot-style {
-	font-family: "Poiret One", Geneva, sans-serif;
+	font-family: "Dosis", Geneva, sans-serif;
 }
 
 
@@ -152,10 +153,10 @@ width: 230px;
 
 
 #info-tagline {
- font-family: "Poiret One", Geneva, sans-serif; 
+ font-family: "Dosis", Geneva, sans-serif; 
  font-size: 3.8em;
  color: $white;
-   font-weight: 600;
+   font-weight: 500;
   margin-bottom: 25px;
   letter-spacing: 1;
   line-height: .9em;
@@ -164,7 +165,7 @@ width: 230px;
 #info-text {
   font-size: 1.5em;
   color: $white;
-  font-family: "Poiret One", Geneva, sans-serif;
+  font-family: "Dosis", Geneva, sans-serif;
   display: block;
 }
 
@@ -175,7 +176,7 @@ width: 230px;
 
 .caje {
   font-size:1.5em;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 ul.info-links {
@@ -215,22 +216,22 @@ ul.info-links {
 
 .notice {
 	text-align: center;
-	font-family: "Poiret One", Geneva, sans-serif;
+	font-family: "Dosis", Geneva, sans-serif;
 	font-size: 1.6em;
 	padding: 15px 0px;
 	color: green;
-	font-weight: bold;
+	font-weight: 500;
 	margin-top: 10px;
 	background: rgba(140,250,0,.3);
 }
 
 .flash-error {
 	text-align: center;
-	font-family: "Poiret One", Geneva, sans-serif;
+	font-family: "Dosis", Geneva, sans-serif;
 	font-size: 1.6em;
 	padding: 15px 0px;
 	color: #780000;
-	font-weight: bold;
+	font-weight: 500;
 	margin-top: 10px;
 	background: #F5E6E6;
 
@@ -244,7 +245,7 @@ input[type="tel"].error { border: 1px solid #780000  }
 	border: 1px solid #780000;
 	border-radius:10px;
 	background-color:#F5E6E6;
-	font-family: "Poiret One", Geneva, sans-serif;
+	font-family: "Dosis", Geneva, sans-serif;
 	color:#780000;
 
 }
@@ -395,7 +396,7 @@ table.item-list {
 .caje-info {
 	font-size:2em;
 	color: dimgray;
-	font-family: "Poiret One", Geneva, sans-serif;
+	font-family: "Dosis", Geneva, sans-serif;
 	text-align:center;
 }
 
