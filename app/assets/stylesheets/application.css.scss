@@ -236,7 +236,6 @@ ul.info-links {
 
 }
 
-input[type="tel"].error { border: 1px solid #780000  }
 
 .error {
 	margin-top:10px;
@@ -269,10 +268,6 @@ table.item-list {
     //border: 1px solid #E0E0E0;
     padding: 5px;
 
-    button, select, input, textarea {
-      width: 100%;
-    }
-
     &.single_icon {
       text-align: center;
       vertical-align: middle;
@@ -284,95 +279,11 @@ table.item-list {
   }
 }
 
-button, input, textarea {
-  background: #FFFFFF;
-  border: solid 1px #E5E5E5;
-  font: normal 13px/100% Verdana, Tahoma, sans-serif;
-  margin-bottom: 10px;
-  outline: 0;
-  padding: 9px;
-  width: 100%;
 
-  &.red {
-    background-color: #C35050;
-    color: white;
-  }
-  &.green {
-    background-color: #50C350;
-    color: white;
-  }
-  &.blue {
-    background-color: #5050C3;
-    color: white;
-  }
-  &[disabled=disabled] {
-    background-color: #999;
-    color: white;
-    &:before {
-      font-family: "Damion";
-      content: "X ";
-      font-size: 1.5em;
-    }
-  }
-
-}
 
 
 .top-heading {
   background-color: #C35050;
-}
-
-table.item-list {
-  border-collapse: collapse;
-  width: 100%;
-
-	&.fixed-table {
-    table-layout: fixed;
-  }
-
-  th, th a{
-    border: 1px solid #E0E0E0;
-    background-color: #FFF;
-    color: #000;
-    font-size: 0.95em;
-    font-weight: bold;
-    padding: 5px;
-    text-decoration: none;
-    text-transform: capitalize;
-    vertical-align: bottom; 
-  }
-
-  tr {
-    background-color: #FFF;
-    display: table-row;
-
-    &:nth-child(even) {
-      background-color: #F9F9F9;
-    }
-
-    &:hover {
-      background-color: #FFFFF2;
-    }
-  }
-
-  td {
-    border: 1px solid #E0E0E0;
-    padding: 5px;
-    vertical-align: top;
-
-    select, input, textarea {
-      width: 100%;
-    }
-
-    &.dead_center {
-      text-align: center;
-      vertical-align: middle;
-    } 
-
-    &.numeric{
-      text-align: right;
-    }
-  }
 }
 
 .plain-filter {
