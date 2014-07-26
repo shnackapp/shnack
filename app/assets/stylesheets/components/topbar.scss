@@ -1,0 +1,67 @@
+@import "base/vars", "base/mixins";
+
+.topbar {
+  position: fixed;
+  z-index: index($elements, topbar);
+  left: 0;
+  right: 0;
+  top:0;
+  max-width: 880px;
+  margin: 0px auto 40px auto;
+  padding: 0px 30px;
+  color: #EEE;
+  background: $red;
+  display: block;
+  @include box-shadow(0, 0, 6px, $black);
+}
+/* because the topbar always takes space fixed
+  on top, removed from the regular flow */
+.topbar + div {
+  padding-top: 60px;
+}
+
+.topbar .shnack {
+  width: 25%;
+}
+
+.prgs-bar {
+  width: 50%;
+  @extend .gen_inline;
+}
+
+.user-settings {
+  //width: 25%;
+  float: right;
+  @extend .gen_inline;
+}
+
+
+.step {
+  @extend .gen_inline; 
+  text-align: center;
+  float: left;
+  width: 33.33%;
+  padding: 0;
+  margin: 0;
+  &.current {
+    ///color: #CCC;
+    font-weight: 700;
+  }
+  &.current .circle {
+    background-color: khaki;
+  }
+  &.completed .circle {
+    //background-color: #444;
+  }
+}
+
+
+.circle {
+  border: 2px solid #AAA;
+  //background-color: #AAA;
+  border-radius:15px;
+  background-image: none;
+  width: 12px;
+  height: 12px;
+  margin: 0 auto;
+}

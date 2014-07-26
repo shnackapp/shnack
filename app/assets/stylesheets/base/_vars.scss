@@ -1,18 +1,14 @@
-/*$white: whitesmoke;
-$black: #252525;
-$red: #9E1919;
-$shnackred: #a61c00;*/
-
-
-
 $white: #EEE;
 $black: #222;
 $red: #A10;
+$cement: #6a717a;
 
 .red { color: $red; }
 .cream { color: papayawhip; }
 .khaki { color: khaki; }
 .white { color: $white; }
 .black { color: $black; }
+.cement { color: $cement; }
 
+$elements: base, phone, menu, topbar, user-settings;
 
