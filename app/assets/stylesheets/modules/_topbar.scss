@@ -7,21 +7,27 @@
   right: 0;
   top:0;
   max-width: 880px;
-  margin: 0px auto 40px auto;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0px 30px;
-  color: #EEE;
+  color: $white;
   background: $red;
   display: block;
   @include box-shadow(0, 0, 6px, $black);
+
+  a h3 {
+    font-size: 2.5em;
+    color: $white;
+    width: 25%;   //NOTE
+    &:hover {
+      color: khaki;
+    }
+  }
 }
 /* because the topbar always takes space fixed
   on top, removed from the regular flow */
 .topbar + div {
   padding-top: 60px;
-}
-
-.topbar .shnack {
-  width: 25%;
 }
 
 .prgs-bar {
@@ -39,6 +45,7 @@
 .step {
   @extend .gen_inline; 
   text-align: center;
+  text-transform: uppercase;
   float: left;
   width: 33.33%;
   padding: 0;

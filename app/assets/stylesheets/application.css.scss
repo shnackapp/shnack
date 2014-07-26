@@ -27,19 +27,6 @@
 
 
 
-.level {
-	width:60%;
-	padding: 15px 10px 5px 10px;
-	background: KHAKI;
-	margin:auto;
-	box-shadow: 0px 0px 5px #888888;
-  border-top-right-radius: 40px 80px;
-  border-top-left-radius: 40px 80px;
-
-  @media (max-width: 800px) {
-    width: 90%;
-  }
-}
 
 #level-2 {
 	width: 100%;
@@ -60,56 +47,24 @@
 	background-image: linear-gradient(to bottom, #9E1919 0%, #A62424 100%);
 }
 
-#level-3 {
-  width: 100%;
-  position: relative;
-  margin: 0px auto;
-  background: $black;
-  padding: 45px 10px;
-  min-height: 480px;
-}
-
-
-
 
 .step-style {
   text-align: center;
   color: $white;
   font-family: Dosis, sans-serif;
+
+  h1 {
+    font-family: "Damion", serif;
+    font-size: 3.2em;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 1.5em;
+    padding: 0px 25px;
+  }
+
+  img {
+    opacity: .9;
+  }
 }
-
-h1.step-style {
-  font-family: "Damion", serif;
-  font-size: 3.2em;
-	font-weight: 100;
-}
-
-p.step-style {
-  font-size: 1.5em;
-  padding: 0px 25px;
-}
-
-img.step-style {
-  opacity: .9;
-}
-
-
-
-
-
-
-
-
-
-
-.top-heading {
-  background-color: #C35050;
-}
-
-.caje-info {
-	font-size:2em;
-	color: dimgray;
-	font-family: "Dosis", Geneva, sans-serif;
-	text-align:center;
-}
-

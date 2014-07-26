@@ -1,12 +1,13 @@
+*,  *:before, *:after  { box-sizing: border-box; }
+
+
 html, body, div, span, object, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, samp, small, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   vertical-align: baseline;
   background: transparent;
   box-sizing: border-box;
-  &:before, &:after  { box-sizing: border-box; }
 }
 
 h1, h2, h3, h4, h5, h6 { font-weight: normal; }
