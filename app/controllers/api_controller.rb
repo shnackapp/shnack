@@ -187,16 +187,26 @@ class ApiController < ApplicationController
 		# Get the credit card details submitted by the form
 
 		# Create the charge on Stripe's servers - this will charge the user's card
+		# begin
+		# @customer = Stripe::Customer.create(
+		#     :email => params[:stripeEmail],
+		#     :card  => params[:stripeToken],
+		#     :name => params[:stripeCardholder]
+		#   )
+		# rescue Stripe::CardError => e
+		# # The card has been declined
+		# respond_with :json => { :error => "stripe_error"}
+		# end
 		begin
-		@customer = Stripe::Customer.create(
-		    :email => params[:stripeEmail],
-		    :card  => params[:stripeToken],
-		    :name => params[:stripeCardholder]
-		  )
-		rescue Stripe::CardError => e
-		# The card has been declined
-		respond_with :json => { :error => "stripe_error"}
-		end
+  charge = Stripe::Charge.create(
+    :amount => 1000, # amount in cents, again
+    :currency => "usd",
+    :card => params[:stripeToken],
+    :description => "payinguser@example.com"
+  )
+rescue Stripe::CardError => e
+  # The card has been declined
+end
 
 		respond_with :json =>  @customer
 
