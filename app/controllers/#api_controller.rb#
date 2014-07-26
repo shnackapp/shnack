@@ -198,8 +198,7 @@ class ApiController < ApplicationController
 		respond_with :json => { :error => "stripe_error"}
 		end
 
-		respond_with(@customer, :location => nil)
-
+		respond_with :json =>  @customer
 
 
 	end
