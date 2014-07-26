@@ -221,7 +221,7 @@ rescue Stripe::StripeError => e
 rescue => e
 # Something else happened, completely unrelated to Stripe
 end
-respond_with{@customer.id,:location => nil}
+render :json => @customer.id
 
 end
 
