@@ -6,10 +6,10 @@ class ApiController < ApplicationController
 	respond_to :json
 
 	def create
-    @user = User.create(:name => params[:name],:email => params[:email],:phone => params[:phone],:password => params[:password])
+    @user = User.create(:name => params[:name],:email => params[:email],:phone => params[:phone],:password => params[:password],:customer_id =>params[:customer_id])
 
    	#respond_with  {:auth_token => @user.authentication_token}
-   	   	respond_with  {auth_token:@user.authentication_token}
+   	respond_with  {auth_token:@user.authentication_token}
 
 
 
