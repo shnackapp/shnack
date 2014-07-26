@@ -197,11 +197,12 @@ class ApiController < ApplicationController
 		# # The card has been declined
 		# respond_with :json => { :error => "stripe_error"}
 		# end
+		token = params[:stripeToken]
 		begin
   charge = Stripe::Charge.create(
     :amount => 1000, # amount in cents, again
     :currency => "usd",
-    :card => params[:stripeToken],
+    :card => token,
     :description => "payinguser@example.com"
   )
 rescue Stripe::CardError => e
