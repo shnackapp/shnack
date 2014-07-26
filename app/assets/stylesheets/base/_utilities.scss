@@ -34,8 +34,9 @@
 .text-right { text-align: right; }
 .text-center { text-align: center; }
 
+.invisable { visibility: hidden; }
 .hide { display: none; }
-.hide-impoertant { display: none !important; }
+.hide-important { display: none !important; }
 
 .highlight { background: #ffff99; }
 
@@ -69,10 +70,18 @@
   background-color: $red;
 }
 
-.container {
+.my-container {
   display: block;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   max-width: 1000px;
+}
+
+.my-container-half {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  max-width: 500px;
 }

@@ -1,23 +1,42 @@
 
-h1.new {
-  font-size: 3em;
+h1 {
+  font-size: 2.2em;
+  font-family: "Dosis", Geneva, sans-serif;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 1.6em;
+  font-family: "Dosis", Geneva, sans-serif;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 3.2em;
   font-family: "Damion", serif;
 }
 
-h2.new {
-  font-size: 1.5em;
+h4 {
+  font-size: 2em;
   font-family: "Damion", serif;
-}
-
-h3.new {
-  font-size: 1.5em;
-  font-family: "Poiret One", sans-serif;
 }
 
 
 .headline-light {
-  font-family: "Poiret One", Geneva, sans-serif;
+  font-family: "Dosis", Geneva, sans-serif;
   color: #EEE;
 }
 
 
+
+.shnack {
+  font-family: "Damion", serif;
+  font-size:1.5em;
+}
+
+.caje {
+  font-size:1.5em;
+  font-weight: bold;
+}
+
+p { font-family: "Dosis", Geneva, sans-serif; font-size: 18px; }
