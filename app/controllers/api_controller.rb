@@ -189,10 +189,10 @@ class ApiController < ApplicationController
 		# Create the charge on Stripe's servers - this will charge the user's card
 		begin
 
-@customer = Stripe::Customer.create(
+		@customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
 	    :card  => params[:stripeToken]
-	  )
+	    )
 
 # Use Stripe's bindings...
 rescue Stripe::CardError => e
@@ -222,7 +222,7 @@ rescue Stripe::StripeError => e
 rescue => e
 # Something else happened, completely unrelated to Stripe
 end
-respond_with :json =>{@customer, :location => nil}
+respond_with :json =>{:customer => @customer, :location => nil}
 
 end
 
