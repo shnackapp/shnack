@@ -8,7 +8,9 @@ class ApiController < ApplicationController
 	def create
     @user = User.create(:name => params[:name],:email => params[:email],:phone => params[:phone],:password => params[:password])
 
-   	respond_with  {:auth_token => @user.authentication_token}
+   	#respond_with  {:auth_token => @user.authentication_token}
+   	   	respond_with  {auth_token:@user.authentication_token}
+
 
 
 
