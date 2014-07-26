@@ -183,7 +183,7 @@ class ApiController < ApplicationController
 	def customer
 		# Set your secret key: remember to change this to your live secret key in production
 		# See your keys here https://dashboard.stripe.com/account
-		Stripe.api_key = secret_key
+		Stripe.api_key = 'pk_test_AUn823FKTadliNg29onudWm0'
 		# Get the credit card details submitted by the form
 
 		# Create the charge on Stripe's servers - this will charge the user's card
