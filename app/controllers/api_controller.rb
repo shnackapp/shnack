@@ -178,29 +178,25 @@ class ApiController < ApplicationController
 
 	
 
-	def process_stripe_info
+	def customer
 		# Set your secret key: remember to change this to your live secret key in production
 		# See your keys here https://dashboard.stripe.com/account
-		Stripe.api_key = "sk_test_xDJ5KS0I8VgJvHSQT1Iuxy56"
+		Stripe.api_key = secret_key
 		# Get the credit card details submitted by the form
-
-		token = params[:stripeToken]
-		amount= params[:amount]
-
 
 		# Create the charge on Stripe's servers - this will charge the user's card
 		begin
-			charge = Stripe::Charge.create(
-			:amount => amount, # amount in cents, again
-			:currency => "usd",
-			:card => token,
-			:description => "payinguser@example.com"
-			)
+		@customer = Stripe::Customer.create(
+		    :email => params[:stripeEmail],
+		    :card  => params[:stripeToken],
+		    :name => params[:stripeCardholder]
+		  )
 		rescue Stripe::CardError => e
 		# The card has been declined
+		respond_with :json => { :error => "stripe_error"}
 		end
 
-		render :json => { :stripe_token => token, :amount =>amount }
+		respond_with :json =>  @customer
 
 
 	end
