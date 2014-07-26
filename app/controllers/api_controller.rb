@@ -186,7 +186,6 @@ class ApiController < ApplicationController
 		Stripe.api_key = 'sk_test_xDJ5KS0I8VgJvHSQT1Iuxy56'
 		# Get the credit card details submitted by the form
 
-		# Create the charge on Stripe's servers - this will charge the user's card
 		begin
 
 		@customer = Stripe::Customer.create(
@@ -222,7 +221,7 @@ rescue Stripe::StripeError => e
 rescue => e
 # Something else happened, completely unrelated to Stripe
 end
-respond_with {@customer.id , :location => nil}
+respond_with{@customer.id,:location => nil}
 
 end
 
