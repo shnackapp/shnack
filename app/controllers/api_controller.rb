@@ -191,8 +191,7 @@ class ApiController < ApplicationController
 
 @customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
-	    :card  => params[:stripeToken],
-	    :name => params[:stripeCardholder]
+	    :card  => params[:stripeToken]
 	  )
 
 # Use Stripe's bindings...
@@ -208,6 +207,10 @@ rescue Stripe::CardError => e
 	puts "Message is: #{err[:message]}"
 rescue Stripe::InvalidRequestError => e
 # Invalid parameters were supplied to Stripe's API
+	body = e.json_body
+	err  = body[:error]
+	puts "Status is: #{e.http_status}"
+
 rescue Stripe::AuthenticationError => e
 # Authentication with Stripe's API failed
 # (maybe you changed API keys recently)
@@ -219,7 +222,7 @@ rescue Stripe::StripeError => e
 rescue => e
 # Something else happened, completely unrelated to Stripe
 end
-respond_with(@customer, :location => nil)
+respond_with :json =>(@customer, :location => nil)
 
 end
 
