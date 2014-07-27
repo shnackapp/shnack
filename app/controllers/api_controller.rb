@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
 	include ApiHelper
-	 #http_basic_authenticate_with name: "admin", password: "secret"
+	# http_basic_authenticate_with name: "admin", password: "secret"
 
 	before_filter :restrict_access
 	respond_to :json
@@ -8,23 +8,21 @@ class ApiController < ApplicationController
 	def create
     @user = User.create(:name => params[:name],:email => params[:email],:number => params[:phone],:password => params[:password],:customer_id =>params[:customer_id])
 
-    if @user.save
+   	#respond_with  {:auth_token => @user.authentication_token}
    	respond_with(@user.authentication_token, :location =>nil)
-    else 
-   	respond_with(:location =>nil)
-    end
-
-     # respond_to do |format|
-     #   if @user.save
-     #     # Tell the UserMailer to send a welcome Email after save
-     #     UserMailer.welcome_email(@user).deliver
-     #     format.html { redirect_to(@user, notice: 'User was successfully created.') }
-     #     format.json { render json: @user, status: :created, location: @user }
-     #   else
-     #     format.html { render action: 'new' }
-     #     format.json { render json: @user.errors, status: :unprocessable_entity }
-     #   end
-     # end
+   	
+    # respond_to do |format|
+    #   if @user.save
+    #     # Tell the UserMailer to send a welcome Email after save
+    #     UserMailer.welcome_email(@user).deliver
+ 
+    #     format.html { redirect_to(@user, notice: 'User was successfully created.') }
+    #     format.json { render json: @user, status: :created, location: @user }
+    #   else
+    #     format.html { render action: 'new' }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
 	def index
@@ -204,14 +202,12 @@ rescue Stripe::CardError => e
 	# param is '' in this case
 	puts "Param is: #{err[:param]}"
 	puts "Message is: #{err[:message]}"
-	@response[:errors]=err[:type]
+	#@response[:errors]=err[:type]
 	#respond_with(@response,:location => nil)
 rescue Stripe::InvalidRequestError => e
 # Invalid parameters were supplied to Stripe's API
-	body = e.json_body
-	err  = body[:error]
-	puts "Status is: #{e.http_status}"
-
+	#err  = body[:error]
+	#puts "Status is: #{e.http_status}"
 rescue Stripe::AuthenticationError => e
 # Authentication with Stripe's API failed
 # (maybe you changed API keys recently)
