@@ -185,6 +185,7 @@ class ApiController < ApplicationController
 		# See your keys here https://dashboard.stripe.com/account
 		Stripe.api_key = 'sk_test_xDJ5KS0I8VgJvHSQT1Iuxy56'
 		# Get the credit card details submitted by the form
+		@response = Hash.new
 
 		begin
 
@@ -204,6 +205,8 @@ rescue Stripe::CardError => e
 	# param is '' in this case
 	puts "Param is: #{err[:param]}"
 	puts "Message is: #{err[:message]}"
+	@response[:errors]=err
+	respond_with(@response)
 rescue Stripe::InvalidRequestError => e
 # Invalid parameters were supplied to Stripe's API
 	body = e.json_body
