@@ -2,7 +2,7 @@ class ApiController < ApplicationController
 	include ApiHelper
 	# http_basic_authenticate_with name: "admin", password: "secret"
 
-	before_filter :restrict_access
+	#before_filter :restrict_access
 	respond_to :json
 
 	def create
