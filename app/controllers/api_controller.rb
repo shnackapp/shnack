@@ -205,7 +205,7 @@ rescue Stripe::CardError => e
 	puts "Param is: #{err[:param]}"
 	puts "Message is: #{err[:message]}"
 	@response[:errors]=err[:type]
-	respond_with(@response,:location => nil)
+	#respond_with(@response,:location => nil)
 rescue Stripe::InvalidRequestError => e
 # Invalid parameters were supplied to Stripe's API
 	body = e.json_body
