@@ -8,24 +8,24 @@ class ApiController < ApplicationController
 	def create
     @user = User.create(:name => params[:name],:email => params[:email],:number => params[:phone],:password => params[:password],:customer_id =>params[:customer_id])
 
-   	#respond_with  {:auth_token => @user.authentication_token}
-   	respond_with(@user.authentication_token, :location =>nil)
+    if @user.save
+    	respond_with  {:auth_token => @user.authentication_token}
+    else 
+    	respond_with  {:auth_token => "Error"}
+    end
 
-
-
-
-    # respond_to do |format|
-    #   if @user.save
-    #     # Tell the UserMailer to send a welcome Email after save
-    #     UserMailer.welcome_email(@user).deliver
- 
-    #     format.html { redirect_to(@user, notice: 'User was successfully created.') }
-    #     format.json { render json: @user, status: :created, location: @user }
-    #   else
-    #     format.html { render action: 'new' }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
+   	#respond_with(@user.authentication_token, :location =>nil)
+     # respond_to do |format|
+     #   if @user.save
+     #     # Tell the UserMailer to send a welcome Email after save
+     #     UserMailer.welcome_email(@user).deliver
+     #     format.html { redirect_to(@user, notice: 'User was successfully created.') }
+     #     format.json { render json: @user, status: :created, location: @user }
+     #   else
+     #     format.html { render action: 'new' }
+     #     format.json { render json: @user.errors, status: :unprocessable_entity }
+     #   end
+     # end
   end
 
 	def index
