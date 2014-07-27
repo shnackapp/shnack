@@ -222,7 +222,7 @@ rescue => e
 # Something else happened, completely unrelated to Stripe
 end
 
-render :json => @customer.id
+render :json => @customer
 
 end
 
