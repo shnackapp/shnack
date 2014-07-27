@@ -79,7 +79,7 @@ $(document).ready(function() {
 
 
 	$("[name='user_card']").change(function (evt) {
-		if($(this).hasClass('new-card-button')) { 
+		if($(this).hasId('new-card-button')) { 
 			$('.new-card-form').slideDown(300);
 		}
 		else {
@@ -112,7 +112,7 @@ $(document).ready(function() {
 
 		if($('.select-card-form')[0]) {
 			//Select card form exists.
-			if($("input[name='user_card']:checked").hasClass('new-card-button')) {	
+			if($("input[name='user_card']:checked").hasId('new-card-button')) {	
 		    	$form.find('button').prop('disabled', true);
 
 				Stripe.card.createToken({

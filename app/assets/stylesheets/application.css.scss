@@ -21,8 +21,7 @@
 $elements: base, phone, menu, topbar, user-settings;
 
 
-html,body
-{
+html,body {
     width: 100%;
     height: 100%;
     margin: 0px;
@@ -50,6 +49,7 @@ p {
 
   @media (max-width: 800px) {
     width: 90%;
+    font-size: 1em;
   }
 }
 
@@ -397,6 +397,7 @@ table.item-list {
 	color: dimgray;
 	font-family: "Poiret One", Geneva, sans-serif;
 	text-align:center;
+
 }
 
 
