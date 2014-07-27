@@ -9,12 +9,11 @@ class ApiController < ApplicationController
     @user = User.create(:name => params[:name],:email => params[:email],:number => params[:phone],:password => params[:password],:customer_id =>params[:customer_id])
 
     if @user.save
-    	respond_with  {:auth_token => @user.authentication_token}
+   	respond_with(@user.authentication_token, :location =>nil)
     else 
-    	respond_with  {:auth_token => "Error"}
+   	respond_with(:location =>nil)
     end
 
-   	#respond_with(@user.authentication_token, :location =>nil)
      # respond_to do |format|
      #   if @user.save
      #     # Tell the UserMailer to send a welcome Email after save
