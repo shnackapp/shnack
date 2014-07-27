@@ -222,7 +222,7 @@ rescue => e
 # Something else happened, completely unrelated to Stripe
 end
 
-render_with  {@customer}
+respond_with {@customer}
 
 end
 
