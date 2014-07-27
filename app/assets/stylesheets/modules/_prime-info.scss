@@ -6,7 +6,8 @@ section.prime-info {
   height: 100%;
   padding-top: 25px;
   padding-bottom: 35px;
-  padding-left: 10px;
+  //padding-left: 10px;
+    padding-left: 5px !important;
 
   h1 {
     margin-bottom: 25px;
@@ -33,7 +34,6 @@ section.prime-info {
 
   p {
     font-size: 24px;
-    padding-left: 5px;
   }
 
   .phone {
