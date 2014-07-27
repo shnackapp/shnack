@@ -222,7 +222,7 @@ rescue => e
 # Something else happened, completely unrelated to Stripe
 end
 
-respond_with {@customer, :location => nil}
+respond_with(@customer, :location => nil)
 
 end
 
