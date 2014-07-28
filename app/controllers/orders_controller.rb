@@ -134,7 +134,6 @@ class OrdersController < ApplicationController
     end
 
 
-    flash[:notice] = "Your order was placed successfully. You will receive a text when your order is ready. Thank you for using Shnack"
     redirect_to new_order_charge_path(@order) if @order.save
 
     # respond_to do |format|
