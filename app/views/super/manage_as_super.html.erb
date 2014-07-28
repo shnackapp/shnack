@@ -30,3 +30,13 @@
 		<% end %>
 	</table>
 </div>
+
+<h4> Basic Statistics </h4>
+
+<div class="well">
+	Number of Orders Placed Through Shnack: <%= @orders.count %> <br />
+	Number of Orders by users not signed in: <%= @non_user_orders.count %> <br />
+	Number of Users Registered: <%= @users.count %> <br />
+	Total amount of money processed: <%= Order.integer_to_currency @total %> <br />
+	Shnack's Total Revenue: <%= Order.integer_to_currency @shnack_total %> 
+</div>

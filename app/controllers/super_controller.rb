@@ -17,6 +17,17 @@ class SuperController < ApplicationController
   	def manage_as_super
   		@devices = Device.all
   		@apikeys = ApiKey.all
+  		@orders = Order.paid.where('shnack_cut != ?', 0).all
+  		@non_user_orders = Order.paid.where(:user_id => nil)
+  		@users = User.all
+
+  		@total = 0
+  		@shnack_total = 0
+
+  		@orders.each do |order|
+  			@total = @total + order.total
+  			@shnack_total = @shnack_total + order.shnack_cut
+  		end
 
 	end
 
