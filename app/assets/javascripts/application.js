@@ -16,18 +16,18 @@
 //= require jquery.mask.min
 //= require_tree .
 
-
+/*
 function checkDevice() {
   var windowWidth = $(window).width();
   //alert(windowWidth);
   if (windowWidth <= 520) {
     mobileInfoText();
-    /*$("#topbar").addClass("mobile");
+    $("#topbar").addClass("mobile");
     $("#topbar").children().each( function() {
       $(this).toggleClass("mobile");
-    });*/
+    });
   }
-}
+}*/
 
 window.fbAsyncInit = function() {
         FB.init({
@@ -55,15 +55,15 @@ function hideInfoTextShowContact() {
   document.getElementById("info-text").style.display="None";
   document.getElementById("contact-us").style.display="Block";
 }
-
+/*
 function hideAboutLinks() {
   document.getElementById("about-links1").style.display="None";
   document.getElementById("about-links2").style.display="None";
-}
+}*/
 
 
 
-
+/*
 function mobileInfoText() {
     hideAboutLinks();
     document.getElementById("about-links3").style.width="100%";
@@ -73,7 +73,7 @@ function mobileInfoText() {
     document.getElementById("info-tagline").innerHTML="For a better fan experience";
     document.getElementById("info-text").innerHTML="Shnack is a mobile application designed for concessions at large and small scale events. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. We can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers."
 }
-
+*/
 function forFans(){
   hideContactUsShowInfoText();
   document.getElementById("info-tagline").innerHTML="Never miss a moment, never miss a meal"

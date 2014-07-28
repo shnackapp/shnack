@@ -9,18 +9,16 @@
   margin: 0px auto;
   min-width: 320px;
   max-width: 660px;
-  padding-top:60px;
-  padding-bottom:60px;
+  //padding-top:60px;
+  //padding-bottom:60px;
 
-  @media (max-width: 600px) {
-    padding-top:85px;
-    padding-bottom:60px;
-  }
+
 }
 
 .the-menu {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  //padding-top: 60px;
+  //padding-bottom: 60px;
+  padding-bottom:70px;
 }
 
 .panel-title {
@@ -50,7 +48,7 @@ footer.fb {
 
   p {
     font-size: 1.6em;
-    font-weight: 700;
+    font-weight: 500;
     font-color: #2A2A2A;
   }
   a.place-order {
