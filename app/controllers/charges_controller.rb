@@ -145,6 +145,7 @@ class ChargesController < ApplicationController
 	  #send User an email letting them know their order has been placed
 	  ReceiptMailer.receipt_email(@order).deliver unless @order.customer.email.nil?
 
+	  flash[:success] = "Your order has been successfully placed!"
 	  redirect_to order_path(@order)
 	
 	rescue Stripe::CardError => e
