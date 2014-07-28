@@ -21,7 +21,12 @@
 
 <%= form_tag "login", :id=>"login-form" do %>
 	<div class="row-new">
-		<%= text_field(:email, :class=>"form-control", :id => "email", :placeholder => "E-mail Address")
+		<%= text_field(:login, :email, :class=>"form-control", :id => "email", :placeholder => "E-mail Address") %>
+		<%= password_field(:login, :password, :class=>"form-control", :id => "password", :placeholder => "Password") %>
+		<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+			Log In 
+		<% end %>
 	</div>
+	<%= hidden_field(:login, :order, :value => @order.id)
 <% end %>
 

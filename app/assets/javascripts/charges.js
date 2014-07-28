@@ -88,6 +88,27 @@ $(document).ready(function() {
 	})
 
 
+	/** 
+		The following set of functions are for when the user isn't signed in and can either
+		log in or create an account
+
+	**/
+	$("#login-form").hide();
+
+	$("#log-in").click(function(evt) {
+		$("#create-account-form").hide();
+		$("#login-form").show();
+		$("#log-in").addClass("red");
+		$("#create-account").removeClass("red");
+	});
+
+	$("#create-account").click(function(evt) {
+		$("#create-account-form").show();
+		$("#login-form").hide();
+		$("#log-in").removeClass("red");
+		$("#create-account").addClass("red");
+	});
+
 	//Make sure form submits on cash only.
    $("#confirm-button").click(function() { 
    	$form = $('#charges-form');
