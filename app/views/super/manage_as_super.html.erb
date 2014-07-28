@@ -1,0 +1,42 @@
+
+
+<h4> ApiKeys</h4>
+
+<div class="well">
+	<%= link_to "Create Key", { :action => "create_api_key" } %> <br />
+
+	<table class="table">
+		<% @apikeys.each do |key| %> 
+			<tr>
+				<td> <%= key.access_token %> </td>
+				<td> <%= link_to "Delete Key", { :action => "delete_api_key", :id => key.id } %> </td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+
+<p>
+
+<h4> Devices </h4>
+
+<div class="well">
+	<table class="table">
+		<% @devices.each do |device| %>
+			<tr>
+				<td> <%= device.token %> </td>
+				<td> <%= device.owner.name unless device.owner.nil? %></td>
+				<td> <%= link_to "Delete Device", { :action => "delete_device", :id => device.id } %> </td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+
+<h4> Basic Statistics </h4>
+
+<div class="well">
+	Number of Orders Placed Through Shnack: <%= @orders.count %> <br />
+	Number of Orders by users not signed in: <%= @non_user_orders.count %> <br />
+	Number of Users Registered: <%= @users.count %> <br />
+	Total amount of money processed: <%= Order.integer_to_currency @total %> <br />
+	Shnack's Total Revenue: <%= Order.integer_to_currency @shnack_total %> 
+</div>

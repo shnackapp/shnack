@@ -24,3 +24,41 @@ a.user {
     //border-right: 2px solid red;
   }
 }
+
+a .shnack {
+  text-decoration: none;
+  color: #EEE;
+}
+
+button, {
+  background: #FFFFFF;
+  border: solid 1px #E5E5E5;
+  font: normal 13px/100% Verdana, Tahoma, sans-serif;
+  margin-bottom: 10px;
+  outline: 0;
+  padding: 9px;
+  width: 100%;
+
+  &.red {
+    background-color: #C35050;
+    color: white;
+  }
+  &.green {
+    background-color: #50C350;
+    color: white;
+  }
+  &.blue {
+    background-color: #5050C3;
+    color: white;
+  }
+  &[disabled=disabled] {
+    background-color: #999;
+    color: white;
+    &:before {
+      font-family: "Damion";
+      content: "X ";
+      font-size: 1.5em;
+    }
+  }
+
+}

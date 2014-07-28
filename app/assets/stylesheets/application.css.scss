@@ -13,50 +13,25 @@
  */
 
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import url(http://fonts.googleapis.com/css?family=Dosis:400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Damion);
-@import "base/*";
-@import "components/*";
+@import "base/css_reset",
+        "base/vars",
+        "base/utilities",
+        "base/mixins",
+        "base/text_presentation",
+        "base/buttons",
+        "base/inputs";
+@import "components/*",
+        "modules/*";
 
-$elements: base, phone, menu, topbar, user-settings;
 
-
-html,body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden; 
-}
-
-p {
-	font-family: "Poiret One", Geneva, sans-serif;
-}
-
-.website-wrapper {
-  width: 100%;
-  margin: 0;
-}
-
-.level {
-	width:60%;
-	padding: 15px 10px 5px 10px;
-	background: KHAKI;
-	margin:auto;
-	box-shadow: 0px 0px 5px #888888;
-  border-top-right-radius: 40px 80px;
-  border-top-left-radius: 40px 80px;
-
-  @media (max-width: 800px) {
-    width: 90%;
-    font-size: 1em;
-  }
-}
 
 #level-2 {
 	width: 100%;
-	padding: 0px 10px 20px 10px;
+	padding: 10px 10px 20px 10px;
   box-shadow: 0px 0px 20px black;
+  background-color: $black;
 	background-image: -webkit-gradient(
 		linear,
 		left top,
@@ -72,6 +47,7 @@ p {
 }
 
 
+<<<<<<< HEAD
 
 
 
@@ -128,338 +104,20 @@ tbody.all_the_mods tr {
 .step-style {
   text-align: center;
   color: $white;
-}
+  font-family: Dosis, sans-serif;
 
-h1.step-style {
-  font-family: "Damion", serif;
-  font-size: 3.2em;
-	font-weight: 100;
-}
-
-p.step-style {
-  font-size: 1.5em;
-  padding: 0px 25px;
-}
-
-img.step-style {
-  opacity: .9;
-}
-
-#phone{
-position: absolute;
-top: 20px;
-z-index: index($elements, phone);
-width: 230px;
-}
-
-
-#info-tagline {
- font-family: "Poiret One", Geneva, sans-serif; 
- font-size: 3.8em;
- color: $white;
-   font-weight: 600;
-  margin-bottom: 25px;
-  letter-spacing: 1;
-  line-height: .9em;
-}
-
-#info-text {
-  font-size: 1.5em;
-  color: $white;
-  font-family: "Poiret One", Geneva, sans-serif;
-  display: block;
-}
-
-.shnack {
-	font-family: "Damion", serif;
-	font-size:1.5em;
-}
-
-.caje {
-  font-size:1.5em;
-  font-weight: bold;
-}
-
-ul.info-links {
- 	list-style: none;
-	font-size: 3em;
-	font-family: "Damion", serif;
-  li {
-   	display: inline-block;
-  }
-  a {
-  	color: $red;
-  	text-decoration: none;
-  	&:hover {
-  		color: $white;
-  		border-bottom: 2px solid $red;
-  	}
-  }
-}
-
-
-
-
-
-#contact-us {
-	display: none;
-	width: 100%;
-	height: 200px;
-	//margin-top: 15px;
-}
-
-
-
-
-.contact-field {
-	width: 100%;
-}
-
-.notice {
-	text-align: center;
-	font-family: "Poiret One", Geneva, sans-serif;
-	font-size: 1.6em;
-	padding: 15px 0px;
-	color: green;
-	font-weight: bold;
-	margin-top: 10px;
-	background: rgba(140,250,0,.3);
-}
-
-.flash-error {
-	text-align: center;
-	font-family: "Poiret One", Geneva, sans-serif;
-	font-size: 1.6em;
-	padding: 15px 0px;
-	color: #780000;
-	font-weight: bold;
-	margin-top: 10px;
-	background: #F5E6E6;
-
-}
-
-input[type="tel"].error { border: 1px solid #780000  }
-
-.error {
-	margin-top:10px;
-	padding:3px;
-	border: 1px solid #780000;
-	border-radius:10px;
-	background-color:#F5E6E6;
-	font-family: "Poiret One", Geneva, sans-serif;
-	color:#780000;
-
-}
-
-/* SHNACK ATTACK */
-table.item-list {
-
- tr {
-    background-color: #FFF;
-    display: table-row;
-
-    &:nth-child(odd) {
-      background-color: #F9F9F9;
-    }
-
-    &:hover {
-      background-color: #FFFFF2;
-    }
+  h1 {
+    font-family: "Damion", serif;
+    font-size: 3.2em;
+    font-weight: 400;
   }
 
-  td {
-    //border: 1px solid #E0E0E0;
-    padding: 5px;
-
-    button, select, input, textarea {
-      width: 100%;
-    }
-
-    &.single_icon {
-      text-align: center;
-      vertical-align: middle;
-    } 
-
-    &.numeric{
-      text-align: right;
-    }
-  }
-}
-
-button, input, textarea {
-  background: #FFFFFF;
-  border: solid 1px #E5E5E5;
-  font: normal 13px/100% Verdana, Tahoma, sans-serif;
-  margin-bottom: 10px;
-  outline: 0;
-  padding: 9px;
-  width: 100%;
-
-  &.red {
-    background-color: #C35050;
-    color: white;
-  }
-  &.green {
-    background-color: #50C350;
-    color: white;
-  }
-  &.blue {
-    background-color: #5050C3;
-    color: white;
-  }
-  &[disabled=disabled] {
-    background-color: #999;
-    color: white;
-    &:before {
-      font-family: "Damion";
-      content: "X ";
-      font-size: 1.5em;
-    }
+  p {
+    font-size: 1.5em;
+    padding: 0px 25px;
   }
 
-}
-
-
-.top-heading {
-  background-color: #C35050;
-}
-
-table.item-list {
-  border-collapse: collapse;
-  width: 100%;
-
-	&.fixed-table {
-    table-layout: fixed;
+  img {
+    opacity: .9;
   }
-
-  th, th a{
-    border: 1px solid #E0E0E0;
-    background-color: #FFF;
-    color: #000;
-    font-size: 0.95em;
-    font-weight: bold;
-    padding: 5px;
-    text-decoration: none;
-    text-transform: capitalize;
-    vertical-align: bottom; 
-  }
-
-  tr {
-    background-color: #FFF;
-    display: table-row;
-
-    &:nth-child(even) {
-      background-color: #F9F9F9;
-    }
-
-    &:hover {
-      background-color: #FFFFF2;
-    }
-  }
-
-  td {
-    border: 1px solid #E0E0E0;
-    padding: 5px;
-    vertical-align: top;
-
-    select, input, textarea {
-      width: 100%;
-    }
-
-    &.dead_center {
-      text-align: center;
-      vertical-align: middle;
-    } 
-
-    &.numeric{
-      text-align: right;
-    }
-  }
-}
-
-.plain-filter {
-  * {
-    display: block;
-    width: 100%;
-  }
-
-  select,
-  input,
-  textarea {
-    margin-bottom: 5px;
-
-    &:last-child {
-      margin-bottom: 0px;
-    }
-  }
-}
-
-.caje-info {
-	font-size:2em;
-	color: dimgray;
-	font-family: "Poiret One", Geneva, sans-serif;
-	text-align:center;
-
-}
-
-
-.topbar {
-  position: fixed;
-  z-index: index($elements, topbar);
-  left: 0;
-  right: 0;
-  top:0;
-  max-width: 880px;
-  margin: 0px auto 40px auto;
-  padding: 0px 30px;
-  color: #EEE;
-  background: $red;
-  display: block;
-  @include box-shadow(0, 0, 6px, $black);
-}
-
-.topbar .shnack {
-  width: 25%;
-}
-
-.prgs-bar {
-  width: 50%;
-  @extend .gen_inline;
-}
-
-.user-settings {
-  //width: 25%;
-  float: right;
-  @extend .gen_inline;
-}
-
-
-.step {
-  @extend .gen_inline; 
-  text-align: center;
-  float: left;
-  width: 33.33%;
-  padding: 0;
-  margin: 0;
-  &.current {
-    ///color: #CCC;
-    font-weight: 700;
-  }
-  &.current .circle {
-    background-color: khaki;
-  }
-  &.completed .circle {
-    //background-color: #444;
-  }
-}
-
-
-.circle {
-  border: 2px solid #AAA;
-  //background-color: #AAA;
-  border-radius:15px;
-  background-image: none;
-  width: 12px;
-  height: 12px;
-  margin: 0 auto;
 }
