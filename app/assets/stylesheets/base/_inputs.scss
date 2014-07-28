@@ -40,3 +40,14 @@ input[type="checkbox"]:checked.modifier + label {
 
 
 input[type="tel"].error { border: 1px solid #780000  }
+
+label.charges {
+  padding: 2px 1em 0 0;
+  display: inline-block;
+}
+input[type=radio].charges,
+input.radio.charges {
+  margin: 2px 0 0 2px; 
+  border: none;
+  display: inline-block;
+}
