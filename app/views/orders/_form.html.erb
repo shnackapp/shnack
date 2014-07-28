@@ -1,4 +1,4 @@
-<h3 class="headline"> <%= @owner.name %> <br/></h3>
+<h1 class="headline"> <%= @owner.name %> <br/></h1>
 
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
@@ -22,7 +22,7 @@
     <% if @menu.categories.count > 1 %>
 
       <% @menu.categories.each do |category| %>
-        <div class="panel-heading" style="cursor:pointer;background-color:#555;"><h3 class="panel-title"><%= category.name %></h3></div>
+        <div class="panel-heading" style="cursor:pointer;background-color:#555;"><h1 class="panel-title"><%= category.name %></h1></div>
         <div class="order-items" style="display:none;">
           <table cellspacing="10" class="table">
 

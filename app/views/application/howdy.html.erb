@@ -27,8 +27,44 @@
 
 </head>  
 
-  <body onload="checkDevice();">
-  <div id="level-3">
+  <body>
+
+    <div class="wrapper-black">
+      <section class="my-container prime-info">
+        <h1 id="info-tagline">Never miss a moment, never miss a meal</h1>
+        <nav>
+          <a id="about-links1" onClick="forFans()">For Fans</a>
+          <a id="about-links2" onClick="forVendors()">For Vendors</a>
+          <a id="about-links3" onClick="contactUs()">Contact Us</a>
+        </nav>
+
+        <div class="row-new">
+          <div class="column eight prime-text">
+            <p id="info-text">Shnack is a mobile application designed for concessions at large and small scale events, that lets customers order and pay for a vendor's food via their phone. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. Customers will order food from their phone and will be notified when their food is ready to be picked up. By eliminating the need to wait in line, we can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers.</p>
+
+            <div id="contact-us" class="row-new">
+              <%= render 'contact_us_mailer/contact_us_mailer' %>
+            </div>
+
+          </div>
+
+          <%= image_tag "phone_welcome.png", :class => "phone" %>
+          
+
+        </div>
+
+
+      </section>
+    </div>
+
+
+
+
+
+  <!-- <div id="level-3">
+
+
+
       <div class="container my-container">
         <div id="info-tagline">Never miss a moment, never miss a meal</div>
     
@@ -47,17 +83,17 @@
             <div id="info-text">Shnack is a mobile application designed for concessions at large and small scale events, that lets customers order and pay for a vendor's food via their phone. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. Customers will order food from their phone and will be notified when their food is ready to be picked up. By eliminating the need to wait in line, we can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers.</div>
 
             <div id="contact-us" class="row">
-              <%= render 'contact_us_mailer/contact_us_mailer' %>
+              <#%= render 'contact_us_mailer/contact_us_mailer' %>
             </div>
 
           </div>
 
-          <%= image_tag "phone_welcome.png", :class => "col-sm-4", :id => "phone" %>
+          <#%= image_tag "phone_welcome.png", :class => "col-sm-4", :id => "phone" %>
           
 
         </div>
       </div>
-    </div>
+    </div> -->
 
 
 
