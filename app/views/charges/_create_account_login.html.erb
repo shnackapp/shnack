@@ -1,3 +1,27 @@
-<div class="centered">
-  Test
+<!-- Rendered if the user is not logged in.-->
+
+<div class="row-new choose-account-option">
+   <button class="column six red left" id="create-account">Create Account</button>
+   <button class="column six right" id="log-in">Log In</button>
 </div>
+
+<%= form_tag order_charges_path(@order), :id => "create-account-form" do %>
+	<div class="row-new">
+		<%= text_field(:user, :name, :class=> "form-control", :id => "order-name", :placeholder => "Name" ) %>
+	  	<%= telephone_field(:user, :phone, :class => "form-control",:id => "order-phone-number", :placeholder => "Phone #") %>
+	    <%= text_field(:user, :email, :class =>"form-control", :id=> "order-email", :placeholder => "E-mail Address") %>
+	     <%= render 'credit_card_form' %>
+
+	    <%= button_tag(type: 'submit', id: "pay-button", class: "btn btn-primary") do %>
+      		Create Account & Pay For Order
+      <% end %>
+	</div>
+<% end %>
+
+
+<%= form_tag "login", :id=>"login-form" do %>
+	<div class="row-new">
+		<%= text_field(:email, :class=>"form-control", :id => "email", :placeholder => "E-mail Address")
+	</div>
+<% end %>
+
