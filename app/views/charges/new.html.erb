@@ -3,9 +3,7 @@
 
 <%= form_tag order_charges_path(@order), :id => "charges-form" do %>
 	<%= render 'shared/order_details' %>
-<div class="centered">
-  Test
-</div>
+
 
   <% if user_signed_in? && !current_user.number.nil? %>
     <%= text_field(:user, :name, :class=> "form-control", :id => "order-name", :value => current_user.name ) %>
