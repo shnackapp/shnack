@@ -10,7 +10,7 @@ Shnack::Application.routes.draw do
      get '/charges/:action', :controller => 'charges'
     post '/charges/:action', :controller => 'charges'
 
-    get '/super', to: 'super#index'
+    get '/super/:action', :controller => 'super'
 
 
 

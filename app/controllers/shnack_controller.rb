@@ -34,4 +34,6 @@ class ShnackController < ApplicationController
 			# @vendors = Vendor.where(:role_id => current_user.role.id)
 		end
 	end
+
+
 end
