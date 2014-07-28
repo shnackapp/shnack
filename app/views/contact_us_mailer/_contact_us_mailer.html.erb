@@ -1,10 +1,10 @@
-<h3 class="headline-light">Filling out this form is almost as easy as ordering from Shnack</h3>
+<p>Filling out this form is almost as easy as ordering from Shnack</p>
 
 <%= form_tag("/shnack/contact") do %> 
-		<div class="col-6" style="padding-right:5px;">
+		<div class="column six" style="padding-right:5px;">
 			<%= text_field_tag :cust_name, nil, :placeholder => "Name", :class => "contact-field" %>
 		</div>
-		<div class="col-6">
+		<div class="column six">
 			<%= text_field_tag :cust_email, nil, :placeholder => "Email Address", :class => "contact-field" %>
 		</div>
 		<%= text_area_tag :cust_message, nil, :placeholder => "Your message here", :class => "contact-field", :rows => '10' %>
