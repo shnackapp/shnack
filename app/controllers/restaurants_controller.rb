@@ -61,6 +61,12 @@ class RestaurantsController < ApplicationController
   			@avg_time+=((ord.updated_at-ord.created_at)/60)
   		end
   		@avg_time = (@avg_time/count).round(2)
+
+  		## Users created ##
+  		@user_count = User.count(:group => 'date(created_at)')
+
+  		## DAILY ORDERS ##
+  		@daily_ord = @orders.count(:group => 'date(created_at)')
 	end
 
 	def recent_orders

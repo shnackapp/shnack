@@ -20,5 +20,5 @@
 <div class="panel panel-primary">
 <h3 class="panel-heading">New Customers Aquired</h3>
 	<%#= area_chart User.group(:created_at).maximum(Users.group.count) %>
-	<%= line_chart User.group(:created_at).count %>
+	<%= line_chart(@user_count)%>
 </div>
