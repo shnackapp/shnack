@@ -168,10 +168,9 @@ class ApiController < ApplicationController
 
 	def toggle_store_open
 		@device = Device.where(:token =>params[:device_token]).first
-			@loc = @device.owner
-			@loc.update_attribute(:open, !@loc.open)
-			render :json => {:success => "success", :open => @loc.open, :location_id => @loc.id }
-		
+		@loc = @device.owner
+		@loc.update_attribute(:open, !@loc.open)
+		render :json => {:success => "success", :open => @loc.open, :location_id => @loc.id }
 	end
 
 
