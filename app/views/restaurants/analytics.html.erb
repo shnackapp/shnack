@@ -8,8 +8,8 @@
 </div>
 
 <div class="panel panel-primary">
-<h3 class="panel-heading">New Customers Aquired</h3>
-	<%= line_chart User.group(:created_at).count %>
+<h3 class="panel-heading">Average Order Time (Minutes)</h3>
+	<p align="center"><b><%= @avg_time %></b></p>
 </div>
 
 <div class="panel panel-primary">
@@ -18,6 +18,7 @@
 </div>
 
 <div class="panel panel-primary">
-<h3 class="panel-heading">Avg. Fulfillment Time (Decrease)</h3>
-	<%= area_chart({"$15" => -10, "$8" => -5,"$4" => -3, "$25" => -12,"$13" => -7}) %>
+<h3 class="panel-heading">New Customers Aquired</h3>
+	<%#= area_chart User.group(:created_at).maximum(Users.group.count) %>
+	<%= line_chart User.group(:created_at).count %>
 </div>

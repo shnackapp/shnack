@@ -54,6 +54,13 @@ class RestaurantsController < ApplicationController
 		@order_hash = o_hash.inject({}) do |r, s|
   			r.merge!({s[0] => s[1]})
   		end
+
+  		## Average ORDER TIME##
+  		@avg_time = 0
+  		@orders.each do |ord|
+  			@avg_time+=((ord.updated_at-ord.created_at)/60)
+  		end
+  		@avg_time = (@avg_time/count).round(2)
 	end
 
 	def recent_orders
