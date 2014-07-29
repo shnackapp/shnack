@@ -18,6 +18,7 @@
 $(document).ready(function() {
 
 	initializeValues();
+
 	$("span.plus").click(function() {
 		//increment up
 
@@ -66,10 +67,7 @@ $(document).ready(function() {
 
 	$(".panel-heading").click(function() {
 		$(this).next().slideToggle(200);
-	});
-
-	$(".panel-title").click(function(){
-  	$(this).toggleClass("expanded");
+		$(this).children().first().toggleClass("expanded");
 	});
 
 	$("#order-submit").click(function(e) {
@@ -80,7 +78,7 @@ $(document).ready(function() {
 			$(".order-error").slideDown(100);
 		}
 
-	})
+	});
 
 });
 
@@ -110,17 +108,24 @@ function initializeValues() {
 function updatePrice() {
 	var subtotal = 0;
 
+
+
 	$(".menu_item").each(function() {
 		var id = $(this).data("id");
 		var qty = $("#" + id+ "_num").html();
+	if(qty > 0) $("#order-submit").prop('disabled', false);
+
 		var price = $("#" + id + "_price").data("price");
 		var cost = qty*price;
-		subtotal += cost;
+		if(!isNaN(cost))
+			subtotal += cost;
 		// console.log("."+ id + '_modifier');
 		$( "."+ id + '_modifier').each(function(index, obj){
 			// console.log('checking this modifier');
 			if ($(this).is(":checked")){
-				subtotal = subtotal + qty * ($(this).data("add-price"));
+				var cst = qty * ($(this).data("add-price"))
+				if(!isNaN(cst))
+					subtotal = subtotal + cst;
 			}});
 	});
 
@@ -134,6 +139,10 @@ function updatePrice() {
 
 	$("td.total").html(toUSD(total));
 	$("td.total").data("total", total);
+	
+
+
+
 
 };
 

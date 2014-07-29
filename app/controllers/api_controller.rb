@@ -51,7 +51,7 @@ class ApiController < ApplicationController
 		
 		if @device.length > 0 && (!@device.first.vendor.nil? || !@device.first.restaurant.nil?)
 			d = @device.first
-			render :json => { :vendor_id => d.owner.id, :initial_state => d.owner.initial_state }
+			render :json => { :vendor_id => d.owner.id, :initial_state => d.owner.initial_state, :is_open => @loc.open }
 		else
 			render :json => {:error => "unregistered_device", :token => params[:device_token]}
 		end
@@ -105,12 +105,14 @@ class ApiController < ApplicationController
 		@owner = Vendor.where(:registration_code => params[:registration_code]).first
 		@owner = Restaurant.where(:registration_code => params[:registration_code]).first if @owner.nil?
 
-		# render :json => { :error => "incorrect_registration_code" } if @owner.nil? 
-
-		@device = Device.where(:token => params[:device_token]).first_or_create
-		@device.update_owner @owner
-		@device.save
-		render :json => @device
+		if @owner.nil? 
+			render :json => { :error => "incorrect_registration_code" } 
+		else
+			@device = Device.where(:token => params[:device_token]).first_or_create
+			@device.update_owner @owner
+			@device.save
+			render :json => @device
+		end
 	end
 
 	# Unregister a device token with a vendor
@@ -163,6 +165,15 @@ class ApiController < ApplicationController
 			render :json => {:success => "success", :item_id => @item.id, :sold_out => @item.sold_out }
 		end
 	end
+
+	def toggle_store_open
+		@device = Device.where(:token =>params[:device_token]).first
+		@loc = @device.owner
+		@loc.update_attribute(:open, !@loc.open)
+		render :json => {:success => "success", :open => @loc.open, :location_id => @loc.id }
+	end
+
+
 
 
 	def vendors_by_user_token

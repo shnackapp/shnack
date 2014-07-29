@@ -1,0 +1,16 @@
+$white: #EEE;
+$black: #222;
+$red: #A10;
+$cement: #6a717a;
+$blue: #428bca;
+
+.red { color: $red; }
+.cream { color: papayawhip; }
+.khaki { color: khaki; }
+.white { color: $white; }
+.black { color: $black; }
+.cement { color: $cement; }
+.blue { color: $blue; }
+
+$elements: base, phone, menu, topbar, user-settings;
+

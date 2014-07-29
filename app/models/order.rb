@@ -65,12 +65,13 @@ class Order < ActiveRecord::Base
     client = Twilio::REST::Client.new Rails.configuration.twilio[:sid], Rails.configuration.twilio[:token] 
 
     customer = self.customer
+    path = Rails.application.routes.url_helpers.order_path(self)
 
     unless customer.nil?
         client.account.messages.create({
         :from => Rails.configuration.twilio[:from],
         :to => customer.number,
-          :body => "Your order ##{self.order_number} at #{self.owner.name} is ready to be picked up."    
+          :body => "Your order ##{self.order_number} at #{self.owner.name} is ready to be picked up. shnackapp.com#{path}"    
         })
     end
   end
@@ -97,7 +98,7 @@ class Order < ActiveRecord::Base
 		description = ""
 		order_items.each do |order_item| 
       if Item.exists?(order_item.item_id)
-        description = description + "#{order_item.quantity} #{Item.find(order_item.item_id).name}"
+        description = description + "#{order_item.quantity} #{Item.find(order_item.item_id).name} - #{order_item.item.category.name}"
         description = description + " - " if order_item.order_modifiers.size >= 1
         order_item.order_modifiers.each do |modifier|
           mod_description = ""
