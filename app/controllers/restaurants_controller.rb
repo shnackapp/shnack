@@ -24,15 +24,36 @@ class RestaurantsController < ApplicationController
 	end
 
 	def analytics
+		## AVERAGE ORDER SIZE##
+		total = 0
 		@restaurant = Restaurant.find(params[:id])
 		@orders = @restaurant.orders
-		@orderz = Order.where(:restaurant_id => params[:id])
-		@item_names = []
-		@orderz.each do |o|
-			OrderItem.where(:order_id => o.id).each do |oi|
-				@item_names = Item.where(:id => oi.item_id).name
-			end
+		count = @orders.count
+		@orders.each do |ord|
+			total = total + ord.total
 		end
+		total = total/count
+		@avg_total = integer_to_currency(total)
+
+
+		##TOP 5 ITEMS ORDERED##
+		ord_num = []
+		@orders.each do |ord|
+			ord_num.push(ord.id)
+		end
+		order_item = []
+		ord_num.each do |on|
+			order_item.push(Item.find(OrderItem.find(on).item_id).name)
+		end
+		@order_hash = Hash.new(0)
+		order_item.each do |v|
+			@order_hash[v] += 1
+		end
+		o_hash = @order_hash.sort_by { |name, qty| qty }.reverse
+		o_hash = o_hash.take(5)
+		@order_hash = o_hash.inject({}) do |r, s|
+  			r.merge!({s[0] => s[1]})
+  		end
 	end
 
 	def recent_orders

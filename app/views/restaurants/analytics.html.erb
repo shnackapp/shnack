@@ -3,13 +3,18 @@
 <%#=COMPLETELY STUBBED OUT DATA FOR NOW....LOGIC TO FIX THIS IN CONTROLLER, JUST COULDN'T GET IT TO LOOK NICE%>
 
 <div class="panel panel-primary">
-<h3 class="panel-heading">New Customers Aquired</h3>
-	<%= line_chart({"$15" => 40, "$8" => 5,"$4" => 3, "$25" => 12,"$13" => 7}) %>
+<h3 class="panel-heading">Average Order Size</h3>
+	<p align="center"><b><%= @avg_total %></b></p>
 </div>
 
 <div class="panel panel-primary">
-<h3 class="panel-heading">Order Size in $ (Rounded)</h3>
-	<%= pie_chart({"$15" => 10, "$8" => 5,"$4" => 3, "$25" => 12,"$13" => 7}) %>
+<h3 class="panel-heading">New Customers Aquired</h3>
+	<%= line_chart User.group(:created_at).count %>
+</div>
+
+<div class="panel panel-primary">
+<h3 class="panel-heading">Top 5 Items Ordered</h3>
+	<%= pie_chart(@order_hash) %>
 </div>
 
 <div class="panel panel-primary">
