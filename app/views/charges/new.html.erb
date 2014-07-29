@@ -3,7 +3,7 @@
 	<%= render 'shared/order_details' %>
 
 
-    <% if user_signed_in? && current_user.has_cards? %>
+    <% if user_signed_in? %>
       <%= render 'logged_in_payment' %>
     <% else %>
       <%= render 'create_account_login' %>
