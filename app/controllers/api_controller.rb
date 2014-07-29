@@ -105,12 +105,14 @@ class ApiController < ApplicationController
 		@owner = Vendor.where(:registration_code => params[:registration_code]).first
 		@owner = Restaurant.where(:registration_code => params[:registration_code]).first if @owner.nil?
 
-		# render :json => { :error => "incorrect_registration_code" } if @owner.nil? 
-
-		@device = Device.where(:token => params[:device_token]).first_or_create
-		@device.update_owner @owner
-		@device.save
-		render :json => @device
+		if @owner.nil? 
+			render :json => { :error => "incorrect_registration_code" } 
+		else
+			@device = Device.where(:token => params[:device_token]).first_or_create
+			@device.update_owner @owner
+			@device.save
+			render :json => @device
+		end
 	end
 
 	# Unregister a device token with a vendor
