@@ -167,7 +167,8 @@ class ApiController < ApplicationController
 	end
 
 	def toggle_store_open
-		@device = Device.where(:token => params[:token]).first
+		@device = Device.where(:token =>params[:device_token]).first
+
 		if @device.nil?
 			render :json => {:error => "Location not found"}
 		else
