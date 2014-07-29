@@ -51,7 +51,7 @@ class ApiController < ApplicationController
 		
 		if @device.length > 0 && (!@device.first.vendor.nil? || !@device.first.restaurant.nil?)
 			d = @device.first
-			render :json => { :vendor_id => d.owner.id, :initial_state => d.owner.initial_state }
+			render :json => { :vendor_id => d.owner.id, :initial_state => d.owner.initial_state, :is_open => @loc.open }
 		else
 			render :json => {:error => "unregistered_device", :token => params[:device_token]}
 		end
@@ -165,6 +165,19 @@ class ApiController < ApplicationController
 			render :json => {:success => "success", :item_id => @item.id, :sold_out => @item.sold_out }
 		end
 	end
+
+	def toggle_store_open
+		@device = Device.where(:token => params[:token]).first
+		if @device.nil?
+			render :json => {:error => "Location not found"}
+		else
+			@loc = @device.owner
+			@loc.update_attribute(:open, !@loc.open)
+			render :json => {:success => "success", :open => @loc.open, :location_id => @loc.id }
+		end
+	end
+
+
 
 
 	def vendors_by_user_token
