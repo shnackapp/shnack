@@ -1,8 +1,6 @@
 Shnack::Application.routes.draw do
   resources :orders do 
-    resources :charges do
-      post '/:action'
-    end
+    resources :charges
     post '/:action'
   end
 

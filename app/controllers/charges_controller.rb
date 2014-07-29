@@ -153,9 +153,5 @@ class ChargesController < ApplicationController
 	  redirect_to charges_path
 	end
 
-	def login
-
-		redirect_to new_order_charges_path(Order.find(params[:login][:order_id]))
-	end
 
 end

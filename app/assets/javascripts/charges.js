@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 	var stripeResponseHandler = function(status, response) {
 	  var $form = $('#charges-form');
@@ -34,11 +35,6 @@ $(document).ready(function() {
 
 	});
 
-	$("#credit_card_number").keyup(function(e){ 
-		if($(this).val().length == 19){
-			$('#expiration_month').focus();
-		}
-	});
 
 	$("#expiration_month").keypress(function(e) {
 		if(e.which<48 || e.which > 57 || $(this).val().length == 2) {
@@ -46,24 +42,12 @@ $(document).ready(function() {
 		} 
 	});
 
-	$("#expiration_month").keyup(function(e) {
 
-		if($(this).val().length == 2){
-			$('#expiration_year').focus();
-		}
-	});
 
 	$("#expiration_year").keypress(function(e) {
 		if(e.which<48 || e.which > 57  || $(this).val().length == 2) {
 			e.preventDefault();
 		} 
-	});
-
-
-	$("#expiration_year").keyup(function(e) {
-		if($(this).val().length == 2){
-			$('#security_code').focus();
-		}
 	});
 
 	$("#security_code").keypress(function(e) {
@@ -100,6 +84,13 @@ $(document).ready(function() {
 		$("#login-form").show();
 		$("#log-in").addClass("red");
 		$("#create-account").removeClass("red");
+
+		$(".name-error").slideUp(200);
+			$("#order-name").removeClass("error");
+			$(".phone-error").slideUp(200);
+			$("#order-phone-number").removeClass("error");
+			$(".email-error").slideUp(200);
+			$("#order-email").removeClass(error);
 	});
 
 	$("#create-account").click(function(evt) {
@@ -107,6 +98,13 @@ $(document).ready(function() {
 		$("#login-form").hide();
 		$("#log-in").removeClass("red");
 		$("#create-account").addClass("red");
+
+		$(".name-error").slideUp(200);
+		$("#order-name").removeClass("error");
+		$(".phone-error").slideUp(200);
+		$("#order-phone-number").removeClass("error");
+		$(".email-error").slideUp(200);
+		$("#order-email").removeClass("error");	
 	});
 
 	//Make sure form submits on cash only.
@@ -116,6 +114,7 @@ $(document).ready(function() {
    });
 
 
+ 
 
    /**  
 	This method needs to check if the select card form exists.
@@ -131,38 +130,38 @@ $(document).ready(function() {
 		event.preventDefault();
 		var $form = $(this);
 
-		if($('.select-card-form')[0]) {
-			//Select card form exists.
-			if($("input[name='user_card']:checked").is('#new-card-button')) {	
-		    	$form.find('button').prop('disabled', true);
+		// if($('.select-card-form')[0]) {
+		// 	//Select card form exists.
+		// 	if($("input[name='user_card']:checked").is('#new-card-button')) {	
+		//     	$form.find('button').prop('disabled', true);
 
-				Stripe.card.createToken({
-					number: $("#credit_card_number").val(),
-					cvc: $("#security_code").val(),
-					exp_month: $("#expiration_month").val(),
-					exp_year: $("#expiration_year").val()
-				}, stripeResponseHandler);			
-			}
-			else {
-				var $form = $('#charges-form'); 
+		// 		Stripe.card.createToken({
+		// 			number: $("#credit_card_number").val(),
+		// 			cvc: $("#security_code").val(),
+		// 			exp_month: $("#expiration_month").val(),
+		// 			exp_year: $("#expiration_year").val()
+		// 		}, stripeResponseHandler);			
+		// 	}
+		// 	else {
+		// 		var $form = $('#charges-form'); 
 
-				var index = $("input[name='user_card']:checked").val();
-				$form.append($('<input type="hidden" name="stripeCardIndex" />').val(index));
-	    		$form.get(0).submit();
-			}
+		// 		var index = $("input[name='user_card']:checked").val();
+		// 		$form.append($('<input type="hidden" name="stripeCardIndex" />').val(index));
+	 //    		$form.get(0).submit();
+		// 	}
 
-		}
+		// }
 
-		else {
-	    	$form.find('button').prop('disabled', true);
+		// else {
+	 //    	$form.find('button').prop('disabled', true);
 
-			Stripe.card.createToken({
-				number: $("#credit_card_number").val(),
-				cvc: $("#security_code").val(),
-				exp_month: $("#expiration_month").val(),
-				exp_year: $("#expiration_year").val()
-			}, stripeResponseHandler);
-		}
+		// 	Stripe.card.createToken({
+		// 		number: $("#credit_card_number").val(),
+		// 		cvc: $("#security_code").val(),
+		// 		exp_month: $("#expiration_month").val(),
+		// 		exp_year: $("#expiration_year").val()
+		// 	}, stripeResponseHandler);
+		// }
 
 		return false;
 
@@ -318,23 +317,7 @@ $(document).ready(function() {
 	}); 
 });
 
-function submitToStripe() {
 
-}
-
-function validateInputs()
-{
-	// var email_valid = validateEmail($("#order-email").val());
-	// var phone_valid = validatePhoneNumber($("#order-phone-number").val());
-	console.log("phone-valid is " + phone_valid);
-	if(phone_valid) {
-		enableButton();
-	}
-	else {
-		// disableButton();
-	}
-
-}
 
 function enableButton() {
    $("#pay-button").prop('disabled', false);

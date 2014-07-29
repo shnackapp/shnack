@@ -142,6 +142,24 @@ class OrdersController < ApplicationController
     #     format.json { render json: @order, status: :created, location: @order }
   end
 
+  def login
+    @user = User.where(:email => params[:login][:email]).first
+    if @user.nil?
+      flash[:error] = "I'm sorry - We don't have an account registered with that email address."
+    else 
+      if@user.valid_password?(params[:login][:password])
+        sign_in @user
+        flash[:notice] = "Successfully signed in"
+      else
+        flash[:error] = "Invalid Email/Password Combination"
+      end
+    end
+
+    redirect_to new_order_charge_path(Order.find(params[:order_id]))
+
+  end
+
+
   # PUT /orders/1
   # PUT /orders/1.json
   def update

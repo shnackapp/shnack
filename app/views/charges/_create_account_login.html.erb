@@ -10,16 +10,15 @@
 		<%= text_field(:user, :name, :class=> "form-control", :id => "order-name", :placeholder => "Name" ) %>
 	  	<%= telephone_field(:user, :phone, :class => "form-control",:id => "order-phone-number", :placeholder => "Phone #") %>
 	    <%= text_field(:user, :email, :class =>"form-control", :id=> "order-email", :placeholder => "E-mail Address") %>
-	     <%= render 'credit_card_form' %>
-
-	    <%= button_tag(type: 'submit', id: "pay-button", class: "btn btn-primary") do %>
-      		Create Account & Pay For Order
+	    <%= password_field(:user, :email, :class => "form-control", :id => "password", :placeholder => "Password") %>
       <% end %>
+	     <%= render 'credit_card_form', :locals => { :form_id => "create-account-form", :button_text => "Create Account & Pay For Order" } %>
+
+	   
 	</div>
-<% end %>
 
 
-<%= form_tag "login", :id=>"login-form" do %>
+<%= form_tag "/orders/#{@order.id}/login", :id=>"login-form" do %>
 	<div class="row-new">
 		<%= text_field(:login, :email, :class=>"form-control", :id => "email", :placeholder => "E-mail Address") %>
 		<%= password_field(:login, :password, :class=>"form-control", :id => "password", :placeholder => "Password") %>
@@ -27,6 +26,6 @@
 			Log In 
 		<% end %>
 	</div>
-	<%= hidden_field(:login, :order, :value => @order.id)
 <% end %>
+
 

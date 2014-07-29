@@ -2,15 +2,7 @@
 
 	<%= render 'shared/order_details' %>
 
-  <% if @owner.cash_only %>
-      <div class="text-center" style="width:100%">
 
-        <%= button_tag(type: 'submit', id: "confirm-button", class: "btn btn-danger") do %>
-          <i class="glyphicon glyphicon-cutlery icon-white"></i> Confirm Order
-        <% end %> <br />
-      </div>
-
-  <% else %>
     <% if user_signed_in? && current_user.has_cards? %>
       <div class="select-card-form">
         <% current_user.cards.each_with_index do |card, index| %>
@@ -33,9 +25,9 @@
       </div>
 
     <% else %>
-      <%= render 'credit_card_form' %>
+      <%= render 'create_account_login' %>
     <% end %>
-  <% end %>
+
   <div class="error stripe-error" style="display:none;"> </div>
   <div class="error name-error" style="display:none;">Please enter your name</div>
   <div class="error phone-error" style="display:none;">Please enter your phone number or we won't be able to let you know when your order's ready!</div>
