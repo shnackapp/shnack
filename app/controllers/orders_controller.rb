@@ -17,6 +17,8 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @order = Order.includes(:order_items).find(params[:id])
+
+    
     unless user_signed_in?
       sign_in @order.user
     end

@@ -228,6 +228,13 @@ $(document).ready(function() {
 	});
 
 
+	$("#order-name").keyup(function(e) {
+		var name_valid = validateName($(this).val());
+		if(name_valid && validatePhoneNumber($("#order-phone-number").val()) && validateEmail($("#order-email").val()) && validatePassword($("#order-password").val())) {
+			enableButton();
+		}
+	});
+
 
    $("#order-phone-number").keypress(function(e) {
    		if(e.which<48 || e.which > 57) {

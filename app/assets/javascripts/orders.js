@@ -106,6 +106,8 @@ function initializeValues() {
 
 function updatePrice() {
 	var subtotal = 0;
+	  $("#order-submit").prop('disabled', true);
+
 
 	$(".menu_item").each(function() {
 		var id = $(this).data("id");
@@ -134,6 +136,11 @@ function updatePrice() {
 
 	$("td.total").html(toUSD(total));
 	$("td.total").data("total", total);
+	
+
+
+	$("#order-submit").prop('disabled', false);
+
 
 };
 
