@@ -50,6 +50,9 @@ class ChargesController < ApplicationController
 	  						:name => params[:user][:name])
 	  		sign_in @user
 	  	end
+
+	  else 
+	  	current_user.update_attributes(params[:user])
 	  end
 
 	  if @owner.cash_only
@@ -112,7 +115,6 @@ class ChargesController < ApplicationController
 
 
 	  @order.save
-
 
   	# An example of the token sent back when a device registers for notifications
     # token = "<2410d83b 257e501b 73cb9bc6 c44a9b4e fa46aab1 99694c8e fb01088c 3c5aca75>"
