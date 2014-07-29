@@ -16,10 +16,8 @@ class ChargesController < ApplicationController
 	end
 
 	def create
-	  # Amount in cents
-
 	  @order = Order.find(params[:order_id])
-	  @amount = @order.total
+	  @amount = @order.total 	  # Amount in cents
 	  @owner = @order.owner
 
 
@@ -37,76 +35,77 @@ class ChargesController < ApplicationController
 	  end
 
 
+	  #If the user is not signed in
+	  # Then they're creating an account
+	  unless user_signed_in?
+	  	if User.where(:email=>params[:user][:email]).count > 0
+	  		flash[:error] = "E-mail address is already taken"
+	  		redirect_to new_order_charge_path @order
+	  		return
+	  	else
+	  		@user = User.new(:email => params[:user][:email], 
+	  						:password => params[:user][:password],
+	  						:password_confirmation => params[:user][:password],
+	  						:number => params[:user][:phone],
+	  						:name => params[:user][:name])
+	  		sign_in @user
+	  	end
 
-
-	  if @order.user.nil?
-	  	@order.user_info.update_attributes(:email => params[:user][:email], :number => params[:user][:phone], :name => params[:user][:name])
-	  else
-	  	@order.user.update_attributes(:number => params[:user][:phone], :name => params[:user][:name])
+	  else 
+	  	current_user.update_attributes(params[:user])
 	  end
 
 	  if @owner.cash_only
 	  	@order.update_attribute(:paid, true)
-
+	  	@owner.user = current_user
 	  	@order.shnack_cut = 0
 	  	@order.location_cut = 0
 	  	@order.withdrawn = true
 	  else
 
-	  	if @order.user.nil?
-	  	  charge = Stripe::Charge.create(
-    		:amount => @amount, # amount in cents, again
-    		:currency => "usd",
-    		:card => params[:stripeToken],
-    		:description => params[:stripeEmail]
-  			)
+	  	# If they selected an already created card
+  	  	if(params[:stripeCardIndex])
 
-	  	  @order.update_attribute(:paid, true)
-		  @order.update_attributes(:charge_id => charge.id, :paid => true)
+	  	  	customer = Stripe::Customer.retrieve(current_user.customer_id)
+	  	  	charge = Stripe::Charge.create(
+	  	  		:customer => customer.id,
+	  	  		:card => customer.cards.data[params[:stripeCardIndex].to_i].id,
+	  	  		:amount => @amount,
+	  	  		:description => "Shnack Order ##{@order.order_number}",
+	  	  		:currency => 'usd'
+	  	  		)
 
-	  	else
-	  	  	if(params[:stripeCardIndex])
-		  	  	customer = Stripe::Customer.retrieve(@order.user.customer_id)
-		  	  	charge = Stripe::Charge.create(
-		  	  		:customer => customer.id,
-		  	  		:card => customer.cards.data[params[:stripeCardIndex].to_i].id,
-		  	  		:amount => @amount,
-		  	  		:description => "Shnack Order ##{@order.order_number}",
-		  	  		:currency => 'usd'
-		  	  		)
+	  	  	@order.update_attributes(:charge_id => charge.id, :paid => true, :user_id => current_user.id)
+  	  	else # if they are creating a new card
+  	  		user = current_user
+  	  		if user.customer_id.nil? #if they have no past credit cards.
+  	  			customer = Stripe::Customer.create(
+		    		:email => current_user.email,
+		    		:card  => params[:stripeToken]
+		  		)
 
-		  	  	@order.update_attributes(:charge_id => charge.id, :paid => true)
+		  		card = customer.cards.data.last
+		  		current_user.update_attribute(:customer_id, customer.id)
+		  		flash[:notice] = "Your order was placed and your account was created successfully. You will receive a text when your order is ready. Thank you for using Shnack"
 
 
-	  	  	else
-	  	  		user = @order.user
-	  	  		if user.customer_id.nil?
-	  	  			customer = Stripe::Customer.create(
-			    		:email => @order.user.email,
-			    		:card  => params[:stripeToken]
-			  		)
+		  	else #If they already have past credit cards, add it to their customer.
+		  		customer = Stripe::Customer.retrieve(user.customer_id)
+		  		card = customer.cards.create(:card => params[:stripeToken])
+		  	end
 
-			  		card = customer.cards.data.last
-			  		@order.user.update_attribute(:customer_id, customer.id)
+		  	charge = Stripe::Charge.create(
+		    	:customer    => customer.id,
+		    	:card => card.id,
+		    	:amount      => @amount,
+		    	:description => "Shnack Order ##{@order.order_number}",
+		    	:currency    => 'usd'
+		  	)
 
-			  	else
-			  		customer = Stripe::Customer.retrieve(user.customer_id)
+      		flash[:notice] = "Your order was placed successfully. You will receive a text when your order is ready. Thank you for using Shnack"
+		  	@order.update_attributes(:charge_id => charge.id, :paid => true, :user_id => current_user.id)
+		end
 
-			  		card = customer.cards.create(:card => params[:stripeToken])
-
-			  	end
-
-			  	charge = Stripe::Charge.create(
-			    	:customer    => customer.id,
-			    	:card => card.id,
-			    	:amount      => @amount,
-			    	:description => "Shnack Order ##{@order.order_number}",
-			    	:currency    => 'usd'
-			  	)
-
-			  	@order.update_attributes(:charge_id => charge.id, :paid => true)
-			end
-	  	end
 
 
 		@order.shnack_cut = @owner.shnack_fee + @owner.shnack_percent * @order.subtotal/100
@@ -116,7 +115,6 @@ class ChargesController < ApplicationController
 
 
 	  @order.save
-
 
   	# An example of the token sent back when a device registers for notifications
     # token = "<2410d83b 257e501b 73cb9bc6 c44a9b4e fa46aab1 99694c8e fb01088c 3c5aca75>"
@@ -145,12 +143,12 @@ class ChargesController < ApplicationController
 	  #send User an email letting them know their order has been placed
 	  ReceiptMailer.receipt_email(@order).deliver unless @order.customer.email.nil?
 
-      flash[:notice] = "Your order was placed successfully. You will receive a text when your order is ready. Thank you for using Shnack"
 	  redirect_to order_path(@order)
 	
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
 	  redirect_to charges_path
 	end
+
 
 end

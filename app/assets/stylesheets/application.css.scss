@@ -47,6 +47,56 @@
 }
 
 
+
+
+
+#level-3 {
+  width: 100%;
+  position: relative;
+  margin: 0px auto;
+  background: $black;
+  padding: 45px 10px;
+  min-height: 480px;
+}
+
+#footer {
+	max-width: 500px;
+	margin: 100px auto;
+}
+
+.foot-style {
+	font-family: "Poiret One", Geneva, sans-serif;
+}
+
+
+.my-container {
+	max-width: 980px;
+}
+
+
+tbody.all_the_mods tr {
+
+    td.customize-this {
+      background-color: #EEE;
+      color: #333;
+      text-align:center;
+      font-style: italic;
+    }
+
+    &.item-modifier {
+      background-color: #EEE;
+    }
+    &.opt-name {
+      background-color: #EEE;
+    }
+}
+
+
+.item-description {
+  background: lightgray;
+}
+
+
 .step-style {
   text-align: center;
   color: $white;
