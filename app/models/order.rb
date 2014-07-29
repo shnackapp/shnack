@@ -65,12 +65,13 @@ class Order < ActiveRecord::Base
     client = Twilio::REST::Client.new Rails.configuration.twilio[:sid], Rails.configuration.twilio[:token] 
 
     customer = self.customer
+    path = Rails.application.routes.url_helpers.order_path(self)
 
     unless customer.nil?
         client.account.messages.create({
         :from => Rails.configuration.twilio[:from],
         :to => customer.number,
-          :body => "Your order ##{self.order_number} at #{self.owner.name} is ready to be picked up."    
+          :body => "Your order ##{self.order_number} at #{self.owner.name} is ready to be picked up. shnackapp.com#{path}"    
         })
     end
   end

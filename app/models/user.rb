@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
 	end
 
 	def cards
-		Stripe::Customer.retrieve(self.customer_id).cards
+		self.customer_id.nil? ? [] : Stripe::Customer.retrieve(self.customer_id).cards 
 	end
 
 	def is_manager_of?(loc) 
