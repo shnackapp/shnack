@@ -18,6 +18,7 @@
 $(document).ready(function() {
 
 	initializeValues();
+
 	$("span.plus").click(function() {
 		//increment up
 
@@ -77,7 +78,7 @@ $(document).ready(function() {
 			$(".order-error").slideDown(100);
 		}
 
-	})
+	});
 
 });
 
@@ -106,12 +107,14 @@ function initializeValues() {
 
 function updatePrice() {
 	var subtotal = 0;
-	  $("#order-submit").prop('disabled', true);
+
 
 
 	$(".menu_item").each(function() {
 		var id = $(this).data("id");
 		var qty = $("#" + id+ "_num").html();
+	if(qty > 0) $("#order-submit").prop('disabled', false);
+
 		var price = $("#" + id + "_price").data("price");
 		var cost = qty*price;
 		if(!isNaN(cost))
@@ -139,7 +142,6 @@ function updatePrice() {
 	
 
 
-	$("#order-submit").prop('disabled', false);
 
 
 };
