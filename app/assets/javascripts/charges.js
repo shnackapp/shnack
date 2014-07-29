@@ -57,7 +57,7 @@ $(document).ready(function() {
 	});
 	//END CREDIT CARD FORM FOCUS FUNCTIONS
 
-	if($('.select-card-form')[0]) {
+	if($('#select-card-form')[0]) {
 		$('.new-card-form').hide();
 	}
 
@@ -80,7 +80,7 @@ $(document).ready(function() {
 	$("#login-form").hide();
 
 	$("#log-in").click(function(evt) {
-		$("#create-account-form").hide();
+		$("#create-account-div").hide();
 		$("#login-form").show();
 		$("#log-in").addClass("red");
 		$("#create-account").removeClass("red");
@@ -90,11 +90,11 @@ $(document).ready(function() {
 			$(".phone-error").slideUp(200);
 			$("#order-phone-number").removeClass("error");
 			$(".email-error").slideUp(200);
-			$("#order-email").removeClass(error);
+			$("#order-email").removeClass("error");
 	});
 
 	$("#create-account").click(function(evt) {
-		$("#create-account-form").show();
+		$("#create-account-div").show();
 		$("#login-form").hide();
 		$("#log-in").removeClass("red");
 		$("#create-account").addClass("red");
@@ -126,46 +126,106 @@ $(document).ready(function() {
 	any credit cards stored. Submit to stripe then submit the form.
 
    **/
+
+   /**
+	This method just got really complicated. So there are 2 possible times this thing is called.
+
+	1. It's for the create_account_form
+	2. It's for the select-card-form
+
+	In case 1, just check if the card is valid
+	if yes, submit create-account-form
+
+	Case 2:
+		Check if it's the checked option. If so,
+
+
+
+   **/
+
 	$("#credit-card-form").submit(function(event) {
 		event.preventDefault();
 		var $form = $(this);
 
-		// if($('.select-card-form')[0]) {
-		// 	//Select card form exists.
-		// 	if($("input[name='user_card']:checked").is('#new-card-button')) {	
-		//     	$form.find('button').prop('disabled', true);
+		var main_form = $(this).data("form");
 
-		// 		Stripe.card.createToken({
-		// 			number: $("#credit_card_number").val(),
-		// 			cvc: $("#security_code").val(),
-		// 			exp_month: $("#expiration_month").val(),
-		// 			exp_year: $("#expiration_year").val()
-		// 		}, stripeResponseHandler);			
-		// 	}
-		// 	else {
-		// 		var $form = $('#charges-form'); 
+		if(main_form == "create-account-form") {
 
-		// 		var index = $("input[name='user_card']:checked").val();
-		// 		$form.append($('<input type="hidden" name="stripeCardIndex" />').val(index));
-	 //    		$form.get(0).submit();
-		// 	}
+			Stripe.card.createToken({
+					number: $("#credit_card_number").val(),
+					cvc: $("#security_code").val(),
+					exp_month: $("#expiration_month").val(),
+					exp_year: $("#expiration_year").val()
+				}, 
 
-		// }
+				//Response handler
+				function(status, response) {
+				  var $form = $('#create-account-form');
 
-		// else {
-	 //    	$form.find('button').prop('disabled', true);
+				  if (response.error) {
+				    // Show the errors on the form
+				    // $form.find('.payment-errors').text(response.error.message);
+				    // $form.find('button').prop('disabled', false);
+				   	$(".stripe-error").text(response.error.message);
+				   	$(".stripe-error").slideDown(300);
+				    $("#credit-card-form").find('button').prop('disabled', false);
 
-		// 	Stripe.card.createToken({
-		// 		number: $("#credit_card_number").val(),
-		// 		cvc: $("#security_code").val(),
-		// 		exp_month: $("#expiration_month").val(),
-		// 		exp_year: $("#expiration_year").val()
-		// 	}, stripeResponseHandler);
-		// }
+				  } else {
+				    // token contains id, last4, and card type
+				    var token = response.id;
+				    // Insert the token into the form so it gets submitted to the server
+				    // console.log(token);
+				    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+				    // and submit
+				    $form.get(0).submit();
+				  }
+			});
+		}
+		else if(main_form == "select-card-form") {
 
-		return false;
+			if($("input[name='user_card']:checked").is('#new-card-button')) {	
+		    	$form.find('button').prop('disabled', true);
 
-	} );
+				Stripe.card.createToken({
+					number: $("#credit_card_number").val(),
+					cvc: $("#security_code").val(),
+					exp_month: $("#expiration_month").val(),
+					exp_year: $("#expiration_year").val()
+				}, 
+				function(status, response) {
+					var $form = $('#select-card-form');
+
+				  if (response.error) {
+				    // Show the errors on the form
+				    // $form.find('.payment-errors').text(response.error.message);
+				    // $form.find('button').prop('disabled', false);
+				   	$(".stripe-error").text(response.error.message);
+				   	$(".stripe-error").slideDown(300);
+				    $("#credit-card-form").find('button').prop('disabled', false);
+
+				  } else {
+				    // token contains id, last4, and card type
+				    var token = response.id;
+				    // Insert the token into the form so it gets submitted to the server
+				    // console.log(token);
+				    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+				    // and submit
+				    $form.get(0).submit();
+				  }
+				});			
+			}
+			else {
+				var $form = $('#select-card-form'); 
+
+				var index = $("input[name='user_card']:checked").val();
+				$form.append($('<input type="hidden" name="stripeCardIndex" />').val(index));
+	    		$form.get(0).submit();
+			}
+
+
+		}
+
+	});
 
 
 
@@ -193,13 +253,21 @@ $(document).ready(function() {
 
    	$("#order-email").keyup(function(e) {
    		var email_valid = validateEmail($("#order-email").val());
-   		if(email_valid && validatePhoneNumber($("#order-phone-number").val()) && validateName($("#order-name").val())) {
+   		if(email_valid && validatePhoneNumber($("#order-phone-number").val()) && validateName($("#order-name").val()) && validatePassword($("#order-password").val())) {
    			enableButton();
    		}
 
 
    	});
+ 
 
+   	$("#order-password").keyup(function(e) {
+   		var password_valid = validatePassword($("#order-password").val());
+   		if(password_valid && validatePhoneNumber($("#order-phone-number").val()) && validateName($("#order-name").val()) && validateEmail($("#order-email").val())) {
+   			enableButton();
+   		}
+
+   	});
 
    });
    $("#order-phone-number").mask("(000) 000-0000");
@@ -227,6 +295,14 @@ $(document).ready(function() {
 			email_valid = true;
 		}
 
+		var password_valid;
+		if($("#order-password")[0]) {
+			password_valid = validatePassword($("#order-password").val());
+		}
+		else {
+			password_valid = true;
+		}
+
 
 		if(!name_valid) {
 			e.preventDefault();
@@ -239,13 +315,15 @@ $(document).ready(function() {
 			$(".name-error").slideUp(200);
 			$("#order-name").removeClass("error");
 		}
-		if(name_valid && phone_valid && email_valid) {
+		if(name_valid && phone_valid && email_valid && password_valid) {
 			$(".name-error").slideUp(200);
 			$("#order-name").removeClass("error");
 			$(".phone-error").slideUp(200);
 			$("#order-phone-number").removeClass("error");
 			$(".email-error").slideUp(200);
 			$("#order-email").removeClass(error);
+			$(".password-error").slideUp(200);
+			$("#order-password").removeClass("error");
 			enableButton();
 		}
 	});
@@ -262,6 +340,15 @@ $(document).ready(function() {
 			email_valid = true;
 		}
 
+		var password_valid;
+		if($("#order-password")[0]) {
+			password_valid = validatePassword($("#order-password").val());
+		}
+		else {
+			password_valid = true;
+		}
+
+
 		if(!phone_valid) {
 			e.preventDefault();
 			$(".phone-error").slideDown(200);
@@ -274,7 +361,7 @@ $(document).ready(function() {
 			$("#order-phone-number").removeClass("error");
 		}
 
-		if(name_valid && phone_valid && email_valid)
+		if(name_valid && phone_valid && email_valid && password_valid)
 		{
 			$(".name-error").slideUp(200);
 			$("#order-name").removeClass("error");
@@ -282,6 +369,8 @@ $(document).ready(function() {
 			$("#order-phone-number").removeClass("error");
 			$(".email-error").slideUp(200);
 			$("#order-email").removeClass(error);
+			$(".password-error").slideUp(200);
+			$("#order-password").removeClass("error");
 			enableButton();
 		}
 	});
@@ -291,6 +380,15 @@ $(document).ready(function() {
 		var phone_valid = validatePhoneNumber($("#order-phone-number").val());
 		var name_valid = validateName($("#order-name").val());
 		var email_valid = validateEmail($("#order-email").val());
+
+		var password_valid;
+		if($("#order-password")[0]) {
+			password_valid = validatePassword($("#order-password").val());
+		}
+		else {
+			password_valid = true;
+		}
+
 		if(!email_valid) {
 			e.preventDefault();
 			$(".email-error").slideDown(200);
@@ -301,9 +399,8 @@ $(document).ready(function() {
 		if(email_valid) {
 			$(".email-error").slideUp(200);
 			$("#order-email").removeClass("error");
-			enableButton();
 		}
-		if(name_valid && phone_valid && email_valid)
+		if(name_valid && phone_valid && email_valid && password_valid)
 		{
 			$(".name-error").slideUp(200);
 			$("#order-name").removeClass("error");
@@ -315,6 +412,43 @@ $(document).ready(function() {
 		}
 
 	}); 
+
+	$("#order-password").blur(function(e) {
+		var phone_valid = validatePhoneNumber($("#order-phone-number").val());
+		var name_valid = validateName($("#order-name").val());
+		var email_valid = validateEmail($("#order-email").val());
+
+		var password_valid = validatePassword($("#order-password").val());
+		
+
+		if(!password_valid) {
+			e.preventDefault();
+			$(".password-error").slideDown(200);
+			$("#order-password").addClass("error");
+			disableButton();
+		}
+
+		if(password_valid) {
+			$(".password-error").slideUp(200);
+			$("#order-password").removeClass("error");
+		}
+
+		if(name_valid && phone_valid && email_valid && password_valid)
+		{
+			$(".name-error").slideUp(200);
+			$("#order-name").removeClass("error");
+			$(".phone-error").slideUp(200);
+			$("#order-phone-number").removeClass("error");
+			$(".email-error").slideUp(200);
+			$("#order-email").removeClass(error);
+			$(".password-error").slideUp(200);
+			$("#order-password").removeClass("error");
+			enableButton();
+		}
+
+	});
+
+
 });
 
 
@@ -350,4 +484,13 @@ function validateEmail(email)
 { 
  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
  return email.match(re);
+};
+
+function validatePassword(password)
+{
+	if(password != null && password.length >= 6) {
+		return true;
+	}
+	else 
+		return false;
 };

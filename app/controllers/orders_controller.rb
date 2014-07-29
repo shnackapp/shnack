@@ -144,18 +144,21 @@ class OrdersController < ApplicationController
 
   def login
     @user = User.where(:email => params[:login][:email]).first
+    @order = Order.find(params[:order_id])
     if @user.nil?
       flash[:error] = "I'm sorry - We don't have an account registered with that email address."
     else 
       if@user.valid_password?(params[:login][:password])
         sign_in @user
+        @order.user = @user
+        @order.save
         flash[:notice] = "Successfully signed in"
       else
         flash[:error] = "Invalid Email/Password Combination"
       end
     end
 
-    redirect_to new_order_charge_path(Order.find(params[:order_id]))
+    redirect_to new_order_charge_path(@order)
 
   end
 
