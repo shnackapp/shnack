@@ -68,6 +68,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    font-awesome-rails (4.1.0.0)
+      railties (>= 3.2, < 5.0)
     friendly_id (4.0.10.1)
       activerecord (>= 3.0, < 4.0)
     highline (1.6.20)
@@ -167,6 +169,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 3.2.1)
   devise
+  font-awesome-rails
   friendly_id (~> 4.0.10)
   houston
   jquery-rails

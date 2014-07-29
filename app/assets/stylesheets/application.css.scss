@@ -9,10 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
 
 @import "bootstrap";
+@import "font-awesome";
 @import url(http://fonts.googleapis.com/css?family=Dosis:400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Damion);
 @import "base/css_reset",
@@ -23,7 +23,8 @@
         "base/buttons",
         "base/inputs";
 @import "components/*",
-        "modules/*";
+        "modules/*", "modules/the-menu-new";
+@import "custom-resizing";
 
 
 

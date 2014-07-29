@@ -85,3 +85,20 @@
   position: relative;
   max-width: 500px;
 }
+
+
+.red    { color: $red; }
+.cream  { color: papayawhip; }
+.khaki  { color: khaki; }
+.white  { color: $white; }
+.black  { color: $black; }
+.cement { color: $cement; }
+.blue   { color: $blue; }
+
+.red-bg    { background-color: $red; }
+.cream-bg  { background-color: papayawhip; }
+.khaki-bg  { background-color: khaki; }
+.white-bg  { background-color: $white; }
+.black-bg  { background-color: $black; }
+.cement-bg { background-color: $cement; }
+.blue-bg   { background-color: $blue; }

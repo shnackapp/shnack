@@ -35,6 +35,7 @@ gem 'friendly_id', '~>  4.0.10'
 gem 'uglifier', '>= 1.0.3'
 gem 'jquery-rails'
 
+gem "font-awesome-rails"
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

@@ -1,4 +1,4 @@
-<h1 class="headline"> <%= @owner.name %> <br/></h1>
+<h1 class="new"> <%= @owner.name %> </h1>
 
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
@@ -17,6 +17,51 @@
   <%= f.hidden_field :user_id, :value => user_signed_in? ? current_user.id : 0 %>
   <%= @owner.instance_of?(Restaurant) ?  f.hidden_field(:restaurant_id, :value => @owner.id) : f.hidden_field(:vendor_id, :value => @owner.id) %>
   <%= f.hidden_field :subtotal, :value => "0" %>
+
+
+
+  <div class="the-menu-new">
+    <h1 class="cat-heading new">Everything</h1>
+    <section class="cat-main-group">
+      <div class="row-new">
+        <div class="column three item-name">Peperoni Pizza</div>
+        <div class="column two item-price">00.00</div>
+        <div class="column one plus-to-cart"></div>
+        <div class="column one amount-in-cart">0</div>
+        <div class="column one minus-to-cart"></div>
+        <div class="column four item-description">This is a test to see what kind of info I can type here and see how this all relates to the yadda yadda</div>
+      </div>
+    </section> <!-- ENDS MAIN GROUP -->
+
+    <section class="modifiers-all">
+      <h2>Customize this item</h2>
+      <div class="row-new">
+        <h3 class="twelve">Size Options</h3>
+      </div>
+      <div class="row-new">
+        <div class="column four">Milk</div>
+        <div class="column two mod-price">00.00</div>
+        <div class="column one offset-by-five">
+          <input type="radio"></input>
+        </div>
+      </div>
+    </section>
+
+<div class="cat-main-group">
+      <div class="row-new">
+        <div class="column three item-name">Pizza</div>
+        <div class="column two item-price">00.00</div>
+        <div class="column one plus-to-cart"></div>
+        <div class="column one amount-in-cart">0</div>
+        <div class="column one minus-to-cart"></div>
+        <div class="column four item-description">This is a test to see what kind of info I can type here and see how this all relates to the yadda yadda</div>
+      </div>
+    </div> <!-- ENDS MAIN GROUP -->
+
+
+  </div> <!-- ENDS THE MENU -->
+
+
   <div class ="panel panel-default">
 
     <% if @menu.categories.count > 1 %>
