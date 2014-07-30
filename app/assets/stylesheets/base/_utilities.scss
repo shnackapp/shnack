@@ -11,17 +11,17 @@
 .pad-right-sml { padding-right: 10px; } 
 .pad-left-sml { padding-left: 10px; } 
 .pad-top-sml { padding-top: 10px; } 
-.pad-bottom-sml { padding-bottom: 10px; } 
+.pad-bot-sml { padding-bottom: 10px; } 
 
-.pad-bottom { padding-right: 20px; } 
+.pad-right { padding-right: 20px; } 
 .pad-left { padding-left: 20px; } 
 .pad-top { padding-top: 20px; } 
-.pad-bottom { padding-bottom: 20px; } 
+.pad-bot { padding-bottom: 20px; } 
 
 .pad-right-lrg { padding-right: 30px; } 
 .pad-left-lrg { padding-left: 30px; } 
 .pad-top-lrg { padding-top: 30px; } 
-.pad-bottom-lrg { padding-bottom: 30px; } 
+.pad-bot-lrg { padding-bottom: 30px; } 
 
 
 .bold { font-weight: bold; }
@@ -83,5 +83,18 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  max-width: 500px;
+  max-width: 480px;
+}
+
+.my-container-threefour {
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+}
+
+.gen-inb-top {
+  display: inline-block;
+  vertical-align: top;
 }
