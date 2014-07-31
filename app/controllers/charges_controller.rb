@@ -50,7 +50,6 @@ class ChargesController < ApplicationController
 	  						:name => params[:user][:name])
 	  		sign_in @user
 	  	end
-
 	  else 
 	  	current_user.update_attributes(params[:user])
 	  end
@@ -74,7 +73,7 @@ class ChargesController < ApplicationController
 	  	  		:description => "Shnack Order ##{@order.order_number}",
 	  	  		:currency => 'usd'
 	  	  		)
-
+		  	flash[:notice] = "Your order was placed and your account was created successfully. You will receive a text when your order is ready. Thank you for using Shnack"
 	  	  	@order.update_attributes(:charge_id => charge.id, :paid => true, :user_id => current_user.id)
   	  	else # if they are creating a new card
   	  		user = current_user
@@ -86,9 +85,6 @@ class ChargesController < ApplicationController
 
 		  		card = customer.cards.data.last
 		  		current_user.update_attribute(:customer_id, customer.id)
-		  		flash[:notice] = "Your order was placed and your account was created successfully. You will receive a text when your order is ready. Thank you for using Shnack"
-
-
 		  	else #If they already have past credit cards, add it to their customer.
 		  		customer = Stripe::Customer.retrieve(user.customer_id)
 		  		card = customer.cards.create(:card => params[:stripeToken])
@@ -105,6 +101,7 @@ class ChargesController < ApplicationController
       		flash[:notice] = "Your order was placed successfully. You will receive a text when your order is ready. Thank you for using Shnack"
 		  	@order.update_attributes(:charge_id => charge.id, :paid => true, :user_id => current_user.id)
 		end
+
 
 
 
