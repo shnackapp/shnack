@@ -4,23 +4,23 @@
         <%= text_field(:user, :name, :class=> "form-control", :id => "order-name", :value => current_user.name ) %>
         <%= telephone_field(:user, :number, :class => "form-control",:id => "order-phone-number", :value => current_user.number ) %>
         E-mail Address: <%= current_user.email %> <br /> <br />
+        <% if current_user.has_cards? %>
+            <% current_user.cards.each_with_index do |card, index| %>
+            <div class="chopped box">
+                <%= radio_button_tag(:user_card, index) %> 
+                <label></label>
+                <label style="margin-left:5px;"><%= card.last4 + " " + card.brand %></label>
+            </div>
+            <br />
+            <br />
+            <% end %>
+            <div class ="chopped box">
+                <%= radio_button_tag(:user_card, "new", false, :class => "charges", id: "new-card-button" ) %>
+                <label class="charges" style="margin-left:5px;"> Add a new card </label>
+            </div>
 
-        <% current_user.cards.each_with_index do |card, index| %>
-        <div class="chopped box">
-            <%= radio_button_tag(:user_card, index) %> 
-            <label></label>
-            <label style="margin-left:5px;"><%= card.last4 + " " + card.brand %></label>
-        </div>
-        <br />
-        <br />
+            <% end %>
         <% end %>
-        <div class ="chopped box">
-            <%= radio_button_tag(:user_card, "new", false, :class => "charges", id: "new-card-button" ) %>
-            <label class="charges" style="margin-left:5px;"> Add a new card </label>
-        </div>
-
-        <% end %>
-
 
 
 

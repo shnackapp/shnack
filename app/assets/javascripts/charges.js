@@ -57,7 +57,7 @@ $(document).ready(function() {
 	});
 	//END CREDIT CARD FORM FOCUS FUNCTIONS
 
-	if($('#select-card-form')[0]) {
+	if($("[name='user_card']")[0]) {
 		$('.new-card-form').hide();
 	}
 
@@ -183,7 +183,7 @@ $(document).ready(function() {
 		}
 		else if(main_form == "select-card-form") {
 
-			if($("input[name='user_card']:checked").is('#new-card-button')) {	
+			if(!$("input[name='user_card']")[0] || $("input[name='user_card']:checked").is('#new-card-button')) {	
 		    	$form.find('button').prop('disabled', true);
 
 				Stripe.card.createToken({
