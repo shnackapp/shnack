@@ -73,7 +73,7 @@ class ChargesController < ApplicationController
 	  	  		:description => "Shnack Order ##{@order.order_number}",
 	  	  		:currency => 'usd'
 	  	  		)
-		  	flash[:notice] = "Your order was placed and your account was created successfully. You will receive a text when your order is ready. Thank you for using Shnack"
+		  	flash[:notice] = "Your order was placed successfully. You will receive a text when your order is ready. Thank you for using Shnack!"
 	  	  	@order.update_attributes(:charge_id => charge.id, :paid => true, :user_id => current_user.id)
   	  	else # if they are creating a new card
   	  		user = current_user

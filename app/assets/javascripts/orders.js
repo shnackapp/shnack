@@ -135,7 +135,13 @@ function updatePrice() {
 	$("td.subtotal").html(toUSD(subtotal));
 	$("td.subtotal").data("price", subtotal);
 
-	var total = $(".fee").data("price")/100 + subtotal;
+	if(!isNaN($(".fee").data("price")))
+	{
+		var total = $(".fee").data("price")/100 + subtotal;
+	}
+	else {
+		var total = subtotal;
+	}
 
 	$("td.total").html(toUSD(total));
 	$("td.total").data("total", total);
