@@ -4,6 +4,7 @@
 .clear-fix:after      { content: ' '; display: table; clear: both; }
 .opac-fix:after       { content: ' '; display: table; opacity: 1; }
 
+/* <section>Spacing */
 .pad-sml  { padding: 10px; }
 .pad      { padding: 20px; }
 .pad-lrg  { padding: 30px; }
@@ -22,6 +23,14 @@
 .pad-left-lrg { padding-left: 30px; } 
 .pad-top-lrg { padding-top: 30px; } 
 .pad-bottom-lrg { padding-bottom: 30px; } 
+
+.pad-x-sml { padding-left: 10px; padding-right: 10px; }
+.pad-x     { padding-left: 20px; padding-right: 20px; }
+.pad-x-lrg { padding-left: 30px; padding-right: 30px; }
+
+.pad-y-sml { padding-top: 10px; padding-bottom: 10px; }
+.pad-y     { padding-top: 20px; padding-bottom: 20px; }
+.pad-y-lrg { padding-top: 30px; padding-bottom: 30px; }
 
 
 .bold { font-weight: bold; }

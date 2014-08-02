@@ -9,9 +9,9 @@
 
 .modifiers-all {
   background-color: lemonchiffon;
-  padding: 20px;
-  margin-right: 20px;
-  margin-left: 20px;
+  //padding: 20px;
+  //margin-right: 20px;
+  //margin-left: 20px;
   h2 {
     background-color: #BBB;
     color: #444;
@@ -46,7 +46,7 @@
   }
 }
 
-.cat-main-group, .modifiers-all {
+.cat-main-group {
   .row-new {
     border-bottom: 1px solid #BBB;
 
@@ -96,7 +96,7 @@
   }
 }
 
-
+/* 
 .inline-mods {
   display:block;
   //padding:5px;
@@ -124,4 +124,24 @@
 .single-mod label div {
    //padding-left: 5px;
    text-align: right;
+} */
+.title {
+ position: relative;
+ font-family: "Damion";
+ font-size: 1.4em;
+ //display: inline-block;
+ //vertical-align: middle;
+ width: 100%;
+ border-bottom: 2px solid #555;
+ margin: 5px 0px;
+}
+
+.title span {
+  position: absolute;
+  top: -13px;
+  left: 20px;
+  background: lemonchiffon;
+  padding-left: 8px;
+  padding-right: 10px;
+  font-style: italic;
 }

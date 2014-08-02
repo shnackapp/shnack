@@ -7,8 +7,8 @@
 
 #order-form {
   margin: 0px auto;
-  min-width: 320px;
-  max-width: 660px;
+  //min-width: 320px;
+  //max-width: 660px;
   //padding-top:60px;
   //padding-bottom:60px;
 
@@ -18,6 +18,8 @@
 .the-menu {
   //padding-top: 60px;
   //padding-bottom: 60px;
+  min-width: 320px;
+  max-width: 660px;
   padding-bottom:70px;
 }
 
