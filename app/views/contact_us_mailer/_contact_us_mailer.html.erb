@@ -1,17 +1,18 @@
-<h1 class="new pad-bot-lrg">Want to get in contact?</h1>
+<h1 class="new pad-bot">Want to get in contact?</h1>
 
 <p>Filling out this form is almost as easy as ordering from Shnack</p>
 
 <%= form_tag("/shnack/contact") do %> 
+	<%= text_field_tag :cust_name, nil, :placeholder => "Name" %>
+	<%= text_field_tag :cust_email, nil, :placeholder => "Email Address" %>
   <div class="row-new">
-		<%= text_field_tag :cust_name, nil, :placeholder => "Name", :class => "column six pad-sml" %>
-		<%= text_field_tag :cust_email, nil, :placeholder => "Email Address", :class => "column six pad-sml" %>
-	</div>
-  <div class="row-new">
-    <%= text_field_tag :cust_phone, nil, :placeholder => "Phone (Optional)", :class => "column six pad-sml" %>
-    <%= text_field_tag :cust_email, nil, :placeholder => "How did you hear about us", :class => "column six pad-sml" %>
+    <div class="column-mobile six">
+      <%= text_field_tag :cust_phone, nil, :placeholder => "Phone (Optional)" %>
+    </div>
+    <div class="column-mobile six">
+      <%= text_field_tag :cust_email, nil, :placeholder => "How did you hear about us?" %>
+    </div>
   </div>
 		<%= text_area_tag :cust_message, nil, :placeholder => "Your message here", :class => "contact-field", :rows => '10' %>
-	</br>
 	<%= submit_tag 'Send', :class=>"btn buttn"%>
 <%end%>
