@@ -89,11 +89,13 @@
         <td></td>
         <td class="subtotal text-center" data-total="000" colspan="3"> $0.00</td>
       </tr>
+      <% if @owner.shnack_fee != 0 %>
       <tr>
         <td> Shnack Fee: </td>
         <td></td>
         <td class="fee text-center" data-price="<%= @owner.shnack_fee %>" colspan="3"> <%= @order.integer_to_currency(@owner.shnack_fee) %></td>
       </tr>
+      <% end %>
       <tr>
         <td> Total </td>
         <td></td>

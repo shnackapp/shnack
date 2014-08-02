@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 	has_one :stadium, :through => :role
 
 	# Setup accessible (or protected) attributes for your model
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :number, :name
+	attr_accessible :email, :password, :password_confirmation, :remember_me, :number, :name, :customer_id
 	# attr_accessible :title, :body
 
 	before_create :create_authentication_token
@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
 	end
 
 	def cards
-		Stripe::Customer.retrieve(self.customer_id).cards
+		self.customer_id.nil? ? [] : Stripe::Customer.retrieve(self.customer_id).cards 
 	end
 
 	def is_manager_of?(loc) 
