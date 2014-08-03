@@ -58,34 +58,53 @@
 				</div> 
 			<%end%>
 
-			<div class="prgs-bar center">
+			<div class="prgs-bar">
+
 				<% if current_page?(controller: '/application', action: 'select_stadium') %>
-	  			<div class="step current">
-	  		<% else %>
-	  			<div class="step">
-	  		<%end%>
-	  				Venue
-	      		<div class="circle"></div>
-	  			</div>
+					<div class="title_current_step">
+						Select your location
+					</div>
+				<% elsif current_page?(controller: '/orders', action: 'new') %>
+					<div class="title_current_step">
+						Craft your meal
+					</div>
+				<% elsif current_page?(controller: '/charges', action: 'new') %>
+					<div class="title_current_step">
+						Confirm and pay
+					</div>
+				<% end %>
 
-
-  			<% if current_page?(controller: '/orders', action: 'new') %>
-	  			<div class="step current">
-	  		<% else %>
-	  			<div class="step">
-	  		<%end%>
-	  				Menu
-	      		<div class="circle"></div>
-	  			</div>
-				
-				<% if current_page?(controller: '/charges', action: 'new') %>
-	  			<div class="step current">
-	  		<% else %>
-	  			<div class="step">
-	  		<%end%>
-	  				Pay
-	      		<div class="circle"></div>
-	  		</div>
+				<% if current_page?(controller: '/application', action: 'select_stadium') %>
+					<div class="step">
+						<div class="circle current"></div>
+					</div>
+					<div class="step">
+						<div class="circle"></div>
+					</div>
+					<div class="step">
+						<div class="circle"></div>
+					</div>
+				<% elsif current_page?(controller: '/orders', action: 'new') %>
+					<div class="step">
+						<div class="circle current"></div>
+					</div>
+					<div class="step">
+						<div class="circle current"></div>
+					</div>
+					<div class="step">
+						<div class="circle"></div>
+					</div>
+				<% elsif current_page?(controller: '/charges', action: 'new') %>
+					<div class="step">
+						<div class="circle current"></div>
+					</div>
+					<div class="step">
+						<div class="circle current"></div>
+					</div>
+					<div class="step">
+						<div class="circle current"></div>
+					</div>
+				<% end %>
 			</div>
 
 
