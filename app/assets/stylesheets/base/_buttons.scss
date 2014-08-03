@@ -10,10 +10,11 @@
 a.user {
   color: white;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1em;
   padding: 5px;
   //margin: 0px;
   height: 100%;
+  font-family: Dosis, sans-serif;
 
   &:hover {
     color: khaki;
