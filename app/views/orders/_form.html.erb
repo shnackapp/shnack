@@ -63,7 +63,7 @@
      <div class="order-items">
           <table cellspacing="10" class="table">
 
-          <% category.items.each do |item| %>
+          <% @menu.items.each do |item| %>
             <tbody class="menu_item" data-id= "<%= item.id %>" style="border:none;outline:none;">
               <tr>
                 <td><%= item.name %></td>
