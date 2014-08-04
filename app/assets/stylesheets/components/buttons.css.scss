@@ -1,0 +1,31 @@
+.action-btn {
+  background-color: #E5E5E5;
+  border: solid 1px #D5D5D5;
+  color: #222;
+  outline: 0;
+  padding: 9px 12px;
+  box-shadow: inset 0 0 3px #D5D5D5;
+
+  &:hover {
+    background-color: darken(#E5E5E5, 5%);
+    //box-shadow: inset 0 0 6px #444;
+  }
+}
+
+/* because default a:hover is khaki */
+a.action-btn:hover { color: #222; }
+
+
+.push-btn {
+  outline: 0;
+  padding: 12px 9px;
+  background-color: #777;
+  border-radius: 3px;
+  top: 0px;
+  box-shadow: 0 3px 0 #333;
+
+  &:hover {
+    top: 2px;
+    box-shadow: 0 1px 0 #333;
+  }
+}

@@ -31,14 +31,29 @@ a .shnack {
   color: #EEE;
 }
 
-button, {
-  background: #FFFFFF;
-  border: solid 1px #E5E5E5;
-  font: normal 13px/100% Verdana, Tahoma, sans-serif;
-  margin-bottom: 10px;
-  outline: 0;
-  padding: 9px;
-  width: 100%;
+
+
+a {
+  font: normal 16px/100% "Dosis", Tahoma, sans-serif;
+  text-decoration: none;
+  font-weight: 500;
+  color: #01A;
+
+  &:visited {
+    color: #01A;
+  }
+
+  &:hover {
+    color: khaki;
+  }
+}
+
+
+
+button {
+  font: normal 16px/100% "Dosis", Tahoma, sans-serif;
+  font-weight: 500;
+
 
   &.btn {
 

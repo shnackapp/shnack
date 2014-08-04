@@ -12,5 +12,12 @@ $blue: #428bca;
 .cement { color: $cement; }
 .blue { color: $blue; }
 
+a.red { border-color: ligthen($red, 5%); }
+button.red { border-color: ligthen($red, 5%); }
+
+a.red:hover { background-color: darken($red, 5%); }
+button.red:hover { background-color: darken($red, 5%); }
+
+
 $elements: base, phone, menu, topbar, user-settings;
 
