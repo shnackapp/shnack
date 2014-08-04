@@ -1,13 +1,11 @@
 
 h1 {
   font-size: 2.2em;
-  font-family: "Dosis", Geneva, sans-serif;
   font-weight: 500;
 }
 
 h2 {
   font-size: 1.6em;
-  font-family: "Dosis", Geneva, sans-serif;
   font-weight: 500;
 }
 
@@ -19,6 +17,14 @@ h3 {
 h4 {
   font-size: 2em;
   font-family: "Damion", serif;
+}
+
+h5 {
+  font-size: 1.4em;
+  background-color: $brown;
+  padding: 8px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
 }
 
 
@@ -35,4 +41,3 @@ h4 {
 
 
 
-p { font-family: "Dosis", Geneva, sans-serif; font-size: 18px; }
