@@ -31,11 +31,20 @@
 <body>
 
 	<div class="website-wrapper" id="top">
-		<div id="topbar" class="topbar clear-fix">
-			<a href="/"><h3 class="gen_inline">Shnack</h3></a>
+		<div id="topbar" class="row-new topbar clear-fix">
+			<a href="/"><h3 class="column two">Shnack</h3></a>
+
+
+				<div class="prgs-bar column-mobile eight">
+					<div class="title_current_step">
+					<%= yield :page_title %>
+					</div>
+
+			</div>
+
 
 			<% if user_signed_in? %>
-				<ul id="click_me" class="user-settings">
+				<ul id="click_me" class="column two my-gear">
 					<li>
 						<a href="#" class="opac-fix"><%= image_tag("gear-small-w.png", alt: "settings", style: "opacity:0.8;") %></a>
 						<ul>
@@ -52,42 +61,11 @@
 					</li>
 				</ul>
 			<%else%>
-				<div class="user-settings">
+				<div class="user-settings my-gear">
 					<%= link_to('Login', new_user_session_path, :class => 'user')  %> 
 					<%= link_to('Sign Up', new_user_registration_path, :class => 'user')  %>  
 				</div> 
 			<%end%>
-
-			<div class="prgs-bar center">
-				<% if current_page?(controller: '/application', action: 'select_stadium') %>
-	  			<div class="step current">
-	  		<% else %>
-	  			<div class="step">
-	  		<%end%>
-	  				Venue
-	      		<div class="circle"></div>
-	  			</div>
-
-
-  			<% if current_page?(controller: '/orders', action: 'new') %>
-	  			<div class="step current">
-	  		<% else %>
-	  			<div class="step">
-	  		<%end%>
-	  				Menu
-	      		<div class="circle"></div>
-	  			</div>
-				
-				<% if current_page?(controller: '/charges', action: 'new') %>
-	  			<div class="step current">
-	  		<% else %>
-	  			<div class="step">
-	  		<%end%>
-	  				Pay
-	      		<div class="circle"></div>
-	  		</div>
-			</div>
-
 
 		</div> <!--ENDS TOPBAR-->
 

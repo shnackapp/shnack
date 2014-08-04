@@ -15,8 +15,17 @@
 
 
 
-.row-new { @extend .clear-fix; width: 1200px; max-width: 100%; min-width: 320px; margin: 0 auto; position: relative; }
+.row-new { @extend .clear-fix; max-width: 1200px; min-width: 320px; margin: 0 auto; position: relative; }
 .column  { float: left; position: relative; min-height: 1px;}
+.column-mobile {
+  float: left; position: relative; min-height: 1px;
+
+  @media (max-width: 520px) {
+    clear: both !important;
+    width: 100% !important;
+  }
+}
+
 .column.centered { float: none; margin: 0 auto; }
 
 .one, .row-new .one { width: 8.33333%; }

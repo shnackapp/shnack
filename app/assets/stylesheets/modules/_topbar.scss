@@ -30,46 +30,34 @@
   padding-top: 60px;
 }
 
-.prgs-bar {
-  width: 50%;
-  @extend .gen_inline;
-}
 
-.user-settings {
-  //width: 25%;
-  float: right;
-  @extend .gen_inline;
-}
-
-
-.step {
-  @extend .gen_inline; 
-  text-align: center;
-  text-transform: uppercase;
-  float: left;
-  width: 33.33%;
-  padding: 0;
-  margin: 0;
-  font-size: 10px;
-  &.current {
-    ///color: #CCC;
-    font-weight: 700;
+.title_current_step {
+padding-top: 5px;
+ text-align: center;
+ text-transform: uppercase;
+  font-size: 1.5em;
   }
-  &.current .circle {
-    background-color: khaki;
+
+ .circle {
+    border: 2px solid khaki;
+    //background-color: #AAA;
+    border-radius:15px;
+    background-image: none;
+    width: 12px;
+    height: 12px;
+    margin: 0 auto;
+
+    &.current {
+      background-color: khaki;
+    }
   }
-  &.completed .circle {
-    //background-color: #444;
-  }
+
+
+.my-gear {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 
-.circle {
-  border: 2px solid #AAA;
-  //background-color: #AAA;
-  border-radius:15px;
-  background-image: none;
-  width: 12px;
-  height: 12px;
-  margin: 0 auto;
-}
+

@@ -54,7 +54,7 @@ class ChargesController < ApplicationController
 	  	current_user.update_attributes(params[:user])
 	  end
 
-	  if @owner.cash_only
+	  if @owner.cash_only || @amount == 0
 	  	@order.update_attribute(:paid, true)
 	  	@owner.user = current_user
 	  	@order.shnack_cut = 0
