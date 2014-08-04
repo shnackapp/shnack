@@ -40,6 +40,17 @@ button, {
   padding: 9px;
   width: 100%;
 
+  &.btn {
+
+
+    border-radius: 0px;
+
+  }
+
+  &.btn.payment-button {
+      margin-top:20px;
+  }
+
   &.red {
     background-color: #C35050;
     color: white;

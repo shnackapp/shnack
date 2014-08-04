@@ -1,5 +1,4 @@
 
-<h1 class="headline"> <%= @owner.name %> <br/></h1>
 
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
@@ -35,9 +34,11 @@
                 <% if(item.sold_out) %>
                   <td colspan="3">Item Sold Out</td>
                 <% else %> 
-                  <td> <span class="glyphicon glyphicon-plus plus"></span> </td>
+                                  <td> <span class="glyphicon glyphicon-minus minus"></span> </td>
+
                   <td id="<%=item.id%>_num" class="num"> 0 </td>
-                  <td> <span class="glyphicon glyphicon-minus minus"></span> </td>
+                                    <td> <span class="glyphicon glyphicon-plus plus"></span> </td>
+
                   <td class="item_id hidden"> <%= item.id %> </td>
                   <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
              
