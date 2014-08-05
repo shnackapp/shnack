@@ -19,6 +19,7 @@
 #  number                 :string(255)
 #  customer_id            :string(255)
 #  name                   :string(255)
+#  account_credit         :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -31,7 +32,8 @@ class User < ActiveRecord::Base
 	has_one :stadium, :through => :role
 
 	# Setup accessible (or protected) attributes for your model
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :number, :name, :customer_id
+	attr_accessible :email, :password, :password_confirmation, :remember_me, 
+		:number, :name, :customer_id, :account_credit
 	# attr_accessible :title, :body
 
 	before_create :create_authentication_token
@@ -81,6 +83,10 @@ class User < ActiveRecord::Base
 
 	def is_manager_of?(loc) 
 		return true if role.is_super || role.locations.includes(loc)
+	end
+
+	def has_account_credit?
+		self.account_credit > 0
 	end
 
 
