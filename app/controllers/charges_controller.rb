@@ -63,6 +63,8 @@ class ChargesController < ApplicationController
 	  	@order.location_cut = 0
 	  	@order.withdrawn = true
 	  else
+
+
 	  	@amount = @order.total 	  # Amount in cents
 
 
@@ -76,7 +78,11 @@ class ChargesController < ApplicationController
 			new_credit = 0 if new_credit < 0
 
 			@order.credit_was_used = true
-			@order.credit_used = current_user.account_credit < @amount ? current_user.account_credit : @amount
+			if @order.total == 0
+				@order.credit_used = @amount
+			else
+				@order.credit_used = current_user.account_credit
+			end
 
 			current_user.update_attribute(:account_credit, new_credit)
 
