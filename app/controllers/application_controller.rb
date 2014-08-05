@@ -39,8 +39,4 @@ class ApplicationController < ActionController::Base
     render layout: false
   end
 
-  def styleguide
-    render layout: false
-  end
-
 end

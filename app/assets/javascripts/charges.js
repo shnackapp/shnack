@@ -82,8 +82,8 @@ $(document).ready(function() {
 	$("#log-in").click(function(evt) {
 		$("#create-account-div").hide();
 		$("#login-form").show();
-		$("#log-in").addClass("blue");
-		$("#create-account").removeClass("blue");
+		$("#log-in").addClass("red");
+		$("#create-account").removeClass("red");
 
 		$(".name-error").slideUp(200);
 			$("#order-name").removeClass("error");
@@ -96,8 +96,8 @@ $(document).ready(function() {
 	$("#create-account").click(function(evt) {
 		$("#create-account-div").show();
 		$("#login-form").hide();
-		$("#log-in").removeClass("blue");
-		$("#create-account").addClass("blue");
+		$("#log-in").removeClass("red");
+		$("#create-account").addClass("red");
 
 		$(".name-error").slideUp(200);
 		$("#order-name").removeClass("error");

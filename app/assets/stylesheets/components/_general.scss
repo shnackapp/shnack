@@ -1,40 +1,9 @@
 @import "base/mixins";
 
-
-.easy-123 {
-  .column-mobile {
-    text-align: center;
-    padding: 10px;
-    color: #111;
-
-    p { color: white; }
-  }
+.gen_inline {
+  display: inline-block;
+  vertical-align: middle;
 }
-
-.i-location {
-  font-family: 'FontAwesome';
-  font-size: 102px;
-  &:before {
-    //content: '\f10b';
-    content: '\f10a';
-  }
-}
-
-.i-pay {
-  font-family: 'FontAwesome';
-  font-size: 102px;
-  &:before {
-    content: '\f09d';
-  }
-}
-.i-pickup {
-  font-family: 'FontAwesome';
-  font-size: 102px;
-  &:before {
-    content: '\f087';
-  }
-}
-
 
 #order-form {
   margin: 0px auto;
