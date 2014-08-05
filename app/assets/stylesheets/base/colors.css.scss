@@ -1,3 +1,5 @@
+@import "vars";
+
 .red    { background-color: $red; }
 .cream  { background-color: papayawhip; }
 .khaki  { background-color: khaki; }
@@ -7,6 +9,7 @@
 .blue   { background-color: $blue; }
 .brown  { background-color: $brown; }
 .green  { background-color: $green; }
+.darkslategray { background-color: darkslategray; }
 
 
 .red-text    { color: $red; }

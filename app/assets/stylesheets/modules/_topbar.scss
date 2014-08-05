@@ -15,12 +15,15 @@
   display: block;
   @include box-shadow(0, 0, 6px, $black);
 
-  a h3 {
-    font-size: 2.5em;
+  a {
     color: $white;
-    width: 25%;   //NOTE
-    &:hover {
-      color: khaki;
+
+    h3 {
+      font-size: 2.5em;
+      width: 25%;   //NOTE
+    }
+    &:visited {
+      color: $white;
     }
   }
 }
