@@ -13,6 +13,11 @@
 
 ActiveRecord::Schema.define(:version => 20140717020039) do
 
+  create_table "analytics", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
     t.datetime "created_at",   :null => false
@@ -68,9 +73,9 @@ ActiveRecord::Schema.define(:version => 20140717020039) do
     t.decimal  "tax",               :precision => 6, :scale => 6
     t.boolean  "cash_only",                                       :default => false
     t.integer  "initial_state",                                   :default => 0
+    t.boolean  "hide_when_closed",                                :default => false
     t.integer  "shnack_fee",                                      :default => 50
     t.integer  "shnack_percent",                                  :default => 5
-    t.boolean  "hide_when_closed",                                :default => false
     t.string   "bank_account_id"
   end
 
@@ -93,6 +98,14 @@ ActiveRecord::Schema.define(:version => 20140717020039) do
     t.integer  "mod_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "options", :force => true do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.integer  "modifier_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "options_order_modifiers", :force => true do |t|
