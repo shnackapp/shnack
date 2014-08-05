@@ -130,7 +130,7 @@ class OrdersController < ApplicationController
         
 
     @order.subtotal = amount
-    @order.total = owner.shnack_fee + (owner.add_tax ? amount + amount*owner.tax : amount)
+    @order.total = (owner.add_tax ? amount + amount*owner.tax : amount)
 
     owner.instance_of?(Vendor) ? @order.vendor = owner : @order.restaurant = owner
     if user_signed_in?

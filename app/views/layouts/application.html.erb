@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ 	<!DOCTYPE html>
 <html>
 <head>
 <%= favicon_link_tag 'logo.ico' %>
@@ -44,17 +44,22 @@
 
 
 			<% if user_signed_in? %>
-				<ul id="click_me" class="column two my-gear">
+				<ul id="click_me" class="column one my-gear">
+					
 					<li>
-						<a href="#" class="opac-fix"><%= image_tag("gear-small-w.png", alt: "settings", style: "opacity:0.8;") %></a>
+						<a href="#" class="opac-fix"><%= image_tag("gear-small-w.png", alt: "settings", style: "opacity:0.8;") %></a> 
+						
 						<ul>
+
+							<% if current_user.account_credit > 0 %> 
+								<li style="color:black;">Account Credit: <%= Order.integer_to_currency current_user.account_credit %> </li>
+							<% end %>
 							<% if current_user.is_manager?  %>
 								<li><%= link_to "Manage Your Vendors", :controller => "/shnack", :action => "manage_vendors" %></li>
 							<%end%>
 							<% if current_user.is_super? %>
 								<li> <%= link_to "Super User", :controller => "/super", :action => "manage_as_super" %></li>
 							<% end %>
-
 							<li><%= link_to "Change your password", edit_user_registration_path %></li>
 							<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
 						</ul>

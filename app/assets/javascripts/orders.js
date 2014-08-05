@@ -134,13 +134,21 @@ function updatePrice() {
 	subtotal /=100;
 	$("td.subtotal").html(toUSD(subtotal));
 	$("td.subtotal").data("price", subtotal);
+	var total = subtotal;
 
 	if(!isNaN($(".fee").data("price")))
 	{
-		var total = $(".fee").data("price")/100 + subtotal;
+		total = $(".fee").data("price")/100 + total;
 	}
-	else {
-		var total = subtotal;
+	if(!isNaN($(".credit").data("price"))) {
+		var tmp = total;
+		total = total - $(".credit").data("price")/100;
+		if(total < 0) total = 0
+
+		tmp = $(".credit").data("price")/100 - tmp;
+		if(tmp < 0) tmp = 0;
+		$("td.credit").html(toUSD(tmp));
+
 	}
 
 	$("td.total").html(toUSD(total));
