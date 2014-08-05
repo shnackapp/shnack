@@ -85,6 +85,10 @@ class User < ActiveRecord::Base
 		return true if role.is_super || role.locations.includes(loc)
 	end
 
+	def has_account_credit?
+		self.account_credit > 0
+	end
+
 
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140717020039) do
+ActiveRecord::Schema.define(:version => 20140805032022) do
 
   create_table "analytics", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -141,20 +141,22 @@ ActiveRecord::Schema.define(:version => 20140717020039) do
     t.string   "charge_id"
     t.integer  "subtotal"
     t.integer  "vendor_id"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "details"
-    t.boolean  "paid",          :default => false
+    t.boolean  "paid",            :default => false
     t.integer  "restaurant_id"
     t.integer  "total"
     t.string   "slug"
     t.string   "slug_id"
     t.integer  "order_number"
     t.integer  "user_info_id"
-    t.integer  "shnack_cut",    :default => 0
+    t.integer  "shnack_cut",      :default => 0
     t.integer  "location_cut"
-    t.boolean  "withdrawn",     :default => false
+    t.boolean  "withdrawn",       :default => false
     t.integer  "transfer_id"
+    t.boolean  "credit_was_used", :default => false
+    t.integer  "credit_used",     :default => 0
   end
 
   add_index "orders", ["slug"], :name => "index_orders_on_slug", :unique => true
@@ -211,6 +213,7 @@ ActiveRecord::Schema.define(:version => 20140717020039) do
     t.string   "number"
     t.string   "customer_id"
     t.string   "name"
+    t.integer  "account_credit",         :default => 0
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
