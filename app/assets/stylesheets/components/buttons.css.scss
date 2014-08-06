@@ -35,8 +35,16 @@
   }
 }
 
+/* used for the menu flow */
 .next-step {
   //min-width: 50%;
   float: right;
   margin-right: 10px;
+}
+
+/* manage vendors add items page */
+.add-mod-btns > .action-btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
 }

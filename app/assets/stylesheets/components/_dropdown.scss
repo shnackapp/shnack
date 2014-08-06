@@ -46,6 +46,11 @@
 }
 #click_me li:hover ul { 
   right:0; 
+
+  .shnack-credit {
+    color: $green;
+    text-align: center;
+  }
 }
 
 #click_me li:hover a { 

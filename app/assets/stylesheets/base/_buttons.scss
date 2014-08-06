@@ -1,4 +1,4 @@
- .btnp {
+.btnp {
   padding: 9px 15px;
   background: #336699;
   font-size: 14px;
@@ -31,14 +31,36 @@ a .shnack {
   color: #EEE;
 }
 
-button, {
-  background: #FFFFFF;
-  border: solid 1px #E5E5E5;
-  font: normal 13px/100% Verdana, Tahoma, sans-serif;
-  margin-bottom: 10px;
-  outline: 0;
-  padding: 9px;
-  width: 100%;
+
+
+a {
+  font: normal 16px/100% "Dosis", Tahoma, sans-serif;
+  text-decoration: none;
+  font-weight: 500;
+  color: #01A;
+
+  &:visited {
+    color: #01A;
+  }
+
+  &:hover {
+    color: khaki;
+  }
+}
+
+
+
+button {
+  font: normal 16px/100% "Dosis", Tahoma, sans-serif;
+  font-weight: 500;
+  outline-color: transparent;
+  border-color: transparent;
+
+  &:active, &.visited {
+    outline-color: transparent;
+    border-color: transparent;
+  }
+
 
   &.btn {
 
@@ -51,18 +73,6 @@ button, {
       margin-top:20px;
   }
 
-  &.red {
-    background-color: #C35050;
-    color: white;
-  }
-  &.green {
-    background-color: #50C350;
-    color: white;
-  }
-  &.blue {
-    background-color: #5050C3;
-    color: white;
-  }
   &[disabled=disabled] {
     background-color: #999;
     color: white;

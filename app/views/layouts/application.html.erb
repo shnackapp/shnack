@@ -50,9 +50,7 @@
 						<a href="#" class="opac-fix"><%= image_tag("gear-small-w.png", alt: "settings", style: "opacity:0.8;") %></a> 
 						
 						<ul>
-
-							
-								<li style="color:black;">Account Credit: <%= Order.integer_to_currency current_user.account_credit %> </li>
+								<li class="shnack-credit">Account Credit: <%= Order.integer_to_currency current_user.account_credit %> </li>
 							
 							<% if current_user.is_manager?  %>
 								<li><%= link_to "Manage Your Vendors", :controller => "/shnack", :action => "manage_vendors" %></li>

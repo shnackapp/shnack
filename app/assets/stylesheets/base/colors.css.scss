@@ -37,6 +37,9 @@ button.brown:hover { background-color: lighten($brown, 10%); }
 a.green:hover { background-color: lighten($green, 10%); }
 button.green:hover { background-color: lighten($green, 10%); }
 
+a.darkslategray:hover { background-color: lighten(darkslategray, 10%); }
+button.darkslategray:hover { background-color: lighten(darkslategray, 10%); }
+
 
 
 a.red:active { background-color: lighten($red, 15%); }
@@ -50,6 +53,10 @@ button.brown:active { background-color: lighten($brown, 15%); }
 
 a.green:active { background-color: lighten($green, 15%); }
 button.green:active { background-color: lighten($green, 15%); }
+
+a.darkslategray:active { background-color: lighten(darkslategray, 15%); }
+button.darkslategray:active { background-color: lighten(darkslategray, 15%); }
+
 
 
 .wrapper {

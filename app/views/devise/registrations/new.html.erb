@@ -2,20 +2,20 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <div> <%= f.text_field :name, :placeholder => 'Name' ,:autofocus => true %> </div>
-  <div> <%= f.text_field :number, :placeholder => 'Phone Number' %> </div>
+  <div> <%= f.text_field :name, :placeholder => 'Name' ,:autofocus => true, class: "sign_in" %> </div>
+  <div> <%= f.text_field :number, :placeholder => 'Phone Number', class: "sign_in" %> </div>
 
 
   <div>
-  <%= f.email_field :email, :placeholder => 'Email Address' %></div>
+  <%= f.email_field :email, :placeholder => 'Email Address', class: "sign_in" %></div>
 
   <div>
-  <%= f.password_field :password, :placeholder => 'Password' %></div>
+  <%= f.password_field :password, :placeholder => 'Password', class: "sign_in" %></div>
 
   <div>
-  <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation' %></div>
+  <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation', class: "sign_in" %></div>
 
-  <div><%= f.submit "Sign up", :class => "buttn" %></div>
+  <div><%= f.submit "Sign up", :class => "push-btn darkslategray mar-bottom" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
