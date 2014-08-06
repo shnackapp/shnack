@@ -1,0 +1,27 @@
+.i-easy-123 {
+  font-size: 102px;
+}
+
+.i-location {
+  font-family: 'FontAwesome';
+  font-size: 102px;
+  &:before {
+    //content: '\f10b';
+    content: '\f10a';
+  }
+}
+
+.i-pay {
+  font-family: 'FontAwesome';
+  font-size: 102px;
+  &:before {
+    content: '\f09d';
+  }
+}
+.i-pickup {
+  font-family: 'FontAwesome';
+  font-size: 102px;
+  &:before {
+    content: '\f087';
+  }
+}

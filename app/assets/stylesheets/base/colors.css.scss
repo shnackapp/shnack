@@ -1,3 +1,5 @@
+@import  "vars";
+
 .red    { background-color: $red; }
 .cream  { background-color: papayawhip; }
 .khaki  { background-color: khaki; }
@@ -18,6 +20,8 @@
 .blue-text   { color: $blue; }
 .brown-text  { color: $brown; }
 .green-text  { color: $green; }
+.darkslategray { background-color: darkslategray; }
+
 
 
 
@@ -46,3 +50,49 @@ button.brown:active { background-color: lighten($brown, 15%); }
 
 a.green:active { background-color: lighten($green, 15%); }
 button.green:active { background-color: lighten($green, 15%); }
+
+
+.wrapper {
+  background-color: transparent;
+  width: 100%;
+}
+
+.wrapper-white {
+  width: 100%;
+  background-color: $white;
+}
+
+.wrapper-cement {
+  width: 100%;
+  background-color: $cement;
+}
+
+.wrapper-black {
+  width: 100%;
+  background-color: $black;
+}
+
+.wrapper-red {
+  width: 100%;
+  background-color: $red;
+}
+
+.wrapper-darkslategray {
+  width: 100%;
+  background-color: darkslategray;
+}
+
+.wrapper-blue {
+  width: 100%;
+  background-color: $blue;
+}
+
+.wrapper-green {
+  width: 100%;
+  background-color: $green;
+}
+
+.wrapper-brown {
+  width: 100%;
+  background-color: $brown;
+}

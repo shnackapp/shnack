@@ -1,8 +1,41 @@
-@import "base/mixins";
+@import "base/mixins", "base/vars";
 
-.gen_inline {
-  display: inline-block;
-  vertical-align: middle;
+.easy-123 {
+  .column-mobile {
+    text-align: center;
+    padding: 10px;
+    color: #111;
+
+    p { color: white; }
+  }
+}
+
+.i-location {
+  font-family: 'FontAwesome';
+  font-size: 102px;
+  &:before {
+    //content: '\f10b';
+    content: '\f10a';
+  }
+}
+
+.i-pay {
+  font-family: 'FontAwesome';
+  font-size: 102px;
+  &:before {
+    content: '\f09d';
+  }
+}
+.i-pickup {
+  font-family: 'FontAwesome';
+  font-size: 102px;
+  &:before {
+    content: '\f087';
+  }
+}
+
+.i-easy-123 {
+  font-size: 102px;
 }
 
 #order-form {
@@ -63,7 +96,7 @@ footer.fb {
   p {
     font-size: 1.6em;
     font-weight: 500;
-    font-color: #2A2A2A;
+    color: $white;
   }
   a.place-order {
     color: #a10;

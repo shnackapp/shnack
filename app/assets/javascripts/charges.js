@@ -79,11 +79,11 @@ $(document).ready(function() {
 	**/
 	$("#login-form").hide();
 
-	$("#log-in").click(function(evt) {
+$("#log-in").click(function(evt) {
 		$("#create-account-div").hide();
 		$("#login-form").show();
-		$("#log-in").addClass("red");
-		$("#create-account").removeClass("red");
+		$("#log-in").addClass("blue");
+		$("#create-account").removeClass("blue");
 
 		$(".name-error").slideUp(200);
 			$("#order-name").removeClass("error");
@@ -96,8 +96,8 @@ $(document).ready(function() {
 	$("#create-account").click(function(evt) {
 		$("#create-account-div").show();
 		$("#login-form").hide();
-		$("#log-in").removeClass("red");
-		$("#create-account").addClass("red");
+		$("#log-in").removeClass("blue");
+		$("#create-account").addClass("blue");
 
 		$(".name-error").slideUp(200);
 		$("#order-name").removeClass("error");

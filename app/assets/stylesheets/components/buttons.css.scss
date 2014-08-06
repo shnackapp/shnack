@@ -28,4 +28,9 @@
     top: 2px;
     box-shadow: 0 1px 0 #333;
   }
+
+  &:active {
+    top: 3px;
+    box-shadow: none;
+  }
 }
