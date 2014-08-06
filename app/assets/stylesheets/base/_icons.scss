@@ -2,6 +2,14 @@
   font-size: 102px;
 }
 
+
+.i-info:before {
+  font-family: 'FontAwesome';
+  content: '\f05a';
+  font-size: 28px;
+  color: orange;
+}
+
 .i-location {
   font-family: 'FontAwesome';
   font-size: 102px;
