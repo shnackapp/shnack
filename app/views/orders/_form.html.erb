@@ -122,12 +122,12 @@
 
   <div class="actions">
   <% if @owner.is_open? %>
-    <%= button_tag(type: 'submit', id:"order-submit", class: "btn btn-primary btn-danger") do %>
-      <i class="glyphicon glyphicon-cutlery icon-white"></i> Place Order
+    <%= button_tag(type: 'submit', id:"order-submit", class: "push-btn green next-step") do %>
+      <i class="fa fa-cutlery pad-right-sml"></i> Next
     <% end %>
   <% else %> 
-    <%= button_tag(type: 'submit', id:"order-submit",  class: "btn btn-primary btn-danger", :disabled => true) do %>
-      <i class="glyphicon glyphicon-cutlery icon-white"></i> Place Order
+    <%= button_tag(type: 'submit', id:"order-submit",  class: "push-btn next-step", :disabled => true) do %>
+      <i class="fa fa-frown-o pad-right-sml"></i> Currently Closed
     <% end %>
   </div>
   <% end %>

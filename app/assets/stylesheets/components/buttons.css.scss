@@ -25,12 +25,18 @@
   box-shadow: 0 3px 0 #333;
 
   &:hover {
-    top: 2px;
-    box-shadow: 0 1px 0 #333;
+    top: 1px;
+    box-shadow: 0 2px 0 #333;
   }
 
   &:active {
     top: 3px;
     box-shadow: none;
   }
+}
+
+.next-step {
+  //min-width: 50%;
+  float: right;
+  margin-right: 10px;
 }

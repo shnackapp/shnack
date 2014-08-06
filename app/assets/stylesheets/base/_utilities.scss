@@ -4,6 +4,8 @@
 .clear-fix:after      { content: ' '; display: table; clear: both; }
 .opac-fix:after       { content: ' '; display: table; opacity: 1; }
 
+/* Padding and Margin Tools */
+
 .pad-sml  { padding: 10px; }
 .pad      { padding: 20px; }
 .pad-lrg  { padding: 30px; }
@@ -23,6 +25,26 @@
 .pad-top-lrg { padding-top: 30px; } 
 .pad-bottom-lrg { padding-bottom: 30px; } 
 
+.mar-sml  { margin: 10px; }
+.mar      { margin: 20px; }
+.mar-lrg  { margin: 30px; }
+
+.mar-right-sml { margin-right: 10px; } 
+.mar-left-sml { margin-left: 10px; } 
+.mar-top-sml { margin-top: 10px; } 
+.mar-bottom-sml { margin-bottom: 10px; } 
+
+.mar-bottom { margin-right: 20px; } 
+.mar-left { margin-left: 20px; } 
+.mar-top { margin-top: 20px; } 
+.mar-bottom { margin-bottom: 20px; } 
+
+.mar-right-lrg { margin-right: 30px; } 
+.mar-left-lrg { margin-left: 30px; } 
+.mar-top-lrg { margin-top: 30px; } 
+.mar-bottom-lrg { margin-bottom: 30px; } 
+
+/* Other */
 
 .bold { font-weight: bold; }
 .itatlic { font-style: italic; }
