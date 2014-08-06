@@ -44,11 +44,13 @@ h6.SSS {
 /* older styles below */
 h1 {
   font-size: 2.2em;
+  font-family: "Dosis", Geneva, sans-serif;
   font-weight: 500;
 }
 
 h2 {
   font-size: 1.6em;
+  font-family: "Dosis", Geneva, sans-serif;
   font-weight: 500;
 }
 
@@ -61,8 +63,6 @@ h4 {
   font-size: 2em;
   font-family: "Damion", serif;
 }
-
-
 
 
 .headline-light {
@@ -78,3 +78,4 @@ h4 {
 
 
 
+p { font-family: "Dosis", Geneva, sans-serif; font-size: 18px; }

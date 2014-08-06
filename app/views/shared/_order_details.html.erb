@@ -29,12 +29,14 @@
 					<td></td>
 					<td> <%= Order.integer_to_currency(@order.subtotal) %> </td>
 				</tr>
+				<% if @order.credit_was_used %>
 				<tr>
-					<td>Shnack Fee</td>
+					<td>Shnack Credit Used </td>
 					<td></td>
 					<td></td>
-					<td> <%= Order.integer_to_currency(@order.total-@order.subtotal) %></td>
-				</tr>
+					<td> <%= Order.integer_to_currency(@order.credit_used) %> </td>
+
+				<% end %>
 				<tr>
 					<td>Total</td>
 					<td></td>

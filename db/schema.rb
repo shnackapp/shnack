@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140717020039) do
+ActiveRecord::Schema.define(:version => 20140805032022) do
+
+  create_table "analytics", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -68,9 +73,9 @@ ActiveRecord::Schema.define(:version => 20140717020039) do
     t.decimal  "tax",               :precision => 6, :scale => 6
     t.boolean  "cash_only",                                       :default => false
     t.integer  "initial_state",                                   :default => 0
+    t.boolean  "hide_when_closed",                                :default => false
     t.integer  "shnack_fee",                                      :default => 50
     t.integer  "shnack_percent",                                  :default => 5
-    t.boolean  "hide_when_closed",                                :default => false
     t.string   "bank_account_id"
   end
 
@@ -93,6 +98,14 @@ ActiveRecord::Schema.define(:version => 20140717020039) do
     t.integer  "mod_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "options", :force => true do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.integer  "modifier_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "options_order_modifiers", :force => true do |t|
@@ -128,20 +141,22 @@ ActiveRecord::Schema.define(:version => 20140717020039) do
     t.string   "charge_id"
     t.integer  "subtotal"
     t.integer  "vendor_id"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "details"
-    t.boolean  "paid",          :default => false
+    t.boolean  "paid",            :default => false
     t.integer  "restaurant_id"
     t.integer  "total"
     t.string   "slug"
     t.string   "slug_id"
     t.integer  "order_number"
     t.integer  "user_info_id"
-    t.integer  "shnack_cut",    :default => 0
+    t.integer  "shnack_cut",      :default => 0
     t.integer  "location_cut"
-    t.boolean  "withdrawn",     :default => false
+    t.boolean  "withdrawn",       :default => false
     t.integer  "transfer_id"
+    t.boolean  "credit_was_used", :default => false
+    t.integer  "credit_used",     :default => 0
   end
 
   add_index "orders", ["slug"], :name => "index_orders_on_slug", :unique => true
@@ -198,6 +213,7 @@ ActiveRecord::Schema.define(:version => 20140717020039) do
     t.string   "number"
     t.string   "customer_id"
     t.string   "name"
+    t.integer  "account_credit",         :default => 0
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

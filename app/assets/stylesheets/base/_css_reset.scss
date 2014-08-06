@@ -7,7 +7,8 @@ html, body, div, span, object, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, ab
   border: 0;
   vertical-align: baseline;
   background: transparent;
-  font-family: Dosis, Tahoma, sans-serif;
+  box-sizing: border-box;
+  font-family: Dosis, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 { font-weight: normal; line-height: 100%; }
@@ -21,3 +22,4 @@ p { font-size: 22px; }
   background-image: image-url('noise-bg-2.png');
   background-repeat: repeat;
 } */
+
