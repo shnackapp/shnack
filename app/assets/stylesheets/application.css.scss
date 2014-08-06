@@ -13,7 +13,7 @@
  */
 
 @import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Dosis:400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Dosis:400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Damion);
 @import "base/css_reset",
         "base/vars",
@@ -115,5 +115,20 @@ tbody.all_the_mods tr {
 
   img {
     opacity: .9;
+  }
+}
+
+.list-group {
+  box-shadow: 0px 0px 5px #888;
+}
+
+div.list-group.select .list-group-item  {
+  border-radius: 0px;
+  background-color: $red;
+  color: white;
+  font-weight:900;
+
+  &:hover {
+    background-color: black;
   }
 }

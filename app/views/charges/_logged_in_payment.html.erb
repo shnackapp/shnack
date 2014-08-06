@@ -1,9 +1,18 @@
-      <div class="select-card-div">
+      <div class="select-card-div well well-lg">
         <%= form_tag order_charges_path(@order), :id => "select-card-form" do %>
 
         <%= text_field(:user, :name, :class=> "form-control", :id => "order-name", :value => current_user.name ) %>
         <%= telephone_field(:user, :number, :class => "form-control",:id => "order-phone-number", :value => current_user.number ) %>
         E-mail Address: <%= current_user.email %> <br /> <br />
+
+        <% if current_user.account_credit > 0 %>
+            
+            <%= check_box_tag(:use_credit, '1', true, :style => "float:left;") %> <label></label>  <label> You have <%= @order.integer_to_currency current_user.account_credit %> in Shnack Credit! Would you like to use it? </label>
+            <br />
+            <br />
+        <% end %>
+
+        
         <% if current_user.has_cards? %>
             <% current_user.cards.each_with_index do |card, index| %>
             <div class="chopped box">
