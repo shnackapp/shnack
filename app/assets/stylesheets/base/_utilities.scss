@@ -46,6 +46,23 @@
   position: relative;
 }
 
+/* Kind of experimential way. Might change based on padding
+  and margins. Best to use inline-block vertical-align middle */
+.center-vertical {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.gen-inline {
+  display: inline-block;
+}
+
+.gen-inline-middle {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .my-container {
   display: block;
   margin-left: auto;
