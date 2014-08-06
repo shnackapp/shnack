@@ -1,21 +1,18 @@
-<h2 class="headline">Sign up</h2>
+<div class="input-list" style="max-width:350px;">
+  <h4 class="SSS">Sign up</h4>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  <div> <%= f.text_field :name, :placeholder => 'Name' ,:autofocus => true, class: "sign_in" %> </div>
-  <div> <%= f.text_field :number, :placeholder => 'Phone Number', class: "sign_in" %> </div>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
+    <%= f.text_field :name, :placeholder => 'Name' ,:autofocus => true %>
+    <%= f.text_field :number, :placeholder => 'Phone Number' %>
+    <%= f.email_field :email, :placeholder => 'Email Address' %>
 
-  <div>
-  <%= f.email_field :email, :placeholder => 'Email Address', class: "sign_in" %></div>
+    <%= f.password_field :password, :placeholder => 'Password' %>
+    <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation' %>
 
-  <div>
-  <%= f.password_field :password, :placeholder => 'Password', class: "sign_in" %></div>
+    <%= f.submit "Sign up", :class => "push-btn darkslategray mar-bottom" %>
+  <% end %>
 
-  <div>
-  <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation', class: "sign_in" %></div>
-
-  <div><%= f.submit "Sign up", :class => "push-btn darkslategray mar-bottom" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
