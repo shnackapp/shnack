@@ -1,6 +1,9 @@
-<div class="input-list" style="max-width:350px;">
-  <h4 class="SSS">Sign in</h4>
+<% content_for :page_title do%>
+Sign In
+<% end %>
 
+
+<div class="input-list center" style="max-width:350px;">
   <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <%= f.email_field :email, :autofocus => true, placeholder: 'Email Address' %>
     <%= f.password_field :password, placeholder: 'Password' %>

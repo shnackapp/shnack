@@ -1,25 +1,25 @@
 <%= form_tag "#", :id => "credit-card-form", :"data-form"=> locals[:form_id]   do %>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="new-card-form">
-        <%= text_field_tag :credit_card_number, nil, :class => "form-control", :placeholder => "Credit Card Number"  %> 
-        <div class="row"> 
-          <div class="col-xs-4">
+    <div class="new-card-form input-list">
+      <div class="row-new">
+        <%= text_field_tag :credit_card_number, nil, :class => "form-control", :placeholder => "Credit Card Number", class: "column twelve" %> 
+      </div>
+      <div class="row-new"> 
+        <div class="column four">
             <%= text_field_tag :expiration_month, nil,  :class => "form-control", :placeholder => "MM" %>
-          </div>
-          <div class="col-xs-4">
-            <%= text_field_tag :expiration_year, nil, :class => "form-control", :placeholder => "YY" %>
-          </div>
-          <div class="col-xs-4">
-            <%= text_field_tag :security_code, nil, :class => "form-control", :placeholder => "CVC" %>
-          </div>
+        </div>
+        <div class="column four">
+          <%= text_field_tag :expiration_year, nil, :class => "form-control", :placeholder => "YY" %>
+        </div>
+
+        <div class="column four">
+          <%= text_field_tag :security_code, nil, :class => "form-control", :placeholder => "CVC" %>
         </div>
       </div>
     </div>
-    <div class="col-sm-12">
-      <%= button_tag(type: 'submit', class: "push-btn darkslategray next-step mar-top", id: locals[:button_id]) do %>
+
+    <div class="twelve">
+      <%= button_tag(type: 'submit', class: "push-btn darkslategray mar-top", id: locals[:button_id]) do %>
         <%= locals[:button_text] %>
       <% end %>
-  </div>
-</div>
+    </div>
 <% end %>
