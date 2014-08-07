@@ -7,20 +7,15 @@ html, body, div, span, object, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, ab
   border: 0;
   vertical-align: baseline;
   background: transparent;
-  box-sizing: border-box;
-  font-family: Dosis, sans-serif;
+  font-family: Dosis, Tahoma, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 { font-weight: normal; line-height: 100%; }
 small { color: #666; }
 
 
-ol li { display: inline-block; } //why not
-p { font-size: 22px; }
 
- body {
-  // background-image: image-url('noise-bg-2.png');
-  // background-repeat: repeat;
-  //background-color:dimgray;
-} 
+ol li { display: inline-block; }
+
+p { font-size: 22px; }
 

@@ -92,7 +92,7 @@ $(document).ready(function() {
 	**/
 	$("#login-form").hide();
 
-$("#log-in").click(function(evt) {
+	$("#log-in").click(function(evt) {
 		$("#create-account-div").hide();
 		$("#login-form").show();
 		$("#log-in").addClass("blue");

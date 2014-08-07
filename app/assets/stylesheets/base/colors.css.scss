@@ -1,4 +1,4 @@
-@import  "vars";
+@import "vars";
 
 .red    { background-color: $red; }
 .cream  { background-color: papayawhip; }
@@ -9,6 +9,7 @@
 .blue   { background-color: $blue; }
 .brown  { background-color: $brown; }
 .green  { background-color: $green; }
+.darkslategray { background-color: darkslategray; }
 
 
 .red-text    { color: $red; }
@@ -20,8 +21,6 @@
 .blue-text   { color: $blue; }
 .brown-text  { color: $brown; }
 .green-text  { color: $green; }
-.darkslategray { background-color: darkslategray; }
-
 
 
 
@@ -37,9 +36,6 @@ button.brown:hover { background-color: lighten($brown, 10%); }
 a.green:hover { background-color: lighten($green, 10%); }
 button.green:hover { background-color: lighten($green, 10%); }
 
-a.darkslategray:hover { background-color: lighten(darkslategray, 10%); }
-button.darkslategray:hover { background-color: lighten(darkslategray, 10%); }
-
 
 
 a.red:active { background-color: lighten($red, 15%); }
@@ -53,58 +49,3 @@ button.brown:active { background-color: lighten($brown, 15%); }
 
 a.green:active { background-color: lighten($green, 15%); }
 button.green:active { background-color: lighten($green, 15%); }
-
-a.darkslategray:active { background-color: lighten(darkslategray, 15%); }
-button.darkslategray:active { background-color: lighten(darkslategray, 15%); }
-
-
-
-.wrapper {
-  background-color: transparent;
-  width: 100%;
-}
-
-.wrapper-white {
-  width: 100%;
-  background-color: $white;
-}
-
-.wrapper-cement {
-  width: 100%;
-  background-color: $cement;
-}
-
-.wrapper-black {
-  width: 100%;
-  background-color: $black;
-}
-
-.wrapper-red {
-  width: 100%;
-  background-color: $red;
-}
-
-.wrapper-darkslategray {
-  width: 100%;
-  background-color: darkslategray;
-}
-
-.wrapper-blue {
-  width: 100%;
-  background-color: $blue;
-}
-
-.wrapper-green {
-  width: 100%;
-  background-color: $green;
-}
-
-.wrapper-brown {
-  width: 100%;
-  background-color: $brown;
-}
-
-.wrapper-khaki {
-  width: 100%;
-  background-color: khaki;
-}

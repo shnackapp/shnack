@@ -1,40 +1,38 @@
-<div class="select-card-div well well-lg input-list">
-  <%= form_tag order_charges_path(@order), :id => "select-card-form" do %>
+      <div class="select-card-div well well-lg">
+        <%= form_tag order_charges_path(@order), :id => "select-card-form" do %>
 
-    <%= text_field(:user, :name, :class=> "form-control", :id => "order-name", :value => current_user.name ) %>
-    <%= telephone_field(:user, :number, :class => "form-control",:id => "order-phone-number", :value => current_user.number ) %>
-    E-mail Address: <%= current_user.email %> <br /> <br />
+        <%= text_field(:user, :name, :class=> "form-control", :id => "order-name", :value => current_user.name ) %>
+        <%= telephone_field(:user, :number, :class => "form-control",:id => "order-phone-number", :value => current_user.number ) %>
+        E-mail Address: <%= current_user.email %> <br /> <br />
 
-    <% if current_user.account_credit > 0 %>
-      <label> 
-        You have <%= @order.integer_to_currency current_user.account_credit %> in Shnack Credit! Would you like to use it?
-        <%= check_box_tag(:use_credit, '1', true) %>
-        <span class="charges-shnack-credit"></span>
-      </label>
-      <br />
-      <br />
-    <% end %>
+        <% if current_user.account_credit > 0 %>
+            
+            <%= check_box_tag(:use_credit, '1', true, :style => "float:left;") %> <label></label>  <label> You have <%= @order.integer_to_currency current_user.account_credit %> in Shnack Credit! Would you like to use it? </label>
+            <br />
+            <br />
+        <% end %>
+
         
-    <% if current_user.has_cards? %>
-      <% current_user.cards.each_with_index do |card, index| %>
-        <label>
-          <%= radio_button_tag(:user_card, index) %>
-          <%= card.last4 + " " + card.brand %>
-        </label>
-        <br />
-        <br />
-      <% end %>
-      
-      <label>
-        <%= radio_button_tag(:user_card, "new", false, :class => "charges", id: "new-card-button" ) %>
-        Add a new card
-      </label>
+        <% if current_user.has_cards? %>
+            <% current_user.cards.each_with_index do |card, index| %>
+            <div class="chopped box">
+                <%= radio_button_tag(:user_card, index) %> 
+                <label></label>
+                <label style="margin-left:5px;"><%= card.last4 + " " + card.brand %></label>
+            </div>
+            <br />
+            <br />
+            <% end %>
+            <div class ="chopped box">
+                <%= radio_button_tag(:user_card, "new", false, :class => "charges", id: "new-card-button" ) %>
+                <label class="charges" style="margin-left:5px;"> Add a new card </label>
+            </div>
 
-    <%end%>
-  <%end%>
+            <% end %>
+        <% end %>
 
-  <div>
-    <%= render 'credit_card_form', :locals => { :form_id => "select-card-form", :button_text => "Pay & Place Order", :button_id => "pay-logged-in-button" }%>
-  </div>
 
-</div>
+
+        <%= render 'credit_card_form', :locals => { :form_id => "select-card-form", :button_text => "Pay For Order", :button_id => "pay-logged-in-button" }%>
+
+      </div>

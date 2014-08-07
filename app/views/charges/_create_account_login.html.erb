@@ -1,11 +1,11 @@
 <!-- Rendered if the user is not logged in.-->
 
-<div class="row-new choose-account-option mar-bottom-sml">
+<div class="row-new choose-account-option">
    <button class="column six action-btn blue alpha" id="create-account">Create Account</button>
    <button class="column six action-btn beta" id="log-in">Log In</button>
 </div>
 
-<div class="row-new input-list" id="create-account-div">
+<div class="row-new" id="create-account-div">
 	<%= form_tag order_charges_path(@order), :id => "create-account-form" do %>
 
 		<%= text_field(:user, :name, :class=> "form-control", :id => "order-name", :placeholder => "Full Name" ) %>
@@ -13,10 +13,9 @@
 	    <%= text_field(:user, :email, :class =>"form-control", :id=> "order-email", :placeholder => "E-mail Address") %>
 	    <%= password_field(:user, :password, :class => "form-control", :id => "order-password", :placeholder => "Password") %>
     <% end %>
-    <br />
-	<%= render 'credit_card_form', :locals => { :form_id => "create-account-form", :button_text => "Create Account & Pay For Order", :button_id => "pay-button" } %>
+	<%= render 'credit_card_form', :locals => { :form_id => "create-account-form", :button_text => "Create Account & Pay For Order", :button_id => "pay-button", :button_class => "push-btn green"} %>
 
-
+	   
 </div>
 
 
@@ -24,8 +23,10 @@
 	<div class="row-new">
 		<%= text_field(:login, :email, :class=>"form-control", :id => "email", :placeholder => "E-mail Address") %>
 		<%= password_field(:login, :password, :class=>"form-control", :id => "password", :placeholder => "Password") %>
-		<%= button_tag(type: 'submit', class: "push-btn darkslategray mar-top") do %>
+		<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
 			Log In 
 		<% end %>
 	</div>
 <% end %>
+
+
