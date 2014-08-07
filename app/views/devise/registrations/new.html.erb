@@ -1,21 +1,28 @@
-<h2 class="headline">Sign up</h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  <div> <%= f.text_field :name, :placeholder => 'Name' ,:autofocus => true %> </div>
-  <div> <%= f.text_field :number, :placeholder => 'Phone Number' %> </div>
-
-
-  <div>
-  <%= f.email_field :email, :placeholder => 'Email Address' %></div>
-
-  <div>
-  <%= f.password_field :password, :placeholder => 'Password' %></div>
-
-  <div>
-  <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation' %></div>
-
-  <div><%= f.submit "Sign up", :class => "buttn" %></div>
+<% content_for :page_title do%>
+Sign Up
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+
+<div class="input-list center" style="max-width:350px;">
+
+  <div class="sign-up-page-deal">
+    <h4 class="SSS bold">Limited time offer</h4>
+    <p>Sign up today and get $5 in Shnack Credit</p>
+  </div>
+
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <%= f.text_field :name, :placeholder => 'Name' ,:autofocus => true %>
+    <%= f.text_field :number, :placeholder => 'Phone Number' %>
+    <%= f.email_field :email, :placeholder => 'Email Address' %>
+
+    <%= f.password_field :password, :placeholder => 'Password' %>
+    <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation' %>
+
+    <%= f.submit "Sign up", :class => "push-btn darkslategray mar-bottom" %>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

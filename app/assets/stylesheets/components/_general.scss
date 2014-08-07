@@ -1,5 +1,30 @@
-@import "base/mixins";
+@import "base/mixins", "base/vars";
 
+.sign-up-page-deal {
+  h4 {
+    background-color: $green;
+    color: $white;
+    padding: 5px;
+    margin-bottom: 0 !important;
+  }
+  p {
+    border-left: 2px dotted $green;
+    border-right: 2px dotted $green;
+    border-bottom: 2px dotted $green;
+  }
+
+  display: block;
+  position: absolute;
+  left: -210px;
+  top: 50px;
+  font-size: .8em;
+  width: 150px;
+  text-align: center;
+
+  @media (max-width: 780px) {
+    display: none;
+  }
+}
 
 .easy-123 {
   .column-mobile {
@@ -35,6 +60,9 @@
   }
 }
 
+.i-easy-123 {
+  font-size: 102px;
+}
 
 #order-form {
   margin: 0px auto;
@@ -53,27 +81,27 @@
 }
 
 .panel-title {
-  font-weight:700;
-  color: white;
+  font-weight: 800;
+  color: $white;
   cursor: pointer;
-  background-color: #A10;
+  //background-color: #A10;
 
   &:before {
-    content: '\00a0        \00a0';
-    background-image: image-url('expand.png');
-    background-repeat:no-repeat;
+    margin-right: 5px;
+    font-family: 'FontAwesome';
+    font-weight: normal;
+    content: '\f0da';
   }
 
   &.expanded:before {
-    content: '\00a0   \00a0  \00a0';
-    background-image: image-url('minimize.png');
-    background-repeat:no-repeat;
-    background-position: center;
+    font-family: 'FontAwesome';
+    font-weight: normal;
+    content: '\f0d7';
   }
 }
 
 .panel-default > .panel-heading {
-  background-color: #A10;
+  background-color: $red;
   cursor: pointer;
   border-radius: 0px;
 }
@@ -94,7 +122,7 @@ footer.fb {
   p {
     font-size: 1.6em;
     font-weight: 500;
-    font-color: #2A2A2A;
+    color: $black;
   }
   a.place-order {
     color: #a10;
