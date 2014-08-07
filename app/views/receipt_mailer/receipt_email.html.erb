@@ -53,14 +53,14 @@
 					<td> <%= Order.integer_to_currency(@order.total) %> </td>
 				</tr>
 			<% else %>		
-				<% else %>
+				
 					<tr>
 						<td>Total</td>
 						<td></td>
 						<td></td>
 						<td> <%= Order.integer_to_currency(@order.total) %> </td>
 					</tr>
-				<% end %>
+				
 			<% end %> 	
 		</tfoot>
 	</table>
