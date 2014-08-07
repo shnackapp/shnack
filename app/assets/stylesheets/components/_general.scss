@@ -55,27 +55,27 @@
 }
 
 .panel-title {
-  font-weight:700;
-  color: white;
+  font-weight:500;
+  color: #333;
   cursor: pointer;
-  background-color: #A10;
+  //background-color: #A10;
 
   &:before {
-    content: '\00a0        \00a0';
-    background-image: image-url('expand.png');
-    background-repeat:no-repeat;
+    margin-right: 5px;
+    font-family: 'FontAwesome';
+    font-weight: normal;
+    content: '\f0da';
   }
 
   &.expanded:before {
-    content: '\00a0   \00a0  \00a0';
-    background-image: image-url('minimize.png');
-    background-repeat:no-repeat;
-    background-position: center;
+    font-family: 'FontAwesome';
+    font-weight: normal;
+    content: '\f0d7';
   }
 }
 
 .panel-default > .panel-heading {
-  background-color: #A10;
+  background-color: khaki;
   cursor: pointer;
   border-radius: 0px;
 }
