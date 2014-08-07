@@ -30,16 +30,15 @@
 
 <body>
 
-	<div class="website-wrapper" id="top">
+	<div class="wrapper" id="top">
 		<div id="topbar" class="row-new topbar clear-fix">
 			<a href="/"><h3 class="column two">Shnack</h3></a>
 
 
-				<div class="prgs-bar column-mobile eight">
-					<div class="title_current_step">
+			<div class="prgs-bar column-mobile eight">
+				<div class="title_current_step">
 					<%= yield :page_title %>
-					</div>
-
+				</div>
 			</div>
 
 
@@ -83,12 +82,16 @@
 		<div id="order-form" class="the-menu">
 			<%= yield %>
 		</div>
+		</div>
 
 		<section class="wrapper-khaki text-center pad">
 			<div class="my-container-half">
 				<h4 class="SSS bold">Limited time offer</h4>
 				<p class="pad-bottom">Sign up today and get $5 in Shnack Credit</p>
-				<a href='/users/sign_up' class="push-btn brown">Sign me up</a>
+
+				<% unless current_page?('/users/sign_up') %>
+					<a href='/users/sign_up' class="push-btn brown">Sign me up</a>
+				<% end %>
 			</div>
 		</section>
 
