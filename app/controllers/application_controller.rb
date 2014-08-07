@@ -9,9 +9,7 @@ class ApplicationController < ActionController::Base
    end
 
   def setup
-  	unless params[:stadium_id].nil?
-  		@stadium = Stadium.find(params[:stadium_id])
-  	end
+
   end
 
   def select_stadium
