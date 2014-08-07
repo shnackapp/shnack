@@ -72,6 +72,19 @@ $(document).ready(function() {
 	})
 
 
+	$("#use_credit").click( function(evt) {
+		if($(this).is(':checked')) {
+			$("#shnack-credit").show();
+			$("#order-total").html($("#order-total").data('creditprice'));
+		}
+		else {
+			$("#shnack-credit").hide();
+			$("#order-total").html($("#order-total").data('fullprice'));
+		}
+
+	})
+
+
 	/** 
 		The following set of functions are for when the user isn't signed in and can either
 		log in or create an account
