@@ -5,7 +5,7 @@
     <%= telephone_field(:user, :number, :class => "form-control",:id => "order-phone-number", :value => current_user.number ) %>
     E-mail Address: <%= current_user.email %> <br /> <br />
 
-    <% if current_user.account_credit >= 0 %>
+    <% if current_user.account_credit > 0 %>
       <label> 
         You have <%= @order.integer_to_currency current_user.account_credit %> in Shnack Credit! Would you like to use it?
         <%= check_box_tag(:use_credit, '1', true) %>
@@ -33,7 +33,7 @@
     <%end%>
   <%end%>
 
-  <div style="display:block;">
+  <div class="wrapper" style="display:block;">
     <%= render 'credit_card_form', :locals => { :form_id => "select-card-form", :button_text => "Pay & Place Order", :button_id => "pay-logged-in-button" }%>
   </div>
 
