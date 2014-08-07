@@ -86,6 +86,7 @@ class ChargesController < ApplicationController
 
 			current_user.update_attribute(:account_credit, new_credit)
 
+			@order.paid = true if @order.total == 0
 			@order.save
 			@amount = @order.total
 
