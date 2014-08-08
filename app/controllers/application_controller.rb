@@ -75,7 +75,7 @@ class ApplicationController < ActionController::Base
         @current_user_id = nil
       end
       
-      Event.create(:user_id => @current_user_id, :event_type => "#{params[:controller]}_#{params[:action]}", :identity => @identity)
+      Event.create(:user_id => @current_user_id, :event_type => "#{params[:controller]}_#{params[:action]}", :identity => @identity) unless params[:controller] == "api" || params[:controller] == "super"
 
     end
 
