@@ -21,8 +21,12 @@ class SuperController < ApplicationController
   		@orders_credit = Order.paid.where(:credit_was_used => true)
   		@users = User.all
 
-  		@users_with_orders = User.where('orders_count > 0')
-  		@users_with_mult_orders = User.where('orders_count > 1')
+  		@users_with_orders = 0
+      @users_with_mult_orders = 0
+      User.all.each do |user|  
+        @users_with_orders = @users_with_orders+1 if user.orders.paid.count > 0
+        @users_with_mult_orders = @users_with_mult_orders + 1 if user.orders.paid.count > 1
+      end
   		@percent_ordered = @users_with_orders.count.to_f / @users.count.to_f * 100
       @percent_repeat = @users_with_mult_orders.count.to_f / @users.count.to_f * 100
 
