@@ -39,7 +39,7 @@
 /* because the topbar always takes space fixed
   on top, removed from the regular flow */
 .topbar + div {
-  padding-top: 60px;
+  margin-top: 60px;
 }
 
 

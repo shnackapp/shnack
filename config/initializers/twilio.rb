@@ -6,3 +6,4 @@ Rails.configuration.twilio =  {
 	:from => TWILIO_CONFIG['from'],
 	:token => TWILIO_CONFIG['token']
 }
+

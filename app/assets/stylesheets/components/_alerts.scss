@@ -1,27 +1,30 @@
 
-.notice {
-  text-align: center;
-  font-family: Dosis, Geneva, sans-serif;
-  font-size: 1.6em;
-  padding: 15px 0px;
-  color: green;
-  font-weight: bold;
-  margin-top: 10px;
-  background: rgba(140,250,0,.3);
+.flash {
+  margin: 0px auto;
+  min-width: 320px;
+  max-width: 660px;
+
+  div {
+    margin: 60px auto 15px auto;
+    width: 80%;
+    text-align: center;
+    font-family: Dosis, Geneva, sans-serif;
+    font-size: 1em;
+    padding: 5px 0px;
+    font-weight: bold;
+
+    &.f-error {
+      color: #780000;
+      background: #F5E6E6;
+
+    }
+
+    &.notice {
+     color: green;
+      background: rgba(140,250,0,.3);
+    }
+  }
 }
-
-.flash-error {
-  text-align: center;
-  font-family: Dosis,  Geneva, sans-serif;
-  font-size: 1.6em;
-  padding: 15px 0px;
-  color: #780000;
-  font-weight: bold;
-  margin-top: 10px;
-  background: #F5E6E6;
-
-}
-
 
 .error {
   margin-top:10px;
