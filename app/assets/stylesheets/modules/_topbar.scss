@@ -15,6 +15,13 @@
   display: block;
   @include box-shadow(0, 0, 6px, $black);
 
+  .topbar-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+
   a {
     color: $white;
 
