@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
       unless cookies[:user_identity]
         @identity = generate_identifier
         cookies[:user_identity] = {
-          :value => identity, :expires => 5.years.from_now
+          :value => @identity, :expires => 5.years.from_now
         }
       else
         @identity = cookies[:km_identity]
