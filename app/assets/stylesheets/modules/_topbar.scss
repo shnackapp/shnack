@@ -11,9 +11,9 @@
   margin-right: auto;
   padding: 0px 30px;
   color: $white;
-  background: $red;
-  display: block;
-  @include box-shadow(0, 0, 6px, $black);
+  background: darkred;
+  border-bottom: 1px solid #333333;
+  /*@include box-shadow(0, 0, 3px, #dddddd);*/
 
   .topbar-container {
     max-width: 900px;
@@ -35,6 +35,8 @@
   }
 
 }
+
+
 /* because the topbar always takes space fixed
   on top, removed from the regular flow */
 .topbar + div {
