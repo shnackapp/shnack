@@ -33,7 +33,7 @@ class Order < ActiveRecord::Base
   friendly_id :slug_id, use: :slugged
   belongs_to :vendor
   belongs_to :restaurant
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
   belongs_to :user_info
   belongs_to :transfer
   has_many :order_states

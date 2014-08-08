@@ -3,7 +3,7 @@ class SuperController < ApplicationController
   before_filter :check_for_super
 
   def check_for_super 
-	unless current_user.is_super?
+	unless user_signed_in? && current_user.is_super?
 		flash[:error] = "You are not authorized to view this page"
 		redirect_to root_path
  	end
@@ -18,8 +18,20 @@ class SuperController < ApplicationController
   		@devices = Device.all
   		@apikeys = ApiKey.all
   		@orders = Order.paid.where('shnack_cut != ?', 0).all
-  		@non_user_orders = Order.paid.where(:user_id => nil)
+  		@orders_credit = Order.paid.where(:credit_was_used => true)
   		@users = User.all
+
+  		@users_with_orders = 0
+      @users_with_mult_orders = 0
+      User.all.each do |user|  
+        @users_with_orders = @users_with_orders+1 if user.orders.paid.count > 0
+        @users_with_mult_orders = @users_with_mult_orders + 1 if user.orders.paid.count > 1
+      end
+  		@percent_ordered = @users_with_orders.count.to_f / @users.count.to_f * 100
+      @percent_repeat = @users_with_mult_orders.count.to_f / @users.count.to_f * 100
+
+  		@amount_spent_in_credit = 0
+  		@orders_credit.each { |order| @amount_spent_in_credit += order.credit_used }
 
   		@total = 0
   		@shnack_total = 0
@@ -28,6 +40,8 @@ class SuperController < ApplicationController
   			@total = @total + order.total
   			@shnack_total = @shnack_total + order.shnack_cut
   		end
+
+  		@user_sign_up_rate = Event.where(:event_type => "devise/registrations_create").count.to_f/Event.where(:event_type => "devise/registrations_new").count.to_f * 100
 
 	end
 

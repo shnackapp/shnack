@@ -20,6 +20,7 @@
 #  customer_id            :string(255)
 #  name                   :string(255)
 #  account_credit         :integer          default(0)
+#  orders_count           :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -38,6 +39,8 @@ class User < ActiveRecord::Base
 
 	before_create :create_authentication_token
 	after_create :create_role
+
+	has_many :orders
 
 	def create_role
 		#defaults to customer

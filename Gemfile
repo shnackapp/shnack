@@ -37,7 +37,6 @@ gem 'jquery-rails'
 gem 'shortener' #unused for now. Should be used later for the sake of shortening urls.
 
 
-
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', :platforms => :ruby
 
