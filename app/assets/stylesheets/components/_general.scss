@@ -1,5 +1,35 @@
 @import "base/mixins";
 
+footer {
+  width:100%;
+  height:3em;
+  padding:1em;
+  background-color:#4C4951;
+  color:white;
+  text-align:center;
+  position:fixed;
+  bottom: 0;
+  left: 0;
+
+  & > .container {
+    max-width:900px;
+  }
+
+  a.place-order {
+    color:white;
+  }
+  a.learn-more {
+    position:fixed;
+    right:10px;
+    color:white;
+  }
+
+  @media(max-width:520px) {
+      a.learn-more {
+        display:none;
+      }
+  }
+}
 
 .easy-123 {
   .column-mobile {
@@ -7,9 +37,10 @@
     padding: 10px;
     color: #111;
 
-    p, h2 { color: white; }
+    p, h2, h3, span { color: #383838  ; }
   }
 }
+/* //#4C4951*/
 
 .i-location {
   font-family: 'FontAwesome';
@@ -87,49 +118,3 @@ table.table {
 
 }
 
-footer.fb {
-  margin: 40px auto 80px auto;
-  text-align: center;
-
-  p {
-    font-size: 1.6em;
-    font-weight: 500;
-    font-color: #2A2A2A;
-  }
-  a.place-order {
-    color: #a10;
-    margin-bottom: 40px;
-    text-decoration: none;
-    display: block;
-    &:hover {
-      color: slategray;
-    }
-  } 
-}
-
-footer.tell-me-more {
-  margin: 20px auto;
-  text-align: center;
-  display:none;
-  a {
-    @include box-shadow(0, -3px, 0, #333);
-    padding: 10px 25px 10px 25px;
-    text-decoration: none;
-    border-radius: 4px;
-    position: relative;
-    top: 0;
-    background-color: #777;
-    color: white;
-
-    &:hover {
-      background-color: #666;
-      color: white;
-    }
-
-    &:active {
-      top: -2px;
-      @include box-shadow(0, -1px, 0, #222);
-      background-color: #555;
-    }
-  }
-}
