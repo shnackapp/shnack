@@ -42,8 +42,6 @@ class ApiController < ApplicationController
 	    end
 	end
 
-
-
 	# HTTP Request for when the device turns on and sends in it's device token
 	def send_device_token
 		@device = Device.where(:token =>params[:device_token])
@@ -110,7 +108,9 @@ class ApiController < ApplicationController
 			@device = Device.where(:token => params[:device_token]).first_or_create
 			@device.update_owner @owner
 			@device.save
-			render :json => @device
+
+			render :json => { :vendor_name => @device.owner.name, :vendor_id => @device.owner.id, :initial_state => @device.owner.initial_state, :is_open => @device.owner.open }
+		
 		end
 	end
 
