@@ -35,7 +35,6 @@ gem 'friendly_id', '~>  4.0.10'
 gem 'uglifier', '>= 1.0.3'
 gem 'jquery-rails'
 gem 'shortener' #unused for now. Should be used later for the sake of shortening urls.
-gem 'kmts', '~> 2.0.0'
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
