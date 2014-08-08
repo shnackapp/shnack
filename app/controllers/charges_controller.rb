@@ -134,7 +134,7 @@ class ChargesController < ApplicationController
 		  		)
 			  	@order.update_attributes(:charge_id => charge.id, :paid => true, :user_id => current_user.id)
 			else
-				@order.update_attribute(:paid => true, :user_id => current_user.id)
+				@order.update_attributes(:paid => true, :user_id => current_user.id)
 			end
 		end
 		
