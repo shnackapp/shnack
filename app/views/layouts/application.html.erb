@@ -32,6 +32,7 @@
 
 	<div class="website-wrapper" id="top">
 		<div id="topbar" class="row-new topbar clear-fix">
+			<div class="topbar-container">
 			<a href="/"><h3 class="column two">Shnack</h3></a>
 
 
@@ -64,20 +65,21 @@
 					</li>
 				</ul>
 			<%else%>
-				<div class="user-settings my-gear">
+				<div class="user-settings links">
 					<%= link_to('Login', new_user_session_path, :class => 'user')  %> 
 					<%= link_to('Sign Up', new_user_registration_path, :class => 'user')  %>  
 				</div> 
 			<%end%>
-
+		</div>
 		</div> <!--ENDS TOPBAR-->
-
-		<% if flash[:notice] %>
-			<div class="notice"><%= flash[:notice] %></div>
-		<% end %>
-		<% if flash[:error] %>
-			<div class="flash-error"> <%= flash[:error] %> </div>
-		<% end %>
+		<div class="flash"> 
+			<% if flash[:notice] %>
+				<div class="notice"><%= flash[:notice] %></div>
+			<% end %>
+			<% if flash[:error] %>
+				<div class="f-error"> <%= flash[:error] %> </div>
+			<% end %>
+		</div>
 			
 
 		<div id="order-form" class="the-menu">
@@ -102,20 +104,30 @@
 				
 	</div>
 
-	<section class="wrapper-darkslategray">
+
+	<section class="wrapper" style=" background-color: darkseagreen; padding: 10px; color:white;">
+			<div class="row-new" >
+			<div class="column-mobile twelve" style="text-align:center;">
+				<h3>How It Works</h3>
+			</div>
+		</div>
+	</section>
+	<section class="wrapper" >
+	
 		<div class="row-new pad-y-sml easy-123">
+			
 			<div class="column-mobile four">
-				<h1>Select your location</h1>
+				<h2>1. Select your location</h2>
 				<span class="i-location"></span>
 				<p>Order food from your current spot on your phone or laptop</p>
 			</div>
 			<div class="column-mobile four">
-				<h1>Order & Pay</h1>
+				<h2>2. Order & Pay</h2>
 				<span class="i-pay"></span>
 				<p>Pay in app and be noitified via text when your food is ready</p>
 			</div>
 			<div class="column-mobile four">
-				<h1>Relax until Pick Up</h1>
+				<h2>3. Relax until Pick Up</h2>
 				<span class="i-pickup"></span>
 				<p>Sit back, skip the line, & pickup your food</p>
 			</div>
@@ -142,20 +154,15 @@
 		</div>
 	</div>
  -->
-	<footer class="tell-me-more">
-		<%= link_to('This is all about the Shnack', { :controller => "/application", :action => "howdy"}) %>
+	<footer>
+			<div class="container">
+					
+				<a href="/howdy" class="learn-more"> Want to become a part of the Shnack Community? Learn More </a>
+					<a href="#top" class="place-order">Return to top</a>
+
+
+			</div>
 	</footer>
-
-	<footer class="fb">
-
-	  <a href="/howdy" class="place-order pad-top pad-lrg-bottom" style="font-size:18px;">Want to start using Shnack?<br>Get in contact</a>
-
-    <a href="#top" class="place-order">Return to top  |  Place an order</a>
-    <p>Follow us on Facebook.</p>
-    <p>You might see us at a game.</p>
-    </br>
-  	<div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="100" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-  </footer>
 
 	</body>
 </html>

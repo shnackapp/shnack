@@ -4,33 +4,42 @@
   position: fixed;
   z-index: index($elements, topbar);
   left: 0;
-  right: 0;
   top:0;
-  max-width: 880px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 100%;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   padding: 0px 30px;
   color: $white;
-  background: $red;
-  display: block;
-  @include box-shadow(0, 0, 6px, $black);
+  background: darkred;
+  border-bottom: 1px solid #333333;
+  /*@include box-shadow(0, 0, 3px, #dddddd);*/
+
+  .topbar-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
 
   a {
-    color: $white;
+    color:white;
 
     h3 {
       font-size: 2.5em;
       width: 25%;   //NOTE
     }
     &:visited {
-      color: $white;
+      color: white;
     }
   }
 }
+
+
+
 /* because the topbar always takes space fixed
   on top, removed from the regular flow */
 .topbar + div {
-  padding-top: 60px;
+  margin-top: 60px;
 }
 
 
@@ -56,10 +65,16 @@ padding-top: 5px;
   }
 
 
+.links {
+  position: absolute;
+  right: 0px;
+  top: 9px;
+}
+
 .my-gear {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 0px;
+  top: 2px;
 }
 
 

@@ -2,25 +2,27 @@
 #
 # Table name: orders
 #
-#  id            :integer          not null, primary key
-#  user_id       :integer
-#  charge_id     :string(255)
-#  subtotal      :integer
-#  vendor_id     :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  details       :string(255)
-#  paid          :boolean          default(FALSE)
-#  restaurant_id :integer
-#  total         :integer
-#  slug          :string(255)
-#  slug_id       :string(255)
-#  order_number  :integer
-#  user_info_id  :integer
-#  shnack_cut    :integer          default(0)
-#  location_cut  :integer
-#  withdrawn     :boolean          default(FALSE)
-#  transfer_id   :integer
+#  id              :integer          not null, primary key
+#  user_id         :integer
+#  charge_id       :string(255)
+#  subtotal        :integer
+#  vendor_id       :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  details         :string(255)
+#  paid            :boolean          default(FALSE)
+#  restaurant_id   :integer
+#  total           :integer
+#  slug            :string(255)
+#  slug_id         :string(255)
+#  order_number    :integer
+#  user_info_id    :integer
+#  shnack_cut      :integer          default(0)
+#  location_cut    :integer
+#  withdrawn       :boolean          default(FALSE)
+#  transfer_id     :integer
+#  credit_was_used :boolean          default(FALSE)
+#  credit_used     :integer          default(0)
 #
 
 class Order < ActiveRecord::Base
@@ -31,7 +33,7 @@ class Order < ActiveRecord::Base
   friendly_id :slug_id, use: :slugged
   belongs_to :vendor
   belongs_to :restaurant
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
   belongs_to :user_info
   belongs_to :transfer
   has_many :order_states
@@ -83,12 +85,12 @@ class Order < ActiveRecord::Base
   	o.nil? ? self.order_states.create(:state => self.owner.initial_state) : o
   end
 
-  #returns time in seconds
+  #returns time in minutes
   def time_between_states(state_1, state_2)
     s1 = self.order_states.where(:state => state_1).first
     s2 = self.order_states.where(:state => state_2).first
 
-    s2.created_at - s1.created_at
+    (s2.created_at - s1.created_at)/60
   end
 
   def update_state

@@ -20,6 +20,7 @@
 #  customer_id            :string(255)
 #  name                   :string(255)
 #  account_credit         :integer          default(0)
+#  orders_count           :integer          default(0)
 #
 
 require 'test_helper'
