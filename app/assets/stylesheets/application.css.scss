@@ -124,12 +124,16 @@ tbody.all_the_mods tr {
 
 div.list-group.select .list-group-item  {
   border-radius: 0px;
-  background-color: $red;
+  background-color: white;
+  border-color: #ddd;
   
-  color: white;
+  color: $red;
   font-weight:900;
 
   &:hover {
-    background-color: black;
+    background-color: lighten(darkseagreen, 30);
+    /*background-color: #F8F8F8;*/
+    border-color: green;
+    z-index:1;
   }
 }
