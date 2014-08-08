@@ -53,11 +53,11 @@
 		</tr>
 		<tr>
 			<td>Percentage of Users who have placed at least one order </td> 
-			<td><%= @percent_ordered %>% </td>
+			<td><%= @percent_ordered.round(2) %>% </td>
 		</tr>
 		<tr>
 			<td>Percentage of Users who have placed multiple orders</td> 
-			<td><%= @percent_repeat %>% </td>
+			<td><%= @percent_repeat.round(2) %>% </td>
 		</tr>
 		<tr>
 			<td>Conversion Rate:</td>
