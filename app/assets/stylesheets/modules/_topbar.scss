@@ -22,14 +22,14 @@
   }
 
   a {
-    color: $white;
+    color:white;
 
     h3 {
       font-size: 2.5em;
       width: 25%;   //NOTE
     }
     &:visited {
-      color: $white;
+      color: white;
     }
   }
 }
