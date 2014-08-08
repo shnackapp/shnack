@@ -1,6 +1,11 @@
 <h1> Edit <%= @user.email %> </h1>
 
 <%= form_for(@user, :url => { :action => "update" } ) do |f| %>
+  <div class="field"> 
+    <%= f.label :number, "Phone Number" %>
+    <%= f.telephone_field :number %>
+
+  </div> 
   <div class="field">
     <%= f.label :password, "Password" %><br />
     <%= f.password_field :password, :autocomplete => "off"  %>
