@@ -86,7 +86,8 @@ class ChargesController < ApplicationController
 
 			current_user.update_attribute(:account_credit, new_credit)
 
-			@order.paid = true if @order.total == 0
+
+
 			@order.save
 			@amount = @order.total
 
@@ -94,9 +95,8 @@ class ChargesController < ApplicationController
 
 
 	  	# If they selected an already created card
-	  	if @amount > 0
-	  	  	if(params[:stripeCardIndex])
-
+  	  	if(params[:stripeCardIndex])
+  	  		if @amount > 0
 		  	  	customer = Stripe::Customer.retrieve(current_user.customer_id)
 		  	  	charge = Stripe::Charge.create(
 		  	  		:customer => customer.id,
@@ -106,32 +106,38 @@ class ChargesController < ApplicationController
 		  	  		:currency => 'usd'
 		  	  		)
 		  	  	@order.update_attributes(:charge_id => charge.id, :paid => true, :user_id => current_user.id)
-	  	  	else # if they are creating a new card
-	  	  		user = current_user
-	  	  		if user.customer_id.nil? #if they have no past credit cards.
-	  	  			customer = Stripe::Customer.create(
-			    		:email => current_user.email,
-			    		:card  => params[:stripeToken]
-			  		)
+		  	  else
+		  	  	@order.update_attribute(:paid => true, :user_id => current_user.id)
+		  	  end
+  	  	else # if they are creating a new card
+  	  		user = current_user
+  	  		if user.customer_id.nil? #if they have no past credit cards.
+  	  			customer = Stripe::Customer.create(
+		    		:email => current_user.email,
+		    		:card  => params[:stripeToken]
+		  		)
 
-			  		card = customer.cards.data.last
-			  		current_user.update_attribute(:customer_id, customer.id)
-			  	else #If they already have past credit cards, add it to their customer.
-			  		customer = Stripe::Customer.retrieve(user.customer_id)
-			  		card = customer.cards.create(:card => params[:stripeToken])
-			  	end
+		  		card = customer.cards.data.last
+		  		current_user.update_attribute(:customer_id, customer.id)
+		  	else #If they already have past credit cards, add it to their customer.
+		  		customer = Stripe::Customer.retrieve(user.customer_id)
+		  		card = customer.cards.create(:card => params[:stripeToken])
+		  	end
 
-			  	charge = Stripe::Charge.create(
+		  	if @amount > 0
+		  		charge = Stripe::Charge.create(
 			    	:customer    => customer.id,
 			    	:card => card.id,
 			    	:amount      => @amount,
 			    	:description => "Shnack Order ##{@order.order_number}",
 			    	:currency    => 'usd'
-			  	)
-
+		  		)
 			  	@order.update_attributes(:charge_id => charge.id, :paid => true, :user_id => current_user.id)
+			else
+				@order.update_attributes(:paid => true, :user_id => current_user.id)
 			end
 		end
+		
 
 
 
