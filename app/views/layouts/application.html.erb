@@ -32,6 +32,7 @@
 
 	<div class="website-wrapper" id="top">
 		<div id="topbar" class="row-new topbar clear-fix">
+			<div class="topbar-container">
 			<a href="/"><h3 class="column two">Shnack</h3></a>
 
 
@@ -69,7 +70,7 @@
 					<%= link_to('Sign Up', new_user_registration_path, :class => 'user')  %>  
 				</div> 
 			<%end%>
-
+		</div>
 		</div> <!--ENDS TOPBAR-->
 
 		<% if flash[:notice] %>
@@ -105,17 +106,17 @@
 	<section class="wrapper-darkslategray">
 		<div class="row-new pad-y-sml easy-123">
 			<div class="column-mobile four">
-				<h1>Select your location</h1>
+				<h2>1. Select your location</h2>
 				<span class="i-location"></span>
 				<p>Order food from your current spot on your phone or laptop</p>
 			</div>
 			<div class="column-mobile four">
-				<h1>Order & Pay</h1>
+				<h2>2. Order & Pay</h2>
 				<span class="i-pay"></span>
 				<p>Pay in app and be noitified via text when your food is ready</p>
 			</div>
 			<div class="column-mobile four">
-				<h1>Relax until Pick Up</h1>
+				<h2>3. Relax until Pick Up</h2>
 				<span class="i-pickup"></span>
 				<p>Sit back, skip the line, & pickup your food</p>
 			</div>
