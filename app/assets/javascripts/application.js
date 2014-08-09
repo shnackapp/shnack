@@ -74,6 +74,8 @@ $(document).ready(function() {
     {
         $('footer').data('size','show');
     }
+
+    $("#user_number").mask("(000) 000-0000")
 });
 
 window.fbAsyncInit = function() {
