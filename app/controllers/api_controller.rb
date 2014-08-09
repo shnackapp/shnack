@@ -5,6 +5,7 @@ class ApiController < ApplicationController
 	before_filter :restrict_access
 	respond_to :json
 
+	### Create with User with Customer id from Stripe ###
 	def create
     @user = User.create(:name => params[:name],:email => params[:email],:number => params[:phone],:password => params[:password],:customer_id =>params[:customer_id])
 
@@ -23,12 +24,13 @@ class ApiController < ApplicationController
     #     format.json { render json: @user.errors, status: :unprocessable_entity }
     #   end
     # end
+    
   end
 
 	def index
 		respond_with User.all
 	end
-
+	### Customer ###
 	def get_locations
 		respond_with Location.all.map { |loc| {:id => loc.id, :name => loc.name, :has_children => loc.has_children} }
 	end
@@ -42,6 +44,7 @@ class ApiController < ApplicationController
 	    end
 	end
 
+	### Vendor ###
 	# HTTP Request for when the device turns on and sends in it's device token
 	def send_device_token
 		@device = Device.where(:token =>params[:device_token])
@@ -54,6 +57,7 @@ class ApiController < ApplicationController
 		end
 	end
 
+	### Vendor ###
 	def get_open_orders
 		@device = Device.where(:token =>params[:device_token]).first
 		@owner = @device.owner
@@ -63,7 +67,7 @@ class ApiController < ApplicationController
 		respond_with @result, :location => nil
 	end
 
-
+	### Vendor ###
 	def get_past_orders
 		@device = Device.where(:token => params[:device_token]).first
 		@owner = @device.owner
@@ -74,13 +78,13 @@ class ApiController < ApplicationController
 		respond_with @result, :location => nil
 	end
 
-
+	### Vendor/Customer ###
 	def get_menu_for_vendor
 	@vendor = Vendor.find(params[:object_id])
     respond_with @vendor.menu.items
 	end
 
-
+	### Vendor/Customer ###
 	def get_menu_for_vendor
 		unless params[:device_token].nil?
 			@device = Device.where(:token => params[:device_token]).first
@@ -97,6 +101,7 @@ class ApiController < ApplicationController
 		respond_with @categories.map { |cat| {:name => cat.name, :items => cat.items} }, :location => nil
 	end
 
+	### Vendor ###
 	# Register a device token with a vendor
 	def register_device_token_for_vendor
 		@owner = Vendor.where(:registration_code => params[:registration_code]).first
@@ -114,6 +119,7 @@ class ApiController < ApplicationController
 		end
 	end
 
+	### Vendor ###
 	# Unregister a device token with a vendor
 	def unregister_device
 		@device = Device.where(:token => params[:device_token]).first
@@ -124,7 +130,7 @@ class ApiController < ApplicationController
 		respond_with @device, :location => nil
 	end
 
-
+	### Vendor ###
 	def update_order_state
 		@order = Order.find(params[:order_id])
 		render :json => { :error => "Order not found in table" } if @order.nil?
@@ -138,6 +144,8 @@ class ApiController < ApplicationController
 
 	# Post request to log a user in.
 	# If the user is successfully logged in, it sends back the users authentication token
+
+	### Vendor & Customer ###
 	def login
 		@user = User.where(:email => params[:email]).first
 		@response = Hash.new
@@ -155,6 +163,7 @@ class ApiController < ApplicationController
 		respond_with(@response, :location => nil)
 	end
 
+	  ### Vendor ###
 	def toggle_item_sold_out
 		@item = Item.find(params[:item_id])
 		if @item.nil?
@@ -165,6 +174,7 @@ class ApiController < ApplicationController
 		end
 	end
 
+	  ### Vendor ###
 	def toggle_store_open
 		@device = Device.where(:token =>params[:device_token]).first
 		@loc = @device.owner
@@ -174,68 +184,61 @@ class ApiController < ApplicationController
 
 
 
-
+	  ### Vendor ###
 	def vendors_by_user_token
 		@user = User.where(:authentication_token => params[:auth_token]).first
 		if @user.is_super
 			@vendors = Vendor.all
 		else
 			@vendors = Vendor.where(:roles => {:id => @user.role.id})
-
 		end
 		render :json => @vendors
 	end
 
-	
-
+	### Customer ###
 	def customer
 		# Set your secret key: remember to change this to your live secret key in production
 		# See your keys here https://dashboard.stripe.com/account
 		Stripe.api_key = 'sk_test_xDJ5KS0I8VgJvHSQT1Iuxy56'
 		# Get the credit card details submitted by the form
 		@response = Hash.new
-
 		begin
-
 		@customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
 	    :card  => params[:stripeToken]
 	    )
-
-# Use Stripe's bindings...
-rescue Stripe::CardError => e
-# Since it's a decline, Stripe::CardError will be caught
-	body = e.json_body
-	err  = body[:error]
-	puts "Status is: #{e.http_status}"
-	puts "Type is: #{err[:type]}"
-	puts "Code is: #{err[:code]}"
-	# param is '' in this case
-	puts "Param is: #{err[:param]}"
-	puts "Message is: #{err[:message]}"
-	#@response[:errors]=err[:type]
-	#respond_with(@response,:location => nil)
-rescue Stripe::InvalidRequestError => e
-# Invalid parameters were supplied to Stripe's API
-	#err  = body[:error]
-	#puts "Status is: #{e.http_status}"
-rescue Stripe::AuthenticationError => e
-# Authentication with Stripe's API failed
-# (maybe you changed API keys recently)
-rescue Stripe::APIConnectionError => e
-# Network communication with Stripe failed
-rescue Stripe::StripeError => e
-# Display a very generic error to the user, and maybe send
-# yourself an email
-rescue => e
-# Something else happened, completely unrelated to Stripe
+	   # Use Stripe's bindings...
+	   rescue Stripe::CardError => e
+	   # Since it's a decline, Stripe::CardError will be caught
+	   body = e.json_body
+	   err  = body[:error]
+	   puts "Status is: #{e.http_status}"
+	   puts "Type is: #{err[:type]}"
+	   puts "Code is: #{err[:code]}"
+	   # param is '' in this case
+	   puts "Param is: #{err[:param]}"
+	   puts "Message is: #{err[:message]}"
+	   #@response[:errors]=err[:type]
+	   #respond_with(@response,:location => nil)
+	   rescue Stripe::InvalidRequestError => e
+	   # Invalid parameters were supplied to Stripe's API
+	   #err  = body[:error]
+	   #puts "Status is: #{e.http_status}"
+	   rescue Stripe::AuthenticationError => e
+	   # Authentication with Stripe's API failed
+	   # (maybe you changed API keys recently)
+	   rescue Stripe::APIConnectionError => e
+	   # Network communication with Stripe failed
+	   rescue Stripe::StripeError => e
+	   # Display a very generic error to the user, and maybe send
+	   # yourself an email
+	   rescue => e
+	   # Something else happened, completely unrelated to Stripe
 end
-
 respond_with(@customer, :location => nil)
-
 end
 
-
+	### Vendor ###
 	private
 	# SHOULD BE PRIVATE BUT BREAKS IF I MAKE IT SO (unexpected keyword end when surrounding with private ... end)
 	def restrict_access
