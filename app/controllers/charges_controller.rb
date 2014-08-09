@@ -86,8 +86,6 @@ class ChargesController < ApplicationController
 
 			current_user.update_attribute(:account_credit, new_credit)
 
-
-
 			@order.save
 			@amount = @order.total
 

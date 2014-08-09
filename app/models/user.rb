@@ -37,16 +37,21 @@ class User < ActiveRecord::Base
 		:number, :name, :customer_id, :account_credit
 	# attr_accessible :title, :body
 
-	before_create :create_authentication_token
+	before_create :create_authentication_token, :set_account_credit
 	after_create :create_role
 
 	has_many :orders
+	validates :number, uniqueness: true
 
 	def create_role
 		#defaults to customer
 		r = Role.create(:role_type => 0)
 		r.user = self
 		r.save
+	end
+
+	def set_account_credit
+		self.account_credit = 500
 	end
 
 	def create_authentication_token

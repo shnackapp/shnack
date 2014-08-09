@@ -1,12 +1,56 @@
 @import "vars";
 
-h1 {
+h1.SSS {
   font-family: "Damion", serif;
   font-size: 3em;
 }
 
-h2 {
+h2.SSS {
+  font-size: 2em;
+  font-weight: 500;
+  font-family: "Dosis", Tahoma, sans-serif;
+}
+
+h3.SSS {
+  font-size: 1.4em;
+  background-color: $blue;
+  color: $white;
+  padding: 8px;
+  font-weight: 500;
+  border-top-right-radius: 26px;
+  border-top-left-radius: 2px;
+  font-family: "Dosis", Tahoma, sans-serif;
+}
+
+h4.SSS {
+  text-transform: uppercase;
+  font-size: 1.5em;
+  font-family: "Dosis", Tahoma, sans-serif;
+}
+
+h5.SSS {
+  font-family: "Damion", serif;
+  font-size: 2em;
+}
+
+h6.SSS {
+  font-size: 1.2em;
+  font-weight: 800;
+  font-family: "Dosis", Tahoma, sans-serif;
+  color: #AAA;
+}
+
+
+/* older styles below */
+h1 {
   font-size: 2.2em;
+  font-family: "Dosis", Geneva, sans-serif;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 1.6em;
+  font-family: "Dosis", Geneva, sans-serif;
   font-weight: 500;
 }
 
@@ -18,14 +62,6 @@ h3 {
 h4 {
   font-size: 2em;
   font-family: "Damion", serif;
-}
-
-h5 {
-  font-size: 1.4em;
-  background-color: $brown;
-  padding: 8px;
-  border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
 }
 
 
@@ -42,3 +78,4 @@ h5 {
 
 
 
+p { font-family: "Dosis", Geneva, sans-serif; font-size: 18px; }

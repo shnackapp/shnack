@@ -4,6 +4,8 @@
 .clear-fix:after      { content: ' '; display: table; clear: both; }
 .opac-fix:after       { content: ' '; display: table; opacity: 1; }
 
+/* Padding and Margin Tools */
+
 .pad-sml  { padding: 10px; }
 .pad      { padding: 20px; }
 .pad-lrg  { padding: 30px; }
@@ -13,7 +15,7 @@
 .pad-top-sml { padding-top: 10px; } 
 .pad-bottom-sml { padding-bottom: 10px; } 
 
-.pad-bottom { padding-right: 20px; } 
+.pad-right { padding-right: 20px; } 
 .pad-left { padding-left: 20px; } 
 .pad-top { padding-top: 20px; } 
 .pad-bottom { padding-bottom: 20px; } 
@@ -23,14 +25,26 @@
 .pad-top-lrg { padding-top: 30px; } 
 .pad-bottom-lrg { padding-bottom: 30px; } 
 
-.pad-x-sml { padding-left: 10px; padding-right: 10px; }
-.pad-x     { padding-left: 20px; padding-right: 20px; }
-.pad-x-lrg { padding-left: 30px; padding-right: 30px; }
+.mar-sml  { margin: 10px; }
+.mar      { margin: 20px; }
+.mar-lrg  { margin: 30px; }
 
-.pad-y-sml { padding-top: 10px; padding-bottom: 10px; }
-.pad-y     { padding-top: 20px; padding-bottom: 20px; }
-.pad-y-lrg { padding-top: 30px; padding-bottom: 30px; }
+.mar-right-sml { margin-right: 10px; } 
+.mar-left-sml { margin-left: 10px; } 
+.mar-top-sml { margin-top: 10px; } 
+.mar-bottom-sml { margin-bottom: 10px; } 
 
+.mar-right { margin-right: 20px; } 
+.mar-left { margin-left: 20px; } 
+.mar-top { margin-top: 20px; } 
+.mar-bottom { margin-bottom: 20px; } 
+
+.mar-right-lrg { margin-right: 30px; } 
+.mar-left-lrg { margin-left: 30px; } 
+.mar-top-lrg { margin-top: 30px; } 
+.mar-bottom-lrg { margin-bottom: 30px; } 
+
+/* Other */
 
 .bold { font-weight: bold; }
 .itatlic { font-style: italic; }
@@ -54,49 +68,23 @@
   position: relative;
 }
 
-.wrapper {
-  width: 100%;
+/* Kind of experimential way. Might change based on padding
+  and margins. Best to use inline-block vertical-align middle */
+.center-vertical {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.wrapper-white {
-  width: 100%;
-  background-color: $white;
+.gen-inline {
+  display: inline-block;
 }
 
-.wrapper-cement {
-  width: 100%;
-  background-color: $cement;
+.gen-inline-middle {
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.wrapper-black {
-  width: 100%;
-  background-color: $black;
-}
-
-.wrapper-red {
-  width: 100%;
-  background-color: $red;
-}
-
-.wrapper-darkslategray {
-  width: 100%;
-  background-color: darkslategray;
-}
-
-.wrapper-blue {
-  width: 100%;
-  background-color: $blue;
-}
-
-.wrapper-green {
-  width: 100%;
-  background-color: $green;
-}
-
-.wrapper-brown {
-  width: 100%;
-  background-color: $brown;
-}
 .my-container {
   display: block;
   margin-left: auto;
@@ -111,9 +99,4 @@
   margin-right: auto;
   position: relative;
   max-width: 500px;
-}
-
-.gen-inline {
-  display: inline-block;
-  vertical-align: middle;
 }

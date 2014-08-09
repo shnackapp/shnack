@@ -3,8 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
-
 fieldset { overflow:hidden }
 .box { float:left; display:block; }
 label { float:left; clear:none; padding: 2px 1em 0 0; }
@@ -14,3 +12,15 @@ input[type=radio], input.radio { float:left; clear:none; margin: 2px 0 0 2px; wi
 
 .choose-account-option > .alpha { border-top-left-radius: 5px 5px; border-bottom-left-radius: 5px 5px;}
 .choose-account-option > .beta { border-top-right-radius: 5px 5px; border-bottom-right-radius: 5px 5px;}
+
+input[type=checkbox]:checked + .charges-shnack-credit:before {
+  color: green;
+  font-style: italic;
+  content: 'Yes, apply my credit';
+}
+
+input[type=checkbox] + .charges-shnack-credit:before {
+  color: brown;
+  font-style: italic;
+  content: 'No, do not apply credit';
+}

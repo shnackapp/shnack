@@ -4,11 +4,11 @@
   position: fixed;
   z-index: index($elements, topbar);
   left: 0;
+  right: 0;
   top:0;
   max-width: 100%;
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0px 30px;
   color: $white;
   background: darkred;
@@ -21,19 +21,20 @@
     position: relative;
   }
 
+
   a {
-    color:white;
+    color: $white;
 
     h3 {
       font-size: 2.5em;
       width: 25%;   //NOTE
     }
     &:visited {
-      color: white;
+      color: $white;
     }
   }
-}
 
+}
 
 
 /* because the topbar always takes space fixed
@@ -64,18 +65,15 @@
     }
   }
 
-
 .links {
-  position: absolute;
-  right: 0px;
+    position: absolute;
+  right: 0;
   top: 9px;
 }
 
 .my-gear {
   position: absolute;
-  right: 0px;
+  right: 0;
   top: 2px;
 }
-
-
 

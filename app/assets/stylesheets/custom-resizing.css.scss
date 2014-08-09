@@ -1,23 +1,30 @@
 //all for the TOPBAR
 @media (max-width: 520px) {
+  .item-name { width: 50%; }
+  .item-price { width: 25%; }
+  .item-desc { display: none; }
   .topbar + div { margin-top: 90px !important; }
   .prgs-bar { display: block; width: 100% !important;}
+  //.step { display: inline-block; width: 32%; }
   .topbar { padding: 0 2px 4px 2px !important; }
   .top-bar .my-gear { float: right !important;}
   .topbar a h3 { font-size: 2.5em; }
   .topbar .my-gear img { width: 30px; height: 30px; }
   .caje-info { font-size: 1.5em; };
+
 }
 
 //all for easy-123
 @media (max-width: 520px) {
   .easy-123 {
     h1 { font-size: 2em;  }
-    span { font-size: 64px; }
+    .i-easy-123 { font-size: 64px; }
     p { font-size: 16px; }
   }
 
 }
+
+
 
 
 //awkward tablet

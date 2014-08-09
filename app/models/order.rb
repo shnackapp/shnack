@@ -85,12 +85,12 @@ class Order < ActiveRecord::Base
   	o.nil? ? self.order_states.create(:state => self.owner.initial_state) : o
   end
 
-  #returns time in minutes
+  #returns time in seconds
   def time_between_states(state_1, state_2)
     s1 = self.order_states.where(:state => state_1).first
     s2 = self.order_states.where(:state => state_2).first
 
-    (s2.created_at - s1.created_at)/60
+    s2.created_at - s1.created_at
   end
 
   def update_state
