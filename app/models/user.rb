@@ -97,6 +97,23 @@ class User < ActiveRecord::Base
 		self.account_credit > 0
 	end
 
+	  # devise confirm! method overriden
+  def confirm!
+    welcome_message
+    super
+  end
+
+  # ...
+
+private
+
+  def welcome_message
+    UserMailer.welcome_email(self).deliver
+  end
+
+end
+
+
 
 
 end
