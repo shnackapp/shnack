@@ -60,7 +60,7 @@ class ApplicationController < ActionController::Base
           :value => @identity, :expires => 5.years.from_now
         }
       else
-        @identity = cookies[:km_identity]
+        @identity = cookies[:user_identity]
       end
 
       if current_user

@@ -87,7 +87,7 @@
 		</div>
 				
 	</div>
-
+	<% unless user_signed_in? %>
 		<section class="wrapper-khaki text-center pad">
 			<div class="my-container-half">
 				<h4 class="SSS bold">Limited time offer</h4>
@@ -98,6 +98,7 @@
 				<% end %>
 			</div>
 		</section>
+	<% end %>
 
 	<section class="wrapper" style=" background-color: darkseagreen; padding: 10px; color:white;">
 			<div class="row-new" >
@@ -106,7 +107,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="wrapper" >
+	<section class="wrapper last" >
 	
 		<div class="row-new pad-y-sml easy-123">
 			
@@ -126,7 +127,7 @@
 				<p>Sit back, skip the line, & pickup your food</p>
 			</div>
 		</div>
-
+	</section>
 
 	<footer>
 			<div class="container">
