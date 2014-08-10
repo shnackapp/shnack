@@ -98,10 +98,10 @@ class User < ActiveRecord::Base
 	end
 
 	  # devise confirm! method overriden
-  def confirm!
-    welcome_message
-    super
-  end
+ 	def confirm!
+    	welcome_message
+    	super
+  	end
 
   # ...
 
@@ -110,10 +110,5 @@ private
   def welcome_message
     UserMailer.welcome_email(self).deliver
   end
-
-end
-
-
-
 
 end
