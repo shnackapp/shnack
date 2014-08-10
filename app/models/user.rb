@@ -97,10 +97,8 @@ class User < ActiveRecord::Base
 		self.account_credit > 0
 	end
 
-	  # devise confirm! method overriden
  	def welcome
     	welcome_message
-    	super
   	end
 
   # ...
