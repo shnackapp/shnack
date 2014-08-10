@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 	# attr_accessible :title, :body
 
 	before_create :create_authentication_token, :set_account_credit
-	after_create :create_role
+	after_create :create_role, :welcome
 
 	has_many :orders
 	validates :number, uniqueness: true
@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
 	end
 
 	  # devise confirm! method overriden
- 	def confirm!
+ 	def welcome
     	welcome_message
     	super
   	end
