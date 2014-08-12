@@ -30,14 +30,15 @@ class SuperController < ApplicationController
   		@percent_ordered = @users_with_orders.to_f / @users.count.to_f * 100
       @percent_repeat = @users_with_mult_orders.to_f / @users.count.to_f * 100
 
-  		@amount_spent_in_credit = 0
-  		@orders_credit.each { |order| @amount_spent_in_credit += order.credit_used }
+  		
 
+      @amount_spent_in_credit = 0
   		@total = 0
   		@shnack_total = 0
 
   		@orders.each do |order|
-  			@total = @total + order.total
+        @amount_spent_in_credit = @amount_spent_in_credit + order.credit_used
+  			@total = @total + order.total + order.credit_used
   			@shnack_total = @shnack_total + order.shnack_cut
   		end
 
