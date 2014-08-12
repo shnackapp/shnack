@@ -42,15 +42,13 @@ class ApiController < ApplicationController
 	    end
 	end
 
-
-
 	# HTTP Request for when the device turns on and sends in it's device token
 	def send_device_token
 		@device = Device.where(:token =>params[:device_token])
 		
 		if @device.length > 0 && (!@device.first.vendor.nil? || !@device.first.restaurant.nil?)
 			d = @device.first
-			render :json => { :vendor_id => d.owner.id, :initial_state => d.owner.initial_state, :is_open => d.owner.open }
+			render :json => { :vendor_name => d.owner.name, :vendor_id => d.owner.id, :initial_state => d.owner.initial_state, :is_open => d.owner.open }
 		else
 			render :json => {:error => "unregistered_device", :token => params[:device_token]}
 		end
@@ -110,7 +108,9 @@ class ApiController < ApplicationController
 			@device = Device.where(:token => params[:device_token]).first_or_create
 			@device.update_owner @owner
 			@device.save
-			render :json => @device
+
+			render :json => { :vendor_name => @device.owner.name, :vendor_id => @device.owner.id, :initial_state => @device.owner.initial_state, :is_open => @device.owner.open }
+		
 		end
 	end
 

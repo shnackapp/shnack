@@ -84,6 +84,7 @@ class OrdersController < ApplicationController
     unless owner.is_open?
       flash[:notice] = "#{owner.name} is currently not taking orders."
       redirect_to root_path
+      return
     end
 
     user_id = params[:order].delete(:user_id)

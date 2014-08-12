@@ -119,16 +119,27 @@ tbody.all_the_mods tr {
 }
 
 .list-group {
-  box-shadow: 0px 0px 5px #888;
+  /*box-shadow: 0px 0px 5px #888;*/
 }
 
 div.list-group.select .list-group-item  {
   border-radius: 0px;
-  background-color: $red;
-  color: white;
+  background-color: white;
+  border-color: #ddd;
+  font-size:1.4em;
+  color: $red;
   font-weight:900;
 
   &:hover {
-    background-color: black;
+    background-color: lighten(darkseagreen, 30);
+    /*background-color: #F8F8F8;*/
+    border-color: green;
+    z-index:1;
   }
 }
+
+section.last {
+  padding-bottom:35px;
+}
+
+

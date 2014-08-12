@@ -1,17 +1,20 @@
-<h2 class="headline">Sign in</h2>
-
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div>
-  <%= f.email_field :email, :autofocus => true, placeholder: 'Email Address' %></div>
-
-  <div>
-  <%= f.password_field :password, placeholder: 'Password' %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me  %> <label></label><%= f.label :remember_me, :style => "margin-left: 5px;" %></div>
-  <% end -%>
-  <br/> <br/>
-  <div><%= f.submit "Sign in", :class => 'buttn'%></div>
+<% content_for :page_title do%>
+Sign In
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+<div class="input-list center" style="max-width:350px;">
+  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <%= f.email_field :email, :autofocus => true, placeholder: 'Email Address' %>
+    <%= f.password_field :password, placeholder: 'Password' %>
+
+    <% if devise_mapping.rememberable? -%>
+      <%= f.label :remember_me, class: "pad-right-sml" %>
+      <%= f.check_box :remember_me %>
+    <% end -%>
+
+    <div> <%= f.submit "Sign in", :class => 'push-btn darkslategray mar-bottom'%> </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

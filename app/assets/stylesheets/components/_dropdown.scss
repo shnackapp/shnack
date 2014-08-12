@@ -1,6 +1,6 @@
 /* code from http://csswizardry.com/2011/02/creating-a-pure-css-dropdown-menu/ */
 
-$elements: base, phone, menu, topbar, user-settings;
+@import "base/vars";
 
 
 #click_me {
@@ -46,6 +46,11 @@ $elements: base, phone, menu, topbar, user-settings;
 }
 #click_me li:hover ul { 
   right:0; 
+
+  .shnack-credit {
+    color: $green;
+    text-align: center;
+  }
 }
 
 #click_me li:hover a { 
@@ -54,6 +59,7 @@ $elements: base, phone, menu, topbar, user-settings;
 }
 #click_me li:hover ul a { 
   text-decoration:none;
+  color: $black;
 }
 #click_me li:hover ul li a:hover { 
   background:#555;

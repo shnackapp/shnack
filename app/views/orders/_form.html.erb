@@ -1,5 +1,3 @@
-
-
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
@@ -29,8 +27,11 @@
           <% category.items.each do |item| %>
             <tbody class="menu_item" data-id= "<%= item.id %>" style="border:none;outline:none;">
               <tr>
-                <td><%= item.name %></td>
-                <td id="<%=item.id%>_price" data-price="<%=item.price%>"><%= Item.integer_to_currency item.price %></td>
+                <td>
+                  <span class="name"><%= item.name %></span>
+                  <span class="description"><%= item.description if item.has_description?%></span>
+                </td>
+                <td id="<%=item.id%>_price" class="price" data-price="<%=item.price%>"><%= Item.integer_to_currency item.price %></td>
                 <% if(item.sold_out) %>
                   <td colspan="3">Item Sold Out</td>
                 <% else %> 
@@ -42,11 +43,7 @@
                   <td class="item_id hidden"> <%= item.id %> </td>
                   <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
              
-                  <% if item.has_description? %>
-                    </tr>
-                    <tr>
-                      <td colspan="5" class="item-description"> <%= item.description %> </td>
-                  <% end %>
+                  <tr>
                   <% if item.has_mod?; @item = item %>
                     <%= render :partial => 'display_mods', :locals => { item: @item } %>
                   <% end %>
@@ -122,12 +119,12 @@
 
   <div class="actions">
   <% if @owner.is_open? %>
-    <%= button_tag(type: 'submit', id:"order-submit", class: "btn btn-primary btn-danger") do %>
-      <i class="glyphicon glyphicon-cutlery icon-white"></i> Next
+    <%= button_tag(type: 'submit', id:"order-submit", class: "push-btn darkslategray mar-bottom") do %>
+      <i class="fa fa-cutlery pad-right-sml"></i> Next
     <% end %>
   <% else %> 
-    <%= button_tag(type: 'submit', id:"order-submit",  class: "btn btn-primary btn-danger", :disabled => true) do %>
-      <i class="glyphicon glyphicon-cutlery icon-white"></i> Next
+    <%= button_tag(type: 'submit', id:"order-submit",  class: "push-btn", :disabled => true) do %>
+      <i class="fa fa-frown-o pad-right-sml"></i> Currently Closed
     <% end %>
   </div>
   <% end %>
