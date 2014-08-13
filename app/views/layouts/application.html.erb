@@ -59,7 +59,7 @@
 								<% if current_user.is_super? %>
 									<li> <%= link_to "Super User", :controller => "/super", :action => "manage_as_super" %></li>
 								<% end %>
-								<li><%= link_to "Change your password", edit_user_registration_path %></li>
+								<li><%= link_to "Account Settings", edit_user_registration_path %></li>
 								<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
 							</ul>
 						</li>
