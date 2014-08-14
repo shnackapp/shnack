@@ -9,6 +9,7 @@
 .blue   { background-color: $blue; }
 .brown  { background-color: $brown; }
 .green  { background-color: $green; }
+.darkslategray { background-color: darkslategray; }
 
 
 .red-text    { color: $red; }
@@ -20,7 +21,7 @@
 .blue-text   { color: $blue; }
 .brown-text  { color: $brown; }
 .green-text  { color: $green; }
-.darkslategray { background-color: darkslategray; }
+.darkslategray-text { color: darkslategray; }
 
 
 
@@ -107,4 +108,9 @@ button.darkslategray:active { background-color: lighten(darkslategray, 15%); }
 .wrapper-khaki {
   width: 100%;
   background-color: khaki;
+}
+
+.wrapper-darkseagreen {
+  width: 100%;
+  background-color: darkseagreen;
 }
