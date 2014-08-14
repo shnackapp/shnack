@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
-<h4 class="text-center"> # <%= @order.order_number %> </h4>
+<% content_for :page_title do%>
+#<%= @order.order_number%> 
+<% end %>
+
 
 <%= render 'shared/order_details' %>	
 
-<h5 class="text-center"> Currently <%= @order.current_order_state.state_text %> </h5>
+<h2 class="text-center"> Currently <%= @order.current_order_state.state_text %> </h5>

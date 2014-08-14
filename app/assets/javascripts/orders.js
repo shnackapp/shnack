@@ -18,6 +18,7 @@
 $(document).ready(function() {
 
 	initializeValues();
+
 	$("span.plus").click(function() {
 		//increment up
 
@@ -77,7 +78,7 @@ $(document).ready(function() {
 			$(".order-error").slideDown(100);
 		}
 
-	})
+	});
 
 });
 
@@ -107,9 +108,13 @@ function initializeValues() {
 function updatePrice() {
 	var subtotal = 0;
 
+
+
 	$(".menu_item").each(function() {
 		var id = $(this).data("id");
 		var qty = $("#" + id+ "_num").html();
+	if(qty > 0) $("#order-submit").prop('disabled', false);
+
 		var price = $("#" + id + "_price").data("price");
 		var cost = qty*price;
 		if(!isNaN(cost))
@@ -129,11 +134,29 @@ function updatePrice() {
 	subtotal /=100;
 	$("td.subtotal").html(toUSD(subtotal));
 	$("td.subtotal").data("price", subtotal);
+	var total = subtotal;
 
-	var total = $(".fee").data("price")/100 + subtotal;
+	if(!isNaN($(".fee").data("price")))
+	{
+		total = $(".fee").data("price")/100 + total;
+	}
+	if(!isNaN($(".credit").data("price"))) {
+		var tmp = total;
+		total = total - $(".credit").data("price")/100;
+		if(total < 0) total = 0
+
+		tmp = $(".credit").data("price")/100 - tmp;
+		if(tmp < 0) tmp = 0;
+		$("td.credit").html(toUSD(tmp));
+
+	}
 
 	$("td.total").html(toUSD(total));
 	$("td.total").data("total", total);
+	
+
+
+
 
 };
 

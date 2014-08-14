@@ -13,7 +13,7 @@
  */
 
 @import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Dosis:400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Dosis:400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Damion);
 @import "base/css_reset",
         "base/vars",
@@ -47,6 +47,56 @@
 }
 
 
+
+
+
+#level-3 {
+  width: 100%;
+  position: relative;
+  margin: 0px auto;
+  background: $black;
+  padding: 45px 10px;
+  min-height: 480px;
+}
+
+#footer {
+	max-width: 500px;
+	margin: 100px auto;
+}
+
+.foot-style {
+	font-family: "Poiret One", Geneva, sans-serif;
+}
+
+
+.my-container {
+	max-width: 980px;
+}
+
+
+tbody.all_the_mods tr {
+
+    td.customize-this {
+      background-color: #EEE;
+      color: #333;
+      text-align:center;
+      font-style: italic;
+    }
+
+    &.item-modifier {
+      background-color: #EEE;
+    }
+    &.opt-name {
+      background-color: #EEE;
+    }
+}
+
+
+.item-description {
+  background: lightgray;
+}
+
+
 .step-style {
   text-align: center;
   color: $white;
@@ -67,3 +117,29 @@
     opacity: .9;
   }
 }
+
+.list-group {
+  /*box-shadow: 0px 0px 5px #888;*/
+}
+
+div.list-group.select .list-group-item  {
+  border-radius: 0px;
+  background-color: white;
+  border-color: #ddd;
+  font-size:1.4em;
+  color: $red;
+  font-weight:900;
+
+  &:hover {
+    background-color: lighten(darkseagreen, 30);
+    /*background-color: #F8F8F8;*/
+    border-color: green;
+    z-index:1;
+  }
+}
+
+section.last {
+  //padding-bottom:35px;
+}
+
+

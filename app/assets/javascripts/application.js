@@ -29,6 +29,55 @@ function checkDevice() {
   }
 }*/
 
+$(function(){
+    $('footer.popup-banner').hide();
+    if($(document).height() <= $(window).height()){
+        $('footer.popup-banner').show();
+    }
+    $(window).resize(function(){
+        console.log("resized");
+       if($(document).height() > $(window).height()){
+           console.log("hide footer now");
+            $('footer.popup-banner').slideUp('slow');
+        }
+        else{
+            $('footer.popup-banner').slideDown('slow');
+        }
+    });
+});
+
+
+
+$(window).scroll(function(){        
+    if ($(window).scrollTop() + $(window).height() >= $(document).height() - 0)
+    {
+            $('footer.popup-banner').slideDown('slow');
+            $('#white2').stop().animate({
+                bottom:'6px'
+            },400);
+    }
+    else
+    {
+            $('footer.popup-banner').slideUp('slow');
+            $('#white2').stop().animate({
+                bottom:'-44px'
+            },400);
+    }
+});
+
+$(document).ready(function() {
+    if ($(window).height() >= $(document).height() )
+    {
+        $('footer.popup-banner').data('size','hide');
+    }
+    else
+    {
+        $('footer.popup-banner').data('size','show');
+    }
+
+    $("#user_number").mask("(000) 000-0000")
+});
+
 window.fbAsyncInit = function() {
         FB.init({
           appId      : '{461658543935056}',

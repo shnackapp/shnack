@@ -29,55 +29,33 @@
 
   <body>
 
-    <div class="wrapper-white">
-      <section class="my-container pad-top-lrg pad-bot-lrg">
-        <h1>Shnack <small>is the solution</small></h1>
-
-      <div class="row-new">
-        <div class="column-mobile six center">
-          <h3 class="new text-center">For Fans</h3>
-          <p>Shnack is a mobile application designed for concessions at large and small scale events, that lets customers order and pay for a vendor's food via their phone. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. Customers will order food from their phone and will be notified when their food is ready to be picked up. By eliminating the need to wait in line, we can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers.</p>
-        </div>
-
-        <div class="column-mobile six center">
-          <h3 class="new text-center">For Vendors</h3>
-          <p>Nearly 10-15% of potential customers at any given event will pass on getting food if it means waiting in line or missing the action.  With Shnack you can give your customers the best possible experience and increase your concessions revenue.  Using our streamlined integration process, you can be set up in a matter of minutes and begin using Shnack to capture brand new customers and increase your concession sales.</p>
-        </div>
-      </div>
-      </section>
-    </div>
-
-    <div class="wrapper-black">
-
-    </div>
-
-    <div class="wrapper-black">
-      <section class="my-container prime-info">
-        <h1 id="info-tagline">Never miss a moment, never miss a meal</h1>
-        <nav>
-          <a id="about-links1" onClick="forFans()">For Fans</a>
-          <a id="about-links2" onClick="forVendors()">For Vendors</a>
-          <a id="about-links3" onClick="contactUs()">Contact Us</a>
-        </nav>
+    <section class="wrapper-white pad-y-xlrg">
+      <div class="my-container">
+        <h1 class="SSS text-red mar-bottom-lrg" style="font-size:64px;">Shnack <small>is the solution</small></h1>
 
         <div class="row-new">
-          <div class="column eight prime-text">
-            <p id="info-text">Shnack is a mobile application designed for concessions at large and small scale events, that lets customers order and pay for a vendor's food via their phone. Shnack eliminates the time customers are spending standing in lines by providing a quick and elegant way to purchase food from your seat. Customers will order food from their phone and will be notified when their food is ready to be picked up. By eliminating the need to wait in line, we can increase customer satisfaction, increase vendor revenue, and ultimately help provide a superior experience to customers.</p>
 
-
+          <div class="column-mobile six pad center">
+            <h3 class="new text-center text-brown">For Restuarants</h3>
+            <p>Nearly 10-15% of potential customers at any given event will pass on getting food if it means waiting in line or missing the action.  With Shnack you can give your customers the best possible experience and increase your concessions revenue.  Using our streamlined integration process, you can be set up in a matter of minutes and begin using Shnack to capture brand new customers and increase your concession sales.</p>
+            <p>Our iPad application helps staff keep track of orders and the rate at which those orders can be prepared and marked ready for pick up. Instead of guessing what the next twenty orders will be, see them live in real time allowing your to maximize your kitchen's productivity.</p>
           </div>
-
-          <%= image_tag "phone_welcome.png", :class => "phone" %>
-          
-
+          <div class="column-mobile six pad center">
+            <h3 class="new text-center text-brown">For Customers</h3>
+            <p>Tired of waiting in line?  Shnack eliminates the time you spend standing in line by providing a quick and elegant way to purchase food from your home or seat. Quickly order food from your phone, continue your activity, and you will be notified when your food is ready to be picked up. Payment is taken care in app allowing you to go straight to the pickup location.</p>
+            <p>By eliminating the need to wait in line, you can spend time what you want to be doing. Providing an simple service aimed to provide a superior experience to customers.</p>
+          </div>
         </div>
+      </div>
+    </section>
 
+    <footer class="wrapper-khaki pad-y-lrg">
+        <div class="my-container-threefour contact-us">
+          <%= render 'contact_us_mailer/contact_us_mailer' %>
+        </div>
+    </footer>
 
-      </section>
-    </div>
-
-
-
+   
     <footer class="fb">
       <a href='/' class="place-order">Place an order | Return to home</a>
       <p>Follow us on Facebook.</p>
@@ -86,10 +64,6 @@
       <div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="100" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
     </footer>
 
-    <footer class="wrapper-cement pad-lrg">
-        <div class="my-container-threefour contact-us">
-          <%= render 'contact_us_mailer/contact_us_mailer' %>
-        </div>
-    </footer>
+    
   </body>
 </html>

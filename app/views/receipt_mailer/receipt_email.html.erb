@@ -7,7 +7,62 @@
 <h2 class="text-center"> # <%= @order.order_number %> </h2>
 <h3 class="text-center"> <%= @owner.name %> </h3>
 
-<%= render 'shared/order_details' %>
+<table class="table">
+		<thead>
+			<td> Item </td>
+			<td> Qty </td>
+			<td> Price </td>
+			<td> Total </td>
+		</thead>
+		<% @order_items.each do |order_item| %>
+		<tr>
+			<td><%= @items[order_item.item_id].name %></td> 
+				<td><%= order_item.quantity %> </td>
+
+				<td> <%= Item.integer_to_currency order_item.price %></td>
+				<%# update this below price to include the price of the item modifiers %>
+				<td> <%= Item.integer_to_currency( order_item.price * order_item.quantity) %></td>
+			</tr>
+			<% if order_item.has_mods?; @order_item = order_item %>
+				<%= render :partial => 'shared/display_order_mods', :locals => { order_item: @order_item } %>
+
+			<% end %>
+		<% end %>
+
+		
+		<tfoot>
+			<% if @order.subtotal != @order.total %>
+				<tr>
+					<td>Subtotal</td>
+					<td></td>
+					<td></td>
+					<td> <%= Order.integer_to_currency(@order.subtotal) %> </td>
+				</tr>
+				<% if @order.credit_was_used %>
+				<tr>
+					<td>Shnack Credit Used </td>
+					<td></td>
+					<td></td>
+					<td> <%= Order.integer_to_currency(@order.credit_used) %> </td>
+
+				<% end %>
+				<tr>
+					<td>Total</td>
+					<td></td>
+					<td></td>
+					<td> <%= Order.integer_to_currency(@order.total) %> </td>
+				</tr>
+			<% else %>
+					<tr>
+						<td>Total</td>
+						<td></td>
+						<td></td>
+						<td> <%= Order.integer_to_currency(@order.total) %> </td>
+					</tr>
+			<% end %> 	
+		</tfoot>
+	</table>
+https://www.shnackapp.com/<%= order_path @order %>
 
 <h5 class="text-center"> Thank you for using Shnack! If you had any problems or would like to give us feedback, we'd love to hear what you have to say! E-mail us at contact@shnackapp.com </h5>
   </body>

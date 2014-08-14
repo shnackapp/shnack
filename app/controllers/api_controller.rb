@@ -6,12 +6,11 @@ class ApiController < ApplicationController
 	respond_to :json
 
 	def create
-    @user = User.create(:name => params[:name],:email => params[:email],:number => params[:phone],:password => params[:password])
+    @user = User.create(:name => params[:name],:email => params[:email],:number => params[:phone],:password => params[:password],:customer_id =>params[:customer_id])
 
-   	respond_with  {auth_token:@user.authentication_token}
-
-
-
+   	#respond_with  {:auth_token => @user.authentication_token}
+   	respond_with(@user.authentication_token, :location =>nil)
+   	
     # respond_to do |format|
     #   if @user.save
     #     # Tell the UserMailer to send a welcome Email after save
@@ -43,15 +42,13 @@ class ApiController < ApplicationController
 	    end
 	end
 
-
-
 	# HTTP Request for when the device turns on and sends in it's device token
 	def send_device_token
 		@device = Device.where(:token =>params[:device_token])
 		
 		if @device.length > 0 && (!@device.first.vendor.nil? || !@device.first.restaurant.nil?)
 			d = @device.first
-			render :json => { :vendor_id => d.owner.id, :initial_state => d.owner.initial_state }
+			render :json => { :vendor_name => d.owner.name, :vendor_id => d.owner.id, :initial_state => d.owner.initial_state, :is_open => d.owner.open }
 		else
 			render :json => {:error => "unregistered_device", :token => params[:device_token]}
 		end
@@ -111,7 +108,9 @@ class ApiController < ApplicationController
 			@device = Device.where(:token => params[:device_token]).first_or_create
 			@device.update_owner @owner
 			@device.save
-			render :json => @device
+
+			render :json => { :vendor_name => @device.owner.name, :vendor_id => @device.owner.id, :initial_state => @device.owner.initial_state, :is_open => @device.owner.open }
+		
 		end
 	end
 
@@ -166,6 +165,15 @@ class ApiController < ApplicationController
 		end
 	end
 
+	def toggle_store_open
+		@device = Device.where(:token =>params[:device_token]).first
+		@loc = @device.owner
+		@loc.update_attribute(:open, !@loc.open)
+		render :json => {:success => "success", :open => @loc.open, :location_id => @loc.id }
+	end
+
+
+
 
 	def vendors_by_user_token
 		@user = User.where(:authentication_token => params[:auth_token]).first
@@ -180,32 +188,52 @@ class ApiController < ApplicationController
 
 	
 
-	def process_stripe_info
+	def customer
 		# Set your secret key: remember to change this to your live secret key in production
 		# See your keys here https://dashboard.stripe.com/account
-		Stripe.api_key = "sk_test_xDJ5KS0I8VgJvHSQT1Iuxy56"
+		Stripe.api_key = 'sk_test_xDJ5KS0I8VgJvHSQT1Iuxy56'
 		# Get the credit card details submitted by the form
+		@response = Hash.new
 
-		token = params[:stripeToken]
-		amount= params[:amount]
-
-
-		# Create the charge on Stripe's servers - this will charge the user's card
 		begin
-			charge = Stripe::Charge.create(
-			:amount => amount, # amount in cents, again
-			:currency => "usd",
-			:card => token,
-			:description => "payinguser@example.com"
-			)
-		rescue Stripe::CardError => e
-		# The card has been declined
-		end
 
-		render :json => { :stripe_token => token, :amount =>amount }
+		@customer = Stripe::Customer.create(
+	    :email => params[:stripeEmail],
+	    :card  => params[:stripeToken]
+	    )
 
+# Use Stripe's bindings...
+rescue Stripe::CardError => e
+# Since it's a decline, Stripe::CardError will be caught
+	body = e.json_body
+	err  = body[:error]
+	puts "Status is: #{e.http_status}"
+	puts "Type is: #{err[:type]}"
+	puts "Code is: #{err[:code]}"
+	# param is '' in this case
+	puts "Param is: #{err[:param]}"
+	puts "Message is: #{err[:message]}"
+	#@response[:errors]=err[:type]
+	#respond_with(@response,:location => nil)
+rescue Stripe::InvalidRequestError => e
+# Invalid parameters were supplied to Stripe's API
+	#err  = body[:error]
+	#puts "Status is: #{e.http_status}"
+rescue Stripe::AuthenticationError => e
+# Authentication with Stripe's API failed
+# (maybe you changed API keys recently)
+rescue Stripe::APIConnectionError => e
+# Network communication with Stripe failed
+rescue Stripe::StripeError => e
+# Display a very generic error to the user, and maybe send
+# yourself an email
+rescue => e
+# Something else happened, completely unrelated to Stripe
+end
 
-	end
+respond_with(@customer, :location => nil)
+
+end
 
 
 	private

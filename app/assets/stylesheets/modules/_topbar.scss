@@ -6,70 +6,74 @@
   left: 0;
   right: 0;
   top:0;
-  max-width: 880px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 0px 30px;
   color: $white;
-  background: $red;
-  display: block;
-  @include box-shadow(0, 0, 6px, $black);
+  background: darkred;
+  border-bottom: 1px solid #333333;
+  /*@include box-shadow(0, 0, 3px, #dddddd);*/
 
-  a h3 {
-    font-size: 2.5em;
+  .topbar-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+
+  a {
     color: $white;
-    width: 25%;   //NOTE
-    &:hover {
-      color: khaki;
+
+    h3 {
+      font-size: 2.5em;
+      width: 25%;   //NOTE
+    }
+    &:visited {
+      color: $white;
     }
   }
+
 }
+
+
 /* because the topbar always takes space fixed
   on top, removed from the regular flow */
 .topbar + div {
-  padding-top: 60px;
-}
-
-.prgs-bar {
-  width: 50%;
-  @extend .gen_inline;
-}
-
-.user-settings {
-  //width: 25%;
-  float: right;
-  @extend .gen_inline;
+  margin-top: 60px;
 }
 
 
-.step {
-  @extend .gen_inline; 
+.title_current_step {
+  padding-top: 5px;
   text-align: center;
   text-transform: uppercase;
-  float: left;
-  width: 33.33%;
-  padding: 0;
-  margin: 0;
-  font-size: 10px;
-  &.current {
-    ///color: #CCC;
-    font-weight: 700;
-  }
-  &.current .circle {
-    background-color: khaki;
-  }
-  &.completed .circle {
-    //background-color: #444;
-  }
+  font-size: 1.8em;
 }
 
+ .circle {
+    border: 2px solid khaki;
+    //background-color: #AAA;
+    border-radius:15px;
+    background-image: none;
+    width: 12px;
+    height: 12px;
+    margin: 0 auto;
 
-.circle {
-  border: 2px solid #AAA;
-  //background-color: #AAA;
-  border-radius:15px;
-  background-image: none;
-  width: 12px;
-  height: 12px;
-  margin: 0 auto;
+    &.current {
+      background-color: khaki;
+    }
+  }
+
+.links {
+    position: absolute;
+  right: 0;
+  top: 9px;
 }
+
+.my-gear {
+  position: absolute;
+  right: 0;
+  top: 2px;
+}
+

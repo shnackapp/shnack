@@ -19,6 +19,8 @@
 #  number                 :string(255)
 #  customer_id            :string(255)
 #  name                   :string(255)
+#  account_credit         :integer          default(0)
+#  orders_count           :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -31,17 +33,25 @@ class User < ActiveRecord::Base
 	has_one :stadium, :through => :role
 
 	# Setup accessible (or protected) attributes for your model
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :number, :name
+	attr_accessible :email, :password, :password_confirmation, :remember_me, 
+		:number, :name, :customer_id, :account_credit
 	# attr_accessible :title, :body
 
-	before_create :create_authentication_token
-	after_create :create_role
+	before_create :create_authentication_token, :set_account_credit
+	after_create :create_role, :welcome
+
+	has_many :orders
+	validates :number, uniqueness: true
 
 	def create_role
 		#defaults to customer
 		r = Role.create(:role_type => 0)
 		r.user = self
 		r.save
+	end
+
+	def set_account_credit
+		self.account_credit = 500
 	end
 
 	def create_authentication_token
@@ -76,13 +86,27 @@ class User < ActiveRecord::Base
 	end
 
 	def cards
-		Stripe::Customer.retrieve(self.customer_id).cards
+		self.customer_id.nil? ? [] : Stripe::Customer.retrieve(self.customer_id).cards 
 	end
 
 	def is_manager_of?(loc) 
 		return true if role.is_super || role.locations.includes(loc)
 	end
 
+	def has_account_credit?
+		self.account_credit > 0
+	end
 
+ 	def welcome
+    	welcome_message
+  	end
+
+  # ...
+
+private
+
+  def welcome_message
+    UserMailer.welcome_email(self).deliver
+  end
 
 end

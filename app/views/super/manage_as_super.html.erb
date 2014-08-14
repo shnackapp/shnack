@@ -34,9 +34,48 @@
 <h4> Basic Statistics </h4>
 
 <div class="well">
-	Number of Orders Placed Through Shnack: <%= @orders.count %> <br />
-	Number of Orders by users not signed in: <%= @non_user_orders.count %> <br />
-	Number of Users Registered: <%= @users.count %> <br />
-	Total amount of money processed: <%= Order.integer_to_currency @total %> <br />
-	Shnack's Total Revenue: <%= Order.integer_to_currency @shnack_total %> 
+
+	<table class=" table order-stats">
+		<tr>
+			<td>Number of Orders Placed Through Shnack:</td>
+		 	<td><%= @orders.count %></td>
+		</tr>
+		<tr>
+			<td>Number of Orders that use credit:</td>
+			<td> <%= @orders_credit.count %></td>
+		</tr>
+	</table>
+
+	<table class=" table user-stats">
+		<tr>
+			<td> Number of Users Registered:</td> 
+			<td><%= @users.count %> </td>
+		</tr>
+		<tr>
+			<td>Percentage of Users who have placed at least one order </td> 
+			<td><%= @percent_ordered.round(2) %>% </td>
+		</tr>
+		<tr>
+			<td>Percentage of Users who have placed multiple orders</td> 
+			<td><%= @percent_repeat.round(2) %>% </td>
+		</tr>
+		<tr>
+			<td>Conversion Rate:</td>
+			<td><%= @user_sign_up_rate.round(2) %>%</td>
+		</tr> 
+	</table>
+	<table class ="table money-stats">
+		<tr>
+			<td> Total amount of money processed </td>
+			<td> <%= Order.integer_to_currency @total %> </td>
+		</tr>
+		<tr>
+			<td>Shnack's Total Revenue</td>
+			<td>  <%= Order.integer_to_currency @shnack_total %>  </td>
+		</tr>
+		<tr>
+			<td> Amount Spent In Credit </td>
+			<td> <%= Order.integer_to_currency @amount_spent_in_credit %> </td>
+		</tr>
+	</table>
 </div>

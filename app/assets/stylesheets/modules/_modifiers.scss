@@ -14,10 +14,23 @@ tbody.all_the_mods tr {
     &.opt-name {
       background-color: #EEE;
     }
+
+    
 }
 
 
 .item-description {
   background: lightgray;
+  padding-left:10px;
+  font-size: .8em;
 }
 
+.description {
+  display:block;
+  color:#999;
+  font-weight:500;
+  font-size:.92em;
+}
+table.table {
+  margin-bottom: 0px;
+}

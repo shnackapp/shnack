@@ -1,18 +1,20 @@
-<h1 class="new pad-bot">Want to get in contact?</h1>
+<h2 class="SSS pad-bot">Want to get in contact?</h2>
 
 <p>Filling out this form is almost as easy as ordering from Shnack</p>
 
-<%= form_tag("/shnack/contact") do %> 
-	<%= text_field_tag :cust_name, nil, :placeholder => "Name" %>
-	<%= text_field_tag :cust_email, nil, :placeholder => "Email Address" %>
-  <div class="row-new">
-    <div class="column-mobile six">
-      <%= text_field_tag :cust_phone, nil, :placeholder => "Phone (Optional)" %>
+<div class="input-list">
+  <%= form_tag("/shnack/contact") do %> 
+  	<%= text_field_tag :cust_name, nil, :placeholder => "Name" %>
+  	<%= text_field_tag :cust_email, nil, :placeholder => "Email Address" %>
+    <div class="row-new">
+      <div class="column-mobile six">
+        <%= text_field_tag :cust_phone, nil, :placeholder => "Phone (Optional)" %>
+      </div>
+      <div class="column-mobile six">
+        <%= text_field_tag :cust_email, nil, :placeholder => "How did you hear about us?" %>
+      </div>
     </div>
-    <div class="column-mobile six">
-      <%= text_field_tag :cust_email, nil, :placeholder => "How did you hear about us?" %>
-    </div>
-  </div>
-		<%= text_area_tag :cust_message, nil, :placeholder => "Your message here", :class => "contact-field", :rows => '10' %>
-	<%= submit_tag 'Send', :class=>"btn buttn"%>
-<%end%>
+  		<%= text_area_tag :cust_message, nil, :placeholder => "Your message here", :class => "contact-field", :rows => '10' %>
+  	<%= submit_tag 'Send', :class=>"push-btn brown"%>
+  <%end%>
+</div>

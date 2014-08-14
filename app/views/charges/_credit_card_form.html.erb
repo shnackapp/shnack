@@ -1,23 +1,26 @@
-<%= form_tag("", :method => "POST", :id => "credit-card-form") do  %>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="new-card-form">
-        <%= text_field_tag :credit_card_number, nil, :class => "form-control", :placeholder => "Credit Card Number"  %> 
-        <div class="row"> 
-          <div class="col-md-4">
+<%= form_tag "#", :id => "credit-card-form", :"data-form"=> locals[:form_id]   do %>
+    <div class=" well new-card-form input-list wrapper">
+      <div class="row-new">
+        <%= text_field_tag :credit_card_number, nil, :class => "form-control", :placeholder => "Credit Card Number", class: "column twelve" %> 
+      </div>
+      <div class="row-new"> 
+        <div class="column four">
+
             <%= text_field_tag :expiration_month, nil,  :class => "form-control", :placeholder => "MM" %>
-          </div>
-          <div class="col-md-4">
-            <%= text_field_tag :expiration_year, nil, :class => "form-control", :placeholder => "YY" %>
-          </div>
-          <div class="col-md-4">
-            <%= text_field_tag :security_code, nil, :class => "form-control", :placeholder => "CVC" %>
-          </div>
+        </div>
+        <div class="column four">
+          <%= text_field_tag :expiration_year, nil, :class => "form-control", :placeholder => "YY" %>
+        </div>
+
+        <div class="column four">
+          <%= text_field_tag :security_code, nil, :class => "form-control", :placeholder => "CVC" %>
         </div>
       </div>
-      <%= button_tag(type: 'submit', id: "pay-button", class: "btn btn-primary") do %>
-      Pay For Order
+    </div>
+
+    <div class="twelve">
+      <%= button_tag(type: 'submit', class: "push-btn darkslategray mar-top", id: locals[:button_id]) do %>
+        <%= locals[:button_text] %>
       <% end %>
     </div>
-  </div>
 <% end %>
