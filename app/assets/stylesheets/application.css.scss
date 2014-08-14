@@ -143,3 +143,22 @@ section.last {
 }
 
 
+footer.fb {
+  margin: 40px auto 80px auto;
+  text-align: center;
+
+  p {
+    font-size: 1.6em;
+    font-weight: 500;
+    font-color: #2A2A2A;
+  }
+  a.place-order {
+    color: #a10;
+    margin-bottom: 40px;
+    text-decoration: none;
+    display: block;
+    &:hover {
+      color: slategray;
+    }
+  } 
+}
