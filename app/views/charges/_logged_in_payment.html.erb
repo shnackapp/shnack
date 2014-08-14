@@ -3,7 +3,8 @@
 
     <%= text_field(:user, :name, :class=> "form-control", :id => "order-name", :value => current_user.name ) %>
     <%= telephone_field(:user, :number, :class => "form-control",:id => "order-phone-number", :value => current_user.number ) %>
-    E-mail Address: <%= current_user.email %> <br /> <br />
+    E-mail Address: <%= current_user.email %>
+    <br /><br />
 
     <% if current_user.account_credit > 0 %>
       <label> 
@@ -11,8 +12,6 @@
         <%= check_box_tag(:use_credit, '1', true) %>
         <span class="charges-shnack-credit"></span>
       </label>
-      <br />
-      <br />
     <% end %>
         
     <% if current_user.has_cards? %>
@@ -21,8 +20,6 @@
           <%= radio_button_tag(:user_card, index) %>
           <%= card.last4 + " " + card.brand %>
         </label>
-        <br />
-        <br />
       <% end %>
       
       <label>

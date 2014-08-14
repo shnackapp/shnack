@@ -23,7 +23,7 @@
   background-color: #777;
   border-radius: 3px;
   top: 0px;
-  box-shadow: 0 3px 0 #999;
+  box-shadow: 0 3px 0 #666;
   margin-right: 3px;
   margin-left: 3px;
   width: calc(100% - 6px);
@@ -31,7 +31,7 @@
 
   &:hover {
     top: 1px;
-    box-shadow: 0 2px 0 #333;
+    box-shadow: 0 2px 0 #666;
     text-decoration:none;
   }
 
