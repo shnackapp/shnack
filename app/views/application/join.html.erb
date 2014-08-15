@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= favicon_link_tag 'logo.ico' %>
+  <title>Shnack</title>
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+
+    <script> 
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-52696113-1', 'auto');
+    ga('require', 'displayfeatures');
+
+    ga('send', 'pageview');
+  </script>
+
+</head>  
+
+  <body>
+
+    <section class="wrapper-white pad-y-xlrg">
+      <div class="my-container">
+        <h1 class="SSS text-red pad-bot-sml" style="font-size:64px;"> <small>Boost your revenues with </small>Shnack</h1>
+
+        <div class="row-new">
+
+          <div class="column-mobile six pad center why-shnack">
+            <ul>
+              <li> Allow customers to order quickly and easily from their phone</li>
+              <li> Access our network of regular customers </li>
+              <li> Manage incoming orders with our intuitive and easy to use iPad application </li>
+            </uL>
+            
+          </div>
+
+           <div class="column-mobile six pad center contact-form">
+            <%= render 'contact_us_mailer/contact_us_mailer' %>
+           </div>
+        </div>
+      </div>
+    </section>
+
+
+   
+    <footer class="fb">
+      <a href='/' class="place-order">Place an order | Return to home</a>
+    </footer>
+
+    
+  </body>
+</html>

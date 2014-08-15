@@ -2,12 +2,13 @@ class ContactUs < ActionMailer::Base
   default from: "shnackapp@gmail.com"
 
 
-  def email_shnack(name, email, message)
+  def email_shnack(params)
 
-  	@customer_name = name
-  	@customer_email = email
-  	@customer_message = message
-	mail(to: "brock@shnackapp.com", subject: "Message from #{@customer_name} via Contact Us")
+  	@customer_name = params[:cust_name]
+  	@customer_email = params[:cust_email]
+  	@customer_restaurant = params[:cust_restaurant]
+  	@customer_number = params[:cust_number]
+	mail(to: "brock@shnackapp.com", subject: "Interested restaurant from #{@customer_name} via Contact Us")
 
   end
 end

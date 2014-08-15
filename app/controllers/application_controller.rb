@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
 		@stadium = @vendor.stadium
 	end
 
-  def howdy
+  def join
     render layout: false
   end
 
