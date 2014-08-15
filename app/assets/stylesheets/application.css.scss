@@ -126,6 +126,11 @@ footer.fb {
   } 
 }
 
+#join {
+  section:first-child {
+    margin-top:50px;
+  }
+
 .why-shnack {
   ul {
     padding-top:-10px;
@@ -136,5 +141,7 @@ footer.fb {
 }
 .contact-form {
   border-color: darkgray;
-  background-color:GHOSTWHITE;
+  background-color:LEMONCHIFFON;
+}
+
 }
