@@ -9,69 +9,32 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
 
-@import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Dosis:400,500,700);
+@import url(http://fonts.googleapis.com/css?family=Dosis:400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Damion);
-@import "base/css_reset",
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+@import "font-awesome";
+
+@import "bootstrap";
+
+@import "base/normalize",
+        "base/css_reset",
         "base/vars",
-        "base/utilities",
-        "base/mixins",
         "base/text_presentation",
         "base/buttons",
-        "base/inputs";
-@import "components/*",
-        "modules/*";
+        "base/icons",
+        "base/inputs",
+        "utilities",
+        "mixins",
+        "grid",
+        "modules/*",
+        "components/*",
+        "base/colors";
+
+@import "charges", "custom-resizing", "orders", "sign_in", "styles-general";
 
 
-
-#level-2 {
-	width: 100%;
-	padding: 10px 10px 20px 10px;
-  box-shadow: 0px 0px 20px black;
-  background-color: $black;
-	background-image: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		color-stop(0, #9E1919),
-		color-stop(1, #A62424)
-	);
-	background-image: -o-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
-	background-image: -moz-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
-	background-image: -webkit-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
-	background-image: -ms-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
-	background-image: linear-gradient(to bottom, #9E1919 0%, #A62424 100%);
-}
-
-
-
-
-
-#level-3 {
-  width: 100%;
-  position: relative;
-  margin: 0px auto;
-  background: $black;
-  padding: 45px 10px;
-  min-height: 480px;
-}
-
-#footer {
-	max-width: 500px;
-	margin: 100px auto;
-}
-
-.foot-style {
-	font-family: "Poiret One", Geneva, sans-serif;
-}
-
-
-.my-container {
-	max-width: 980px;
-}
 
 
 tbody.all_the_mods tr {

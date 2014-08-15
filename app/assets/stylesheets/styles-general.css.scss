@@ -1,4 +1,4 @@
-@import "base/mixins", "base/vars";
+@import "mixins", "base/vars";
 
 footer.popup-banner {
   width:100%;
@@ -31,10 +31,9 @@ footer.popup-banner {
   }
 }
 
-
   
 
-  .sign-up-page-deal {
+.sign-up-page-deal {
   h4 {
     background-color: $green;
     color: $white;
