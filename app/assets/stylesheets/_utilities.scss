@@ -24,21 +24,32 @@
 .pad-right-sml { padding-right: 10px; } 
 .pad-left-sml { padding-left: 10px; } 
 .pad-top-sml { padding-top: 10px; } 
-.pad-bottom-sml { padding-bottom: 10px; } 
+.pad-bot-sml { padding-bottom: 10px; } 
 
 .pad-right { padding-right: 20px; } 
 .pad-left { padding-left: 20px; } 
 .pad-top { padding-top: 20px; } 
-.pad-bottom { padding-bottom: 20px; } 
+.pad-bot { padding-bottom: 20px; } 
 
 .pad-right-lrg { padding-right: 30px; } 
 .pad-left-lrg { padding-left: 30px; } 
 .pad-top-lrg { padding-top: 30px; } 
-.pad-bottom-lrg { padding-bottom: 30px; } 
+.pad-bot-lrg { padding-bottom: 30px; } 
 
 .mar-sml  { margin: 10px; }
 .mar      { margin: 20px; }
 .mar-lrg  { margin: 30px; }
+.mar-xlrg { margin: 45px; }
+
+.mar-x-sml  { margin-left: 10px; margin-right: 10px; }
+.mar-x      { margin-left: 20px; margin-right: 20px; }
+.mar-x-lrg  { margin-left: 30px; margin-right: 30px; }
+.mar-x-xlrg { margin-left: 45px; margin-right: 45px; }
+
+.mar-y-sml  { margin-top: 10px; margin-bottom: 10px; }
+.mar-y      { margin-top: 20px; margin-bottom: 20px; }
+.mar-y-lrg  { margin-top: 30px; margin-bottom: 30px; }
+.mar-y-xlrg { margin-top: 45px; margin-bottom: 45px; }
 
 .mar-right-sml { margin-right: 10px; } 
 .mar-left-sml { margin-left: 10px; } 
@@ -110,5 +121,19 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  max-width: 500px;
+  width: 480px;
+  min-width: 240px;
+}
+
+.my-container-threefour {
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+}
+
+.gen-inb-top {
+  display: inline-block;
+  vertical-align: top;
 }

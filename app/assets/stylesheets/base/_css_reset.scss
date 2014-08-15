@@ -16,7 +16,10 @@ small { color: #666; }
 
 
 ol li { display: inline-block; } //why not
-p { font-size: 22px; }
+p { 
+  font-size: 22px;
+  margin-bottom: 12px;
+}
 
  body {
   // background-image: image-url('noise-bg-2.png');
