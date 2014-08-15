@@ -1,4 +1,4 @@
-@import "vars";
+@import "base/vars";
 
 .clear-fix:before     { content: ' '; display: table; }
 .clear-fix:after      { content: ' '; display: table; clear: both; }

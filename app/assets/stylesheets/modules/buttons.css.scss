@@ -1,8 +1,9 @@
 .action-btn {
   display: inline-block;
   background-color: #E5E5E5;
-  color: #222 !important;
+  color: #444 !important;
   padding: 9px 12px;
+  font-weight: 800;
 
   &:hover {
     background-color: darken(#E5E5E5, 5%);
@@ -22,7 +23,7 @@
   background-color: #777;
   border-radius: 3px;
   top: 0px;
-  box-shadow: 0 3px 0 #333;
+  box-shadow: 0 3px 0 #666;
   margin-right: 3px;
   margin-left: 3px;
   width: calc(100% - 6px);
@@ -30,7 +31,7 @@
 
   &:hover {
     top: 1px;
-    box-shadow: 0 2px 0 #333;
+    box-shadow: 0 2px 0 #666;
     text-decoration:none;
   }
 
@@ -40,12 +41,6 @@
   }
 }
 
-/* used for the menu flow 
-.next-step {
-  //min-width: 50%;
-  float: right;
-  margin-right: 10px;
-}*/
 
 /* manage vendors add items page */
 .add-mod-btns > .action-btn {
