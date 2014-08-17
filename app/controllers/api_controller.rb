@@ -253,10 +253,6 @@ end
 	end
 
 	 def user_params
-       params.require(:customer_id)
-       	params.require(:name)
-       	params.require(:email)
-       	params.require(:number)
-       	params.require(:password)
+       params.require(:email).permit(:customer_id,:name,:number,:password)
      end
 end
