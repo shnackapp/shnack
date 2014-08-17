@@ -121,9 +121,8 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  width: 480px;
-  min-width: 240px;
-}
+  max-width: 480px;
+  }
 
 .my-container-threefour {
   display: block;
