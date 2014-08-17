@@ -28,6 +28,12 @@ class ApiController < ApplicationController
     
   end
 
+  def unique_email_phone
+  	email_exists = User.where(email: params[:email]).exists? 
+  	phone_exists = User.where(phone: params[:phone]).exists? 
+  	render json: { email_exists: email_exists, phone_exists: phone_exists}
+  end
+
 	def index
 		respond_with User.all
 	end
