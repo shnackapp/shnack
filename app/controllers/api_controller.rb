@@ -9,7 +9,6 @@ class ApiController < ApplicationController
 	def create
     #@user = User.create(:name => params[:name],:email => params[:email],:number => params[:phone],:password => params[:password],:customer_id =>params[:customer_id])
     @user = User.create(user_params)
-    binding.pry
 
    	#respond_with  {:auth_token => @user.authentication_token}
    	respond_with(@user.authentication_token, :location =>nil)
