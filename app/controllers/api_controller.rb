@@ -7,7 +7,8 @@ class ApiController < ApplicationController
 
 	### Create with User with Customer id from Stripe ###
 	def create
-    @user = User.create(:name => params[:name],:email => params[:email],:number => params[:phone],:password => params[:password],:customer_id =>params[:customer_id])
+    #@user = User.create(:name => params[:name],:email => params[:email],:number => params[:phone],:password => params[:password],:customer_id =>params[:customer_id])
+    @user = User.create(user_params)
 
    	#respond_with  {:auth_token => @user.authentication_token}
    	respond_with(@user.authentication_token, :location =>nil)
@@ -250,7 +251,7 @@ end
 		end
 	end
 
-	# def payment_params
- #      params.require(:stripeToken).permit(:amount)
- #  	end
+	 def user_params
+       params.require(:customer_id,:name,:email,:number,:password)
+     end
 end
