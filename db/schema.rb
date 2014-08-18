@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140808060146) do
+ActiveRecord::Schema.define(:version => 20140818041728) do
 
   create_table "analytics", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -165,6 +165,7 @@ ActiveRecord::Schema.define(:version => 20140808060146) do
     t.integer  "transfer_id"
     t.boolean  "credit_was_used", :default => false
     t.integer  "credit_used",     :default => 0
+    t.boolean  "refunded",        :default => false
   end
 
   add_index "orders", ["slug"], :name => "index_orders_on_slug", :unique => true

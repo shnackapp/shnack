@@ -28,7 +28,7 @@
 class Order < ActiveRecord::Base
   extend FriendlyId
   attr_accessible :subtotal, :total, :charge_id, :details, 
-    :user_id, :slug_id, :order_number, :user_info, :withdrawn, :transfer_id, :paid
+    :user_id, :slug_id, :order_number, :user_info, :withdrawn, :transfer_id, :paid, :refunded
 
   friendly_id :slug_id, use: :slugged
   belongs_to :vendor
