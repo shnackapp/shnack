@@ -37,13 +37,6 @@
 }
 
 
-/* because the topbar always takes space fixed
-  on top, removed from the regular flow */
-.topbar + div {
-  margin-top: 60px;
-}
-
-
 .title_current_step {
   padding-top: 5px;
   text-align: center;
