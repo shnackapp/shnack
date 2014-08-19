@@ -1,13 +1,14 @@
+<h2 class="SSS pad-bot-sml">Get in contact today!</h2>
+
 <p>Filling out this form is almost as easy as ordering from Shnack</p>
 
-<%= form_tag("/shnack/contact") do %> 
-		<div class="column six" style="padding-right:5px;">
-			<%= text_field_tag :cust_name, nil, :placeholder => "Name", :class => "contact-field" %>
-		</div>
-		<div class="column six">
-			<%= text_field_tag :cust_email, nil, :placeholder => "Email Address", :class => "contact-field" %>
-		</div>
-		<%= text_area_tag :cust_message, nil, :placeholder => "Your message here", :class => "contact-field", :rows => '10' %>
-	</br>
-	<%= submit_tag 'Send', :class=>"btn buttn"%>
-<%end%>
+<div class="input-list">
+  <%= form_tag("/shnack/contact") do %> 
+  	<%= text_field_tag :cust_name, nil, :placeholder => "Name" %>
+  	<%= text_field_tag :cust_email, nil, :placeholder => "Email Address" %>
+    <%= text_field_tag :cust_phone, nil, :placeholder => "Phone (Optional)" %>
+    <%= text_field_tag :cust_restaurant, nil, :placeholder => "Restaurant Name" %>
+
+  	<%= submit_tag 'Send', :class=>"push-btn green"%>
+  <%end%>
+</div>

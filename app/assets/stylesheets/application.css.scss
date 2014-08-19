@@ -9,69 +9,31 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
 
-@import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Dosis:400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Damion);
-@import "base/css_reset",
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+@import "font-awesome";
+
+@import "bootstrap";
+
+@import "base/normalize",
+        "base/css_reset",
         "base/vars",
-        "base/utilities",
-        "base/mixins",
         "base/text_presentation",
         "base/buttons",
-        "base/inputs";
-@import "components/*",
-        "modules/*";
+        "base/icons",
+        "base/inputs",
+        "utilities",
+        "mixins",
+        "grid",
+        "modules/*",
+        "components/*",
+        "base/colors";
 
-
-
-#level-2 {
-	width: 100%;
-	padding: 10px 10px 20px 10px;
-  box-shadow: 0px 0px 20px black;
-  background-color: $black;
-	background-image: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		color-stop(0, #9E1919),
-		color-stop(1, #A62424)
-	);
-	background-image: -o-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
-	background-image: -moz-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
-	background-image: -webkit-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
-	background-image: -ms-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
-	background-image: linear-gradient(to bottom, #9E1919 0%, #A62424 100%);
-}
-
-
-
-
-
-#level-3 {
-  width: 100%;
-  position: relative;
-  margin: 0px auto;
-  background: $black;
-  padding: 45px 10px;
-  min-height: 480px;
-}
-
-#footer {
-	max-width: 500px;
-	margin: 100px auto;
-}
-
-.foot-style {
-	font-family: "Poiret One", Geneva, sans-serif;
-}
-
-
-.my-container {
-	max-width: 980px;
-}
+@import "charges", "orders", "sign_in", "styles-general";
+@import "custom-resizing";
 
 
 tbody.all_the_mods tr {
@@ -130,6 +92,11 @@ div.list-group.select .list-group-item  {
   color: $red;
   font-weight:900;
 
+  .info {
+    font-size: .8em;
+    font-weight: 600;
+  }
+
   &:hover {
     background-color: lighten(darkseagreen, 30);
     /*background-color: #F8F8F8;*/
@@ -143,3 +110,56 @@ section.last {
 }
 
 
+footer.fb {
+  margin: 40px auto 80px auto;
+  text-align: center;
+
+  p {
+    font-size: 1.6em;
+    font-weight: 500;
+    font-color: #2A2A2A;
+  }
+  a.place-order {
+    color: #a10;
+    margin-bottom: 40px;
+    text-decoration: none;
+    display: block;
+    &:hover {
+      color: slategray;
+    }
+  } 
+}
+
+#join {
+  margin-top:0px;
+  section:first-child {
+    padding-top:20px;
+    background-color:LIGHTSALMON;
+  }
+
+  .why-shnack {
+    ul {
+      padding-top:-10px;
+      padding-left:20px;
+      font-size: 1.4em;
+    }
+
+  }
+  .contact-form {
+    border-color: darkgray;
+    background-color:LEMONCHIFFON;
+  }
+
+
+  #images {
+    .container {
+      margin:auto;
+      width:100%;
+      text-align:center;
+    }
+    img {
+      width:33%;
+      margin:auto;
+    }
+  }
+}

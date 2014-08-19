@@ -29,6 +29,10 @@ class ApplicationController < ActionController::Base
 	end
 
   def howdy
+    redirect_to :controller => "application", :action => "join"
+  end
+
+  def join
     render layout: false
   end
 

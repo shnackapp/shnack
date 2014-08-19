@@ -1,18 +1,26 @@
-@import url(http://fonts.googleapis.com/css?family=Dosis:400,500,700);
+/* THIS file specifically used for styleguide
+  to keep the styles seperate from bootstrap.
+  In the end this will replace application.css.scss */
+
+@import url(https://fonts.googleapis.com/css?family=Dosis:400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Damion);
-@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 @import "font-awesome";
 
 //@import "bootstrap";
 
-
 @import "base/normalize",
         "base/css_reset",
         "base/vars",
-        "base/utilities",
-        "base/mixins",
         "base/text_presentation",
         "base/buttons",
+        "base/icons",
         "base/inputs",
-        "components/buttons",
+        "utilities",
+        "mixins",
+        "grid",
+        "modules/*",
+        "components/*",
         "base/colors";
+
+@import "charges", "custom-resizing", "orders", "sign_in", "styles-general";

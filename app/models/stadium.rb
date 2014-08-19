@@ -31,4 +31,8 @@ class Stadium < Location
   	return self.vendors.count >= 1
   end
 
+  def todays_closing_time
+  	""
+  end
+
 end

@@ -11,12 +11,19 @@
   input[type=email],
   input[type=password],
   input[type=tel],
+  textarea,
+  input[type=checkbox],
+  input[type=radio] {
+    margin: 0px 3px 8px 3px;
+  }
+
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
   textarea {
     padding: 8px;
-    margin: 0px 3px 8px 3px;
-    //border-top: none;
-    //border-left: none;
-    //border-right: none;
     border: solid 1px #C5C5C5;
     border-radius: 2px;
     width: calc(100% - 6px);
@@ -36,17 +43,16 @@
     }
   }
 
-  label input[type=checkbox],
-  label input[type=radio] {
+  //QQQ necessary???
+  label > input[type=checkbox],
+  label > input[type=radio] {
     display: inline-block;
-    //vertical-align: middle;
-    margin-left: 2px;
-    margin-bottom: 8px;
   }
 }
 
 
 /* old code */
+
 input[type="radio"].modifier, input[type="checkbox"].modifier {
   opacity: 0;
   position:absolute;
@@ -104,3 +110,4 @@ input.form-control {
   border-radius: 0px;
   margin-bottom:5px;
 }
+
