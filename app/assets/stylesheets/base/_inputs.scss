@@ -50,6 +50,50 @@
   }
 }
 
+label { 
+    color: #555; 
+    display: block; 
+  }
+
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  textarea,
+  input[type=checkbox],
+  input[type=radio] {
+    margin: 0px 3px 8px 3px;
+  }
+
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  textarea {
+    padding: 8px;
+    border: solid 1px #C5C5C5;
+    border-radius: 2px;
+
+    &:hover { 
+      border-color: #A9A9A9;
+      box-shadow: 0 0 5px #A9A9A9;
+    } 
+
+    &:focus {
+      border-color: #A9A9A9;
+      box-shadow: 0 0 5px #A9A9A9;
+    }
+  }
+
+  //QQQ necessary???
+  label > input[type=checkbox],
+  label > input[type=radio] {
+    display: inline-block;
+  }
+
+
 
 /* old code */
 
