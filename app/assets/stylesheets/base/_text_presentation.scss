@@ -15,12 +15,14 @@ h2.SSS {
 
 h3.SSS {
   font-size: 1.4em;
-  background-color: $blue;
+  background-color: darkseagreen;
+  border-bottom: solid 2px darken(darkseagreen, 50%);
   color: $white;
-  padding: 8px;
+  padding: 8px 12px 8px 16px;
   font-weight: 500;
-  border-top-right-radius: 26px;
-  border-top-left-radius: 2px;
+  max-width: 400px;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 4px;
   font-family: "Dosis", Tahoma, sans-serif;
 }
 
@@ -31,15 +33,17 @@ h4.SSS {
 }
 
 h5.SSS {
-  font-family: "Damion", serif;
-  font-size: 2em;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-family: "Dosis", Tahoma, sans-serif;
+  color: #AAA;
 }
 
 h6.SSS {
   font-size: 1.2em;
   font-weight: 800;
+  letter-spacing: 1px;
   font-family: "Dosis", Tahoma, sans-serif;
-  color: #AAA;
 }
 
 

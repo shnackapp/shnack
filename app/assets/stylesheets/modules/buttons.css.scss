@@ -2,8 +2,10 @@
   display: inline-block;
   background-color: #E5E5E5;
   color: #444 !important;
-  padding: 9px 12px;
+  padding: 9px 18px;
   font-weight: 800;
+  border-radius: 20px;
+  border: 1px solid #D5D5D5;
 
   &:hover {
     background-color: darken(#E5E5E5, 5%);
@@ -20,14 +22,15 @@
   color: #EEE !important;
   position: relative;
   padding: 12px 9px;
-  background-color: #777;
+  background-color: darkslategray;
   border-radius: 3px;
   top: 0px;
   box-shadow: 0 3px 0 #666;
   margin-right: 3px;
   margin-left: 3px;
   width: calc(100% - 6px);
-
+  text-transform: uppercase;
+  text-align: center;
 
   &:hover {
     top: 1px;

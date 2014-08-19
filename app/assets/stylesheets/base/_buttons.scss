@@ -5,22 +5,32 @@ a {
 
   &:visited {
     //color: #01A;
+    text-decoration: none;
   }
 
   &:hover {
     //color: khaki;
+    text-decoration: none;
   }
 }
 
 button {
+  display: inline-block;
   font: normal 16px/100% "Dosis", Tahoma, sans-serif;
   font-weight: 500;
   outline-color: transparent;
   border-color: transparent;
+  background-color: #7E7E7E;
+  color: #EEE !important;
+  padding: 9px 12px;
 
   &:active, &.visited {
     outline-color: transparent;
     border-color: transparent;
+  }
+
+  &:hover {
+    background-color: #E0E0E0;
   }
 
   &[disabled=disabled] {

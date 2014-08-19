@@ -66,6 +66,10 @@
 .mar-top-lrg { margin-top: 30px; } 
 .mar-bottom-lrg { margin-bottom: 30px; } 
 
+.mar-bot-children > * {
+  margin-bottom: 8px;
+}
+
 /* Other */
 
 .bold { font-weight: bold; }
@@ -132,7 +136,11 @@
   max-width: 600px;
 }
 
-.gen-inb-top {
+.span5 { max-width: 420px; }
+.span6 { max-width: 480px; }
+.span9 { max-width: 720px; }
+
+.gen-inline-top {
   display: inline-block;
   vertical-align: top;
 }
