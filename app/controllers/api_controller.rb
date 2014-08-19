@@ -58,7 +58,7 @@ class ApiController < ApplicationController
 		@device = Device.where(:token =>params[:device_token]).first
 		@owner = @device.owner
 		@orders = @owner.open_orders
-		@result = @orders.map { |o| {:id => o.id, :order_number => o.order_number, :name => o.customer.name, :number => o.customer.number, :created_at => o.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description, :state => o.current_order_state.state}} 
+		@result = @orders.map { |o| {:id => o.id, :order_number => o.order_number, :name => o.customer.name, :number => o.customer.number, :created_at => o.order_states.where(:state => 0).first.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description, :state => o.current_order_state.state}} 
 
 		respond_with @result, :location => nil
 	end
@@ -69,7 +69,7 @@ class ApiController < ApplicationController
 		@owner = @device.owner
 
 		@orders = @owner.past_orders
-		@result = @orders.map { |o| {:id => o.id, :order_number => o.order_number, :name => o.customer.name, :number => o.customer.number,  :created_at => o.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description, :state => o.current_order_state.state}} 
+		@result = @orders.map { |o| {:id => o.id, :order_number => o.order_number, :name => o.customer.name, :number => o.customer.number,  :created_at => o.order_states.where(:state => 0).first.created_at.strftime("%Y-%m-%d %H:%M:%S %z"),  :details => o.description, :state => o.current_order_state.state}} 
 
 		respond_with @result, :location => nil
 	end
@@ -202,38 +202,54 @@ class ApiController < ApplicationController
 	    :card  => params[:stripeToken]
 	    )
 
-# Use Stripe's bindings...
-rescue Stripe::CardError => e
-# Since it's a decline, Stripe::CardError will be caught
-	body = e.json_body
-	err  = body[:error]
-	puts "Status is: #{e.http_status}"
-	puts "Type is: #{err[:type]}"
-	puts "Code is: #{err[:code]}"
-	# param is '' in this case
-	puts "Param is: #{err[:param]}"
-	puts "Message is: #{err[:message]}"
-	#@response[:errors]=err[:type]
-	#respond_with(@response,:location => nil)
-rescue Stripe::InvalidRequestError => e
-# Invalid parameters were supplied to Stripe's API
-	#err  = body[:error]
-	#puts "Status is: #{e.http_status}"
-rescue Stripe::AuthenticationError => e
-# Authentication with Stripe's API failed
-# (maybe you changed API keys recently)
-rescue Stripe::APIConnectionError => e
-# Network communication with Stripe failed
-rescue Stripe::StripeError => e
-# Display a very generic error to the user, and maybe send
-# yourself an email
-rescue => e
-# Something else happened, completely unrelated to Stripe
-end
+		# Use Stripe's bindings...
+		rescue Stripe::CardError => e
+		# Since it's a decline, Stripe::CardError will be caught
+			body = e.json_body
+			err  = body[:error]
+			puts "Status is: #{e.http_status}"
+			puts "Type is: #{err[:type]}"
+			puts "Code is: #{err[:code]}"
+			# param is '' in this case
+			puts "Param is: #{err[:param]}"
+			puts "Message is: #{err[:message]}"
+			#@response[:errors]=err[:type]
+			#respond_with(@response,:location => nil)
+		rescue Stripe::InvalidRequestError => e
+		# Invalid parameters were supplied to Stripe's API
+			#err  = body[:error]
+			#puts "Status is: #{e.http_status}"
+		rescue Stripe::AuthenticationError => e
+		# Authentication with Stripe's API failed
+		# (maybe you changed API keys recently)
+		rescue Stripe::APIConnectionError => e
+		# Network communication with Stripe failed
+		rescue Stripe::StripeError => e
+		# Display a very generic error to the user, and maybe send
+		# yourself an email
+		rescue => e
+		# Something else happened, completely unrelated to Stripe
+		end
 
-respond_with(@customer, :location => nil)
+		respond_with(@customer, :location => nil)
 
-end
+	end
+
+
+	# EXPECTS
+	# params[:order_id] = Order ID of order to be refunded
+	def refund_order
+		@order = Order.find(params[:order_id])
+
+		if @order.refunded
+			render :json => { :error => "Order has already been refunded" }
+		else 
+			charge = Stripe::Charge.retrieve(order.charge_id)
+			refund = charge.refunds.create
+			render :json => { :refunded => true, :refund_id => refund.id, :message => : }
+		end
+
+	end
 
 
 	private

@@ -92,6 +92,11 @@ div.list-group.select .list-group-item  {
   color: $red;
   font-weight:900;
 
+  .info {
+    font-size: .8em;
+    font-weight: 600;
+  }
+
   &:hover {
     background-color: lighten(darkseagreen, 30);
     /*background-color: #F8F8F8;*/
@@ -127,20 +132,33 @@ footer.fb {
 
 #join {
   section:first-child {
-    margin-top:50px;
+    padding-bottom:20px;
+    background-color:LIGHTSALMON;
   }
 
-.why-shnack {
-  ul {
-    padding-top:-10px;
-    padding-left:20px;
-    font-size: 1.4em;
+  .why-shnack {
+    ul {
+      padding-top:-10px;
+      padding-left:20px;
+      font-size: 1.4em;
+    }
+
+  }
+  .contact-form {
+    border-color: darkgray;
+    background-color:LEMONCHIFFON;
   }
 
-}
-.contact-form {
-  border-color: darkgray;
-  background-color:LEMONCHIFFON;
-}
 
+  #images {
+    .container {
+      margin:auto;
+      width:100%;
+      text-align:center;
+    }
+    img {
+      width:33%;
+      margin:auto;
+    }
+  }
 }
