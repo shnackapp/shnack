@@ -65,11 +65,6 @@ $(document).ready(function() {
 
 	});
 
-	$(".panel-heading").click(function() {
-		$(this).next().slideToggle(200);
-		$(this).children().first().toggleClass("expanded");
-	});
-
 	$("#order-submit").click(function(e) {
 
 		var total = $(".total").data("price");

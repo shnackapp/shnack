@@ -1,17 +1,8 @@
-<% content_for :page_title do%>
-Manage Restaurant
-<% end %>
-
-<h2 class="SSS"> <%= @restaurant.name %> </h2>
-
-<div class="row-new management">
-	<div class="column four"><%= link_to "My Restaurant", restaurant_path(@restaurant), {:method => 'get'} %></div>
-	<div class="column four"><%= link_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get'} %></div>
-	<div class="column four"><%= link_to "My Menu", my_menu_restaurant_path(@restaurant), {:method => 'get'} %></div>
-</div>
+<%= render 'top_nav' %>
 
 <h2 class="SSS">My Restaurant</h2>
 <div class="row-new well">
+	<h4 class="SSS pad-bot">Current Revenue Status</h4>
 	<div class="column-mobile six clear-fix">
 		<strong> Amount Available: </strong> <%= Order.integer_to_currency @amount %>
 		<br />
@@ -60,8 +51,8 @@ Manage Restaurant
 	<h4 class="SSS">Registration Code:</h4>
 	<%= @restaurant.registration_code %> <%= link_to "Generate new code", new_registration_code_restaurant_path(@restaurant) %>
 	<br /><br />
-	<h4 class="SSS">Add Tax? - <%= @restaurant.add_tax %></h4>
-	<h4 class="SSS">Tax: <%= @restaurant.tax %></h4>
+	<h4 class="SSS">Add Tax? <span class="tax">- <%= @restaurant.add_tax %></span></h4>
+	<h4 class="SSS">Tax: <span class="tax"><%= @restaurant.tax %></span></h4>
 	<br />
 
 	<%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant), class: "action-btn" %>

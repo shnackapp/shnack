@@ -62,6 +62,11 @@ $(document).ready(function() {
       return false;
     });
 
+    $(".panel-heading").click(function() {
+      $(this).next().slideToggle(200);
+      $(this).children().first().toggleClass("expanded");
+    });
+
     if ($(window).height() >= $(document).height() )
     {
         $('footer.popup-banner').data('size','hide');

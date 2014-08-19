@@ -1,8 +1,10 @@
-<h1 class="SSS">My Current Menu</h1>
+<%= render 'top_nav' %>
+
+<h2 class="SSS">My Current Menu</h2>
 
 <div class ="panel panel-default">
   <% @restaurant.menu.categories.each do |category| %>
-  <div class="panel-heading top-heading"><h3 class="panel-title"><%= category.name %></h3></div>
+  <div class="panel-heading"><h1 class="panel-title"><%= category.name %></h1></div>
   <table class="table">
     <% category.items.each do |item| %>
       <tbody>

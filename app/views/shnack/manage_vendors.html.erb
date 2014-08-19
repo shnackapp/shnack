@@ -9,16 +9,6 @@
 		<%= link_to "Create New Vendor For This Stadium", new_stadium_vendor_path(location), :class => "list-group-item" %>
 	</div>
 
-	<!-- <div class="panel panel-default">
-		<div class="panel-heading"><h3 class="panel-title">	<%= location.name %> </h3>
-	</div>
-		<div class="list-group">
-			<#% location.vendors.each do |v| %>
-				<#%= link_to v.name, edit_stadium_vendor_path(location, v), :class=> "list-group-item" %>
-			<#% end %>
-			<#%= link_to "Create New Vendor For This Stadium", new_stadium_vendor_path(location), :class => "list-group-item" %>
-		</div>
-	</div> -->
 	<% else %>
 		<h2 class="SSS">
 			<%= link_to location.name, location %>
