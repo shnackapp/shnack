@@ -16,20 +16,9 @@
 //= require jquery.mask.min
 //= require_tree .
 
-/*
-function checkDevice() {
-  var windowWidth = $(window).width();
-  //alert(windowWidth);
-  if (windowWidth <= 520) {
-    mobileInfoText();
-    $("#topbar").addClass("mobile");
-    $("#topbar").children().each( function() {
-      $(this).toggleClass("mobile");
-    });
-  }
-}*/
 
-$(function(){
+$(function(){ 
+
     $('footer.popup-banner').hide();
     if($(document).height() <= $(window).height()){
         $('footer.popup-banner').show();
@@ -67,6 +56,12 @@ $(window).scroll(function(){
 });
 
 $(document).ready(function() {
+
+    $("a[href='#top_now']").click(function() {
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+      return false;
+    });
+
     if ($(window).height() >= $(document).height() )
     {
         $('footer.popup-banner').data('size','hide');

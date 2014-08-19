@@ -32,11 +32,8 @@
         "components/*",
         "base/colors";
 
-@import "charges", "custom-resizing", "orders", "sign_in", "styles-general";
-
-#top {
-  margin-top:100px;
-}
+@import "charges", "orders", "sign_in", "styles-general";
+@import "custom-resizing";
 
 
 tbody.all_the_mods tr {
