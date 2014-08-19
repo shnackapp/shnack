@@ -246,7 +246,7 @@ class ApiController < ApplicationController
 		else 
 			charge = Stripe::Charge.retrieve(order.charge_id)
 			refund = charge.refunds.create
-			render :json => { :refunded => true, :refund_id => refund.id, :message => : }
+			render :json => { :refunded => true, :refund_id => refund.id, :message => "Order refunded successfully" }
 		end
 
 	end
