@@ -10,6 +10,8 @@
 .brown  { background-color: $brown; }
 .green  { background-color: $green; }
 .darkslategray { background-color: darkslategray; }
+.darkseagreen  { background-color: darkseagreen; }
+.lightgreen { background-color: $lightgreen; }
 
 
 .text-red    { color: $red; }
@@ -22,7 +24,6 @@
 .text-brown  { color: $brown; }
 .text-green  { color: $green; }
 .text-darkslategray { color: darkslategray; }
-
 
 
 
@@ -113,4 +114,9 @@ button.darkslategray:active { background-color: lighten(darkslategray, 15%); }
 .wrapper-darkseagreen {
   width: 100%;
   background-color: darkseagreen;
+}
+
+.wrapper-lightgreen {
+  width: 100%;
+  background-color: $lightgreen;
 }
