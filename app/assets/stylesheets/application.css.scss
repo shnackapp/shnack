@@ -147,9 +147,16 @@ footer.fb {
     background-color:LEMONCHIFFON;
   }
 
+
   #images {
+    .container {
+      margin:auto;
+      width:100%;
+      text-align:center;
+    }
     img {
       width:33%;
+      margin:auto;
     }
   }
 }
