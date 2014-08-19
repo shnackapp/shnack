@@ -8,7 +8,7 @@ Select Your Location
 		<% if location.is_open? %>
 			<%= link_to(raw(location.name + "<span class='right info'>Open until #{location.todays_closing_time}</span>"), {:action => "select_vendor", :object_id  => location.id}, :class=>"list-group-item open") %>
 		<% else %>
-			<%= link_to(raw(location.name + " - Currently Closed" + "<span class='right info'>Closed until #{location.tomorrows_opening_time}</span>"), '#', :class=>"list-group-item list-group-item-danger") unless location.hide_when_closed? %>
+			<%= link_to(raw(location.name + " - Currently Closed" + "<span class='right info'>Opens at #{location.tomorrows_opening_time}</span>"), '#', :class=>"list-group-item list-group-item-danger") unless location.hide_when_closed? %>
 		<% end %>
 
  	
