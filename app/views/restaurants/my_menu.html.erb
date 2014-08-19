@@ -1,0 +1,99 @@
+<h1 class="SSS">My Current Menu</h1>
+
+<div class ="panel panel-default">
+  <% @restaurant.menu.categories.each do |category| %>
+  <div class="panel-heading top-heading"><h3 class="panel-title"><%= category.name %></h3></div>
+  <table class="table">
+    <% category.items.each do |item| %>
+      <tbody>
+        <tr class="item-name">
+          <td ><%= link_to item.name, {:action => "edit_item", :controller => "menu", :item_id => item.id} %></td>
+          <td class="text-right"><%= Item.integer_to_currency item.price %></td>
+          <td class="text-right" style="width:5%"><%= link_to content_tag(:span, nil, :class=> "glyphicon glyphicon-minus"), { :controller => 'menu', :action => 'delete_item', :item_id => item.id } %></td>
+        </tr>
+        <% if item.has_description? %>
+          <tr>
+            <td colspan="3" class="item-description"><%= item.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+
+      <% if item.modifiers.size > 0 %>
+        <tbody style="background-color:#F9F9F9;">
+          <% item.modifiers.each do |mod| %>
+            <%  unless mod.name.empty? %>
+              <tr class="item-modifier">
+                <td class="modifier-name" colspan="3">
+                  <em> <%= mod.name.capitalize %> </em>
+                </td>
+                  
+                  <% mod.options.each do |val| %>
+                    <%  unless val.name.empty? %>
+                      <tr>
+                        <td colspan="2"> <%= val.name.capitalize %> </td>
+                        <td><%= Order.integer_to_currency val.price %></td>
+                      </tr>
+                    <% end %>
+                  <% end %>
+                </tr>
+              <% end %>
+          <% end %>
+        </tbody>
+      <% end %>
+    <% end %>
+  </table>
+  <% end %>
+</div>
+
+
+
+<h2>Add A New Category</h2>
+<table class="table">
+  <%= form_for @restaurant.menu.categories.new, :url => url_for(:controller => "menu", :action => 'add_category') do  |f| %>
+  <%= f.hidden_field :menu_id, :value => @restaurant.menu.id %>
+  <tr>
+    <td><%= f.label :name %></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr colspan="2"> <td> <%= f.submit %></td> </tr>
+  <% end %>
+</table>
+
+<h2>Add A New Item</h2>
+<table class="table">
+  <%= form_for @restaurant.menu.items.new, :url => url_for(:controller => "menu", :action => 'add_item') do  |f| %>
+  <%= f.hidden_field :menu_id, :value => @restaurant.menu.id %>
+  <tr>
+    <td colspan="2"><%= collection_select(:item, :category_id, @restaurant.menu.categories, :id, :name, {}, {:class=>"form-control"}) %> </td>
+  </tr>
+  <tr>
+    <td><%= f.label :name %></td>
+    <td><%= f.text_field :name, :class=>"form-control" %></td>
+  </tr>
+
+  <tr>
+    <td> <%= f.label :price %></td>
+    <td> <%= f.text_field :price , :class=>"form-control"%></td>
+  </tr>
+
+
+
+  <tr>
+    <td> <%= f.label :modifiers %></td>
+    <td class="add-mod-btns">
+      <button class="action-btn" type="button" id="size_mod_btn" data-mod-type="size">Add a size option to item</button>
+      <%= render 'new_item_size' %>
+
+      <button class="action-btn" type="button" id="single_select_mod_btn" data-mod-type="single">Add a single select option to item</button>
+      <%= render 'new_item_single_select' %>
+
+      <button class="action-btn" type="button" id="multiple_select_mod_btn" data-mod-type="multiple">Add a multi select option to item</button>
+      <%= render 'new_item_multiple_select' %>
+
+      <button class="action-btn" type="button" id="mod_btn" data-mod-type="custom" disabled="disabled">Add a custom option to item</button>
+
+      </td>
+    </tr>
+    <tr colspan="3"> <td> <%= f.submit 'Ceate new item', :class=>"push-btn darkslategray" %></td> </tr>
+    <% end %>
+  </table>
