@@ -36,7 +36,7 @@ class ApiController < ApplicationController
   	phone_exists = User.where(number: params[:phone]).exists? 
   	puts email_exists.to_s
   	puts phone_exists.to_s
-  	render json: { email_exists: email_exists, phone_exists: phone_exists}
+  	render json: { email_exists: email_exists.to_s, phone_exists: phone_exists.to_s}
   end
 
 	def index
