@@ -82,12 +82,17 @@ class Restaurant < Location
   def todays_closing_time
     time = Time.now.in_time_zone("Pacific Time (US & Canada)")
     h = self.hours.where(:day => time.wday).first
+    return "Midnight" if h.closing_time == "2400"
     closing_hour = h.closing_hour
     closing_min = h.closing_min
-    closing_hour -= 12 if closing_hour > 12
+    pm = false
+    if closing_hour > 12
+      closing_hour -= 12 
+      pm = true
+    end
 
 
-    format("%02d:%02d", closing_hour, closing_min)
+    format("%02d:%02d%s", closing_hour, closing_min, pm ? "pm" : "am")
   end
 
   def available_amount
