@@ -95,6 +95,11 @@ div.list-group.select .list-group-item  {
   color: $red;
   font-weight:900;
 
+  .info {
+    font-size: .8em;
+    font-weight: 600;
+  }
+
   &:hover {
     background-color: lighten(darkseagreen, 30);
     /*background-color: #F8F8F8;*/

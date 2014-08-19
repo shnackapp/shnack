@@ -79,6 +79,17 @@ class Restaurant < Location
     end
   end
 
+  def todays_closing_time
+    time = Time.now.in_time_zone("Pacific Time (US & Canada)")
+    h = self.hours.where(:day => time.wday).first
+    closing_hour = h.closing_hour
+    closing_min = h.closing_min
+    closing_hour -= 12 if closing_hour > 12
+
+
+    format("%02d:%02d", closing_hour, closing_min)
+  end
+
   def available_amount
     amount = 0
     self.orders.available.each { |order| amount = amount + order.location_cut unless order.location_cut.nil? }
