@@ -13,9 +13,9 @@
   <% end %>
 
   <div class="the-menu">
-  <%= f.hidden_field :user_id, :value => user_signed_in? ? current_user.id : 0 %>
-  <%= @owner.instance_of?(Restaurant) ?  f.hidden_field(:restaurant_id, :value => @owner.id) : f.hidden_field(:vendor_id, :value => @owner.id) %>
-  <%= f.hidden_field :subtotal, :value => "0" %>
+    <%= f.hidden_field :user_id, :value => user_signed_in? ? current_user.id : 0 %>
+    <%= @owner.instance_of?(Restaurant) ?  f.hidden_field(:restaurant_id, :value => @owner.id) : f.hidden_field(:vendor_id, :value => @owner.id) %>
+    <%= f.hidden_field :subtotal, :value => "0" %>
 
     <% if @menu.categories.count > 1 %>
 
@@ -60,66 +60,67 @@
       </div>
     <% end %>
     <% else %>
-     <div class="order-items">
-          <table cellspacing="10" class="table">
+      <div class="all-items-wrap">
+        <% category.items.each do |item| %>
+          <div data-id="<%= item.id %>" class="single-item-wrap">
+            <div class="row-new">
+              <div class="column five"> <%= item.name %> </div>
+              <div id="<%=item.id%>_price" data-price="<%=item.price%>" class="column three"> <%= Item.integer_to_currency item.price %> </div>
 
-          <% @menu.items.each do |item| %>
-            <tbody class="menu_item" data-id="<%= item.id %>" data-price="<%= item.price %>" style="border:none;outline:none;">
-              <tr>
-                <td><%= item.name %></td>
-                <td id="<%=item.id%>_price" data-price="<%=item.price%>"><%= Item.integer_to_currency item.price %></td>
-                <% if(item.sold_out) %>
-                  <td colspan="3">Item Sold Out</td>
-                <% else %> 
-                                  <td> <span class="glyphicon glyphicon-minus minus"></span> </td>
+              <% if(item.sold_out) %>
+                <div class="column four">Item Sold Out</td>
 
-                  <td id="<%=item.id%>_num" class="num"> 0 </td>
-                                    <td> <span class="glyphicon glyphicon-plus plus"></span> </td>
+              <% else %> 
+                <div class="column one text-center"> <span class="fa fa-minus minus"></span> </div>
+                <div id="<%=item.id%>_num" class="column two num text-center"> 0 </div>
+                <div class="column one text-center"> <span class="fa fa-plus plus"></span> </div>
+                        
 
-                  <td class="item_id hidden"> <%= item.id %> </td>
-                  <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
-             
-                  <% if item.has_description? %>
-                    </tr>
-                    <tr>
-                      <td colspan="5" class="item-description"> <%= item.description %> </td>
-                  <% end %>
-                  <% if item.has_mod?; @item = item %>
-                    <%= render :partial => 'display_mods', :locals => { item: @item } %>
-                  <% end %>
-                <% end %>
-              </tr>
+                <div class="item_id hidden"> <%= item.id %> </div>      
+                <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
+              <% end %>
+            </div>
 
 
-            </tbody>
-          <%end%>
-        </table>
-      </div>
+            <% if item.has_description? %>
+              <div class="twelve item-description"> <%= item.description %> </div>
+            <% end %>
+                              
+
+            <% if item.has_mod?; @item = item %>
+              <%= render :partial => 'display_mods', :locals => { item: @item } %>
+            <% end %>
+
+          </div>
+
+        <% end %>
+      </div> <!-- ENDS ALL ITEMS WRAP -->
     <% end %>
 
+  </div> <!-- ENDS THE-MENU -->
 
-    <table class="table subtotal" style="margin-bottom:2em;">
-      <tr>
-        <td>Subtotal: </td>
-        <td></td>
-        <td class="subtotal text-center" data-total="000" colspan="3"> $0.00</td>
-      </tr>
-      <% if @owner.shnack_fee != 0 %>
-      <tr>
-        <td> Shnack Fee: </td>
-        <td></td>
-        <td class="fee text-center" data-price="<%= @owner.shnack_fee %>" colspan="3"> <%= @order.integer_to_currency(@owner.shnack_fee) %></td>
-      </tr>
-      <% end %>
-      <tr>
-        <td> Total </td>
-        <td></td>
-        <td class="total text-center" data-total="000" colspan="3"> $0.00 </td>
-      </tr>
-    </table>
-  </div>
+  <div class="money-wrap primary-app-content">
+    <ol>
+      <li>Subtotal:</li>
+      <li data-total="000"> $0.00 </li>
+    </ol>
 
-  <div class="actions">
+    <% if @owner.shnack_fee != 0 %>
+      <ol>
+        <li>Shnack Fee:</li>
+        <li class="fee" data-price="<%= @owner.shnack_fee %>"> <%= @order.integer_to_currency(@owner.shnack_fee) %></li>
+      </ol>
+    <% end %>
+
+    <ol>
+      <li>Total:</li>
+      <li data-total="000"> $0.00 </li>
+    </ol>
+
+  </div> <!-- ENDS MONEY-WRAP -->
+
+
+  <div class="actions primary-app-content">
   <% if @owner.is_open? %>
     <%= button_tag(type: 'submit', id:"order-submit", class: "push-btn darkslategray") do %>
       <i class="fa fa-cutlery pad-right-sml"></i> Next

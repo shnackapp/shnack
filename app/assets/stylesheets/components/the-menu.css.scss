@@ -18,3 +18,9 @@
     font-size: .92em;
   }
 }
+
+
+.money-wrap {
+  @extend .my-well;
+  padding: 6px;
+}
