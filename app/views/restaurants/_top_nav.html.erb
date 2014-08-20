@@ -4,8 +4,8 @@ Manage Restaurant
 
 <h2 class="SSS"> <%= @restaurant.name %> </h2>
 
-<div class="row-new management">
-  <div class="column four"><i class="fa fa-star-o"></i><%= link_to "My Restaurant", restaurant_path(@restaurant), {:method => 'get'} %></div>
-  <div class="column four"><i class="fa fa-money"></i><%= link_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get'} %></div>
-  <div class="column four"><i class="fa fa-list"></i><%= link_to "My Menu", my_menu_restaurant_path(@restaurant), {:method => 'get'} %></div>
-</div>
+<nav class="row-new management">
+  <div class="column four"><%= link_to "My Restaurant", restaurant_path(@restaurant), {:method => 'get', class: 'action-btn twelve'} %></div>
+  <div class="column four"><%= link_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get', class: 'action-btn twelve' } %></div>
+  <div class="column four"><%= link_to "My Menu", my_menu_restaurant_path(@restaurant), {:method => 'get', class: 'action-btn twelve'} %></div>
+</nav>

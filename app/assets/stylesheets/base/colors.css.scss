@@ -25,6 +25,11 @@
 .text-green  { color: $green; }
 .text-darkslategray { color: darkslategray; }
 
+$directions: top, left, right, bottom;
+@each $direction in $directions {
+  .margin-#{$direction}{ margin-#{$direction}: 10px; }
+}
+
 
 
 a.red:hover { background-color: lighten($red, 10%); }
