@@ -8,6 +8,9 @@
     font-size: 14px;
     padding: 5px;
 
+    span.plus { cursor: pointer; }
+    span.minus { cursor: pointer; }
+
     &:nth-child(even) {
       background-color: #F5F5F5;
     }

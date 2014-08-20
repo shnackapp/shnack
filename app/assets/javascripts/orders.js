@@ -60,8 +60,8 @@ $(document).ready(function() {
 	});
 
 	$("#order-submit").click(function(e) {
-		var subtotal = $(".subtotal").data("price");
-		if(subtotal <= 0) {
+		var qnty = $(".cart_quantity").html();
+		if(qnty <= 0) {
 			e.preventDefault();
 			$(".current-order-error").show();
 		}
