@@ -21,39 +21,38 @@
 
       <% @menu.categories.each do |category| %>
         <h3 class="SSS my-panel-heading expandable"><%= category.name %></h3>
-        <div class="order-items" style="display:none;">
-          <table cellspacing="10" class="table">
 
+        <div class="all-items-wrap">
           <% category.items.each do |item| %>
-            <tbody class="menu_item" data-id= "<%= item.id %>" style="border:none;outline:none;">
-              <tr>
-                <td>
-                  <span class="name"><%= item.name %></span>
-                  <span class="description"><%= item.description if item.has_description?%></span>
-                </td>
-                <td id="<%=item.id%>_price" class="price" data-price="<%=item.price%>"><%= Item.integer_to_currency item.price %></td>
-                <% if(item.sold_out) %>
-                  <td colspan="3">Item Sold Out</td>
-                <% else %> 
-                                  <td> <span class="glyphicon glyphicon-minus minus"></span> </td>
+            <div class="row-new">
+              <div class="column three"> <%= item.name %> </div>
+              <div id="<%=item.id%>_price" data-price="<%=item.price%>" class="column two"> <%= Item.integer_to_currency item.price %> </div>
 
-                  <td id="<%=item.id%>_num" class="num"> 0 </td>
-                                    <td> <span class="glyphicon glyphicon-plus plus"></span> </td>
+              <% if(item.sold_out) %>
+                <div class="column three">Item Sold Out</td>
 
-                  <td class="item_id hidden"> <%= item.id %> </td>
-                  <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
-             
-                  <tr>
-                  <% if item.has_mod?; @item = item %>
-                    <%= render :partial => 'display_mods', :locals => { item: @item } %>
-                  <% end %>
-                <% end %>
-              </tr>
+              <% else %> 
+                <div class="column one"> <span class="glyphicon glyphicon-minus minus"></span> </div>
+                <div id="<%=item.id%>_num" class="column one num"> 0 </div>
+                <div class="column one"> <span class="glyphicon glyphicon-plus plus"></span> </div>
+                            
+                <%= f.hidden_field "item[#{item.id}]", :value => 0, :class => "item_#{item.id}" %>
+              <% end %>
 
+              <% if item.has_description? %>
+                <div class="column-mobile four ittem-description"> <%= item.description %> </div>
+              <% else %>
+                <div class="column-mobile four"></div>
+              <% end %>
+                            
+            </div>
 
-            </tbody>
-          <%end%>
-        </table>
+            <% if item.has_mod?; @item = item %>
+              <%= render :partial => 'display_mods', :locals => { item: @item } %>
+            <% end %>
+
+          <% end %>
+        </div> <!-- ENDS ALL ITEMS WRAP -->
       </div>
     <% end %>
     <% else %>
