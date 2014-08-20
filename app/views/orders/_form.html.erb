@@ -24,7 +24,7 @@
 
         <div class="all-items-wrap">
           <% category.items.each do |item| %>
-            <div class="row-new">
+            <div class="row-new single-item-wrap">
               <div class="column three"> <%= item.name %> </div>
               <div id="<%=item.id%>_price" data-price="<%=item.price%>" class="column two"> <%= Item.integer_to_currency item.price %> </div>
 

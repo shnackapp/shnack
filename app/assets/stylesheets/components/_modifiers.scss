@@ -1,8 +1,17 @@
 .entire-mod-wrap {
-  background-color: lemonciffon;
+  background-color: lemonchiffon;
+
+  &:before {
+    content: ' ';
+    display: block;
+    height: 2px;
+    width: 100%;
+    margin-bottom: 14px;
+    background-color: orange;
+  }
 
   .customize-this { 
-    font-size: 2em;
+    font-size: 1.4em;
     text-align: center;
 
     &:before {
@@ -13,6 +22,7 @@
   .individual-mod-wrap {
     //background-color: skyblue;
     padding: 9px;
+    margin-bottom: 5px;
   }
 
   ol.single-option-wrap {
