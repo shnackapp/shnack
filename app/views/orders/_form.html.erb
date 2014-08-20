@@ -61,7 +61,7 @@
     <% else %>
 
       <div class="all-items-wrap">
-        <% category.items.each do |item| %>
+        <% @menu.items.each do |item| %>
           <div data-id="<%= item.id %>" class="single-item-wrap">
             <div class="row-new">
               <div class="column five"> <%= item.name %> </div>
@@ -120,7 +120,7 @@
           </ol>
         <% end %>
 
-        <ol>
+        <ol class="mar-bottom-sml">
           <li>Total:</li>
           <li data-total="000" class="total"> $0.00 </li>
         </ol>
