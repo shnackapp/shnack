@@ -95,9 +95,13 @@ class Restaurant < Location
     format("%02d:%02d%s", closing_hour, closing_min, pm ? "pm" : "am")
   end
 
+  #Returns the time when the store next opens
   def tomorrows_opening_time
     time = Time.now.in_time_zone("Pacific Time (US & Canada)")
-    h = self.hours.where(:day => (time.wday + 1)%8).first
+    h = self.hours.where(:day => time.wday).first
+    #if store opens during tomorrows hours, then set h to be tomorrow
+    h = self.hours.where(:day => (time.wday + 1)%7).first  unless time.hour < h.opening_hour || (time.hour == h.opening_hour && time.min < h.opening_min)
+   
     return "Midnight" if h.opening_time == "0000"    
 
     opening_hour = h.opening_hour
