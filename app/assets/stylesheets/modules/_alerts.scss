@@ -1,3 +1,4 @@
+@import "base/vars";
 
 .flash {
   margin: 0px auto;
@@ -39,8 +40,21 @@ div.error {
   padding: 5px;
   border: 2px solid #780000;
   border-radius: 10px;
-  background-color: #E5E6E6;
+  background-color: #D5E6E6;
   color:#780000;
   font-weight: bold;
   text-align: center;
+}
+
+.current-order-error {
+  border: solid 2px $darkred;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 3px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 3px;
+  background-color: #F5D5D5;
+  color: $darkred;
 }

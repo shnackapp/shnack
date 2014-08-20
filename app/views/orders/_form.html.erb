@@ -99,38 +99,53 @@
 
   </div> <!-- ENDS THE-MENU -->
 
-  <div class="money-wrap primary-app-content">
-    <ol>
-      <li>Subtotal:</li>
-      <li data-total="000" class="subtotal"> $0.00 </li>
-    </ol>
 
-    <% if @owner.shnack_fee != 0 %>
-      <ol>
-        <li>Shnack Fee:</li>
-        <li data-price="<%= @owner.shnack_fee %>" class="fee"> <%= @order.integer_to_currency(@owner.shnack_fee) %></li>
-      </ol>
-    <% end %>
+  <div class="my-well-mid primary-app-content">
+    <div class="row-new">
+      <div class="money-wrap column-mobile six">
+        <ol>
+          <li>Items in Cart:</li>
+          <li data-quantity="000" class="cart_quantity"> 0 </li>
+        </ol>
 
-    <ol>
-      <li>Total:</li>
-      <li data-total="000" class="total"> $0.00 </li>
-    </ol>
+        <ol>
+          <li>Subtotal:</li>
+          <li data-total="000" class="subtotal"> $0.00 </li>
+        </ol>
 
-  </div> <!-- ENDS MONEY-WRAP -->
+        <% if @owner.shnack_fee != 0 %>
+          <ol>
+            <li>Shnack Fee:</li>
+            <li data-price="<%= @owner.shnack_fee %>" class="fee"> <%= @order.integer_to_currency(@owner.shnack_fee) %></li>
+          </ol>
+        <% end %>
+
+        <ol>
+          <li>Total:</li>
+          <li data-total="000" class="total"> $0.00 </li>
+        </ol>
+
+      </div> <!-- ENDS MONEY-WRAP -->
 
 
-  <div class="actions primary-app-content">
-  <% if @owner.is_open? %>
-    <%= button_tag(type: 'submit', id:"order-submit", class: "push-btn darkslategray") do %>
-      <i class="fa fa-cutlery pad-right-sml"></i> Next
-    <% end %>
-  <% else %> 
-    <%= button_tag(type: 'submit', id:"order-submit",  class: "push-btn", :disabled => true) do %>
-      <i class="fa fa-frown-o pad-right-sml"></i> Currently Closed
-    <% end %>
+
+      <div class="actions column-mobile six">
+        <% if @owner.is_open? %>
+          <%= button_tag(type: 'submit', id:"order-submit", class: "push-btn darkslategray") do %>
+            <i class="fa fa-cutlery pad-right-sml"></i> Next
+          <% end %>
+        <% else %> 
+          <%= button_tag(type: 'submit', id:"order-submit",  class: "push-btn", :disabled => true) do %>
+            <i class="fa fa-frown-o pad-right-sml"></i> Currently Closed
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="current-order-error" style="display:none;">Come on! You have to order something!</div>
+
   </div>
-  <% end %>
-<% end %>
 
+<% end %>
 

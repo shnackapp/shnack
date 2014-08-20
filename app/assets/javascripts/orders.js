@@ -36,6 +36,7 @@ $(document).ready(function() {
 		$("#"+id+"_num").html(val);
 		$(".item_" + id).val(val);
 		updatePrice();
+		updateQuantity();
 
 		$("#"+id+"_mod").slideDown(400);
 	});
@@ -50,6 +51,7 @@ $(document).ready(function() {
 		$("#"+id+"_num").html(val);
 		$(".item_" + id).val(val);
 		updatePrice();
+		updateQuantity();
 	});
 
 
@@ -58,10 +60,10 @@ $(document).ready(function() {
 	});
 
 	$("#order-submit").click(function(e) {
-		var total = $(".total").data("price");
-		if(total <= 0) {
+		var subtotal = $(".subtotal").data("price");
+		if(subtotal <= 0) {
 			e.preventDefault();
-			$(".order-error").slideDown(100);
+			$(".current-order-error").show();
 		}
 	});
 });
@@ -86,6 +88,7 @@ function initializeValues() {
 	});
 	
 	updatePrice();
+	updateQuantity();
 
 };
 
@@ -93,6 +96,8 @@ function initializeValues() {
 
 
 function updatePrice() {
+
+
 	var subtotal = 0;
 
 	$(".single-item-wrap").each(function() {
@@ -141,6 +146,15 @@ function updatePrice() {
 
 };
 
+function updateQuantity() {
+	var qnty = 0;
+
+	$(".num").each( function() {
+		qnty += parseInt( $(this).html() );
+	});
+
+	$(".cart_quantity").html(qnty);
+};
 
 
 
