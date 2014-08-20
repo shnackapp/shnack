@@ -16,6 +16,28 @@
 //= require jquery.mask.min
 //= require_tree .
 
+$(document).ready(function() {
+    // Cache selectors for faster performance.
+    var $window = $(window),
+        $mainMenuBar = $('#mainMenuBar'),
+        $mainMenuBarAnchor = $('#mainMenuBarAnchor');
+
+    // Run this on scroll events.
+    $window.scroll(function() {
+        var window_top = $window.scrollTop();
+        var div_top = $mainMenuBarAnchor.offset().top;
+        if (window_top > div_top) {
+            // Make the div sticky.
+            $mainMenuBar.addClass('stick');
+            $mainMenuBarAnchor.height($mainMenuBar.height());
+        }
+        else {
+            // Unstick the div.
+            $mainMenuBar.removeClass('stick');
+            $mainMenuBarAnchor.height(0);
+        }
+    });
+});
 
 $(function(){ 
 
@@ -65,6 +87,10 @@ $(document).ready(function() {
     $(".panel-heading").click(function() {
       $(this).next().slideToggle(200);
       $(this).children().first().toggleClass("expanded");
+    });
+    $(".my-panel-heading").click(function() {
+      $(this).next().slideToggle(200);
+      $(this).toggleClass("expanded");
     });
 
     if ($(window).height() >= $(document).height() )

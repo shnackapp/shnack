@@ -12,15 +12,15 @@
 
   <% end %>
 
+  <div class="the-menu">
   <%= f.hidden_field :user_id, :value => user_signed_in? ? current_user.id : 0 %>
   <%= @owner.instance_of?(Restaurant) ?  f.hidden_field(:restaurant_id, :value => @owner.id) : f.hidden_field(:vendor_id, :value => @owner.id) %>
   <%= f.hidden_field :subtotal, :value => "0" %>
-  <div class ="panel panel-default">
 
     <% if @menu.categories.count > 1 %>
 
       <% @menu.categories.each do |category| %>
-        <div class="panel-heading"><h1 class="panel-title"><%= category.name %></h1></div>
+        <h3 class="SSS my-panel-heading expandable"><%= category.name %></h3>
         <div class="order-items" style="display:none;">
           <table cellspacing="10" class="table">
 
@@ -95,7 +95,7 @@
     <% end %>
 
 
-    <table class="table subtotal">
+    <table class="table subtotal" style="margin-bottom:2em;">
       <tr>
         <td>Subtotal: </td>
         <td></td>
@@ -116,10 +116,9 @@
     </table>
   </div>
 
-
   <div class="actions">
   <% if @owner.is_open? %>
-    <%= button_tag(type: 'submit', id:"order-submit", class: "push-btn darkslategray mar-bottom") do %>
+    <%= button_tag(type: 'submit', id:"order-submit", class: "push-btn darkslategray") do %>
       <i class="fa fa-cutlery pad-right-sml"></i> Next
     <% end %>
   <% else %> 

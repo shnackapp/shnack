@@ -3,7 +3,7 @@
 <% end %>
 
 <%= render 'form' %>
-<div class="cancel">
+<div class="cancel mar-y-lrg">
 	<% if @owner.instance_of?(Vendor) %>
 		<%= link_to 'Cancel', :controller => 'application' , :action => "select_vendor", :object_id  => @owner.stadium.id %>
 	<% else %>
