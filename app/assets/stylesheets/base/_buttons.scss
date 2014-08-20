@@ -14,7 +14,8 @@ a {
   }
 }
 
-button {
+
+.basic_btn {
   display: inline-block;
   font: normal 16px/100% "Dosis", Tahoma, sans-serif;
   font-weight: 500;
@@ -43,16 +44,12 @@ button {
     }
   }
 
+}
 
-/*   &.btn {
-    border-radius: 0px;
-  }
- */
-/*   &.btn.payment-button {
-      margin-top:20px;
-  } */
- 
-
+button,
+input[type="submit"],
+input[type="button"] {
+  @extend .basic_btn;
 }
 
 /* override for rail helpers that are not button tags but are buttons */

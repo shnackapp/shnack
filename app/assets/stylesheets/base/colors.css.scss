@@ -25,10 +25,21 @@
 .text-green  { color: $green; }
 .text-darkslategray { color: darkslategray; }
 
-$directions: top, left, right, bottom;
-@each $direction in $directions {
-  .margin-#{$direction}{ margin-#{$direction}: 10px; }
-}
+
+// $all-colors-names: white, black, cement, blue, brown, darkslategray, red, lightred, darkred, green, darkseagreen, lightgreen, darkgreen, lemonchiffon;
+// $all-colors: $white, $black, $cement, $blue, $brown, darkslategray, $red, $lightred, $darkred, $green, darkseagreen, $lightgreen, $darkgreen, lemonchiffon;
+// @each $color, $color-name in ($all-colors), ($all-colors-name) {
+//   .#{$color-name}          { background-color: #{$color}; }
+//   .text-#{$color-name}     { color: #{$color}; }
+//   .wrapper-#{$color-name} { background-color: #{$color}; width: 100%; }
+
+//   a.action-btn.#{$color-name}:hover      { color: $white; background-color: lighten(#{$color}, 10%); }
+//   button.action-btn.#{$color-name}:hover { color: $white; background-color: lighten(#{$color}, 10%); }
+
+//   a.action-btn.#{$color-name}:active      { color: $white; background-color: lighten(#{$color}, 15%); }
+//   button.action-btn.#{$color-name}:active { color: $white; background-color: lighten(#{$color}, 15%); }
+
+// }
 
 
 
