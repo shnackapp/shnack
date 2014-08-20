@@ -36,29 +36,6 @@
 @import "custom-resizing";
 
 
-tbody.all_the_mods tr {
-
-    td.customize-this {
-      background-color: #EEE;
-      color: #333;
-      text-align:center;
-      font-style: italic;
-    }
-
-    &.item-modifier {
-      background-color: #EEE;
-    }
-    &.opt-name {
-      background-color: #EEE;
-    }
-}
-
-
-.item-description {
-  background: lightgray;
-}
-
-
 .step-style {
   text-align: center;
   color: $white;
@@ -78,10 +55,6 @@ tbody.all_the_mods tr {
   img {
     opacity: .9;
   }
-}
-
-.list-group {
-  /*box-shadow: 0px 0px 5px #888;*/
 }
 
 div.list-group.select .list-group-item  {

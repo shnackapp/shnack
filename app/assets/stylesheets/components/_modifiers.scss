@@ -1,21 +1,42 @@
+.entire-mod-wrap {
+  background-color: lemonciffon;
 
+  .customize-this { 
+    font-size: 2em;
+    text-align: center;
+
+    &:before {
+      content: 'Customize this ';
+    }
+  }
+
+  .individual-mod-wrap {
+    //background-color: skyblue;
+    padding: 9px;
+  }
+
+  ol.single-option-wrap {
+    color: orange;
+    padding: 4px;
+    border-bottom: 1px solid brown;
+
+    li:last-of-type {
+      float: right;
+    }
+  }
+}
+
+
+
+//OLD CODE
 tbody.all_the_mods tr {
+    background-color: lemonchiffon;
 
     td.customize-this {
-      background-color: #EEE;
       color: #333;
       text-align:center;
       font-style: italic;
     }
-
-    &.item-modifier {
-      background-color: #EEE;
-    }
-    &.opt-name {
-      background-color: #EEE;
-    }
-
-    
 }
 
 
