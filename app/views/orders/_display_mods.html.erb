@@ -4,7 +4,7 @@
   <div class="row-new">
     <% item.modifiers.each do |mod| %>
       <div class="column-mobile four individual-mod-wrap">
-        <h5 class="SSS"><%= mod.name.capitalize %></h5>
+        <div class="mod-header"><span><%= mod.name.capitalize %></span></div>
 
         <% mod.options.each_with_index do |val, ind| %>
               <ol class="single-option-wrap">
