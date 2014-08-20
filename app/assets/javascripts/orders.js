@@ -95,10 +95,11 @@ function initializeValues() {
 function updatePrice() {
 	var subtotal = 0;
 
-	$(".menu_item").each(function() {
+	$(".single-item-wrap").each(function() {
 		var id = $(this).data("id");
 		var qty = $("#" + id+ "_num").html();
-	if(qty > 0) $("#order-submit").prop('disabled', false);
+
+	  if(qty > 0) $("#order-submit").prop('disabled', false);
 
 		var price = $("#" + id + "_price").data("price");
 		var cost = qty*price;
@@ -116,8 +117,8 @@ function updatePrice() {
 
 
 	subtotal /=100;
-	$("td.subtotal").html(toUSD(subtotal));
-	$("td.subtotal").data("price", subtotal);
+	$(".subtotal").html(toUSD(subtotal));
+	$(".subtotal").data("price", subtotal);
 	var total = subtotal;
 
 	if(!isNaN($(".fee").data("price")))
@@ -135,8 +136,8 @@ function updatePrice() {
 
 	}
 
-	$("td.total").html(toUSD(total));
-	$("td.total").data("total", total);
+	$(".total").html(toUSD(total));
+	$(".total").data("total", total);
 
 };
 

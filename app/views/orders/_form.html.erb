@@ -102,19 +102,19 @@
   <div class="money-wrap primary-app-content">
     <ol>
       <li>Subtotal:</li>
-      <li data-total="000"> $0.00 </li>
+      <li data-total="000" class="subtotal"> $0.00 </li>
     </ol>
 
     <% if @owner.shnack_fee != 0 %>
       <ol>
         <li>Shnack Fee:</li>
-        <li class="fee" data-price="<%= @owner.shnack_fee %>"> <%= @order.integer_to_currency(@owner.shnack_fee) %></li>
+        <li data-price="<%= @owner.shnack_fee %>" class="fee"> <%= @order.integer_to_currency(@owner.shnack_fee) %></li>
       </ol>
     <% end %>
 
     <ol>
       <li>Total:</li>
-      <li data-total="000"> $0.00 </li>
+      <li data-total="000" class="total"> $0.00 </li>
     </ol>
 
   </div> <!-- ENDS MONEY-WRAP -->
