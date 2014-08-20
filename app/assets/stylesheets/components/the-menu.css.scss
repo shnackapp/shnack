@@ -5,8 +5,16 @@
 .all-items-wrap {
 
   .single-item-wrap {
+    font-size: 14px;
     padding: 5px;
-    font-size: 20px;
-    font-weight: 500;
+
+    &:nth-child(even) {
+      background-color: #F5F5F5;
+    }
+  }
+
+  .item-description {
+    color: #888;
+    font-size: .92em;
   }
 }

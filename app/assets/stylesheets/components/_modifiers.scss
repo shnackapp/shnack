@@ -1,18 +1,15 @@
 .entire-mod-wrap {
-  background-color: lemonchiffon;
+  @extend .my-well-lemon;
+  //overwrite well's specific padding and margins
+  padding: 9px; 
+  margin-top: 0px; 
+  margin-bottom: 0px;
 
-  &:before {
-    content: ' ';
-    display: block;
-    height: 2px;
-    width: 100%;
-    margin-bottom: 14px;
-    background-color: orange;
-  }
 
   .customize-this { 
     font-size: 1.4em;
     text-align: center;
+    margin-bottom: 9px;
 
     &:before {
       content: 'Customize this ';
@@ -21,8 +18,8 @@
 
   .individual-mod-wrap {
     //background-color: skyblue;
-    padding: 9px;
     margin-bottom: 5px;
+    padding: 5px;
   }
 
   ol.single-option-wrap {
@@ -39,29 +36,8 @@
 
 
 //OLD CODE
-tbody.all_the_mods tr {
-    background-color: lemonchiffon;
-
-    td.customize-this {
-      color: #333;
-      text-align:center;
-      font-style: italic;
-    }
-}
 
 
-.item-description {
-  background: lightgray;
-  padding-left:10px;
-  font-size: .8em;
-}
-
-.description {
-  display:block;
-  color:#999;
-  font-weight:500;
-  font-size:.92em;
-}
 table.table {
   margin-bottom: 0px;
 }
