@@ -14,6 +14,7 @@
 <div class ="panel panel-default">
 	<% @restaurant.menu.categories.each do |category| %>
 	<div class="panel-heading top-heading"><h3 class="panel-title"><%= category.name %></h3></div>
+	<div style="display:none;">
 	<table class="table">
 		<% category.items.each do |item| %>
 			<tbody>
@@ -53,7 +54,9 @@
 			<% end %>
 		<% end %>
 	</table>
+	</div>
 	<% end %>
+
 </div>
 
 
