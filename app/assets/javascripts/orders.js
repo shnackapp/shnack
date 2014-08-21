@@ -36,7 +36,7 @@ $(document).ready(function() {
 		$("#"+id+"_num").html(val);
 		$(".item_" + id).val(val);
 		updatePrice();
-		updateQuantity();
+		// updateQuantity();
 
 		$("#"+id+"_mod").slideDown(400);
 	});
@@ -51,7 +51,7 @@ $(document).ready(function() {
 		$("#"+id+"_num").html(val);
 		$(".item_" + id).val(val);
 		updatePrice();
-		updateQuantity();
+		// updateQuantity();
 	});
 
 
