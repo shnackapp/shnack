@@ -27,7 +27,11 @@
 
     h3 {
       font-size: 2.5em;
-      width: 25%;   //NOTE
+      margin-top: 5px;
+      margin-bottom: 0px;
+    }
+    &:hover {
+      color: khaki;
     }
     &:visited {
       color: $white;
