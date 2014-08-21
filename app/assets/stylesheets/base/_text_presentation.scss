@@ -14,8 +14,8 @@ h2.SSS {
 
 h3.SSS {
   font-size: 1.4em;
-  background-color: darkseagreen;
-  border-bottom: solid 2px darken(darkseagreen, 50%);
+  background-color: $red;
+  border-bottom: solid 2px darken($red, 50%);
   color: $white;
   padding: 8px 12px 8px 20px;
   font-weight: 500;
