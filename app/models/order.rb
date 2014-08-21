@@ -42,6 +42,7 @@ class Order < ActiveRecord::Base
 
   scope :available, -> { where(:withdrawn => false).where('created_at < ?', 1.week.ago) }
   scope :paid, -> { where(:paid => true) }
+  scope :last_week, -> { where("created_at >= :date", :date => 1.week.ago) } 
 
   
 
