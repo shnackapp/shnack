@@ -103,6 +103,7 @@ class OrdersController < ApplicationController
         # Changing it when we allow multiple modifiers shouldn't be too difficult, we just need a while loop
         # for each item.
         item.modifiers.each do |mod|
+          byebug
           option_id = params["#{id}_#{mod.id}"]
           order_mod = order_item.order_modifiers.create(:modifier_id => mod.id)
 
