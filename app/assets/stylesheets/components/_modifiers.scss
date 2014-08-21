@@ -47,6 +47,13 @@
 
     li:last-of-type {
       float: right;
+      
+    }
+
+    @media(max-width:520px) {
+      li:last-of-type {
+        padding-left:15px;
+      }
     }
   }
 }
