@@ -46,6 +46,38 @@ div.error {
   text-align: center;
 }
 
+
+.flash-alert {
+  margin: 5px 0px 3px 0px;
+  padding: 3px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 3px;
+
+  border: solid 2px $cement;
+  background-color: #D5D5D5;
+  color: $black;
+
+  &.stop {
+    border: solid 2px $darkred;
+    background-color: #F5D5D5;
+    color: $darkred;
+  }
+
+  &.slow {
+    border: solid 2px khaki;
+    background-color: saturate(khaki, 20%);
+    color: $black;
+  }
+
+  &.go {
+    border: solid 2px $green;
+    background-color: saturate($lightgreen, 20%);
+    color: darken($green, 20%);
+  }
+}
+
 .current-order-error {
   border: solid 2px $darkred;
   margin-top: 10px;

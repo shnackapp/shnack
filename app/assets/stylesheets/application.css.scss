@@ -25,7 +25,6 @@
         "base/buttons",
         "base/icons",
         "base/inputs",
-        "utilities",
         "mixins",
         "grid",
         "modules/*",
@@ -33,7 +32,7 @@
         "base/colors";
 
 @import "charges", "orders", "sign_in", "styles-general";
-@import "animate", "custom-resizing";
+@import "animate", "custom-resizing", "utilities";
 
 
 .step-style {

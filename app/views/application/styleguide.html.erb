@@ -12,6 +12,7 @@
 <body style="margin-top:0px;">
     <div class="wrapper pad-lrg">
         <span>h1..6 with SSS class (the styles to switch to)</span>
+        <li>margin-bottom: 5px;</li>
         <hr>
 
         <span>h1.SSS</span><h1 class="SSS">Hello world</h1>
@@ -23,6 +24,8 @@
 
         <hr>
         <span>Basic Paragraph tags</span>
+        <li>font-size: 22px;</li>
+        <li>margin-bottom: 12px;</li>
         <hr>
 
         <p class="span9">Basic < p > tags with span9. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. </p>
@@ -105,8 +108,8 @@
         <input type="textfield" />
 
         <hr>
-        <span>class="input-list"</span>
-        <p>Add this div to a container to mimic these results. Will strech to fill the parent.</p>
+        <p>.input-list</p>
+        <span>Add this div to a container to mimic these results. Will strech to fill the parent.</span>
         <hr>
 
         <div class="input-list">
@@ -152,13 +155,24 @@
           <li>Two</li>
         </ul>
 
+        <hr>
+        OL > LI, OL > *
+        <span>An ordered list and it's first descendants < li > or not will display inline. AKA perfect contains for something you want to be inline-block</span>
+        <li>display: inline-block;</li>
+        <li>&:not(:last-child) { margin-right: 10px; } </li>  
+        <hr>
 
-        <h6 class="SSS">An ordered list and it's first descendants < li > or not will display inline.</h6>
         <ol>
           <li>ABC</li>
           <li>XYZ</li>
         </ol>
 
+        <hr>
+        <span>.my-well</span>
+        <span> :: taking the make from bootstrap, so simple. but lets make our own for better control</span>
+        <li>min-height: 18px;</li>
+        <li>padding: 18px;</li>
+        <li>margin: ?? 2px 20px 2px;</li>
         <hr>
 
         <div class="my-well-lemon seven"><p>This is class my-well-lemon. Basically I took the simple idea from bootstrap. But now we have much better control. This is class my-well-lemon. Basically I took the simple idea from bootstrap. But now we have much better control</p>
@@ -167,6 +181,60 @@
         <div class="my-well-seagreen four"><p>This is class my-well-seagreen four. NOTE four not span4. whole words are perctanges, while spanX is a max-width. Both are on a base 12 for 100% yadda mean? This is class my-well-seagreen four.</div>
 
         <div class="my-well five">And finally the classic my-well five</div>
+
+        <hr>
+        <span>basic .flash-alert</span>
+        <hr>
+            <div class="flash-alert stop span8">Flash Alert STOP you need to stop and chill for a second</div>
+            <div class="flash-alert slow span6">Flash Alert SLOW yo are you okay</div>
+            <div class="flash-alert go span4">Flash Alert GO you have fantastic news and you would not believe what that is, so let me tell you</div>
+            <div class="flash-alert span2">Flash Alert with some text describing to you that I need your attention span2</div>
+
+        <hr>
+        <span>.span1-12</span>
+        <li>have a max-width set</li>
+        <li>increments by 90s :: 90, 180, 270, 360, etc 1080</li>
+        <hr>
+
+        <div class="span1 cement">S Sp Spa Span Span1</div>
+        <div class="span2 cement">Span Span2</div>
+        <div class="span3 cement">Span Span3</div>
+        <div class="span4 cement">Span Span4</div>
+        <div class="span5 cement">Span Span5</div>
+        <div class="span6 cement">Span Span6</div>
+        <div class="span7 cement">Span Span7</div>
+        <div class="span8 cement">Span Span8</div>
+        <div class="span9 cement">Span Span9</div>
+        <div class="span10 cement">Span Span10</div>
+        <div class="span11 cement">Span Span11</div>
+        <div class="span12 cement">Span Span12</div>
+
+
+        <hr>
+        <span>.row-new and columns one-twelve</span>
+        <li>if you plan to use columns, need to have a row-new around it</li>
+        <li>columns are percentage widths, so it scales nicely with screen adjustments</li>
+        <li>.column-mobile :: screens smaller than 520px the column will snap out and stretch 100%</li>
+        <li>the measurment is a seperate word, column two, column-mobile six</li>
+        <p>Columns have no padding applied. Add it your self with pad utilities. NOTE: max-width: 1200px because that is a huge screen yo</p>
+        <hr>
+
+
+        <div class="row-new"> <div class="column one black text-white">column one black text-white</div> </div>
+        <div class="row-new"> <div class="column two black text-white pad-sml">column two pad-sml</div> </div>
+        <div class="row-new"> <div class="column three black text-white">column three</div> </div>
+        <div class="row-new"> <div class="column four black text-white">column four (this is one third)</div> </div>
+        <div class="row-new"> <div class="column five black text-white">column five</div> </div>
+        <div class="row-new"> <div class="column six black text-white pad-lrg">column six alpha-class pad-lrg</div> </div>
+        <div class="row-new"> <div class="column seven red text-white">column seven red</div> </div>
+        <div class="row-new"> <div class="column eight black text-white">column eight order-mod</div> </div>
+        <div class="row-new"> <div class="column nine black text-white">column nine</div> </div>
+        <div class="row-new"> <div class="column ten black text-white">column ten</div> </div>
+        <div class="row-new"> <div class="column eleven black text-white">column eleven</div> </div>
+        <div class="row-new"> <div class="column twelve black text-red">column twelve text-red</div> </div>
+
+
+
     </div>
 
 </body>
