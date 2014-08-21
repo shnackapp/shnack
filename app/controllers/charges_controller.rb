@@ -13,7 +13,6 @@ class ChargesController < ApplicationController
 		@owner = @order.owner
 		@items = Hash[@order.owner.menu.items.map{|it| [it.id, it]}]
 		@order_items = @order.order_items
-		byebug
 	end
 
 	def create
