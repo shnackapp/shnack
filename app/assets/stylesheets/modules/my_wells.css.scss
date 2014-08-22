@@ -1,5 +1,7 @@
 .my-well {
-  min-height: 18px;
+  display: block;
+  position: relative;
+  //min-height: 18px;
   padding: 18px;
   margin-left: 2px;
   margin-right: 2px;
@@ -21,8 +23,11 @@
   padding: 12px;
 }
 
+/* going to delete these, add the color with a color utility */
 .my-well-lemon {
-  min-height: 18px;
+  display: block;
+  position: relative;
+  //min-height: 18px;
   padding: 18px;
   margin-left: 2px;
   margin-right: 2px;
@@ -36,7 +41,9 @@
 
 
 .my-well-seagreen {
-  min-height: 18px;
+  display: block;
+  position: relative;
+  //min-height: 18px;
   padding: 18px;
   margin-left: 2px;
   margin-right: 2px;
