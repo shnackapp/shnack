@@ -6,86 +6,8 @@
 	<div class="column-mobile six clear-fix">
 		<strong> Amount Available: </strong> <%= Order.integer_to_currency @amount %>
 		<br />
-		<% if @amount == 0 %>
-			<%= button_to "Nothing to Withdraw", '/#', { :class => "disabled mar-y", disabled: "disabled" } %>
-		<% else %>
-			<%= button_to "Withdraw", withdraw_funds_restaurant_path(@restaurant), { :class => "blue mar-y", :method => 'post' } %>
-		<% end %>
-
-<<<<<<< HEAD
-<h2 class="headline"> <%= @restaurant.name %> </h2>
-
-	<div class="well">
-		<div>
-			<strong> Amount Available: </strong> <%= Order.integer_to_currency @amount %><br />
-			<div style="padding-top:10px;">
-			<%= button_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get', :class => "btn btn-info" } %> </div>
-		</div>
-
 	</div>
 
-
-<div class ="panel panel-default">
-	<% @restaurant.menu.categories.each do |category| %>
-	<div class="panel-heading top-heading"><h3 class="panel-title"><%= category.name %></h3></div>
-	<div style="display:none;">
-	<table class="table">
-		<% category.items.each do |item| %>
-			<tbody>
-				<tr class="item-name">
-					<td ><%= link_to item.name, {:action => "edit_item", :controller => "menu", :item_id => item.id} %></td>
-					<td class="text-right"><%= Item.integer_to_currency item.price %></td>
-					<td class="text-right" style="width:5%"><%= link_to content_tag(:span, nil, :class=> "glyphicon glyphicon-minus"), { :controller => 'menu', :action => 'delete_item', :item_id => item.id } %></td>
-				</tr>
-				<% if item.has_description? %>
-					<tr>
-						<td colspan="3" class="item-description"><%= item.description %></td>
-					</tr>
-				<% end %>
-			</tbody>
-
-			<% if item.modifiers.size > 0 %>
-				<tbody style="background-color:#F9F9F9;">
-					<% item.modifiers.each do |mod| %>
-						<%  unless mod.name.empty? %>
-							<tr class="item-modifier">
-								<td class="modifier-name" colspan="3">
-									<em> <%= mod.name.capitalize %> </em>
-								</td>
-									
-									<% mod.options.each do |val| %>
-										<%  unless val.name.empty? %>
-											<tr>
-												<td colspan="2"> <%= val.name.capitalize %> </td>
-												<td><%= Order.integer_to_currency val.price %></td>
-											</tr>
-										<% end %>
-									<% end %>
-								</tr>
-							<% end %>
-					<% end %>
-				</tbody>
-			<% end %>
-		<% end %>
-	</table>
-	</div>
-	<% end %>
-=======
-		<% if @account.nil? %>
-			<%= button_to "Add Bank Account", bank_account_restaurant_path(@restaurant), { :class => "mar-y", :method => 'get' } %>
-		<% else %>
-			<strong>Bank Account:</strong>  <%= @account.bank_name %> <%= @account.last4 %>	
-				<%= button_to "Change Bank Account", bank_account_restaurant_path(@restaurant), { :class => "action-btn mar-y", :method => 'get' } %>
-		<% end %>
-	</div>
-	<div class="column-mobile six clear-fix">
-		<strong> Status of Your Last Transfer: </strong> 
-		<% if @transfer.nil? %> None
-		<% else %><strong> <%= @transfer.status %> </strong>
-		<% end %>
-	</div>
->>>>>>> 8ee7ae4677bf564a54f5eeda1a2f8dc85e55671e
-</div>
 
 
 <% if current_user.is_super? %>
