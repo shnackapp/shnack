@@ -38,7 +38,7 @@
 
 
 				<div class="prgs-bar column-mobile eight">
-					<div class="title_current_step">
+					<div class="title_current_step animated flipInY">
 						<%= yield :page_title %>
 					</div>
 				</div>
@@ -73,16 +73,16 @@
 			</div>
 		</div> <!--ENDS TOPBAR-->
 
-		<div class="flash"> 
+		<div class="flash-wrap">
 			<% if flash[:notice] %>
-				<div class="notice"><%= flash[:notice] %></div>
+				<div class="flash-alert go"><%= flash[:notice] %></div>
 			<% end %>
 			<% if flash[:error] %>
-				<div class="f-error"> <%= flash[:error] %> </div>
+				<div class="flash-alert stop"> <%= flash[:error] %> </div>
 			<% end %>
 		</div>
 			
-		<div id="order-form" class="primary-app-content">
+		<div id="order-form" class="primary-app-content mar-bottom">
 			<%= yield %>
 		</div>
 				

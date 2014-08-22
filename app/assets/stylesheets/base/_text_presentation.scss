@@ -1,6 +1,5 @@
 @import "vars";
 
-h1.SSS, h2.SSS, h3.SSS, h4.SSS, h5.SSS, h6.SSS { margin-bottom: 5px; }
 
 h1.SSS {
   font-family: "Damion", serif;
@@ -15,9 +14,8 @@ h2.SSS {
 
 h3.SSS {
   font-size: 1.4em;
-  background-color: #b22;
-  border-bottom: solid 2px darken(darkseagreen, 50%);
-  box-shadow:0 1px 1px rgba(0,0,0,0.05);
+  background-color: $red;
+  border-bottom: solid 2px darken($red, 50%);
   color: $white;
   padding: 8px 12px 8px 20px;
   font-weight: 500;

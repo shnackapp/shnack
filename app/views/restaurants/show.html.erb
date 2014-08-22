@@ -12,6 +12,7 @@
 			<%= button_to "Withdraw", withdraw_funds_restaurant_path(@restaurant), { :class => "blue mar-y", :method => 'post' } %>
 		<% end %>
 
+<<<<<<< HEAD
 <h2 class="headline"> <%= @restaurant.name %> </h2>
 
 	<div class="well">
@@ -69,6 +70,21 @@
 	</table>
 	</div>
 	<% end %>
+=======
+		<% if @account.nil? %>
+			<%= button_to "Add Bank Account", bank_account_restaurant_path(@restaurant), { :class => "mar-y", :method => 'get' } %>
+		<% else %>
+			<strong>Bank Account:</strong>  <%= @account.bank_name %> <%= @account.last4 %>	
+				<%= button_to "Change Bank Account", bank_account_restaurant_path(@restaurant), { :class => "action-btn mar-y", :method => 'get' } %>
+		<% end %>
+	</div>
+	<div class="column-mobile six clear-fix">
+		<strong> Status of Your Last Transfer: </strong> 
+		<% if @transfer.nil? %> None
+		<% else %><strong> <%= @transfer.status %> </strong>
+		<% end %>
+	</div>
+>>>>>>> 8ee7ae4677bf564a54f5eeda1a2f8dc85e55671e
 </div>
 
 
