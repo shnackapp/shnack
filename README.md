@@ -5,8 +5,12 @@ The Official Shnack Application
 
 Using ruby 2
 
-Next To-Do's
-==============
-1. Vendor Management
-2. Be able to have multiple vendors and transfer money to them with bank account details they provide
-3. Rewrite orders to use order_items instead of details string
+Testing
+==========
+1. Order while not logged in, create account
+2. Order while not  logged in, log in
+3. Order while logged in
+4. Orders with modifiers
+5. Create an account
+6. E-mails get sent.
+7. iPad app receives orders.
