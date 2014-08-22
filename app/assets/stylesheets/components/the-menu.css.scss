@@ -10,8 +10,22 @@
       font-size: 14px;
       padding: 9px;
 
-      span.plus { cursor: pointer; }
-      span.minus { cursor: pointer; }
+      span.plus { 
+        cursor: pointer; 
+        font-size: 18px;
+        
+        &:hover {
+          color: $lightgreen;
+        }
+      }
+      span.minus { 
+        cursor: pointer; 
+        font-size: 18px;
+
+        &:hover {
+          color: $lightred;
+        }
+      }
 
       &:nth-child(even) {
         background-color: #F5F5F5;
