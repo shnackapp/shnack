@@ -3,8 +3,8 @@
 
   <div class="row-new">
     <% item.modifiers.each do |mod| %>
+      <div class="mod-header"><span><%= mod.name.capitalize %></span></div>
       <div class="column-mobile four individual-mod-wrap">
-        <div class="mod-header"><span><%= mod.name.capitalize %></span></div>
 
         <% mod.options.each_with_index do |val, ind| %>
               <ol class="single-option-wrap">
