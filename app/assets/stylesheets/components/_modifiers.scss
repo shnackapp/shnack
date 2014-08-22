@@ -4,7 +4,7 @@
   padding: 9px; 
   margin-top: 10px; 
   margin-bottom: 0px;
-
+  overflow: auto;
 
   .customize-this { 
     font-size: 1.2em;
@@ -47,6 +47,13 @@
 
     li:last-of-type {
       float: right;
+      
+    }
+
+    @media(max-width:520px) {
+      li:last-of-type {
+        padding-right:30px;
+      }
     }
   }
 }
