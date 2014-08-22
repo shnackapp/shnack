@@ -44,13 +44,12 @@
   font-size: 16px;
   position: relative;
 
-  @media(max-width:520px) {
-    ol li:last-child {
+  ol li:last-child {
+    @media(max-width:520px) {
       position: absolute;
       right: 10px;
     }
   }
-
 }
 
 
