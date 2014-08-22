@@ -20,7 +20,7 @@
     <% if @menu.categories.count > 1 %>
 
       <% @menu.categories.each do |category| %>
-        <h3 class="SSS my-panel-heading expandable animated rubberBand"><%= category.name %></h3>
+        <h3 class="SSS my-panel-heading expandable"><%= category.name %></h3>
 
         <div class="all-items-wrap">
           <% category.items.each do |item| %>

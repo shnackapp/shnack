@@ -15,10 +15,8 @@
                   <li>
                     <% unless ind == 0 %>
                       <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name='<%= "#{item.id}_#{mod.id}" %>' class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>">
-                      <label for="<%= mod.name.downcase %>_<%= val.name.downcase %>"></label>
                     <% else %>
                       <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name='<%= "#{item.id}_#{mod.id}" %>' class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>" checked>
-                      <label for="<%= mod.name.downcase %>_<%= val.name.downcase %>"></label>
                     <% end %>
                   </li>
                 <% end %>
@@ -27,10 +25,8 @@
                   <li>
                     <% unless ind == 0 %>
                     <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>">
-                    <label for="<%= mod.name.downcase %>_<%= val.name.downcase %>"></label>
                     <% else %>
                     <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>" checked>
-                    <label for="<%= mod.name.downcase %>_<%= val.name.downcase %>"></label>
                     <% end %>
                   </li>
                 <%end%>
@@ -39,7 +35,6 @@
                   <li>
                     <%#= check_box("#{mod.name.downcase}", "#{val.name.downcase}") %>
                     <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="<%="#{item.id}_modifier"%> modifier" type="checkbox" value="<%= val.id %>" data-add-price="<%= val.price %>">
-                    <label for="<%= mod.name.downcase %>_<%= val.name.downcase %>"></label>
                   </li>
                 <%end%>
 

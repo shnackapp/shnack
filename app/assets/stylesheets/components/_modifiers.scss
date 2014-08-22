@@ -43,17 +43,12 @@
   ol.single-option-wrap {
     color: #444;
     padding: 4px;
+    position: relative;
     //border-bottom: 1px solid brown;
 
     li:last-of-type {
-      float: right;
-      
-    }
-
-    @media(max-width:520px) {
-      li:last-of-type {
-        padding-right:30px;
-      }
+      position: absolute;
+      right: 10px;      
     }
   }
 }

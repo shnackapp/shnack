@@ -42,10 +42,12 @@
 /* on orders new but not in the menu */
 .money-wrap {
   font-size: 16px;
+  position: relative;
 
   @media(max-width:520px) {
     ol li:last-child {
-      float:right;
+      position: absolute;
+      right: 10px;
     }
   }
 
