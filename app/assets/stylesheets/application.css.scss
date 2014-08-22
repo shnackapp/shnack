@@ -35,21 +35,26 @@
 @import "charges", "orders", "sign_in", "styles-general";
 @import "custom-resizing";
 
+.all_the_mods {
+  background-color: LEMONCHIFFON;
+}
 
 tbody.all_the_mods tr {
+    border: none;
+
 
     td.customize-this {
-      background-color: #EEE;
+      background-color: LEMONCHIFFON;
       color: #333;
       text-align:center;
       font-style: italic;
     }
 
     &.item-modifier {
-      background-color: #EEE;
+      background-color: LEMONCHIFFON;
     }
     &.opt-name {
-      background-color: #EEE;
+      background-color: LEMONCHIFFON;
     }
 }
 

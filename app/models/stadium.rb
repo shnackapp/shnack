@@ -35,4 +35,8 @@ class Stadium < Location
   	""
   end
 
+  def tomorrows_opening_time
+    ""
+  end
+
 end
