@@ -6,27 +6,8 @@
 	<div class="column-mobile six clear-fix">
 		<strong> Amount Available: </strong> <%= Order.integer_to_currency @amount %>
 		<br />
-		<% if @amount == 0 %>
-			<%= button_to "Nothing to Withdraw", '/#', { :class => "action-btn disabled mar-y", disabled: "disabled" } %>
-		<% else %>
-			<%= button_to "Withdraw", withdraw_funds_restaurant_path(@restaurant), { :class => "action-btn blue mar-y", :method => 'post' } %>
-		<% end %>
-
-		<% if @account.nil? %>
-			<%= button_to "Add Bank Account", bank_account_restaurant_path(@restaurant), { :class => "action-btn mar-y", :method => 'get' } %>
-		<% else %>
-			<strong>Bank Account:</strong>  <%= @account.bank_name %> <%= @account.last4 %>	
-				<%= button_to "Change Bank Account", bank_account_restaurant_path(@restaurant), { :class => "action-btn mar-y", :method => 'get' } %>
-		<% end %>
-	</div>
-	<div class="column-mobile six clear-fix">
-		<strong> Status of Your Last Transfer: </strong> 
-		<% if @transfer.nil? %> None
-		<% else %><strong> <%= @transfer.status %> </strong>
-		<% end %>
 	</div>
 
-</div>
 
 
 <% if current_user.is_super? %>
@@ -41,14 +22,14 @@
 			<label>Add Manager By Email</label>
 			<ol>
 				<%= text_field_tag :email, nil, class: '' %>
-				<%= submit_tag 'Send Invite', :class => "action-btn green" %>
+				<%= submit_tag 'Send Invite', :class => "green" %>
 			</ol>
 		<% end %>
 	</section>
 <% end %>
 
 
-<section class="well">
+<section class="my-well-lemon">
 	<h4 class="SSS">Registration Code:</h4>
 	<%= @restaurant.registration_code %> <%= link_to "Generate new code", new_registration_code_restaurant_path(@restaurant) %>
 	<br /><br />

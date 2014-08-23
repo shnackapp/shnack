@@ -22,7 +22,6 @@ $(function(){
     $('footer.popup-banner').hide();
     if($(document).height() <= $(window).height()){
         $('footer.popup-banner').show();
-
     }
     $(window).resize(function(){
         console.log("resized");
@@ -60,11 +59,6 @@ $(document).ready(function() {
     $("a[href='#top_now']").click(function() {
       $("html, body").animate({ scrollTop: 0 }, "slow");
       return false;
-    });
-
-    $(".panel-heading").click(function() {
-      $(this).next().slideToggle(200);
-      $(this).children().first().toggleClass("expanded");
     });
 
     if ($(window).height() >= $(document).height() )

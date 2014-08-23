@@ -1,15 +1,27 @@
-.management {
-  border-bottom: solid 2px #999;
+@import "base/vars";
+
+/*  dont take this seriously 
+nav.management {
   margin-bottom: 45px;
   text-align: center;
+  width: $menu-width;
 
-  .column {
-    padding: 15px;
+  a {
     font-size: 24px;
 
     &:hover {
-      background-color: khaki;
+      //background-color: khaki;
       color: #999;
     }
   }
+}
+ */
+
+.stick {
+    position: fixed;
+    top: 0;
+}
+
+.my-panel-heading {
+  
 }

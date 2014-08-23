@@ -20,7 +20,7 @@ Account Settings
 
 
     <h2 class="SSS pad-top">Change Password</h2>
-    <%= f.label :password %> <i> (leave blank if you don't want to change it)</i>
+    <%= f.label :new_password %> <i> (leave blank if you don't want to change it)</i>
     <%= f.password_field :password, :autocomplete => "off" %>
 
     <%= f.label :password_confirmation %>
@@ -34,7 +34,7 @@ Account Settings
 
   <h2 class="SSS pad-top-lrg">Cancel My Account</h2>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, class: "action-btn red mar-bottom", :method => :delete %></p>
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, class: "red mar-bottom", :method => :delete %></p>
 
   <%= link_to "Back", :back %>
 

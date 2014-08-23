@@ -1,57 +1,48 @@
-<tbody id="<%=item.id%>_mod" class="all_the_mods">
-  <tr>
-    <td colspan="5" class="customize-this">Customize this <%= item.name %></td>
-  </tr>
-  <% item.modifiers.each do |mod| %>
-    <tr class="item-modifier" style="border:none;outline:none;">
-      <td class="modifier-name" colspan="5"> <strong> <%= mod.name.capitalize %> </strong></td>
-      <% mod.options.each_with_index do |val, ind| %>
-        <tr class="opt-name">
-          <td> <%= val.name.capitalize %> </td>
-          <td>+ <%= Order.integer_to_currency val.price %></td>
+<div id="<%=item.id%>_mod" class="entire-mod-wrap">
+  <h2 class="customize-this"> <%= item.name %> </h2>
 
-          <% if mod.mod_type == 0 %>
-            <td></td>
-            <td colspan="2">
-              <%#= radio_button_tag("#{mod.name.downcase}", "#{val.name.downcase}") %>
-              <% unless ind == 0 %>
-                <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name='<%= "#{item.id}_#{mod.id}" %>' class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>">
-                <label for="<%= mod.name.downcase %>_<%= val.name.downcase %>"></label>
-              <% else %>
-              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name='<%= "#{item.id}_#{mod.id}" %>' class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>" checked>
-              <label for="<%= mod.name.downcase %>_<%= val.name.downcase %>"></label>
+  <div class="row-new">
+    <% item.modifiers.each do |mod| %>
+      <div class="column-mobile six individual-mod-wrap">
+        <div class="mod-header"><span><%= mod.name.capitalize %></span></div>
 
-              <% end %>
-            </td>
-          <%end%>
+        <% mod.options.each_with_index do |val, ind| %>
+              <ol class="single-option-wrap">
+                <li> <%= val.name.capitalize %> </li>
+                <li>+ <%= Order.integer_to_currency val.price %> </li>
 
-          <% if mod.mod_type == 1 %>
-            <td></td>
-            <td colspan="2">
-              <%#= radio_button_tag("#{mod.name.downcase}", "#{val.name.downcase}") %>
-              <% unless ind == 0 %>
-              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>">
-              <label for="<%= mod.name.downcase %>_<%= val.name.downcase %>"></label>
-              <% else %>
-              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>" checked>
-              <label for="<%= mod.name.downcase %>_<%= val.name.downcase %>"></label>
-              <% end %>
-            </td>
-          <%end%>
+                <% if mod.mod_type == 0 %>
+                  <li>
+                    <% unless ind == 0 %>
+                      <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name='<%= "#{item.id}_#{mod.id}" %>' class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>">
+                    <% else %>
+                      <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name='<%= "#{item.id}_#{mod.id}" %>' class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>" checked>
+                    <% end %>
+                  </li>
+                <% end %>
 
-          <% if mod.mod_type == 2 %>
-            <td></td>
-            <td colspan="2">
-              <%#= check_box("#{mod.name.downcase}", "#{val.name.downcase}") %>
-              <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="<%="#{item.id}_modifier"%> modifier" type="checkbox" value="<%= val.id %>" data-add-price="<%= val.price %>">
-              <label for="<%= mod.name.downcase %>_<%= val.name.downcase %>"></label>
-            </td>
-          <%end%>
+                <% if mod.mod_type == 1 %>
+                  <li>
+                    <% unless ind == 0 %>
+                    <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>">
+                    <% else %>
+                    <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="<%="#{item.id}_modifier"%> modifier radio-mod-1" type="radio" value="<%= val.id %>" data-add-price="<%= val.price %>" checked>
+                    <% end %>
+                  </li>
+                <%end%>
 
+                <% if mod.mod_type == 2 %>
+                  <li>
+                    <%#= check_box("#{mod.name.downcase}", "#{val.name.downcase}") %>
+                    <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="<%="#{item.id}_modifier"%> modifier" type="checkbox" value="<%= val.id %>" data-add-price="<%= val.price %>">
+                  </li>
+                <%end%>
 
+              </ol>
 
-        </tr>
-      <% end %>
-    </tr>
-  <% end %>
-</tbody>
+        <% end %>
+      </div> <!-- END INDIVIDUAL-MOD -->
+    <% end %>
+  </div>
+</div>
+
