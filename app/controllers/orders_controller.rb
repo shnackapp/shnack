@@ -84,6 +84,7 @@ class OrdersController < ApplicationController
     unless owner.is_open?
       flash[:notice] = "#{owner.name} is currently not taking orders."
       redirect_to root_path
+      return
     end
 
     user_id = params[:order].delete(:user_id)
@@ -130,7 +131,7 @@ class OrdersController < ApplicationController
         
 
     @order.subtotal = amount
-    @order.total = owner.shnack_fee + (owner.add_tax ? amount + amount*owner.tax : amount)
+    @order.total = (owner.add_tax ? amount + amount*owner.tax : amount)
 
     owner.instance_of?(Vendor) ? @order.vendor = owner : @order.restaurant = owner
     if user_signed_in?

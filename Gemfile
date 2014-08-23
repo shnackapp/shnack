@@ -27,7 +27,7 @@ group :production do
 end
 
 
-
+gem 'font-awesome-rails'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -37,7 +37,6 @@ gem 'friendly_id', '~>  4.0.10'
 gem 'uglifier', '>= 1.0.3'
 gem 'jquery-rails'
 gem 'shortener' #unused for now. Should be used later for the sake of shortening urls.
-
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

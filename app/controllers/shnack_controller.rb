@@ -9,16 +9,15 @@ class ShnackController < ApplicationController
 	def contact
 		@name = params[:cust_name]
 		@email = params[:cust_email]
-		@message = params[:cust_message]
+		@number = params[:cust_number]
+		@restaurant = params[:cust_restaurant]
 
 
-		ContactUs.email_shnack(@name, @email, @message).deliver
+		ContactUs.email_shnack(params).deliver
 		
-		flash[:notice] = "Message sent. Thank you for the mail."
+		flash[:notice] = "Message sent. Thank you for reaching out. A Shnack representative will contact you soon."
 
 		redirect_to root_path
-
-
 	end
 
 

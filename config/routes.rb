@@ -14,7 +14,6 @@ Shnack::Application.routes.draw do
 
 
 
-
   devise_for :users
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -29,6 +28,7 @@ Shnack::Application.routes.draw do
       get 'bank_account'
       get 'recent_orders'
       get 'analytics'
+      get 'my_menu'
       post 'add_manager'
       post 'save_bank_account'
       post 'withdraw_funds'

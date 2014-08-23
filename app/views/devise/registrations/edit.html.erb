@@ -1,29 +1,41 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
+<% content_for :page_title do%>
+Account Settings
 <% end %>
 
-<h3>Cancel my account</h3>
+<div class="input-list center">
+  <h2 class="SSS">Edit <%= resource_name.to_s.humanize %></h2>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-<%= link_to "Back", :back %>
+    <%= f.label :email %>
+    <%= f.email_field :email, :autofocus => true %>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <%= f.label :number %>
+    <%= f.telephone_field :number %>
+
+
+    <h2 class="SSS pad-top">Change Password</h2>
+    <%= f.label :new_password %> <i> (leave blank if you don't want to change it)</i>
+    <%= f.password_field :password, :autocomplete => "off" %>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.label :current_password %> <i> (we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password %>
+
+    <%= f.submit "Update", class: "push-btn green" %>
+  <% end %>
+
+  <h2 class="SSS pad-top-lrg">Cancel My Account</h2>
+
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, class: "red mar-bottom", :method => :delete %></p>
+
+  <%= link_to "Back", :back %>
+
+</div>

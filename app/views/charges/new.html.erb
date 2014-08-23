@@ -1,19 +1,15 @@
+<% content_for :page_title do%>
+  Confirm and Pay
+<% end %>
 
+<%= render 'shared/order_details' %>
 
-	<%= render 'shared/order_details' %>
+<% if user_signed_in? %>
+  <%= render 'logged_in_payment' %>
+<% else %>
+  <%= render 'create_account_login' %>
+<% end %>
 
-
-    <% if user_signed_in? %>
-      <%= render 'logged_in_payment' %>
-    <% else %>
-      <%= render 'create_account_login' %>
-    <% end %>
-
-  <div class="error stripe-error" style="display:none;"> </div>
-  <div class="error name-error" style="display:none;">Please enter your name</div>
-  <div class="error phone-error" style="display:none;">Please enter a valid phone number or we won't be able to let you know when your order's ready!</div>
-  <div class="error email-error" style="display:none;"> Please enter a valid e-mail address or we won't be able to send you your receipt!</div>
-  <div class="error password-error" style="display:none;"> Please enter a password of at least 6 characters </div>
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"> </script>
 

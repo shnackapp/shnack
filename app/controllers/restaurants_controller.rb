@@ -85,7 +85,10 @@ class RestaurantsController < ApplicationController
 	def recent_orders
 		@restaurant = Restaurant.find(params[:id])
 		@orders = @restaurant.orders
+	end
 
+	def my_menu
+		@restaurant = Restaurant.find(params[:id])
 	end
 
 	def edit

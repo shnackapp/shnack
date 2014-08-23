@@ -1,0 +1,63 @@
+.entire-mod-wrap {
+  @extend .my-well-lemon;
+  //overwrite well's specific padding and margins
+  padding: 9px; 
+  margin-top: 10px; 
+  margin-bottom: 0px;
+  overflow: auto;
+
+  .customize-this { 
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 9px;
+
+    &:before {
+      content: 'Customize this ';
+    }
+  }
+
+  .mod-header {
+    margin: 10px 0px 9px 0px;
+    border-bottom: solid 2px #666;
+    position: relative;
+    width: 98%;
+
+    span {
+      font-family: "Damion", serif;
+      position: absolute;
+      top: -12px;
+      left: 10px;
+      display: block;
+      background: lemonchiffon;
+      padding: 0 9px 0 7px;
+      font-size: 18px;
+      color: #333;
+    }
+  }
+
+  .individual-mod-wrap {
+    //background-color: skyblue;
+    margin-bottom: 5px;
+    //padding: 5px;
+  }
+
+  ol.single-option-wrap {
+    color: #444;
+    padding: 4px;
+    position: relative;
+    //border-bottom: 1px solid brown;
+
+    li:last-of-type {
+      position: absolute;
+      right: 10px;      
+    }
+  }
+}
+
+
+//OLD CODE
+
+
+table.table {
+  margin-bottom: 0px;
+}

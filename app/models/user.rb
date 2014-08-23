@@ -19,6 +19,8 @@
 #  number                 :string(255)
 #  customer_id            :string(255)
 #  name                   :string(255)
+#  account_credit         :integer          default(0)
+#  orders_count           :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -31,17 +33,25 @@ class User < ActiveRecord::Base
 	has_one :stadium, :through => :role
 
 	# Setup accessible (or protected) attributes for your model
-	attr_accessible :email, :password, :password_confirmation, :remember_me, :number, :name
+	attr_accessible :email, :password, :password_confirmation, :remember_me, 
+		:number, :name, :customer_id, :account_credit
 	# attr_accessible :title, :body
 
-	before_create :create_authentication_token
-	after_create :create_role
+	before_create :create_authentication_token, :set_account_credit
+	after_create :create_role, :welcome
+
+	has_many :orders
+	validates :number, uniqueness: true
 
 	def create_role
 		#defaults to customer
 		r = Role.create(:role_type => 0)
 		r.user = self
 		r.save
+	end
+
+	def set_account_credit
+		self.account_credit = 500
 	end
 
 	def create_authentication_token
@@ -83,6 +93,43 @@ class User < ActiveRecord::Base
 		return true if role.is_super || role.locations.includes(loc)
 	end
 
+	def has_account_credit?
+		self.account_credit > 0
+	end
 
+ 	def welcome
+    	welcome_message
+  	end
+
+  # ...
+
+  	# The following functions send emails to users, designed to be called by a console script.
+  	# Their names should be self explanatory
+  	# @param email_sym: Corresponds to the name of the method in UserMailer that sends the email you'd like
+  	def self.email_all(email_sym)
+  		User.all.each { |u| UserMailer.send(email_sym, u) }
+  	end
+
+  	def self.email_customers_who_havent_ordered(email_sym)
+		users =  User.all.select { |u| u.orders.paid.count == 0 }
+		users.each { |u| UserMailer.send(email_sym, u) }
+  	end
+
+  	def self.email_customers_who_have_ordered_once(email_sym) 
+  		users =  User.all.select { |u| u.orders.paid.count == 1 }
+		users.each { |u| UserMailer.send(email_sym, u) }
+  	end
+
+  	def self.email_customers_who_have_ordered_more_than_once(email_sym) 
+  		users =  User.all.select { |u| u.orders.paid.count > 1 }
+		users.each { |u| UserMailer.send(email_sym, u) }
+  	end
+
+
+private
+
+  def welcome_message
+    UserMailer.welcome_email(self).deliver
+  end
 
 end

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ 	<!DOCTYPE html>
 <html>
 <head>
 <%= favicon_link_tag 'logo.ico' %>
@@ -29,147 +29,111 @@
 </head>
 
 
-<body>
+<body >
 
-	<div class="website-wrapper" id="top">
-		<div id="topbar" class="topbar clear-fix">
-			<a href="/"><h3 class="gen_inline">Shnack</h3></a>
+	<div class="wrapper wrap-website" id="top">
+		<div id="topbar" class="row-new topbar clear-fix">
 
-			<% if user_signed_in? %>
-				<ul id="click_me" class="user-settings">
-					<li>
-						<a href="#" class="opac-fix"><%= image_tag("gear-small-w.png", alt: "settings", style: "opacity:0.8;") %></a>
-						<ul>
-							<% if current_user.is_manager?  %>
-								<li><%= link_to "Manage Your Vendors", :controller => "/shnack", :action => "manage_vendors" %></li>
-							<%end%>
-							<% if current_user.is_super? %>
-								<li> <%= link_to "Super User", :controller => "/super", :action => "manage_as_super" %></li>
-							<% end %>
+			<div class="span11 center">
+				<a href="/"><h1 class="column two">Shnack</h1></a>
 
-							<li><%= link_to "Change your password", edit_user_registration_path %></li>
-							<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-						</ul>
-					</li>
-				</ul>
-			<%else%>
-				<div class="user-settings">
-					<%= link_to('Login', new_user_session_path, :class => 'user')  %> 
-					<%= link_to('Sign Up', new_user_registration_path, :class => 'user')  %>  
-				</div> 
-			<%end%>
+				<div class="title_current_step column-mobile eight">
+					<%= yield :page_title %>
+				</div>
 
-			<div class="prgs-bar center">
-				<% if current_page?(controller: '/application', action: 'select_stadium') %>
-	  			<div class="step current">
-	  		<% else %>
-	  			<div class="step">
-	  		<%end%>
-	  				Venue
-	      		<div class="circle"></div>
-	  			</div>
-
-
-  			<% if current_page?(controller: '/orders', action: 'new') %>
-	  			<div class="step current">
-	  		<% else %>
-	  			<div class="step">
-	  		<%end%>
-	  				Menu
-	      		<div class="circle"></div>
-	  			</div>
-				
-				<% if current_page?(controller: '/charges', action: 'new') %>
-	  			<div class="step current">
-	  		<% else %>
-	  			<div class="step">
-	  		<%end%>
-	  				Pay
-	      		<div class="circle"></div>
-	  		</div>
+				<% if user_signed_in? %>
+					<ul class="a-dropdown my-gear">
+						
+						<li>
+							<a href="#" class="opac-fix"><%= image_tag("gear-small-w.png", alt: "settings", style: "opacity:0.8;") %></a> 
+							
+							<ul>
+									<li class="shnack-credit">Account Credit: <%= Order.integer_to_currency current_user.account_credit %> </li>
+								
+								<% if current_user.is_manager?  %>
+									<li><%= link_to "Manage Your Vendors", :controller => "/shnack", :action => "manage_vendors" %></li>
+								<%end%>
+								<% if current_user.is_super? %>
+									<li> <%= link_to "Super User", :controller => "/super", :action => "manage_as_super" %></li>
+								<% end %>
+								<li><%= link_to "Account Settings", edit_user_registration_path %></li>
+								<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+							</ul>
+						</li>
+					</ul>
+				<%else%>
+					<div class="links">
+						<%= link_to('Login', new_user_session_path, :class => 'user')  %> 
+						<%= link_to('Sign Up', new_user_registration_path, :class => 'user')  %>  
+					</div> 
+				<%end%>
 			</div>
-
-
 		</div> <!--ENDS TOPBAR-->
 
-		<% if flash[:notice] %>
-			<div class="notice"><%= flash[:notice] %></div>
-		<% end %>
-		<% if flash[:error] %>
-			<div class="flash-error"> <%= flash[:error] %> </div>
-		<% end %>
+		<div class="flash-wrap">
+			<% if flash[:notice] %>
+				<div class="flash-alert go"><%= flash[:notice] %></div>
+			<% end %>
+			<% if flash[:error] %>
+				<div class="flash-alert stop"> <%= flash[:error] %> </div>
+			<% end %>
+		</div>
 			
-
-		<div id="order-form" class="the-menu">
-
-	<!--    <div class="row-new">
-	      <div class="panel-heading"><h3>FOODOOD</h3></div>
-	    </div>
-
-	     <div class="row-new">
-	      <div class="item-name col-3">Cheese Pizza</div>
-	      <div class="item-price col-2">$00.00</div>
-	      <div class="cart-add col-1">+</div>
-	      <div class="cart-total col-1">0</div>
-	      <div class="cart-minus col-1">-</div>
-	    	<div class="item-desc col-4">This is a simple discription of a CP, do you know what this is.</div>
-	    </div>
- 		</div> -->
-
-
+		<div id="order-form" class="primary-app-content mar-bottom">
 			<%= yield %>
 		</div>
 				
 	</div>
 
-	<div class="wrapper">
-		<div class="caje-info">
-			<span class="shnack">Shnack </span> is now being used at <span class="caje">Caje</span>
-			<br />
-			<span class="motto">Order ahead. Skip the line.</span>
-			<br/>
-			<span class="chance-to-win">Every order enters you for the chance to win a new Logitech Speaker System!</span>
-		</div>
-	</div>
+	<% unless user_signed_in? %>
+		<section class="wrapper-khaki text-center pad">
+			<div class="my-container-half">
+				<h4 class="SSS bold">Limited time offer</h4>
+				<p class="pad-bottom">Sign up today and get $5 in Shnack Credit</p>
 
-
-
-	<div id="level-2">
-		<div class="row">
-			<div class="col-4 step-style">
-				<h1>Order</h1>
-				<%= image_tag("step1.png", :class => "step-style")   %>
-				<p>From your seat, view the menus of vendors. Pay and place your order.</p>
+				<% unless current_page?('/users/sign_up') %>
+					<a href='/users/sign_up' class="push-btn brown">Sign me up</a>
+				<% end %>
 			</div>
+		</section>
+	<% end %>
+
+
+	<section class="wrapper-darkseagreen easy-123">
+		<h1 class="SSS pad-top text-center text-white">How It Works</h1>
 	
-			<div class="col-4 step-style">
-				<h1>Relax</h1>
-				<%= image_tag("camera.png", :class => "step-style")   %>
-				<p>Sit back, relax, and enjoy the experience.</p>
+		<div class="row-new pad-y">
+			<div class="column-mobile four">
+				<a href="#top_now"><h2>1. Select your location</h2>
+				<span class="i-location"></span></a>
+				<p>Order food from your current spot on your phone or laptop</p>
 			</div>
-
-			<div class="col-4 step-style">
-				<h1>PickUp</h1>
-				<%= image_tag("step3.png", :class => "step-style")   %>
-				<p>When your order is ready, a notification will be sent. Pick up and enjoy.</p>
+			<div class="column-mobile four">
+				<h2>2. Order & Pay</h2>
+				<span class="i-pay"></span>
+				<p>Pay in app and be noitified via text when your food is ready</p>
+			</div>
+			<div class="column-mobile four">
+				<h2>3. Relax until Pick Up</h2>
+				<span class="i-pickup"></span>
+				<p>Sit back, skip the line, & pickup your food</p>
 			</div>
 		</div>
-	</div>
 
-	<footer class="tell-me-more">
-		<%= link_to('This is all about the Shnack', { :controller => "/application", :action => "howdy"}) %>
-	</footer>
+	</section>
 
 	<footer class="fb">
+      <div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="100" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+      <br />
+      <h5>Follow us on Facebook</h5>
+      <br />
+      <a href="/users/sign_up">Hungry in a hurry? We can help ;)</a>
+    </footer>
 
-	  <a href="/howdy" class="place-order pad-top pad-lrg-bottom" style="font-size:18px;">Want to start using Shnack?<br>Get in contact</a>
+	<footer class="popup-banner pad-y-lrg">
+		<a href="/join" class="learn-more"> Want to become a part of the Shnack Community? Learn More </a>
+		<a href="#top_now" class="place-order">Return to top</a>
+	</footer>
 
-    <a href="#top" class="place-order">Return to top  |  Place an order</a>
-    <p>Follow us on Facebook.</p>
-    <p>You might see us at a game.</p>
-    </br>
-  	<div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="100" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-  </footer>
-
-	</body>
+</body>
 </html>

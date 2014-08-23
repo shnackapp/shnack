@@ -7,17 +7,17 @@
 		</thead>
 		<% @order_items.each do |order_item| %>
 		<tr>
-			<td><%= @items[order_item.item_id].name %></td> 
+			<td>
+				<span class="name"><%= @items[order_item.item_id].name %></span>
+				<span class="description"><%= render :partial => 'shared/display_order_mods', :locals => { order_item: order_item } %></span>
+			</td> 
 				<td><%= order_item.quantity %> </td>
 
 				<td> <%= Item.integer_to_currency order_item.price %></td>
 				<%# update this below price to include the price of the item modifiers %>
 				<td> <%= Item.integer_to_currency( order_item.price * order_item.quantity) %></td>
 			</tr>
-			<% if order_item.has_mods?; @order_item = order_item %>
-				<%= render :partial => 'shared/display_order_mods', :locals => { order_item: @order_item } %>
-
-			<% end %>
+			
 		<% end %>
 
 		
@@ -29,12 +29,14 @@
 					<td></td>
 					<td> <%= Order.integer_to_currency(@order.subtotal) %> </td>
 				</tr>
+				<% if @order.credit_was_used %>
 				<tr>
-					<td>Shnack Fee</td>
+					<td>Shnack Credit Used </td>
 					<td></td>
 					<td></td>
-					<td> <%= Order.integer_to_currency(@order.total-@order.subtotal) %></td>
-				</tr>
+					<td> <%= Order.integer_to_currency(@order.credit_used) %> </td>
+
+				<% end %>
 				<tr>
 					<td>Total</td>
 					<td></td>
@@ -42,12 +44,27 @@
 					<td> <%= Order.integer_to_currency(@order.total) %> </td>
 				</tr>
 			<% else %>
-				<tr>
-					<td>Total</td>
-					<td></td>
-					<td></td>
-					<td> <%= Order.integer_to_currency(@order.total) %> </td>
-				</tr>
+				<% if user_signed_in? && current_user.account_credit > 0 %> 
+					<tr id="shnack-credit">
+						<td> Shnack Credit </td>
+						<td></td>
+						<td></td>
+						<td> <%= current_user.account_credit < @order.total ? Order.integer_to_currency(current_user.account_credit) : Order.integer_to_currency(@order.total)  %> </td>
+					</tr>
+					<tr>
+						<td> Total </td>
+						<td></td>
+						<td></td>
+						<td id="order-total" data-fullprice="<%=Order.integer_to_currency @order.total %>" data-creditprice="<%= current_user.account_credit < @order.total ? Order.integer_to_currency(@order.total - current_user.account_credit) : Order.integer_to_currency(0 )  %>"> <%= current_user.account_credit < @order.total ? Order.integer_to_currency(@order.total - current_user.account_credit) : Order.integer_to_currency(0 )  %> </td>
+					</tr>						
+				<% else %>
+					<tr>
+						<td>Total</td>
+						<td></td>
+						<td></td>
+						<td> <%= Order.integer_to_currency(@order.total) %> </td>
+					</tr>
+				<% end %>
 			<% end %> 	
 		</tfoot>
 	</table>

@@ -1,0 +1,57 @@
+/* code from http://csswizardry.com/2011/02/creating-a-pure-css-dropdown-menu/ */
+
+@import "base/vars";
+
+
+.a-dropdown {
+  list-style:none;
+  font-weight:bold;
+  margin: 0;
+}
+
+.a-dropdown li {
+  float:left;
+  position:relative;
+}
+.a-dropdown a {
+  display:block;
+  padding:5px;
+  text-decoration:none;
+}
+.a-dropdown a:hover {
+  text-decoration:underline;
+}
+
+.a-dropdown ul {
+  background: #CCC;
+  list-style:none;
+  position:absolute;
+  right:-9999px; 
+  width: 200px;
+  padding-left: 0px;
+  box-shadow: 0 0 2px #333;
+  z-index: index($elements, user-settings-dropdown);
+}
+.a-dropdown ul li {
+  padding-top:1px; 
+  float:none;
+  padding-bottom: 1px;
+}
+.a-dropdown ul a {
+  white-space:nowrap;
+}
+.a-dropdown li:hover ul { 
+  right:10px; 
+}
+
+.a-dropdown li:hover a { 
+  text-decoration:underline;
+}
+.a-dropdown li:hover ul a { 
+  text-decoration:none;
+  color: $black;
+}
+.a-dropdown li:hover ul li a:hover { 
+  background:#555;
+  color: whitesmoke;
+}

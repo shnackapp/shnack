@@ -9,111 +9,196 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
 
-@import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Dosis:400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Dosis:400,500,700);
 @import url(https://fonts.googleapis.com/css?family=Damion);
-@import "base/css_reset",
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+@import "font-awesome";
+
+@import "bootstrap";
+
+@import "base/normalize",
+        "base/css_reset",
         "base/vars",
-        "base/utilities",
-        "base/mixins",
         "base/text_presentation",
         "base/buttons",
-        "base/inputs";
-@import "components/*",
-        "modules/*";
+        "base/icons",
+        "base/inputs",
+        "mixins",
+        "grid",
+        "modules/*",
+        "components/*",
+        "base/colors";
+
+@import "charges", "orders", "sign_in";
+@import "animate", "utilities", "custom-resizing";
 
 
 
-#level-2 {
-	width: 100%;
-	padding: 10px 10px 20px 10px;
-  box-shadow: 0px 0px 20px black;
-  background-color: $black;
-	background-image: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		color-stop(0, #9E1919),
-		color-stop(1, #A62424)
-	);
-	background-image: -o-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
-	background-image: -moz-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
-	background-image: -webkit-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
-	background-image: -ms-linear-gradient(bottom, #9E1919 0%, #A62424 100%);
-	background-image: linear-gradient(to bottom, #9E1919 0%, #A62424 100%);
-}
-
-
-
-
-
-#level-3 {
-  width: 100%;
-  position: relative;
-  margin: 0px auto;
-  background: $black;
-  padding: 45px 10px;
-  min-height: 480px;
-}
-
-#footer {
-	max-width: 500px;
-	margin: 100px auto;
-}
-
-.foot-style {
-	font-family: "Poiret One", Geneva, sans-serif;
-}
-
-
-.my-container {
-	max-width: 980px;
-}
-
-
-tbody.all_the_mods tr {
-
-    td.customize-this {
-      background-color: #EEE;
-      color: #333;
-      text-align:center;
-      font-style: italic;
-    }
-
-    &.item-modifier {
-      background-color: #EEE;
-    }
-    &.opt-name {
-      background-color: #EEE;
-    }
-}
-
-
-.item-description {
-  background: lightgray;
-}
-
-
-.step-style {
-  text-align: center;
-  color: $white;
-  font-family: Dosis, sans-serif;
-
-  h1 {
-    font-family: "Damion", serif;
-    font-size: 3.2em;
-    font-weight: 400;
+.sign-up-page-deal {
+  h4 {
+    background-color: $green;
+    color: $white;
+    padding: 5px;
+    margin-bottom: 0 !important;
   }
-
   p {
-    font-size: 1.5em;
-    padding: 0px 25px;
+    border-left: 2px dotted $green;
+    border-right: 2px dotted $green;
+    border-bottom: 2px dotted $green;
   }
 
-  img {
-    opacity: .9;
+  display: block;
+  position: absolute;
+  left: -210px;
+  top: 50px;
+  font-size: .8em;
+  width: 150px;
+  text-align: center;
+
+  @media (max-width: 780px) {
+    display: none;
   }
 }
+
+
+span.tax {
+  font-size: 75%;
+}
+
+.a-dropdown .shnack-credit {
+  color: $green;
+  text-align: center;
+}
+
+
+.primary-app-content {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 120px;
+  max-width: 660px;
+}
+
+
+.expandable {
+  cursor: pointer;
+}
+
+.expandable:before {
+  margin-right: 10px;
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f0da';
+}
+
+.expandable.expanded:before {
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f0d7';
+}
+
+
+table.table {
+  border-radius: 0px;
+}
+.panel {
+  border-radius: 0px;
+}
+
+
+
+
+.easy-123 {
+  h1 {
+    color: whitesmoke;
+  }
+  .column-mobile {
+    text-align: center;
+    padding: 10px;
+    color: #111;
+
+    p, h2, span { color: #383838; }
+    h2:first-letter {
+      font-size: 1.6em;
+      color: $green;
+    }
+  }
+}
+/* //#4C4951*/
+
+
+
+div.list-group.select .list-group-item  {
+  border-radius: 0px;
+  background-color: white;
+  border-color: #ddd;
+  font-size:1.4em;
+  color: $red;
+  font-weight:900;
+
+  .info {
+    font-size: .8em;
+    font-weight: 600;
+  }
+
+  &:hover {
+    background-color: lighten(darkseagreen, 30);
+    /*background-color: #F8F8F8;*/
+    border-color: green;
+    z-index:1;
+  }
+}
+
+
+#join {
+  margin-top:0px;
+  section:first-child {
+    padding-top:40px;
+    background-color:LIGHTSALMON;
+  }
+
+  .why-shnack {
+    ul {
+      padding-top:-10px;
+      padding-left:20px;
+      font-size: 1.4em;
+    }
+
+  }
+  .contact-form {
+    border-color: darkgray;
+    background-color:LEMONCHIFFON;
+  }
+}
+
+
+@import 'modules/navs';
+
+
+#images {
+  .container {
+    margin:auto;
+    width:100%;
+    text-align:center;
+  }
+  img {
+    width:33%;
+    margin:auto;
+  }
+}
+
+
+ .circle {
+    border: 2px solid khaki;
+    //background-color: #AAA;
+    border-radius:15px;
+    background-image: none;
+    width: 12px;
+    height: 12px;
+    margin: 0 auto;
+
+    &.current {
+      background-color: khaki;
+    }
+  }

@@ -4,17 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :setup
 
-  def is_demo?
-     request.subdomain == "demo"
-   end
 
-  def setup
-  	unless params[:stadium_id].nil?
-  		@stadium = Stadium.find(params[:stadium_id])
-  	end
-  end
 
   def select_stadium
+
     @locations = Location.all
     @locations.reverse!
   	@stadiums = Stadium.all
@@ -36,7 +29,58 @@ class ApplicationController < ActionController::Base
 	end
 
   def howdy
+    redirect_to :controller => "application", :action => "join"
+  end
+
+  def join
     render layout: false
   end
+
+  def styleguide
+    render layout: false
+  end
+
+  private
+    def is_demo?
+     request.subdomain == "demo"
+    end
+
+    def generate_identifier
+      now = Time.now.to_i
+      Digest::MD5.hexdigest(
+        (request.referrer || '') +
+        rand(now).to_s +
+        now.to_s +
+        (request.user_agent || '')
+      )
+    end
+
+
+    # Set up for analytics.
+    def setup
+      unless cookies[:user_identity]
+        @identity = generate_identifier
+        cookies[:user_identity] = {
+          :value => @identity, :expires => 5.years.from_now
+        }
+      else
+        @identity = cookies[:user_identity]
+      end
+
+      if current_user
+        if not cookies[:aliased]
+          cookies[:aliased] = {
+            :value => true,
+            :expires => 5.years.from_now
+          }
+        end
+        @current_user_id = current_user.id
+      else
+        @current_user_id = nil
+      end
+      
+      Event.create(:user_id => @current_user_id, :event_type => "#{params[:controller]}_#{params[:action]}", :identity => @identity) unless params[:controller] == "api" || params[:controller] == "super"
+
+    end
 
 end

@@ -57,7 +57,7 @@ $(document).ready(function() {
 	});
 	//END CREDIT CARD FORM FOCUS FUNCTIONS
 
-	if($('#select-card-form')[0]) {
+	if($("[name='user_card']")[0]) {
 		$('.new-card-form').hide();
 	}
 
@@ -72,6 +72,19 @@ $(document).ready(function() {
 	})
 
 
+	$("#use_credit").click( function(evt) {
+		if($(this).is(':checked')) {
+			$("#shnack-credit").show();
+			$("#order-total").html($("#order-total").data('creditprice'));
+		}
+		else {
+			$("#shnack-credit").hide();
+			$("#order-total").html($("#order-total").data('fullprice'));
+		}
+
+	})
+
+
 	/** 
 		The following set of functions are for when the user isn't signed in and can either
 		log in or create an account
@@ -79,11 +92,11 @@ $(document).ready(function() {
 	**/
 	$("#login-form").hide();
 
-	$("#log-in").click(function(evt) {
+$("#log-in").click(function(evt) {
 		$("#create-account-div").hide();
 		$("#login-form").show();
-		$("#log-in").addClass("red");
-		$("#create-account").removeClass("red");
+		$("#log-in").addClass("blue");
+		$("#create-account").removeClass("blue");
 
 		$(".name-error").slideUp(200);
 			$("#order-name").removeClass("error");
@@ -96,8 +109,8 @@ $(document).ready(function() {
 	$("#create-account").click(function(evt) {
 		$("#create-account-div").show();
 		$("#login-form").hide();
-		$("#log-in").removeClass("red");
-		$("#create-account").addClass("red");
+		$("#log-in").removeClass("blue");
+		$("#create-account").addClass("blue");
 
 		$(".name-error").slideUp(200);
 		$("#order-name").removeClass("error");
@@ -183,7 +196,7 @@ $(document).ready(function() {
 		}
 		else if(main_form == "select-card-form") {
 
-			if($("input[name='user_card']:checked").is('#new-card-button')) {	
+			if(!$("input[name='user_card']")[0] || $("input[name='user_card']:checked").is('#new-card-button')) {	
 		    	$form.find('button').prop('disabled', true);
 
 				Stripe.card.createToken({

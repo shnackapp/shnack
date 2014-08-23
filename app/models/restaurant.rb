@@ -79,6 +79,44 @@ class Restaurant < Location
     end
   end
 
+  def todays_closing_time
+    time = Time.now.in_time_zone("Pacific Time (US & Canada)")
+    h = self.hours.where(:day => time.wday).first
+    return "Midnight" if h.closing_time == "2400"
+    closing_hour = h.closing_hour
+    closing_min = h.closing_min
+    pm = false
+    if closing_hour > 12
+      closing_hour -= 12 
+      pm = true
+    end
+
+
+    format("%02d:%02d%s", closing_hour, closing_min, pm ? "pm" : "am")
+  end
+
+  #Returns the time when the store next opens
+  def tomorrows_opening_time
+    time = Time.now.in_time_zone("Pacific Time (US & Canada)")
+    h = self.hours.where(:day => time.wday).first
+    #if store opens during tomorrows hours, then set h to be tomorrow
+    h = self.hours.where(:day => (time.wday + 1)%7).first  unless time.hour < h.opening_hour || (time.hour == h.opening_hour && time.min < h.opening_min)
+   
+    return "Midnight" if h.opening_time == "0000"    
+
+    opening_hour = h.opening_hour
+    opening_min = h.opening_min
+    pm = false
+    if opening_hour > 12
+      opening_hour -= 12
+      pm = true
+    end
+
+    format("%02d:%02d%s", opening_hour, opening_min, pm ? "pm" : "am")
+
+
+  end
+
   def available_amount
     amount = 0
     self.orders.available.each { |order| amount = amount + order.location_cut unless order.location_cut.nil? }

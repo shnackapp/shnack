@@ -1,25 +1,35 @@
 <%= form_tag "#", :id => "credit-card-form", :"data-form"=> locals[:form_id]   do %>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="new-card-form">
-        <%= text_field_tag :credit_card_number, nil, :class => "form-control", :placeholder => "Credit Card Number"  %> 
-        <div class="row"> 
-          <div class="col-xs-4">
+    <div class=" well new-card-form input-list wrapper">
+      <div class="row-new">
+        <%= text_field_tag :credit_card_number, nil, :class => "form-control", :placeholder => "Credit Card Number", class: "column twelve" %> 
+      </div>
+      <div class="row-new"> 
+        <div class="column four">
+
             <%= text_field_tag :expiration_month, nil,  :class => "form-control", :placeholder => "MM" %>
-          </div>
-          <div class="col-xs-4">
-            <%= text_field_tag :expiration_year, nil, :class => "form-control", :placeholder => "YY" %>
-          </div>
-          <div class="col-xs-4">
-            <%= text_field_tag :security_code, nil, :class => "form-control", :placeholder => "CVC" %>
-          </div>
+        </div>
+        <div class="column four">
+          <%= text_field_tag :expiration_year, nil, :class => "form-control", :placeholder => "YY" %>
+        </div>
+
+        <div class="column four">
+          <%= text_field_tag :security_code, nil, :class => "form-control", :placeholder => "CVC" %>
         </div>
       </div>
     </div>
-    <div class="col-sm-12">
-      <%= button_tag(type: 'submit', class: "btn btn-primary", id: locals[:button_id]) do %>
+
+
+
+    <div class="flash-alert stop stripe-error" style="display:none;"> </div>
+    <div class="flash-alert stop name-error" style="display:none;">Please enter your name</div>
+    <div class="flash-alert stop phone-error" style="display:none;">Please enter a valid phone number or we won't be able to let you know when your order's ready!</div>
+    <div class="flash-alert stop email-error" style="display:none;"> Please enter a valid e-mail address or we won't be able to send you your receipt!</div>
+    <div class="flash-alert slow password-error" style="display:none;"> Please enter a password of at least 6 characters </div>
+
+    <div class="twelve">
+      <%= button_tag(type: 'submit', class: "push-btn darkslategray mar-top", id: locals[:button_id]) do %>
         <%= locals[:button_text] %>
       <% end %>
-  </div>
-</div>
+    </div>
+
 <% end %>

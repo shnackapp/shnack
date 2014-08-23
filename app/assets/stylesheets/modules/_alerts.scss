@@ -1,0 +1,92 @@
+@import "base/vars";
+
+
+.flash-wrap {
+  margin: 0px auto;
+  max-width: 720px;
+}
+
+.flash-alert {
+  margin: 3px;
+  padding: 4px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 3px;
+
+  border: solid 2px $cement;
+  background-color: #D5D5D5;
+  color: $black;
+
+  &.stop {
+    border: solid 2px $darkred;
+    background-color: #F5D5D5;
+    color: $darkred;
+  }
+
+  &.slow {
+    border: solid 2px khaki;
+    background-color: saturate(khaki, 20%);
+    color: $black;
+  }
+
+  &.go {
+    border: solid 2px green;
+    background-color: rgba(140, 250, 0, 0.3);
+    color: green;
+  }
+
+  &.go-alpha {
+    border: solid 2px $green;
+    background-color: saturate($lightgreen, 20%);
+    color: darken($green, 20%);
+  }
+}
+
+/* old code */ 
+
+.flash {
+  margin: 0px auto;
+  min-width: 320px;
+  max-width: 660px;
+
+  div {
+    margin: 0px auto 10px auto;
+    width: 80%;
+    text-align: center;
+    font-family: Dosis, Geneva, sans-serif;
+    font-size: 1em;
+    padding: 5px 0px;
+    font-weight: bold;
+
+    &.f-error {
+      color: #780000;
+      background: #F5E6E6;
+
+    }
+
+    &.notice {
+     color: green;
+      background: rgba(140,250,0,.3);
+    }
+  }
+}
+
+input.error {
+  border: 2px solid #780000;
+  background-color: #E5E6E6;
+  color:#780000;
+  font-weight: bold;
+}
+
+div.error {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 2px solid #780000;
+  border-radius: 10px;
+  background-color: #D5E6E6;
+  color:#780000;
+  font-weight: bold;
+  text-align: center;
+}

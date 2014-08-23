@@ -1,11 +1,6 @@
-<tbody style="background-color:#EEE;">
-  <% order_item.order_modifiers.each do |mod| %>
-    <tr class="item-modifier" style="border:none;outline:none;">
-      <%#binding.pry%>
-      <% mod.options.each do |val| %>
-          <td colspan="4"> <%= val.name.capitalize %> </td>
-          
-      <% end %>
-    </tr>
-  <% end %>
-</tbody>
+
+<% order_item.order_modifiers.each do |mod| %>
+	<% mod.options.each do |val| %>
+		<%= val.name.capitalize %><%= ", " unless val == mod.options.last && mod == order_item.order_modifiers.last %>
+	<% end %>
+<% end %>
