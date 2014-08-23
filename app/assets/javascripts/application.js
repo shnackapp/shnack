@@ -22,6 +22,7 @@ $(function(){
     $('footer.popup-banner').hide();
     if($(document).height() <= $(window).height()){
         $('footer.popup-banner').show();
+        $('.title_current_step').child().addClass('animate tada');
 
     }
     $(window).resize(function(){

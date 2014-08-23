@@ -1,4 +1,4 @@
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6  {
+/* .col-1, .col-2, .col-3, .col-4, .col-5, .col-6  {
  position: relative;
  float: left;
 }
@@ -12,7 +12,7 @@
 
 
 
-
+ */
 
 
 .row-new {
@@ -21,9 +21,13 @@
   margin: 0 auto;
   position: relative;
 }
-.column  { float: left; position: relative; min-height: 1px;}
+.column  {
+  float: left;
+  position: relative;
+  min-height: 1px;
+}
 .column-mobile {
-  float: left; position: relative; min-height: 1px;
+  @extend .column;
 
   @media (max-width: 520px) {
     clear: both !important;
@@ -47,3 +51,26 @@
 .twelve, .row-new .twelve { width: 100%; }
 
 .row-new .offset-by-one { margin-left: 8.33333%; }
+.row-new .offset-by-two { width: 16.66667%; }
+.row-new .offset-by-three { width: 25%; }
+.row-new .offset-by-four { width: 33.33333%; }
+.row-new .offset-by-five { width: 41.66667%; }
+.row-new .offset-by-six { width: 50%; }
+.row-new .offset-by-seven { width: 58.33333%; }
+.row-new .offset-by-eight { width: 66.66667%; }
+.row-new .offset-by-nine { width: 75%; }
+.row-new .offset-by-ten { width: 83.33333%; }
+.row-new .offset-by-eleven { width: 91.66667%; }
+.row-new .offset-by-twelve { width: 100%; }
+
+.row-new-ib {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+
+  .iblock {
+    display: inline-block;
+    position: relative;
+    margin-left: -5px;
+  }
+}

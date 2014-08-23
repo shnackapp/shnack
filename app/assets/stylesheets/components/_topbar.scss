@@ -12,8 +12,8 @@
   padding: 0px 30px;
   color: $white;
   background: darkred;
-  border-bottom: 1px solid #333333;
-  /*@include box-shadow(0, 0, 3px, #dddddd);*/
+  //border-bottom: 1px solid #333333;
+  @include box-shadow(0, 4px, 6px, $black);
 
   .topbar-container {
     max-width: 900px;

@@ -1,8 +1,5 @@
 //all for the TOPBAR
 @media (max-width: 520px) {
-  .item-name { width: 50%; }
-  .item-price { width: 25%; }
-  .item-desc { display: none; }
   .prgs-bar { display: block; width: 100% !important;}
   .topbar { padding: 0 2px 4px 2px !important; }
   .top-bar .my-gear { float: right !important;}
@@ -13,19 +10,17 @@
 //all for easy-123
 @media (max-width: 520px) {
   .easy-123 {
-    h1 { font-size: 2em;  }
     span { font-size: 64px; }
     p { font-size: 16px; }
   }
-
 }
 
 
 
 
+//OLD CODE
 //awkward tablet
 @media (max-width: 750px) {
-
   .prime-info {
     padding-left: 0px !important;
 
