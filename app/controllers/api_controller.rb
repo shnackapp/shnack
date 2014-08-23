@@ -30,7 +30,7 @@ class ApiController < ApplicationController
 
   def unique_email_phone
   	puts params[:email]
-  	puts params[:number]
+  	puts params[:phone]
 
   	email_exists = User.where(email: params[:email]).exists? 
   	phone_exists = User.where(number: params[:phone]).exists? 
