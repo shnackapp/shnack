@@ -8,10 +8,12 @@ $blue: #147070;
 $brown: #BB6722;
 $green: #1B961B;
 
-/* kuler.adbobe.com with base #B22 complimentary
-lightred: #FF4848;
-darkred: #6E0A0A;
-lightgreen: #22BB4D;
-darkgreen: #006E1F; */
+/* kuler.adbobe.com with base #B22 complimentary */
+$lightred: #FF4848;
+$darkred: #6E0A0A;
+$lightgreen: #22BB4D;
+$darkgreen: #006E1F;
 
-$elements: base, phone, menu, topbar, user-settings;
+$elements: base, phone, menu, topbar, user-settings-dropdown;
+
+$menu-width: 640px;

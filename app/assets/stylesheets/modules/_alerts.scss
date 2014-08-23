@@ -1,3 +1,49 @@
+@import "base/vars";
+
+
+.flash-wrap {
+  margin: 0px auto;
+  max-width: 720px;
+}
+
+.flash-alert {
+  margin: 3px;
+  padding: 4px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 3px;
+
+  border: solid 2px $cement;
+  background-color: #D5D5D5;
+  color: $black;
+
+  &.stop {
+    border: solid 2px $darkred;
+    background-color: #F5D5D5;
+    color: $darkred;
+  }
+
+  &.slow {
+    border: solid 2px khaki;
+    background-color: saturate(khaki, 20%);
+    color: $black;
+  }
+
+  &.go {
+    border: solid 2px green;
+    background-color: rgba(140, 250, 0, 0.3);
+    color: green;
+  }
+
+  &.go-alpha {
+    border: solid 2px $green;
+    background-color: saturate($lightgreen, 20%);
+    color: darken($green, 20%);
+  }
+}
+
+/* old code */ 
 
 .flash {
   margin: 0px auto;
@@ -39,7 +85,7 @@ div.error {
   padding: 5px;
   border: 2px solid #780000;
   border-radius: 10px;
-  background-color: #E5E6E6;
+  background-color: #D5E6E6;
   color:#780000;
   font-weight: bold;
   text-align: center;

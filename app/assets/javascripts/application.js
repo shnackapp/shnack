@@ -22,7 +22,6 @@ $(function(){
     $('footer.popup-banner').hide();
     if($(document).height() <= $(window).height()){
         $('footer.popup-banner').show();
-
     }
     $(window).resize(function(){
         console.log("resized");
