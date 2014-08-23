@@ -1,81 +1,51 @@
 @import "vars";
 
-h1.SSS {
+
+h1, h1.SSS {
   font-family: "Damion", serif;
   font-size: 3em;
 }
 
-h2.SSS {
+h2, h2.SSS {
   font-size: 2em;
   font-weight: 500;
   font-family: "Dosis", Tahoma, sans-serif;
 }
 
-h3.SSS {
+h3, h3.SSS {
   font-size: 1.4em;
-  background-color: $blue;
+  background-color: $red;
+  border-bottom: solid 2px darken($red, 50%);
+  box-shadow:0 1px 1px rgba(0,0,0,0.05);
+  border-radius: 2px;
+
   color: $white;
-  padding: 8px;
+  padding: 8px 12px 8px 20px;
   font-weight: 500;
-  border-top-right-radius: 26px;
-  border-top-left-radius: 2px;
   font-family: "Dosis", Tahoma, sans-serif;
 }
 
-h4.SSS {
+h4, h4.SSS {
   text-transform: uppercase;
   font-size: 1.5em;
   font-family: "Dosis", Tahoma, sans-serif;
 }
 
-h5.SSS {
-  font-family: "Damion", serif;
-  font-size: 2em;
-}
-
-h6.SSS {
+h5, h5.SSS {
+  text-transform: uppercase;
   font-size: 1.2em;
-  font-weight: 800;
   font-family: "Dosis", Tahoma, sans-serif;
   color: #AAA;
 }
 
-
-/* older styles below */
-h1 {
-  font-size: 2.2em;
-  font-family: "Dosis", Geneva, sans-serif;
-  font-weight: 500;
+h6, h6.SSS {
+  font-size: 1.2em;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-family: "Dosis", Tahoma, sans-serif;
 }
-
-h2 {
-  font-size: 1.6em;
-  font-family: "Dosis", Geneva, sans-serif;
-  font-weight: 500;
-}
-
-h3 {
-  font-size: 3.2em;
-  font-family: "Damion", serif;
-}
-
-h4 {
-  font-size: 2em;
-  font-family: "Damion", serif;
-}
-
-
-.headline-light {
-  font-family: "Dosis", Geneva, sans-serif;
-  color: #EEE;
-}
-
 
 
 .shnack {
   font-family: "Damion", serif;
 }
-
-
-
-p { font-family: "Dosis", Geneva, sans-serif; font-size: 18px; }

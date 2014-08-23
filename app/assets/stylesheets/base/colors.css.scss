@@ -10,6 +10,11 @@
 .brown  { background-color: $brown; }
 .green  { background-color: $green; }
 .darkslategray { background-color: darkslategray; }
+.darkseagreen  { background-color: darkseagreen; }
+.lightgreen { background-color: $lightgreen; }
+.darkgreen { background-color: $darkgreen; }
+.lightred { background-color: $lightred; }
+.darkred { background-color: $darkred; }
 
 
 .text-red    { color: $red; }
@@ -22,7 +27,27 @@
 .text-brown  { color: $brown; }
 .text-green  { color: $green; }
 .text-darkslategray { color: darkslategray; }
+.text-darkseagreen  { color: darkseagreen; }
+.text-lightgreen { color: $lightgreen; }
+.text-darkgreen { color: $darkgreen; }
+.text-lightred { color: $lightred; }
+.text-darkred { color: $darkred; }
 
+
+// $all-colors-names: white, black, cement, blue, brown, darkslategray, red, lightred, darkred, green, darkseagreen, lightgreen, darkgreen, lemonchiffon;
+// $all-colors: $white, $black, $cement, $blue, $brown, darkslategray, $red, $lightred, $darkred, $green, darkseagreen, $lightgreen, $darkgreen, lemonchiffon;
+// @each $color, $color-name in ($all-colors), ($all-colors-name) {
+//   .#{$color-name}          { background-color: #{$color}; }
+//   .text-#{$color-name}     { color: #{$color}; }
+//   .wrapper-#{$color-name} { background-color: #{$color}; width: 100%; }
+
+//   a.action-btn.#{$color-name}:hover      { color: $white; background-color: lighten(#{$color}, 10%); }
+//   button.action-btn.#{$color-name}:hover { color: $white; background-color: lighten(#{$color}, 10%); }
+
+//   a.action-btn.#{$color-name}:active      { color: $white; background-color: lighten(#{$color}, 15%); }
+//   button.action-btn.#{$color-name}:active { color: $white; background-color: lighten(#{$color}, 15%); }
+
+// }
 
 
 
@@ -113,4 +138,9 @@ button.darkslategray:active { background-color: lighten(darkslategray, 15%); }
 .wrapper-darkseagreen {
   width: 100%;
   background-color: darkseagreen;
+}
+
+.wrapper-lightgreen {
+  width: 100%;
+  background-color: $lightgreen;
 }

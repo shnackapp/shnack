@@ -16,11 +16,11 @@
         "base/buttons",
         "base/icons",
         "base/inputs",
-        "utilities",
         "mixins",
         "grid",
         "modules/*",
         "components/*",
         "base/colors";
 
-@import "charges", "custom-resizing", "orders", "sign_in", "styles-general";
+@import "charges", "orders", "sign_in";
+@import "animate", "utilities", "custom-resizing";

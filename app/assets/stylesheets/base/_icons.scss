@@ -33,3 +33,14 @@
     content: '\f087';
   }
 }
+
+
+.i-arrow {
+  @extend .fa;
+  @extend .fa-angle-double-left;
+  &:before { margin-right: 5px; }
+  &:after {
+    margin-left: 5px;
+    content: '\f101';
+  }
+}
