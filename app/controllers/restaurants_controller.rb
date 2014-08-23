@@ -35,6 +35,20 @@ class RestaurantsController < ApplicationController
 		total = total/count
 		@avg_total = integer_to_currency(total)
 
+		##DAILY TOTAL SALES##
+		@daily_total_hash = Order.where(:restaurant_id => params[:id]).group(:created_at)
+
+		@daily_total_temp = @daily_total_hash.all.each_with_object({}) do |user, hash|
+  			hash[user.created_at.day] = user.total
+  		end
+
+		@daily_total_hash = @daily_total_hash.all.each_with_object({}) do |user, hash|
+  			hash[user.created_at] = user.total
+		end
+
+
+		#@daily_total_hash.inject{|memo, el| memo.merge( el ){|k, old_v, new_v| old_v + new_v}}
+		binding.pry
 
 		##TOP 5 ITEMS ORDERED##
 		ord_num = []
