@@ -48,7 +48,6 @@ class RestaurantsController < ApplicationController
 
 
 		#@daily_total_hash.inject{|memo, el| memo.merge( el ){|k, old_v, new_v| old_v + new_v}}
-		binding.pry
 
 		##TOP 5 ITEMS ORDERED##
 		ord_num = []
