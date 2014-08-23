@@ -5,8 +5,8 @@ Manage Restaurant
 <h2 class="SSS"> <%= @restaurant.name %> </h2>
 
 <a href="#" id="mainMenuBarAnchor"></a>
-<nav id="mainMenuBar" class="row-new management">
-  <%= link_to "My Restaurant", restaurant_path(@restaurant), {:method => 'get', class: 'action-btn column four'} %>
-  <%= link_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get', class: 'action-btn column four' } %>
-  <%= link_to "My Menu", my_menu_restaurant_path(@restaurant), {:method => 'get', class: 'action-btn column four'} %>
+<nav id="mainMenuBar" class="row-new mar-bottom-lrg">
+  <%= link_to "My Restaurant", restaurant_path(@restaurant), {:method => 'get', class: 'action-btn column-mobile four'} %>
+  <%= link_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get', class: 'action-btn column-mobile four' } %>
+  <%= link_to "My Menu", my_menu_restaurant_path(@restaurant), {:method => 'get', class: 'action-btn column-mobile four'} %>
 </nav>
