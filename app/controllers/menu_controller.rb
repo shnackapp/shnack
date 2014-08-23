@@ -80,9 +80,9 @@ class MenuController < ApplicationController
 
 	def update_item
 		@item = Item.find(params[:item_id])
+		params[:item][:description] = nil if params[:item][:description].empty?
 
 		@item.update_attributes(params[:item])
-		@item.update_attribute(:description, params[:item][:description])
 		redirect_to @item.category.menu.owner
 
 	end
