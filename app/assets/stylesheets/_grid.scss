@@ -28,7 +28,6 @@
 }
 .column-mobile {
   @extend .column;
-
   @media (max-width: 520px) {
     clear: both !important;
     width: 100% !important;
@@ -67,10 +66,16 @@
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-
-  .iblock {
-    display: inline-block;
-    position: relative;
-    margin-left: -5px;
+}
+.iblock {
+  display: inline-block;
+  position: relative;
+  margin-left: -3px; 
+}
+.iblock-mobile {
+  @extend .iblock;
+  @media (max-width: 520px) {
+    display: block;
+    width: 100%;
   }
 }

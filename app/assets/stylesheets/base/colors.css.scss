@@ -12,6 +12,9 @@
 .darkslategray { background-color: darkslategray; }
 .darkseagreen  { background-color: darkseagreen; }
 .lightgreen { background-color: $lightgreen; }
+.darkgreen { background-color: $darkgreen; }
+.lightred { background-color: $lightred; }
+.darkred { background-color: $darkred; }
 
 
 .text-red    { color: $red; }
@@ -24,6 +27,11 @@
 .text-brown  { color: $brown; }
 .text-green  { color: $green; }
 .text-darkslategray { color: darkslategray; }
+.text-darkseagreen  { color: darkseagreen; }
+.text-lightgreen { color: $lightgreen; }
+.text-darkgreen { color: $darkgreen; }
+.text-lightred { color: $lightred; }
+.text-darkred { color: $darkred; }
 
 
 // $all-colors-names: white, black, cement, blue, brown, darkslategray, red, lightred, darkred, green, darkseagreen, lightgreen, darkgreen, lemonchiffon;

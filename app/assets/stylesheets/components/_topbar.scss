@@ -9,27 +9,15 @@
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 0px 30px;
+  padding: 3px 30px;
   color: $white;
   background: darkred;
   //border-bottom: 1px solid #333333;
   @include box-shadow(0, 4px, 6px, $black);
 
-  .topbar-container {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-
   a {
     color: $white;
 
-    h3 {
-      font-size: 2.5em;
-      margin-top: 5px;
-      margin-bottom: 0px;
-    }
     &:hover {
       color: khaki;
     }
@@ -37,7 +25,6 @@
       color: $white;
     }
   }
-
 }
 
 
@@ -46,31 +33,22 @@
   text-align: center;
   text-transform: uppercase;
   font-size: 1.8em;
+  @media (max-width: 520px) {
+    font-size: 1.5em;
+    padding-top: 0px;
+  }
 }
 
- .circle {
-    border: 2px solid khaki;
-    //background-color: #AAA;
-    border-radius:15px;
-    background-image: none;
-    width: 12px;
-    height: 12px;
-    margin: 0 auto;
-
-    &.current {
-      background-color: khaki;
-    }
-  }
 
 .links {
-    position: absolute;
+  position: absolute;
   right: 0;
   top: 9px;
 }
 
 .my-gear {
   position: absolute;
-  right: 5px;
+  right: 0;
   top: 2px;
 }
 

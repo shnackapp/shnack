@@ -32,20 +32,16 @@
 
 	<div class="wrapper wrap-website" id="top">
 		<div id="topbar" class="row-new topbar clear-fix">
-			<div class="my-container">
 
-				<a href="/"><h3 class="column two">Shnack</h3></a>
+			<div class="span11 center">
+				<a href="/"><h1 class="column two">Shnack</h1></a>
 
-
-				<div class="prgs-bar column-mobile eight">
-					<div class="title_current_step animated flipInY">
-						<%= yield :page_title %>
-					</div>
+				<div class="title_current_step column-mobile eight">
+					<%= yield :page_title %>
 				</div>
 
-
 				<% if user_signed_in? %>
-					<ul id="click_me" class="column one my-gear">
+					<ul class="a-dropdown my-gear">
 						
 						<li>
 							<a href="#" class="opac-fix"><%= image_tag("gear-small-w.png", alt: "settings", style: "opacity:0.8;") %></a> 
@@ -65,7 +61,7 @@
 						</li>
 					</ul>
 				<%else%>
-					<div class="user-settings links">
+					<div class="links">
 						<%= link_to('Login', new_user_session_path, :class => 'user')  %> 
 						<%= link_to('Sign Up', new_user_registration_path, :class => 'user')  %>  
 					</div> 
@@ -126,8 +122,9 @@
 	</section>
 
 	<footer class="fb">
-      <p>Follow us on Facebook.</p>
       <div class="fb-like" data-href="https://www.facebook.com/shnackapp" data-width="100" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+      <br />
+      <h5>Follow us on Facebook</h5>
       <br />
       <a href="/users/sign_up">Hungry in a hurry? We can help ;)</a>
     </footer>
