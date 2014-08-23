@@ -21,3 +21,8 @@ input[type=checkbox] + .charges-shnack-credit:before {
   font-style: italic;
   content: 'No, do not apply credit';
 }
+
+.select-card-div, #create-account-form {
+	overflow: auto;
+	padding-bottom:10px;
+}
