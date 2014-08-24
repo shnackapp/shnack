@@ -70,10 +70,14 @@ def analytics
 
   # 	## Average ORDER TIME##
   		@avg_time = 0
+  		m_count = 0
   		@orders.each do |ord|
-  			@avg_time+=(ord.time_between_states(0,2)) if ord.current_order_state.state == 3
+  			if ord.current_order_state.state == 3
+  				@avg_time+=(ord.time_between_states(0,2)) 
+  				m_count += 1
+  			end
   		end
-  		@avg_time = (@avg_time/count).round(2)
+  		@avg_time = (@avg_time/m_count).round(2)
 
   		## Users created ##
   		@user_count = User.group_by_day(:created_at).count
