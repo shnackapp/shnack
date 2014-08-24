@@ -1,5 +1,6 @@
 <h2 class="headline"> <%= @restaurant.name %> </h2>
 
+<%= render 'top_nav' %>
 	<div class="well">
 		<div>
 			<strong> Amount Available: </strong> <%= Order.integer_to_currency @amount %><br />
@@ -30,6 +31,8 @@
 
 
 		</div>
+
+	</div>
 
 	<div class="well">
 		<div style="padding-bottom:30px;">
