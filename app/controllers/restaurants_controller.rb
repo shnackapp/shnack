@@ -30,7 +30,7 @@ def analytics
 		@orders = @restaurant.orders.paid
 		count = @orders.count
 		@orders.each do |ord|
-			total = total + ord.total
+			total = total + ord.subtotal
 		end
 		total = total/count
 		@avg_total = integer_to_currency(total)
