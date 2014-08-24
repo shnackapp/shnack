@@ -18,7 +18,12 @@
 </div>
 
 <div class="panel panel-primary">
+<h3 class="panel-heading">Daily Orders</h3>
+	<%= line_chart(@daily_orders) %>
+</div>
+
+
+<div class="panel panel-primary">
 <h3 class="panel-heading">New Customers Aquired</h3>
-	<%#= area_chart User.group(:created_at).maximum(Users.group.count) %>
 	<%= line_chart(@user_count)%>
 </div>
