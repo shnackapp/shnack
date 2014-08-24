@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
 
 	has_one :role
 	has_one :stadium, :through => :role
+	has_many :events
 
 	# Setup accessible (or protected) attributes for your model
 	attr_accessible :email, :password, :password_confirmation, :remember_me, 
