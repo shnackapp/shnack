@@ -2,28 +2,74 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+
   </head>
   <body>
-    
-    <%= image_tag %>
-    <h4>Hello fellow Shnackers!</h4>
+    <style type="text/css">
+      .spanspan {
+        max-width: 720px;
+        margin: 0 auto;
+      }
 
-    <p>First, we would like to <i>thank you</i> for using Shnack. We appreciate you being one of the first group of people to use our app at Caje. Its been quite the ride and we have loved helping you never wait in line again!</p>
-    <p>All the feedback you have given us so far has been beyond helpful and we used that information to keep improving your Shnack experience.</p>
+      a, a:visited, a:hover {
+        text-decoration: none;
+      }
 
-    <p>We are also incredibly excited to announce that we will be expanding Shnack into Buddha Bowls, located in Isla Vista!</p>
+      .push-btn {
+        display: inline-block;
+        color: #EEE !important;
+        position: relative;
+        padding: 12px 9px;
+        background-color: darkslategray;
+        border-radius: 3px;
+        top: 0px;
+        box-shadow: 0 3px 0 #666;
+        text-transform: uppercase;
+        text-align: center;
+      }
 
-    <p>Get your Shnack on and order dishes like Clam Chowder or the Mac Daddy at your convenience without ever having to wait in line.</p>
+      .push-btn:hover {
+        top: 1px;
+        box-shadow: 0 2px 0 #666;
+        text-decoration:none;
+        background-color: darkslategray;
+      }
 
-    <p>Your Shnack credit will be available to be used at Buddha Bowls as well.</p>
+      .push-btn:active {
+        top: 3px;
+        box-shadow: none;
+        background-color: slategray;
+      }
 
-    <a href="<%= @bb_url %>" target="_blank">Click here to start your order now</a>
+      img {
+        width: 100%;
+      }
 
-    <p>Keep Calm and Shnack On,
-    <br />
-    Team Shnack
-    <br />
-    <a href="https://www.shnackapp.com" target="_blank">www.shnackapp.com</a>
-    </p>
+    </style>
+
+    <div class="spanspan">
+      <%= image_tag "BuddhaBowlsNow.png", alt: "Buddha Bowls with Shnack" %>
+      <h2>Hello fellow Shnackers!</h2>
+
+      <p>First, we would like to <i>thank you</i> for using Shnack. We appreciate you being one of the first group of people to use our app at Caje. Its been quite the ride and we have loved helping you never wait in line again!</p>
+      <p>All the feedback you have given us so far has been beyond helpful and we used that information to keep improving your Shnack experience.</p>
+
+      <p>We are also incredibly excited to announce that we will be expanding Shnack into Buddha Bowls, located in Isla Vista!</p>
+
+      <p>Get your Shnack on and order dishes like Clam Chowder or the Mac Daddy at your convenience without ever having to wait in line.</p>
+
+      <p>Your Shnack credit will be available to be used at Buddha Bowls as well.</p>
+
+      <div style="text-align:center;">
+        <a class="push-btn" href="<%= @bb_url %>" target="_blank">Click here to start your order now</a>
+      </div>
+
+      <p>Keep Calm and Shnack On,
+      <br />
+      Team Shnack
+      <br />
+      <a href="https://www.shnackapp.com" target="_blank">www.shnackapp.com</a>
+      </p>
+    </div>
   </body>
 </html>
