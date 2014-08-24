@@ -27,7 +27,7 @@ def analytics
 		## AVERAGE ORDER SIZE##
 		total = 0
 		@restaurant = Restaurant.find(params[:id])
-		@orders = @restaurant.orders
+		@orders = @restaurant.orders.paid
 		count = @orders.count
 		@orders.each do |ord|
 			total = total + ord.total
