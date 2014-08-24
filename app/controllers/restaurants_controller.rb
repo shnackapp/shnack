@@ -50,13 +50,10 @@ def analytics
 		# #@daily_total_hash.inject{|memo, el| memo.merge( el ){|k, old_v, new_v| old_v + new_v}}
 
 		##TOP 5 ITEMS ORDERED##
-		ord_num = []
 		@orders.each do |ord|
-			ord_num.push(ord.id)
-		end
-		order_item = []
-		ord_num.each do |on|
-			order_item.push(Item.find(OrderItem.find(on).item_id).name)
+			ord.order_items.each do |oi|
+				order_item.push(oi.item.name) unless oi.item.nil?
+			end
 		end
 		@order_hash = Hash.new(0)
 		order_item.each do |v|
