@@ -26,9 +26,9 @@
 
 			</div>
 		<% end %>
-				<%= link_to 'Edit', '#' %>
+				<%= link_to 'Edit',  {:action => "edit_modifier", :controller => "menu", :modifier_id => modifier.id }  %>
 	</div>
 <% end %>
-	<%= link_to 'Add A Modifier', '#' %>
+	<%= link_to 'Add A Modifier', { :action => "new_modifier", :controller => "menu", :item_id => @item.id } %>
 
 </div>

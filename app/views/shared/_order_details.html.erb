@@ -9,7 +9,7 @@
 		<tr>
 			<td>
 				<span class="name"><%= @items[order_item.item_id].name %></span>
-				<span class="description"><%= render :partial => 'shared/display_order_mods', :locals => { order_item: order_item } %></span>
+				<span class="item-details"><%= render :partial => 'shared/display_order_mods', :locals => { order_item: order_item } %></span>
 			</td> 
 				<td><%= order_item.quantity %> </td>
 
