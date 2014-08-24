@@ -71,7 +71,7 @@ def analytics
   # 	## Average ORDER TIME##
   		@avg_time = 0
   		@orders.each do |ord|
-  			@avg_time+=(ord.time_between_states(0,2))
+  			@avg_time+=(ord.time_between_states(0,2)) if ord.current_order_state.state == 3
   		end
   		@avg_time = (@avg_time/count).round(2)
 
