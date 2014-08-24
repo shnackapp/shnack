@@ -1,7 +1,7 @@
 <% content_for :page_title do%>
-  <span class="animated tada">
+
     #<%= @order.order_number%> - Currently <%= @order.current_order_state.state_text %>
-  </span>
+
 <% end %>
 
 <%= render 'shared/order_details' %>	

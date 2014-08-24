@@ -12,4 +12,5 @@
 
 class Event < ActiveRecord::Base
   attr_accessible :event_type, :identity, :user_id
+  belongs_to :user
 end

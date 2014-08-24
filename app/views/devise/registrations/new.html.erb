@@ -7,7 +7,7 @@ Sign Up
   </div>
 
 
-<div class="input-list hax center" style="max-width:350px;">
+<div class="input-list center" style="max-width:350px;">
 
   <div class="sign-up-page-deal">
     <h4 class="SSS bold">Limited time offer</h4>
@@ -27,10 +27,11 @@ Sign Up
     <%= f.text_field :number, :placeholder => 'to notify you via text when your order is ready' %>
     <i></i>
 
+    <label> Password </label>
     <%= f.password_field :password, :placeholder => 'Password' %>
     <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation' %>
 
-    <%= f.submit "Sign up", :class => "push-btn mar-bottom" %>
+    <%= f.button "Sign up", :type => "submit",:class => "darkslategray push-btn  mar-bottom" %>
   <% end %>
 
   <%= render "devise/shared/links" %>
