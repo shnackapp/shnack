@@ -20,5 +20,8 @@ class Modifier < ActiveRecord::Base
   TYPE_OF_MODIFIER = ['Variable Size','Single Select', 'Multiple Select', 'Numeric Input']
   # mod_type    Size = 0    Single Select = 1     Multiple Select = 2
 
+  def type_string
+  	TYPE_OF_MODIFIER[self.mod_type]
+  end
 
 end

@@ -10,6 +10,7 @@
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <%= csrf_meta_tags %>
 
 
@@ -30,22 +31,18 @@
 
 <body >
 
-	<div class="wrapper" id="top">
+	<div class="wrapper wrap-website" id="top">
 		<div id="topbar" class="row-new topbar clear-fix">
-			<div class="my-container">
 
-				<a href="/"><h3 class="column two">Shnack</h3></a>
+			<div class="span11 center">
+				<a href="/"><h1 class="column two">Shnack</h1></a>
 
-
-				<div class="prgs-bar column-mobile eight">
-					<div class="title_current_step">
-						<%= yield :page_title %>
-					</div>
+				<div class="title_current_step column-mobile eight">
+					<%= yield :page_title %>
 				</div>
 
-
 				<% if user_signed_in? %>
-					<ul id="click_me" class="column one my-gear">
+					<ul class="a-dropdown my-gear">
 						
 						<li>
 							<a href="#" class="opac-fix"><%= image_tag("gear-small-w.png", alt: "settings", style: "opacity:0.8;") %></a> 
@@ -65,7 +62,7 @@
 						</li>
 					</ul>
 				<%else%>
-					<div class="user-settings links">
+					<div class="links">
 						<%= link_to('Login', new_user_session_path, :class => 'user')  %> 
 						<%= link_to('Sign Up', new_user_registration_path, :class => 'user')  %>  
 					</div> 
@@ -73,21 +70,21 @@
 			</div>
 		</div> <!--ENDS TOPBAR-->
 
-		<div class="flash"> 
+		<div class="flash-wrap">
 			<% if flash[:notice] %>
-				<div class="notice"><%= flash[:notice] %></div>
+				<div class="flash-alert go"><%= flash[:notice] %></div>
 			<% end %>
 			<% if flash[:error] %>
-				<div class="f-error"> <%= flash[:error] %> </div>
+				<div class="flash-alert stop"> <%= flash[:error] %> </div>
 			<% end %>
 		</div>
 			
-
-		<div id="order-form" class="the-menu">
+		<div id="order-form" class="primary-app-content mar-bottom">
 			<%= yield %>
 		</div>
 				
 	</div>
+
 	<% unless user_signed_in? %>
 		<section class="wrapper-khaki text-center pad">
 			<div class="my-container-half">
@@ -101,22 +98,14 @@
 		</section>
 	<% end %>
 
-	<section class="wrapper" style=" background-color: darkseagreen; padding: 10px; color:white;">
-		<div class="row-new" >
-			<div class="column-mobile twelve" style="text-align:center;">
-				<h3>How It Works</h3>
-			</div>
-		</div>
-	</section>
 
-
-
-	<section class="wrapper-darkseagreen" style="padding-bottom:65px;">
+	<section class="wrapper-darkseagreen easy-123">
+		<h1 class="SSS pad-top text-center text-white">How It Works</h1>
 	
-		<div class="row-new pad-y easy-123">
+		<div class="row-new pad-y">
 			<div class="column-mobile four">
-				<h2>1. Select your location</h2>
-				<span class="i-location"></span>
+				<a href="#top_now"><h2>1. Select your location</h2>
+				<span class="i-location"></span></a>
 				<p>Order food from your current spot on your phone or laptop</p>
 			</div>
 			<div class="column-mobile four">
@@ -133,8 +122,8 @@
 
 	</section>
 
-	<footer class="popup-banner pad-y-lrg">
 
+	<footer class="popup-banner pad-y-lrg">
 		<a href="/join" class="learn-more"> Want to become a part of the Shnack Community? Learn More </a>
 		<a href="#top_now" class="place-order">Return to top</a>
 	</footer>

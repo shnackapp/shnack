@@ -13,6 +13,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'houston'
 gem 'simple_form'
 gem 'pry', '~> 0.10.0'
+gem "chartkick"
+gem 'groupdate'
 
 group :development, :test do
 	gem 'byebug'

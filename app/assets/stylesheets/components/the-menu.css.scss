@@ -1,0 +1,63 @@
+.the-menu {
+  h3 {
+    margin-bottom: 0px;
+  }
+
+  /* targeted by jquery */
+  .all-items-wrap {
+
+    .single-item-wrap {
+      font-size: 14px;
+      padding: 9px;
+
+      span.plus { 
+        cursor: pointer; 
+        font-size: 18px;
+        
+        &:hover {
+          color: $lightgreen;
+        }
+      }
+      span.minus { 
+        cursor: pointer; 
+        font-size: 18px;
+
+        &:hover {
+          color: $lightred;
+        }
+      }
+
+      &:nth-child(even) {
+        background-color: #F5F5F5;
+      }
+    }
+
+    .item-description {
+      color: #888;
+      font-size: .92em;
+    }
+  }
+}
+.item-details {
+    display:block;
+      color: #888;
+      font-size: .92em;
+}
+
+/* on orders new but not in the menu */
+.money-wrap {
+  font-size: 16px;
+  position: relative;
+
+  ol li:last-child {
+    @media(max-width:520px) {
+      position: absolute;
+      right: 10px;
+    }
+  }
+}
+
+
+.the-next-button {
+  margin: 0px;
+}

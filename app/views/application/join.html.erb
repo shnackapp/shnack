@@ -27,19 +27,15 @@
 
 </head>  
 
-  <body id="join">
-    <section>
+  <body>
 
-    </section>
-
-    <section class="wrapper-white pad-y-xlrg">
+    <section class="wrapper-white pad-y-xlrg" style="border-top:40px solid lightsalmon;">
       <div class="my-container">
-        <h1 class="SSS text-red text-center pad-bot" style="font-size:64px; width: 100%;"> <small>Boost your revenues with </small>Shnack</h1>
+        <h1 class="text-red text-center pad-bot" style="font-size:64px; width: 100%;"> <small>Boost your revenues with </small>Shnack</h1>
 
         <div class="row-new">
-
           <div class="column-mobile six pad center why-shnack">
-            <ul>
+            <ul style="font-size:1.4em;">
               <li> Allow customers to order quickly and easily from their phone</li>
               <li> Access our network of regular customers </li>
               <li> Manage incoming orders with our intuitive and easy to use iPad application </li>
@@ -49,25 +45,22 @@
             
           </div>
 
-           <div class="column-mobile six pad center contact-form">
+           <div class="column-mobile six pad center my-well-lemon">
             <%= render 'contact_us_mailer/contact_us_mailer' %>
            </div>
         </div>
       </div>
     </section>
 
-
-    <section class="wrapper" id="images">
-      <div class="container">
-        <%= image_tag "real_images/OrdersCloseUp_small.jpeg"%>
-        <%= image_tag "real_images/MenuDropDown_small.jpeg" %>
-        <%= image_tag "real_images/CajeShnack_small.jpeg" %>
-      </div>
+    <section class="wrapper-white center">
+      <%= image_tag "real_images/OrdersCloseUp_small.jpeg", class: "iblock four" %>
+      <%= image_tag "real_images/MenuDropDown_small.jpeg", class: "iblock four"  %>
+      <%= image_tag "real_images/CajeShnack_small.jpeg", class: "iblock four"  %>
     </section>
 
    
-    <footer class="fb">
-      <a href='/' class="place-order">Place an order | Return to home</a>
+    <footer class="wrapper">
+      <a href='/' class="text-center text-red"><p class="pad-y-xlrg">Place an order | Return to home</p></a>
     </footer>
 
     

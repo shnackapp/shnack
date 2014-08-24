@@ -1,27 +1,37 @@
 a {
-  font: normal 16px/100% "Dosis", Tahoma, sans-serif;
   text-decoration: none;
   font-weight: 500;
-  color: #01A;
+  //color: #01A;
 
   &:visited {
-    color: #01A;
+    //color: #01A;
+    text-decoration: none;
   }
 
   &:hover {
-    color: khaki;
+    //color: khaki;
+    text-decoration: none;
   }
 }
 
-button {
+
+.basic_btn {
+  display: inline-block;
   font: normal 16px/100% "Dosis", Tahoma, sans-serif;
   font-weight: 500;
   outline-color: transparent;
   border-color: transparent;
+  background-color: #7E7E7E;
+  color: #EEE !important;
+  padding: 9px 12px;
 
   &:active, &.visited {
     outline-color: transparent;
     border-color: transparent;
+  }
+
+  &:hover {
+    background-color: #E0E0E0;
   }
 
   &[disabled=disabled] {
@@ -34,16 +44,12 @@ button {
     }
   }
 
+}
 
-/*   &.btn {
-    border-radius: 0px;
-  }
- */
-/*   &.btn.payment-button {
-      margin-top:20px;
-  } */
- 
-
+button,
+input[type="submit"],
+input[type="button"] {
+  @extend .basic_btn;
 }
 
 /* override for rail helpers that are not button tags but are buttons */

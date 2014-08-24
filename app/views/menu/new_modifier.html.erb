@@ -1,0 +1,34 @@
+<% content_for :page_title do%>
+  Create a modifier for <%= @item.name %>
+<% end %>
+
+
+<%= form_for @modifier, url: {:controller => "menu", :action => "add_modifier", :item_id => @item.id}, :method => "post"  do |f| %>
+	<div class="text-center">
+		<input id="modifier_type_size" name='mod_type' class="radio-mod-1" type="radio" value="0"> Size
+		<input id="modifier_type_single_select" name='mod_type' class="radio-mod-1" type="radio" value="1"> Choose One Option
+		<input id="modifier_type_multiple_select" name='mod_type' class="radio-mod-1" type="radio" value="1"> Choose Multiple (Checkboxes)
+		<%= f.text_field :name, :placeholder => "Option Name (Don't fill if Size)", :class =>"form-control text-center"%>
+	<br>
+	
+	<div class="modifier_options">
+		<%= text_field_tag :option_name_1, nil, :placeholder=>"Option 1 Name", :class=> "form-control" %>
+		<%= text_field_tag :option_price_1, nil, :type=>"number", :placeholder=>"Price 1", :class=> "form-control" %> 
+
+		<%= text_field_tag :option_name_2, nil, :placeholder=>"Option 2 Name", :class=> "form-control" %>
+        <%= text_field_tag :option_price_2, nil, :type=>"number", :placeholder=>"Price 2", :class=> "form-control" %>
+        <%= text_field_tag :option_name_3, nil, :placeholder=>"Option 3 Name", :class=> "form-control" %>
+        <%= text_field_tag :option_price_3, nil, :type=>"number", :placeholder=>"Price 3", :class=> "form-control" %>
+	</div>
+
+	<a class="add-text-field">Add Another Option </a>
+
+	<%= button_tag(type: 'submit', class: "push-btn darkslategray mar-top") do %>
+			Create Modifier
+		<% end %>
+
+</div>
+
+
+
+<% end %>

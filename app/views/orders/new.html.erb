@@ -1,14 +1,13 @@
 <% content_for :page_title do%>
-<%= @owner.name %>
+  <%= @owner.name %>
 <% end %>
 
-<%= render 'form' %>
-<div class="cancel">
+  <%= render 'form' %>
+
+<div class="cancel mar-y-lrg">
 	<% if @owner.instance_of?(Vendor) %>
 		<%= link_to 'Cancel', :controller => 'application' , :action => "select_vendor", :object_id  => @owner.stadium.id %>
 	<% else %>
 		<%= link_to 'Cancel', :controller => 'application', :action => "select_stadium" %>
 	<% end %>
 </div>
-
-<div class="error order-error" style="margin-top:30px; display:none;">Come on! You have to order something!</div>

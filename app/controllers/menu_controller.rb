@@ -76,17 +76,67 @@ class MenuController < ApplicationController
 
 	def edit_item
 		@item = Item.find(params[:item_id])
+
 	end
 
 	def update_item
 		@item = Item.find(params[:item_id])
+		params[:item][:description] = nil if params[:item][:description].empty?
 
 		@item.update_attributes(params[:item])
-		@item.update_attribute(:description, params[:item][:description])
 		redirect_to @item.category.menu.owner
 
 	end
 
+	def new_modifier
+		@item = Item.find(params[:item_id])
+		@modifier = @item.modifiers.new
+	end
+
+	def add_modifier
+		@item = Item.find(params[:item_id])
+
+		if (params[:modifier][:name].nil? || params[:modifier][:name].empty?  && params[:mod_type] != "0")
+			flash[:error] = "Please enter a name"
+			redirect_to :action => "new_modifier", :item_id => @item.id
+			return
+		end
+
+		if params[:mod_type] == "0" && @item.modifiers.where(:mod_type == 0).count > 0
+			flash[:error] = "This item already has a size modifier."
+			redirect_to :action => "new_modifier", :item_id => @item.id
+			return
+		end
+
+
+
+		mod = @item.modifiers.create(:mod_type => params[:mod_type], :name => params[:modifier][:name])
+		count = 1
+
+		while !params["option_name_#{count}".to_sym].nil? && !params["option_name_#{count}".to_sym].empty? do
+			mod.options.create(:name => params["option_name_#{count}".to_sym], :price => params["option_price_#{count}".to_sym] )
+			count+= 1
+		end
+
+		redirect_to :action => "edit_item", :item_id => @item.id
+
+	end
+
+	# Still needs implementing, currently stubbed out
+	def edit_modifier
+
+	end
+
+	def update_modifier
+
+	end
+
+	def delete_modifier
+		@mod = Modifier.find(params[:mod_id])
+		@item = @mod.item
+		@mod.delete
+		redirect_to :action => "edit_item", :item_id => @item.id
+	end
 
 	def add_category
 		menu = Menu.find(params[:category][:menu_id])
