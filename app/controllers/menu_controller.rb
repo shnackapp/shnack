@@ -102,6 +102,13 @@ class MenuController < ApplicationController
 			return
 		end
 
+		if params[:mod_type] == "0" && @item.modifiers.where(:mod_type == 0).count > 0
+			flash[:error] = "This item already has a size modifier."
+			redirect_to :action => "new_modifier", :item_id => @item.id
+			return
+		end
+
+
 
 		mod = @item.modifiers.create(:mod_type => params[:mod_type], :name => params[:modifier][:name])
 		count = 1
@@ -115,12 +122,20 @@ class MenuController < ApplicationController
 
 	end
 
+	# Still needs implementing, currently stubbed out
 	def edit_modifier
 
 	end
 
 	def update_modifier
 
+	end
+
+	def delete_modifier
+		@mod = Modifier.find(params[:mod_id])
+		@item = @mod.item
+		@mod.delete
+		redirect_to :action => "edit_item", :item_id => @item.id
 	end
 
 	def add_category

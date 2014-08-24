@@ -16,9 +16,10 @@
 <h4 class="SSS">This item has <%= @item.modifiers.count %> Modifiers</h4>
 
 <% @item.modifiers.each do |modifier| %>
-	<div class="modifier">
-		<span class="type"><%= modifier.type_string %> </span>
+	<div class="modifier my-well-lemon">
+		
 		<span class="name"><%= modifier.name %></span>
+		<span class="type"><%= modifier.type_string %> </span>
 		<% modifier.options.each do |option| %>
 			<div class="option">
 				<span class="name"> <%= option.name %> </span>
@@ -26,7 +27,7 @@
 
 			</div>
 		<% end %>
-				<%= link_to 'Edit',  {:action => "edit_modifier", :controller => "menu", :modifier_id => modifier.id }  %>
+				<%= link_to 'Delete This Modifier',  {:action => "delete_modifier", :controller => "menu", :mod_id => modifier.id }  %>
 	</div>
 <% end %>
 	<%= link_to 'Add A Modifier', { :action => "new_modifier", :controller => "menu", :item_id => @item.id } %>
