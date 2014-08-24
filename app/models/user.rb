@@ -126,6 +126,10 @@ class User < ActiveRecord::Base
 		users.each { |u| UserMailer.send(email_sym, u) }
   	end
 
+  	def self.email_user(email_sym, user)
+  		UserMailer.send(email_sym, user)
+  	end
+
 
 private
 
