@@ -10,6 +10,7 @@ class UserMailer < ActionMailer::Base
   def announcement_email(user)
     @user = user
     @bb_url = 'https://shnackapp.com/orders/new?restaurant_id=2'
+    attachments.inline["BuddhaBowlsNow.png"] = File.read(Rails.root.join('public/images/BuddhaBowlsNow.png'))  
     mail(to: @user.email, subject: "Shnack is now coming to Buddha Bowls!!")
   end
 
