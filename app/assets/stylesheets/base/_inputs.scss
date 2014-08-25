@@ -9,7 +9,7 @@ input[type=checkbox],
 input[type=radio] {
   //margin: 0px 3px 8px 3px;
   &.error {
-    border: 3px solid #780000;
+    border: 2px solid #780000;
   }
 }
 
@@ -25,8 +25,8 @@ textarea {
   border-radius: 2px;
 
   &:hover, &:focus { 
-    border-color: #A9A9A9;
-    box-shadow: 0 0 5px #A9A9A9;
+    //border-color: #A9A9A9;
+    box-shadow: 0 0 4px #A9A9A9;
   } 
 }
 

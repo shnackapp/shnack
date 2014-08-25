@@ -1,16 +1,12 @@
-<div class="wrapper pad-y-lrg input-list-double" id="size_mod_table">
+<div class="wrapper input-list-double pad-y-lrg" id="size_mod_table">
   <label>All size options</label>
   <span>The first size should not cost any extra, it is the base</span>
   <div class="row-new">
-    <%= text_field_tag :size_name_1, nil, :placeholder=>"Size 1 Name", class: 'column six' %>
-    <%= text_field_tag :size_price_1, nil, :type=>"number", :placeholder=>"Price 1", class: 'column six' %>
-  </div>
-  <div class="row-new">
-    <%= text_field_tag :size_name_2, nil, :placeholder=>"Size 2 Name", class: 'column six'  %>
-    <%= text_field_tag :size_price_2, nil, :type=>"number", :placeholder=>"Price 2", class: 'column six' %>
-  </div>
-  <div class="row-new">
-    <%= text_field_tag :size_name_3, nil, :placeholder=>"Size 3 Name", class: 'column six'  %>
-    <%= text_field_tag :size_price_3, nil, :type=>"number", :placeholder=>"Price 3", class: 'column six' %>
+    <%= text_field_tag :size_name_1, nil, :placeholder=>"Smallest size name" %>
+    <%= text_field_tag :size_price_1, nil, :type=>"number", :placeholder=>"Price +000" %>
+    <%= text_field_tag :size_name_2, nil, :placeholder=>"Size 2 Name" %>
+    <%= text_field_tag :size_price_2, nil, :type=>"number", :placeholder=>"Price 2 Mid" %>
+    <%= text_field_tag :size_name_3, nil, :placeholder=>"Size 3 Name"  %>
+    <%= text_field_tag :size_price_3, nil, :type=>"number", :placeholder=>"Price 3" %>
   </div>
 </div>
