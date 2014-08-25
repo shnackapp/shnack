@@ -31,7 +31,7 @@
         "components/*",
         "base/colors";
 
-@import "charges", "orders", "sign_in";
+@import "charges", "orders", "sign_in", "manage_vendors";
 @import "animate", "utilities", "custom-resizing";
 
 
@@ -120,8 +120,7 @@ table.table {
 
     p, h2, span { color: #383838; }
     h2:first-letter {
-      font-size: 1.6em;
-      color: $green;
+      font-size: 1.3em;
     }
   }
 }

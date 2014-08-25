@@ -23,6 +23,69 @@ class RestaurantsController < ApplicationController
 		end
 	end
 
+def analytics
+		## AVERAGE ORDER SIZE##
+		total = 0
+		@restaurant = Restaurant.find(params[:id])
+		@orders = @restaurant.orders.paid
+		count = @orders.count
+		@orders.each do |ord|
+			total = total + ord.subtotal
+		end
+		total = total/count
+		@avg_total = integer_to_currency(total)
+
+		##DAILY TOTAL SALES##
+		# @daily_total_hash = Order.where(:restaurant_id => params[:id]).group(:created_at)
+
+		# @daily_total_temp = @daily_total_hash.all.each_with_object({}) do |user, hash|
+  # 			hash[user.created_at.day] = user.total
+  # 		end
+
+		# @daily_total_hash = @daily_total_hash.all.each_with_object({}) do |user, hash|
+  # 			hash[user.created_at] = user.total
+		# end
+
+
+		# #@daily_total_hash.inject{|memo, el| memo.merge( el ){|k, old_v, new_v| old_v + new_v}}
+
+
+		##TOP 5 ITEMS ORDERED##
+
+		order_item = []
+		@orders.each do |ord|
+			ord.order_items.each do |oi|
+				order_item.push(oi.item.name) unless oi.item.nil?
+			end
+		end
+		@order_hash = Hash.new(0)
+		order_item.each do |v|
+			@order_hash[v] += 1
+		end
+		o_hash = @order_hash.sort_by { |name, qty| qty }.reverse
+		o_hash = o_hash.take(5)
+		@order_hash = o_hash.inject({}) do |r, s|
+  			r.merge!({s[0] => s[1]})
+  		end
+
+  # 	## Average ORDER TIME##
+  		@avg_time = 0
+  		m_count = 0
+  		@orders.each do |ord|
+  			if ord.current_order_state.state == 3
+  				@avg_time+=(ord.time_between_states(0,2)) 
+  				m_count += 1
+  			end
+  		end
+  		@avg_time = (@avg_time/m_count).round(2)
+
+  		## Users created ##
+  		@user_count = User.group_by_day(:created_at).count
+
+  		## DAILY ORDERS ##
+  		@daily_orders = @orders.group_by_day(:created_at).count
+	end
+
 	def recent_orders
 		@restaurant = Restaurant.find(params[:id])
 		@orders = @restaurant.orders

@@ -1,0 +1,65 @@
+.input-list {
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  textarea,
+  input[type=checkbox],
+  input[type=radio] {
+    margin: 0px 3px 8px 3px;
+  }
+
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  textarea {
+    width: calc(100% - 6px);
+
+    &.with-info {
+      width: calc(100% - 50px);
+    }
+  }
+
+  //QQQ necessary???
+  label > input[type=checkbox],
+  label > input[type=radio] {
+    display: inline-block;
+  }
+}
+
+
+.input-list-double {
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  input[type=number] {
+    @extend .column;
+    @extend .six;
+    margin: 3px;
+    width: calc(50% - 6px);
+  }
+}
+
+
+.input-list-double.hax,
+.input-list.hax {
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  textarea {
+    border-top: none;
+    border-right: none;
+    background-color: beige;
+
+    &:hover {
+      
+    }
+  }
+}

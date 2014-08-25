@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
 
 	has_one :role
 	has_one :stadium, :through => :role
+	has_many :events
 
 	# Setup accessible (or protected) attributes for your model
 	attr_accessible :email, :password, :password_confirmation, :remember_me, 
@@ -123,6 +124,10 @@ class User < ActiveRecord::Base
   	def self.email_customers_who_have_ordered_more_than_once(email_sym) 
   		users =  User.all.select { |u| u.orders.paid.count > 1 }
 		users.each { |u| UserMailer.send(email_sym, u) }
+  	end
+
+  	def self.email_user(email_sym, user)
+  		UserMailer.send(email_sym, user)
   	end
 
 

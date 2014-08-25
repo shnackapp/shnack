@@ -22,20 +22,18 @@
       <div class="column twelve"><%= f.text_field :price %></div>
     </div>
 
-    <div class="row-new">
-      <%= f.label :modifiers %>
-      <button type="button" id="size_mod_btn" data-mod-type="size" class="push-btn lightgreen">Add a size option to item</button>
-        <%= render 'new_item_size' %>
+    <%= f.label :modifiers %>
+    <button type="button" id="size_mod_btn" data-mod-type="size" class="push-btn lightgreen">Add a size option to item</button>
+      <%= render 'new_item_size' %>
 
-      <button type="button" id="single_select_mod_btn" data-mod-type="single" class="push-btn lightgreen">Add a single select option to item</button>
-        <%= render 'new_item_single_select' %>
+    <button type="button" id="single_select_mod_btn" data-mod-type="single" class="push-btn lightgreen">Add a single select option to item</button>
+      <%= render 'new_item_single_select' %>
 
-      <button type="button" id="multiple_select_mod_btn" data-mod-type="multiple" class="push-btn lightgreen">Add a multi select option to item</button>
-        <%= render 'new_item_multiple_select' %>
+    <button type="button" id="multiple_select_mod_btn" data-mod-type="multiple" class="push-btn lightgreen">Add a multi select option to item</button>
+      <%= render 'new_item_multiple_select' %>
 
-      <button type="button" id="mod_btn" data-mod-type="custom" disabled="disabled" class="push-btn lightgreen">Add a custom option to item</button>
-        
-    </div>
+    <button type="button" id="mod_btn" data-mod-type="custom" disabled="disabled" class="push-btn lightgreen">Add a custom option to item</button>
+      
 
     <%= f.submit 'Ceate new item', :class=>"push-btn darkgreen twelve mar-y-lrg" %>
 
