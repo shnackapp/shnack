@@ -61,16 +61,20 @@ $(document).ready(function() {
       return false;
     });
 
-    if ($(window).height() >= $(document).height() )
-    {
+    if ($(window).height() >= $(document).height() ) {
         $('footer.popup-banner').data('size','hide');
-    }
-    else
-    {
+    } else {
         $('footer.popup-banner').data('size','show');
     }
 
-    $("#user_number").mask("(000) 000-0000")
+    $("#user_number").mask("(000) 000-0000");
+
+
+    $(".expandable").next().hide();
+    $(".expandable").click(function() {
+       $(this).next().slideToggle(200);
+       $(this).toggleClass("expanded");
+     });
 });
 
 window.fbAsyncInit = function() {
