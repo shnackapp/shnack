@@ -8,34 +8,33 @@
   <h2 class="mar-bottom">Add A New Item</h2>
   <%= form_for @restaurant.menu.items.new, :url => url_for(:controller => "menu", :action => 'add_item') do  |f| %>
     <%= f.hidden_field :menu_id, :value => @restaurant.menu.id %>
-    <div class="row-new">
-      <label>This item will be a:</label>
-      <%= collection_select(:item, :category_id, @restaurant.menu.categories, :id, :name, {}, class: "column twelve" ) %>
-    </div>
-    <div class="row-new">
-      <%= f.label :name %>
-      <div class="column twelve"><%= f.text_field :name %></div>
-    </div>
-    <div class="row-new">
-      <%= f.label :price %>
-      <i>Enter this as a whole number, meaning 395 = $3<span style="font-size:28px;">.</span>95</i>
-      <div class="column twelve"><%= f.text_field :price %></div>
-    </div>
 
-    <%= f.label :modifiers %>
-    <button type="button" id="size_mod_btn" data-mod-type="size" class="push-btn lightgreen">Add a size option to item</button>
+    <div class="input-list spaced">
+      <label>This item will be a:</label>
+      <%= collection_select(:item, :category_id, @restaurant.menu.categories, :id, :name, {}, class: "" ) %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :price %>
+      <h2>Enter this as a whole number, meaning 395 = $3<span style="text-size:46px;">.</span>95</h2>
+      <%= f.text_field :price %>
+
+      <%= f.label :modifiers %>
+      <button type="button" id="size_mod_btn" data-mod-type="size" class="push-btn lightgreen">Add a size option to item</button>
       <%= render 'new_item_size' %>
 
-    <button type="button" id="single_select_mod_btn" data-mod-type="single" class="push-btn lightgreen">Add a single select option to item</button>
+      <button type="button" id="single_select_mod_btn" data-mod-type="single" class="push-btn lightgreen">Add a single select option to item</button>
       <%= render 'new_item_single_select' %>
 
-    <button type="button" id="multiple_select_mod_btn" data-mod-type="multiple" class="push-btn lightgreen">Add a multi select option to item</button>
+      <button type="button" id="multiple_select_mod_btn" data-mod-type="multiple" class="push-btn lightgreen">Add a multi select option to item</button>
       <%= render 'new_item_multiple_select' %>
 
-    <button type="button" id="mod_btn" data-mod-type="custom" disabled="disabled" class="push-btn lightgreen">Add a custom option to item</button>
-      
+      <button type="button" id="mod_btn" data-mod-type="custom" disabled="disabled" class="push-btn lightgreen">Add a custom option to item</button>
+        
 
-    <%= f.submit 'Ceate new item', :class=>"push-btn darkgreen twelve mar-y-lrg" %>
+      <%= f.submit 'Ceate new item', :class=>"push-btn darkgreen twelve mar-y-lrg" %>
+    </div>
 
   <% end %>
 </div>
