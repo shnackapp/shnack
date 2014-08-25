@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   force_ssl unless: :is_demo?
   protect_from_forgery
-  before_filter :setup
+  before_filter :setup, :capture_referal
 
 
 
@@ -43,6 +43,10 @@ class ApplicationController < ActionController::Base
   private
     def is_demo?
      request.subdomain == "demo"
+    end
+
+    def capture_referal
+      session[:referral] = params[:referral] if params[:referral]
     end
 
     def generate_identifier

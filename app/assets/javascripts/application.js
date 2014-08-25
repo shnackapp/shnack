@@ -56,6 +56,8 @@ $(window).scroll(function(){
 
 $(document).ready(function() {
 
+    $("input[type=tel]").mask("(000) 000-0000");
+
     $("a[href='#top_now']").click(function() {
       $("html, body").animate({ scrollTop: 0 }, "slow");
       return false;
@@ -70,7 +72,6 @@ $(document).ready(function() {
         $('footer.popup-banner').data('size','show');
     }
 
-    $("#user_number").mask("(000) 000-0000")
 });
 
 window.fbAsyncInit = function() {

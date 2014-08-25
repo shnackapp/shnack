@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
 
 	# Setup accessible (or protected) attributes for your model
 	attr_accessible :email, :password, :password_confirmation, :remember_me, 
-		:number, :name, :customer_id, :account_credit
+		:number, :name, :customer_id, :account_credit, :referral_code
 	# attr_accessible :title, :body
 
 	before_create :create_authentication_token, :set_account_credit
