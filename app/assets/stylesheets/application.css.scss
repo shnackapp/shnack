@@ -63,10 +63,6 @@
 }
 
 
-span.tax {
-  font-size: 75%;
-}
-
 .a-dropdown .shnack-credit {
   color: $green;
   text-align: center;
@@ -81,38 +77,12 @@ span.tax {
 }
 
 
-.expandable {
-  cursor: pointer;
-}
-
-.expandable:before {
-  margin-right: 10px;
-  font-family: 'FontAwesome';
-  font-weight: normal;
-  content: '\f0da';
-}
-
-.expandable.expanded:before {
-  font-family: 'FontAwesome';
-  font-weight: normal;
-  content: '\f0d7';
-}
-
-
-table.table {
-  border-radius: 0px;
-}
-.panel {
-  border-radius: 0px;
-}
-
-
-
 
 .easy-123 {
   h1 {
     color: whitesmoke;
   }
+
   .column-mobile {
     text-align: center;
     padding: 10px;
@@ -127,7 +97,7 @@ table.table {
 /* //#4C4951*/
 
 
-
+//probably trash
 div.list-group.select .list-group-item  {
   border-radius: 0px;
   background-color: white;
@@ -149,6 +119,18 @@ div.list-group.select .list-group-item  {
   }
 }
 
+
+table.table {
+  border-radius: 0px;
+}
+.panel {
+  border-radius: 0px;
+}
+
+
+
+
+/* old code*/
 
 #join {
   margin-top:0px;
@@ -172,9 +154,6 @@ div.list-group.select .list-group-item  {
 }
 
 
-@import 'modules/navs';
-
-
 #images {
   .container {
     margin:auto;
@@ -188,16 +167,16 @@ div.list-group.select .list-group-item  {
 }
 
 
- .circle {
-    border: 2px solid khaki;
-    //background-color: #AAA;
-    border-radius:15px;
-    background-image: none;
-    width: 12px;
-    height: 12px;
-    margin: 0 auto;
+.circle {
+  border: 2px solid khaki;
+  //background-color: #AAA;
+  border-radius:15px;
+  background-image: none;
+  width: 12px;
+  height: 12px;
+  margin: 0 auto;
 
-    &.current {
-      background-color: khaki;
-    }
+  &.current {
+    background-color: khaki;
   }
+}

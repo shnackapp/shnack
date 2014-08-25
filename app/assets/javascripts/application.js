@@ -56,22 +56,26 @@ $(window).scroll(function(){
 
 $(document).ready(function() {
 
-    $("input[type=tel]").mask("(000) 000-0000");
+  $("input[type=tel]").mask("(000) 000-0000");
 
-    $("a[href='#top_now']").click(function() {
-      $("html, body").animate({ scrollTop: 0 }, "slow");
-      return false;
-    });
+  $("a[href='#top_now']").click(function() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+  });
 
-    if ($(window).height() >= $(document).height() )
-    {
-        $('footer.popup-banner').data('size','hide');
-    }
-    else
-    {
-        $('footer.popup-banner').data('size','show');
-    }
+  if ($(window).height() >= $(document).height() ) {
+      $('footer.popup-banner').data('size','hide');
+  } else {
+      $('footer.popup-banner').data('size','show');
+  }
 
+
+  $(".expandable").next().hide();
+  $(".expandable").click(function() {
+     $(this).next().slideToggle(200);
+     $(this).toggleClass("expanded");
+   });
+  
 });
 
 window.fbAsyncInit = function() {
