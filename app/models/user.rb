@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 		:number, :name, :customer_id, :account_credit, :referral_code
 	# attr_accessible :title, :body
 
-	before_create :create_authentication_token, :set_account_credit
+	before_create :create_authentication_token, :set_account_credit, :assign_referral
 	after_create :create_role, :welcome
 
 	has_many :orders
@@ -54,6 +54,10 @@ class User < ActiveRecord::Base
 	def set_account_credit
 		self.account_credit = 500
 	end
+
+  def assign_referral
+    self.referral_code = self.customer_id
+  end
 
 	def create_authentication_token
 		begin

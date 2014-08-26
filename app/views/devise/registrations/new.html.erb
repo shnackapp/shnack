@@ -2,7 +2,7 @@
 Sign Up
 <% end %>
 <div class="sign-up-page-deal">
-    <h4 class="SSS bold">Limited time offer</h4>
+    <h4 class="bold">Limited time offer</h4>
     <p>Sign up today and get $5 in Shnack Credit</p>
   </div>
 
@@ -30,7 +30,7 @@ Sign Up
     <%= f.password_field :password, :placeholder => 'Password' %>
     <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation' %>
 
-    <h6 class="expandable"><i>Have a referral code?</i></h6>
+    <h6 class="expandable" style="margin-left:15px;margin-bottom:5px;"><i>Have a referral code?</i></h6>
     <%= f.text_field :referral_code, :as => :hidden, :input_html => { :value => session[:referral] } %>
     
     <%= f.button "Sign up", :type => "submit",:class => "darkslategray push-btn  mar-bottom" %>
