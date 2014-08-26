@@ -70,5 +70,5 @@
 	<br />
 
 	<%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant), class: "action-btn" %>
-	<%= link_to "Delete Restaurant", restaurant_path(@restaurant), :method => :delete, class: "action-btn red right" %>
+	<%= link_to "Delete Restaurant", restaurant_path(@restaurant), :method => :delete, class: "action-btn red right" unless !current_user.is_super?%>
 </section>
