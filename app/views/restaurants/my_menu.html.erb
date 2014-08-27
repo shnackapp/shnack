@@ -3,56 +3,53 @@
 
 <!-- <a href="#add_item" class="basic_btn darkseagreen mar-bottom">Add a new Item</a>
  -->
-<table class="table my-well mar-bottom">
-  <tr><th colspan="4"><h2>Add A New Item</h2></th></tr>
+
+<div class="my-well-black mar-bottom-lrg">
+  <h2 class="mar-bottom">Add A New Item</h2>
   <%= form_for @restaurant.menu.items.new, :url => url_for(:controller => "menu", :action => 'add_item') do  |f| %>
-  <%= f.hidden_field :menu_id, :value => @restaurant.menu.id %>
-  <tr>
-    <td colspan="2"><%= collection_select(:item, :category_id, @restaurant.menu.categories, :id, :name, {}, {:class=>"form-control"}) %> </td>
-  </tr>
-  <tr>
-    <td><%= f.label :name %></td>
-    <td><%= f.text_field :name, :class=>"form-control" %></td>
-  </tr>
+    <%= f.hidden_field :menu_id, :value => @restaurant.menu.id %>
 
-  <tr>
-    <td> <%= f.label :price %></td>
-    <td> <%= f.text_field :price , :class=>"form-control"%></td>
-  </tr>
+    <div class="input-list spaced">
+      <label>This item will be a:</label>
+      <%= collection_select(:item, :category_id, @restaurant.menu.categories, :id, :name, {}, class: "" ) %>
 
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
+      <%= f.label :price %>
+      <h2>Enter this as a whole number, meaning 395 = $3<span style="text-size:46px;">.</span>95</h2>
+      <%= f.text_field :price %>
 
-  <tr>
-    <td> <%= f.label :modifiers %></td>
-    <td class="add-mod-btns">
-      <button type="button" id="size_mod_btn" data-mod-type="size">Add a size option to item</button>
+      <%= f.label :modifiers %>
+      <button type="button" id="size_mod_btn" data-mod-type="size" class="push-btn lightgreen">Add a size option to item</button>
       <%= render 'new_item_size' %>
 
-      <button type="button" id="single_select_mod_btn" data-mod-type="single">Add a single select option to item</button>
+      <button type="button" id="single_select_mod_btn" data-mod-type="single" class="push-btn lightgreen">Add a single select option to item</button>
       <%= render 'new_item_single_select' %>
 
-      <button type="button" id="multiple_select_mod_btn" data-mod-type="multiple">Add a multi select option to item</button>
+      <button type="button" id="multiple_select_mod_btn" data-mod-type="multiple" class="push-btn lightgreen">Add a multi select option to item</button>
       <%= render 'new_item_multiple_select' %>
 
-<!--       <button type="button" id="mod_btn" data-mod-type="custom" disabled="disabled">Add a custom option to item</button>
- -->
-      </td>
-    </tr>
-    <tr colspan="3"> <td> <%= f.submit 'Ceate new item', :class=>"push-btn" %></td> </tr>
-    <% end %>
-  </table>
+      <button type="button" id="mod_btn" data-mod-type="custom" disabled="disabled" class="push-btn lightgreen">Add a custom option to item</button>
+        
+
+      <%= f.submit 'Ceate new item', :class=>"push-btn darkgreen twelve mar-y-lrg" %>
+    </div>
+
+  <% end %>
+</div>
 
 
 
 <!-- <a href="#add_category" class="basic_btn darkseagreen mar-bottom">Add a new Category</a>
  -->
- <div class="my-well">
+ <div class="my-well-black">
   <h2 class="mar-bottom">Add A New Category</h2>
   <%= form_for @restaurant.menu.categories.new, :url => url_for(:controller => "menu", :action => 'add_category') do  |f| %>
     <%= f.hidden_field :menu_id, :value => @restaurant.menu.id %>
       <%= f.label :name %>
       <div class="row-new">
-        <div class="column eight"><%= f.text_field :name %></div>
+        <div class="column eight"><%= f.text_field :name, placeholder: 'subs, lattes, goodies' %></div>
         <div class="column three offset-by-one"><%= f.submit %></div>
       </div>
   <% end %>

@@ -7,12 +7,15 @@ html, body, div, span, object, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, ab
   border: 0;
   vertical-align: baseline;
   background: transparent;
-  box-sizing: border-box;
+  //box-sizing: border-box;
   font-family: Dosis, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 { font-weight: normal; line-height: 100%; }
-h1.SSS, h2.SSS, h3.SSS, h4.SSS, h5.SSS, h6.SSS { margin-bottom: 5px; }
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 100%;
+  margin-bottom: 5px;
+}
 
 small { color: #666; }
 
@@ -29,6 +32,12 @@ ol > li {
 p { 
   font-size: 22px;
   margin-bottom: 12px;
+}
+
+label {
+  font-weight: bold;
+  color: #555; 
+  display: block; 
 }
 
 body {

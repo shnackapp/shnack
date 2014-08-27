@@ -1,0 +1,116 @@
+.input-list {
+
+  //majority
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  input[type=number],
+  input[type=search],
+  textarea,
+  input[type=checkbox],
+  input[type=radio] {
+    margin: 0px 3px 8px 3px;
+  }
+
+  //box-like elements
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  input[type=number],
+  input[type=search],
+  textarea {
+    width: calc(100% - 6px);
+
+    &.with-info {
+      width: calc(100% - 50px);
+    }
+  }
+
+  //bullet-like
+  //QQQ necessary???
+  label > input[type=checkbox],
+  label > input[type=radio] {
+    display: inline-block;
+  }
+
+  p {
+    margin-bottom: 0px;
+  }
+
+  h2 {
+    font-size: 21px;
+  }
+}
+
+
+.input-list-double {
+  @extend .row-new;
+
+  //box-like
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  input[type=number],
+  input[type=search],
+  textarea {
+    @extend .column;
+    margin: 3px;
+    width: calc(50% - 6px);
+  }
+
+  p {
+    margin-bottom: 0px;
+  }
+
+  h2 {
+    font-size: 21px;
+  }
+}
+
+
+.input-list-double.hax,
+.input-list.hax {
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  input[type=number],
+  input[type=search],
+  textarea {
+    border-top: hidden;
+    border-right: hidden;
+    background-color: beige;
+
+    &:hover {
+      border-top: visible;
+      border-right: visible;
+    }
+  }
+}
+
+.input-list-double.spaced 
+.input-list.spaced {
+  //box-like
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  input[type=number],
+  input[type=search],
+  textarea {
+    & + label {
+      margin-top: 8px;
+    }
+  }
+}
+
+
+  
