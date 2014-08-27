@@ -38,7 +38,8 @@ body {
   //background-color:dimgray;
 } 
 
-.wrap-website {
+.wrap-level-1 {
+  @extend .wrapper;
     /* because the topbar always takes space fixed
   on top, removed from the regular flow */
   margin-top: 70px;

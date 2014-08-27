@@ -12,7 +12,6 @@
   padding: 3px 30px;
   color: $white;
   background: darkred;
-  //border-bottom: 1px solid #333333;
   @include box-shadow(0, 4px, 6px, $black);
 
   a {
@@ -25,6 +24,21 @@
       color: $white;
     }
   }
+
+  h1 {
+    margin-bottom: 0px;
+    @media (max-width: 630px) {
+      font-size: 2.7em;
+    }
+
+    @media (max-width: 520px) {
+      font-size: 2.5em; 
+    }
+  }
+
+  @media (max-width: 520px) {
+    padding: 1px 6px 4px;
+  }
 }
 
 
@@ -33,6 +47,9 @@
   text-align: center;
   text-transform: uppercase;
   font-size: 1.8em;
+  @media (max-width: 630px) {
+    font-size: 1.65em;
+  }
   @media (max-width: 520px) {
     font-size: 1.5em;
     padding-top: 0px;

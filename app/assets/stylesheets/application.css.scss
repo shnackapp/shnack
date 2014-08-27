@@ -32,7 +32,7 @@
         "base/colors";
 
 @import "charges", "orders", "sign_in", "manage_vendors";
-@import "animate", "utilities", "custom-resizing";
+@import "animate", "utilities";
 
 
 
@@ -96,6 +96,15 @@
 }
 /* //#4C4951*/
 
+//all for easy-123
+@media (max-width: 520px) {
+  .easy-123 {
+    span { font-size: 64px; }
+    p { font-size: 16px; }
+  }
+}
+
+
 
 //probably trash
 div.list-group.select .list-group-item  {
@@ -125,58 +134,4 @@ table.table {
 }
 .panel {
   border-radius: 0px;
-}
-
-
-
-
-/* old code*/
-
-#join {
-  margin-top:0px;
-  section:first-child {
-    padding-top:40px;
-    background-color:LIGHTSALMON;
-  }
-
-  .why-shnack {
-    ul {
-      padding-top:-10px;
-      padding-left:20px;
-      font-size: 1.4em;
-    }
-
-  }
-  .contact-form {
-    border-color: darkgray;
-    background-color:LEMONCHIFFON;
-  }
-}
-
-
-#images {
-  .container {
-    margin:auto;
-    width:100%;
-    text-align:center;
-  }
-  img {
-    width:33%;
-    margin:auto;
-  }
-}
-
-
-.circle {
-  border: 2px solid khaki;
-  //background-color: #AAA;
-  border-radius:15px;
-  background-image: none;
-  width: 12px;
-  height: 12px;
-  margin: 0 auto;
-
-  &.current {
-    background-color: khaki;
-  }
 }
