@@ -56,8 +56,5 @@
 	<br />
 
 	<%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant), class: "action-btn" %>
-	<% if current_user.is_super? %>
-	<%= link_to "Delete Restaurant [is_super]", restaurant_path(@restaurant), :method => :delete, class: "action-btn red right clear-fix" %>
-	<% end %>
-
+	<%= link_to "Delete Restaurant", restaurant_path(@restaurant), :method => :delete, class: "action-btn red right clear-fix" unless !current_user.is_super?%>
 </section>
