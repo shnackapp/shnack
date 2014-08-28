@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = User.create(params[:user])
     @user.create_role
     if is_referral?
-      give_shnack_credit( session[:referral], 555)
+      #give_shnack_credit( session[:referral], 555)
     end
 
     respond_to do |format|

@@ -76,6 +76,11 @@ $(document).ready(function() {
      $(this).toggleClass("expanded");
    });
   
+  $("[data-js=expandable]").next().hide();
+  $("[data-js=expandable]").click(function() {
+     $(this).next().slideToggle(200);
+     $(this).toggleClass("expanded");
+   });
 });
 
 window.fbAsyncInit = function() {
