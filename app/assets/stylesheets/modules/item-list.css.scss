@@ -1,12 +1,12 @@
 .item-list {
-  background-color: orange;
+  //background-color: orange;
   padding: 5px;
   margin: 5px;
 
 
   .row-new {
-    font-size: 14px;
-    padding: 9px;
+    font-size: 16px;
+    padding: 9px 6px 3px 6px;
   }
 
   &.stripped {
@@ -17,10 +17,10 @@
 
   &.border {
     .row-new:not(:last-of-type) {
-      border-bottom: 1px solid #444;
+      border-bottom: 1px solid #AAA;
     }
     .row-new:not(:first-of-type) {
-      border-top: 1px solid #888;
+      border-top: 1px solid #666;
     }
   }
 }
