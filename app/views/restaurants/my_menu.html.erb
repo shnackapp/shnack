@@ -5,11 +5,11 @@
  -->
 
 <div class="my-well-black mar-bottom-lrg">
-  <h2 class="mar-bottom">Add A New Item</h2>
+  <h2 data-js="expandable" class="af-plus">Add A New Item</h2>
   <%= form_for @restaurant.menu.items.new, :url => url_for(:controller => "menu", :action => 'add_item') do  |f| %>
     <%= f.hidden_field :menu_id, :value => @restaurant.menu.id %>
 
-    <div class="input-list spaced">
+    <div class="input-list spaced mar-top">
       <label>This item will be a:</label>
       <%= collection_select(:item, :category_id, @restaurant.menu.categories, :id, :name, {}, class: "" ) %>
 
@@ -24,13 +24,13 @@
       <button type="button" id="size_mod_btn" data-mod-type="size" class="push-btn lightgreen">Add a size option to item</button>
       <%= render 'new_item_size' %>
 
-      <button type="button" id="single_select_mod_btn" data-mod-type="single" class="push-btn lightgreen">Add a single select option to item</button>
+      <button type="button" id="single_select_mod_btn" data-mod-type="single" class="push-btn lightgreen">Add a single select option</button>
       <%= render 'new_item_single_select' %>
 
-      <button type="button" id="multiple_select_mod_btn" data-mod-type="multiple" class="push-btn lightgreen">Add a multi select option to item</button>
+      <button type="button" id="multiple_select_mod_btn" data-mod-type="multiple" class="push-btn lightgreen">Add a multi select option</button>
       <%= render 'new_item_multiple_select' %>
 
-      <button type="button" id="mod_btn" data-mod-type="custom" disabled="disabled" class="push-btn lightgreen">Add a custom option to item</button>
+      <button type="button" id="mod_btn" data-mod-type="custom" disabled="disabled" class="push-btn lightgreen">Add a custom option</button>
         
 
       <%= f.submit 'Ceate new item', :class=>"push-btn darkgreen twelve mar-y-lrg" %>
@@ -44,10 +44,10 @@
 <!-- <a href="#add_category" class="basic_btn darkseagreen mar-bottom">Add a new Category</a>
  -->
  <div class="my-well-black">
-  <h2 class="mar-bottom">Add A New Category</h2>
+  <h2 data-js="expandable" class="af-plus">Add A New Category</h2>
   <%= form_for @restaurant.menu.categories.new, :url => url_for(:controller => "menu", :action => 'add_category') do  |f| %>
     <%= f.hidden_field :menu_id, :value => @restaurant.menu.id %>
-      <%= f.label :name %>
+      <%= f.label :name, class: "mar-top" %>
       <div class="row-new">
         <div class="column eight"><%= f.text_field :name, placeholder: 'subs, lattes, goodies' %></div>
         <div class="column three offset-by-one"><%= f.submit %></div>

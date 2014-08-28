@@ -75,7 +75,7 @@
   content: '\f0d7';
 }
 
-[data-js=expandable].plus:after {
+[data-js=expandable].af-plus:after {
   font-family: 'FontAwesome';
   font-weight: normal;
   content: '\f0fe';
@@ -83,7 +83,7 @@
   right: 10px;
 }
 
-[data-js=expandable].plus.expanded:after {
+[data-js=expandable].af-plus.expanded:after {
   font-family: 'FontAwesome';
   font-weight: normal;
   content: '\f147';
