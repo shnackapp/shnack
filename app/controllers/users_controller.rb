@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params[:user])
     @user.create_role
+    if is_referral?
+      give_shnack_credit User.find( session[:referral] ) 250
+    end
 
     respond_to do |format|
       if @user.save
@@ -69,6 +72,12 @@ class UsersController < ApplicationController
     r.save
     
     redirect_to user_root_path
+  end
+
+  private
+    def is_referral?
+      session[:referral].blank?
+    end
   end
 
 end
