@@ -57,8 +57,44 @@
 }
 
 
+[data-js=expandable] {
+  cursor: pointer;
+  position: relative;
+}
+
+[data-js=expandable].default:before {
+  margin-right: 10px;
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f0da';
+}
+
+[data-js=expandable].default.expanded:before {
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f0d7';
+}
+
+[data-js=expandable].plus:after {
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f0fe';
+  position: absolute;
+  right: 10px;
+}
+
+[data-js=expandable].plus.expanded:after {
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f147';
+  position: absolute;
+  right: 10px;
+}
 
 
+
+
+/* phase out */
 .expandable {
   cursor: pointer;
   position: relative;

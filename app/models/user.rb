@@ -56,10 +56,6 @@ class User < ActiveRecord::Base
 		self.account_credit = 500
 	end
 
-  def give_shnack_credit(creditor, amount)
-    User::creditor.account_credit = creditor.account_credit + amount
-  end
-
   def assign_referral_code
     self.referral_code = self.id
   end
