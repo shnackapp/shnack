@@ -77,7 +77,13 @@ def analytics
   				m_count += 1
   			end
   		end
-  		@avg_time = (@avg_time/m_count).round(2)
+
+  		if m_count == 0
+  			@correct_data = false
+  		else
+  			@avg_time = (@avg_time/m_count).round(2)
+  			@correct_data = true
+  		end
 
   		## Users created ##
   		@user_count = User.group_by_day(:created_at).count
