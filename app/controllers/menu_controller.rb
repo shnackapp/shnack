@@ -96,12 +96,16 @@ class MenuController < ApplicationController
 	def add_modifier
 		@item = Item.find(params[:item_id])
 
+		#Validity checks
+
+		# if modifier has no name, redirect to form with flash mesage
 		if (params[:modifier][:name].nil? || params[:modifier][:name].empty?  && params[:mod_type] != "0")
 			flash[:error] = "Please enter a name"
 			redirect_to :action => "new_modifier", :item_id => @item.id
 			return
 		end
 
+		# if trying to create a second size modifier, redirect to form with flash message
 		if params[:mod_type] == "0" && @item.modifiers.where(:mod_type == 0).count > 0
 			flash[:error] = "This item already has a size modifier."
 			redirect_to :action => "new_modifier", :item_id => @item.id
@@ -109,8 +113,7 @@ class MenuController < ApplicationController
 		end
 
 
-
-		mod = @item.modifiers.create(:mod_type => params[:mod_type], :name => params[:modifier][:name])
+		mod = @item.modifiers.create(:mod_type => params[:mod_type], :name => params[:modifier][:name], :is_size_dependent => params[:modifier][:is_size_dependent])
 		count = 1
 
 		while !params["option_name_#{count}".to_sym].nil? && !params["option_name_#{count}".to_sym].empty? do

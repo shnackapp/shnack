@@ -23,6 +23,7 @@
 #  transfer_id     :integer
 #  credit_was_used :boolean          default(FALSE)
 #  credit_used     :integer          default(0)
+#  refunded        :boolean          default(FALSE)
 #
 
 require 'test_helper'

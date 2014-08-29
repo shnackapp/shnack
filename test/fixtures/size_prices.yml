@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: size_prices
+#
+#  id          :integer          not null, primary key
+#  size_id     :integer
+#  modifier_id :integer
+#  price       :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  size_id: 1
+  modifier_id: 1
+  price: 1
+
+two:
+  size_id: 1
+  modifier_id: 1
+  price: 1

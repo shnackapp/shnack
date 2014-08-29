@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140818041728) do
+ActiveRecord::Schema.define(:version => 20140828224003) do
 
   create_table "analytics", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -104,8 +104,9 @@ ActiveRecord::Schema.define(:version => 20140818041728) do
     t.integer  "price"
     t.integer  "item_id"
     t.integer  "mod_type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.boolean  "is_size_dependent", :default => false
   end
 
   create_table "options", :force => true do |t|
@@ -182,6 +183,14 @@ ActiveRecord::Schema.define(:version => 20140818041728) do
     t.integer  "role_type",  :default => 0
     t.integer  "user_id"
     t.integer  "stadium_id"
+  end
+
+  create_table "size_prices", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "modifier_id"
+    t.integer  "price"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "stadia", :force => true do |t|
