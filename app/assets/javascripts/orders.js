@@ -173,17 +173,20 @@ function updateCart() {
 			if(qty == 1) {
 				cart_string += "<span style='font-weight:bold;'>" + qty + " </span> " + name + " - " + cat + "<br/>";
 			} else {
-				cart_string += qty + " " + name + "s - " + cat + "<br/>";
+				cart_string += "<span style='font-weight:bold;'>" + qty + " </span> " + name + "s - " + cat + "<br/>";
 			}
 
 			$( "."+ id + '_modifier').each( function(index, obj) {
 				if( $(this).is(":checked") ) {
 					var mod = $(this).parent().parent().data('mod-name');
-					mod_string += mod + ", ";
+					if(mod_string == "")
+						mod_string += mod;
+					else 
+						mod_string += ", " + mod;
 				}
 			});
 			if( mod_string != '') {
-				cart_string += mod_string + "<br/>";
+				cart_string += "<i>" + mod_string + "</i><br/>";
 				mod_string = "";
 			}
 		}
