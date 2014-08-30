@@ -24,7 +24,7 @@
 
         <div class="all-items-wrap">
           <% category.items.each do |item| %>
-            <div data-id="<%= item.id %>" class="single-item-wrap">
+            <div data-id="<%= item.id %>" data-name="<%= item.name %>" data-category="<%= category.name %>" class="single-item-wrap">
               <div class="row-new">
                 <div class="column five"> <%= item.name %> </div>
                 <div id="<%=item.id%>_price" data-price="<%=item.price%>" class="column three"> <%= Item.integer_to_currency item.price %> </div>
@@ -102,44 +102,43 @@
 
   <div class="my-well-mid mar-top">
     <div class="row-new">
-      <div class="money-wrap column-mobile six">
+      <div class="column-mobile six">
+        <%= render "shared/cart" %>
+      </div>
 
-
-        <ol>
-          <li>Subtotal:</li>
-          <li data-total="000" class="subtotal"> $0.00 </li>
-        </ol>
-
-        <% if @owner.shnack_fee != 0 %>
+      <div class="column-mobile six">
+        <div class="money-wrap">
           <ol>
-            <li>Shnack Fee:</li>
-            <li data-price="<%= @owner.shnack_fee %>" class="fee"> <%= @order.integer_to_currency(@owner.shnack_fee) %></li>
+            <li>Subtotal:</li>
+            <li data-total="000" class="subtotal"> $0.00 </li>
           </ol>
+
+          <% if @owner.shnack_fee != 0 %>
+            <ol>
+              <li>Shnack Fee:</li>
+              <li data-price="<%= @owner.shnack_fee %>" class="fee"> <%= @order.integer_to_currency(@owner.shnack_fee) %></li>
+            </ol>
+          <% end %>
+
+          <ol class="mar-bottom-sml">
+            <li>Total:</li>
+            <li data-total="000" class="total"> $0.00 </li>
+          </ol>
+        </div> <!-- ENDS MONEY-WRAP -->
+
+        <div class="current-order-error flash-alert slow" style="display:none;">Come on! You have to order something!</div>
+
+        <% if @owner.is_open? %>
+          <%= button_tag(type: 'submit', id:"order-submit", class: "push-btn darkslategray the-next-button") do %>
+            <i class="fa fa-cutlery pad-right-sml"></i> Next
+          <% end %>
+        <% else %> 
+          <%= button_tag(type: 'submit', id:"order-submit",  class: "push-btn the-next-button", :disabled => true) do %>
+            <i class="fa fa-frown-o pad-right-sml"></i> Currently Closed
+          <% end %>
         <% end %>
-
-        <ol class="mar-bottom-sml">
-          <li>Total:</li>
-          <li data-total="000" class="total"> $0.00 </li>
-        </ol>
-
-      </div> <!-- ENDS MONEY-WRAP -->
-
-
-
-      <% if @owner.is_open? %>
-        <%= button_tag(type: 'submit', id:"order-submit", class: "column-mobile six push-btn darkslategray the-next-button") do %>
-          <i class="fa fa-cutlery pad-right-sml"></i> Next
-        <% end %>
-      <% else %> 
-        <%= button_tag(type: 'submit', id:"order-submit",  class: "column-mobile six push-btn the-next-button", :disabled => true) do %>
-          <i class="fa fa-frown-o pad-right-sml"></i> Currently Closed
-        <% end %>
-      <% end %>
-
+      </div>
     </div>
-
-    <div class="current-order-error flash-alert slow" style="display:none;">Come on! You have to order something!</div>
-
   </div>
 
 <% end %>

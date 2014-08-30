@@ -21,6 +21,7 @@
 #  name                   :string(255)
 #  account_credit         :integer          default(0)
 #  orders_count           :integer          default(0)
+#  referral_code          :string(255)
 #
 
 require 'test_helper'

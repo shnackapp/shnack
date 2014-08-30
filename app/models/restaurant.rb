@@ -52,6 +52,10 @@ class Restaurant < Location
     return self.hide_when_closed
   end
 
+  def shnack_fee?
+    self.shnack_fee != 0
+  end
+
   def is_open?
     time = Time.now.in_time_zone("Pacific Time (US & Canada)")
     h = self.hours.where(:day => time.wday).first
@@ -128,5 +132,6 @@ class Restaurant < Location
       self.registration_code = SecureRandom.hex[0..6]
     end while Vendor.exists?(registration_code:registration_code) || Location.exists?(registration_code:registration_code)
   end
+
 
 end

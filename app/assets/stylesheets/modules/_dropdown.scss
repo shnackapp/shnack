@@ -55,3 +55,82 @@
   background:#555;
   color: whitesmoke;
 }
+
+
+[data-js=expandable] {
+  cursor: pointer;
+  position: relative;
+}
+
+[data-js=expandable].default:before {
+  margin-right: 10px;
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f0da';
+}
+
+[data-js=expandable].default.expanded:before {
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f0d7';
+}
+
+[data-js=expandable].af-plus:after {
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f0fe';
+  position: absolute;
+  right: 10px;
+}
+
+[data-js=expandable].af-plus.expanded:after {
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f147';
+  position: absolute;
+  right: 10px;
+}
+
+
+
+
+/* phase out */
+.expandable {
+  cursor: pointer;
+  position: relative;
+}
+
+.expandable:not(.plus-icon):before {
+  margin-right: 10px;
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f0da';
+}
+
+.expandable:not(.plus-icon).expanded:before {
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f0d7';
+}
+
+.plus-icon.expandable + * {
+  border-left: dotted 2px #444;
+  border-right: dotted 2px #444;
+  border-bottom: dotted 2px #444;
+}
+
+.plus-icon.expandable:after {
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f0fe';
+  position: absolute;
+  right: 10px;
+}
+
+.plus-icon.expandable.expanded:after {
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  content: '\f147';
+  position: absolute;
+  right: 10px;
+}
