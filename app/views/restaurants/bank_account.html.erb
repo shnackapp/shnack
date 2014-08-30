@@ -6,7 +6,10 @@
 </script>
 
 <%= form_tag(save_bank_account_restaurant_path(@restaurant), :method => "POST", :id=>"bank-form") do %>
-	Account Type: <%= radio_button_tag(:account, "individual") %> <%= label_tag :account_individual, "Individual" %> <%= radio_button_tag(:account, "corporation") %><%= label_tag :account_corporation, "Corporation" %>  <br />
+	<h4>Account Type:</h4>
+  <%= radio_button_tag(:account, "individual") %> <%= label_tag :account_individual, "Individual" %>
+  <%= radio_button_tag(:account, "corporation") %> <%= label_tag :account_corporation, "Corporation" %>
+  <br />
 
 	Name:* <%= text_field_tag :name, nil, :class => "form-control" %>
 <% end %>
@@ -20,5 +23,5 @@
 
 <div> *Use the legal name on your account </div>
 
-<div class="error" style="display:none;"> There was an error with your bank information. Please make sure it is correct and try again. </div>
+<div class="flash-alert stop" style="display:none;"> There was an error with your bank information. Please make sure it is correct and try again. </div>
 

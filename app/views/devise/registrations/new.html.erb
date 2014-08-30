@@ -2,32 +2,31 @@
 Sign Up
 <% end %>
 <div class="sign-up-page-deal">
-    <h4 class="SSS bold">Limited time offer</h4>
+    <h4 class="bold">Limited time offer</h4>
     <p>Sign up today and get $5 in Shnack Credit</p>
   </div>
 
 
-<div class="input-list center" style="max-width:350px;">
+<div class="input-list center span4">
 
   <div class="sign-up-page-deal">
-    <h4 class="SSS bold">Limited time offer</h4>
+    <h4 class="bold">Limited time offer</h4>
     <p>Sign up today and get $5 in Shnack Credit</p>
   </div>
 
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-    <label>Name</label>
+    <%= f.label :name %>
     <%= f.text_field :name, :placeholder => '' ,:autofocus => true %>
 
-    <label>Email</label>
-    <%= f.email_field :email, :placeholder => 'you will use this to login' %>
+    <%= f.label :email %>
+    <%= f.email_field :email, type: 'email', :placeholder => 'you will use this to login' %>
 
-    <label>Phone Number</label>
-    <%= f.text_field :number, :placeholder => 'to notify you via text when your order is ready' %>
-    <i></i>
+    <%= f.label :number, 'Phone Number' %>
+    <%= f.text_field :number, type: 'tel', :placeholder => 'to notify you via text when your order is ready' %>
 
-    <label> Password </label>
+    <%= f.label :password %>
     <%= f.password_field :password, :placeholder => 'Password' %>
     <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation' %>
 

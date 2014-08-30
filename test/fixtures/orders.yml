@@ -23,6 +23,7 @@
 #  transfer_id     :integer
 #  credit_was_used :boolean          default(FALSE)
 #  credit_used     :integer          default(0)
+#  refunded        :boolean          default(FALSE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

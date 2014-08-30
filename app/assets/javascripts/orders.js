@@ -20,12 +20,6 @@ $(document).ready(function() {
 
 	$(".entire-mod-wrap").hide();
 
-	$(".my-panel-heading").next().hide();
-	$(".my-panel-heading").click(function() {
-     $(this).next().slideToggle(200);
-     $(this).toggleClass("expanded");
-   });
-
 
 	//increment up
 	$("span.plus").click(function() {

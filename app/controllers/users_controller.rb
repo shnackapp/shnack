@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params[:user])
     @user.create_role
+    if is_referral?
+      #give_shnack_credit( session[:referral], 555)
+    end
 
     respond_to do |format|
       if @user.save
@@ -19,10 +22,16 @@ class UsersController < ApplicationController
     end
   end
 
+  # tried it in the model
+  def give_shnack_credit(creditor_id, amount)
+    @creditor = User.find(creditor_id)
+    creditor.account_credit = creditor.account_credit + amount
+  end
 
   def find_user
     @user = params[:id].nil? ? current_user : User.find(params[:id])
   end
+
 
   def show
     @users = User.all
@@ -68,6 +77,12 @@ class UsersController < ApplicationController
     r.save
     
     redirect_to user_root_path
+  end
+
+  private
+    def is_referral?
+      session[:referral].blank?
+    end
   end
 
 end

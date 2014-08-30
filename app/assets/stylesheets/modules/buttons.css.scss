@@ -45,15 +45,21 @@
     box-shadow: none;
     background-color: lighten(darkslategray, 15%);
   }
+
+  &:disabled {
+    top: 3px;
+    box-shadow: none;
+    background-color: $lightred;
+  }
 }
 
 
 /* manage vendors add items page */
-.add-mod-btns > .action-btn {
-  display: block;
-  width: 100%;
-  margin-bottom: 5px;
-}
+// .add-mod-btns > .action-btn {
+//   display: block;
+//   width: 100%;
+//   margin-bottom: 5px;
+// }
 
 /* a.arrow {
   color: darkseagreen;
