@@ -34,7 +34,7 @@
                 <% if mod.mod_type == 2 %>
                   <li>
                     <%#= check_box("#{mod.name.downcase}", "#{val.name.downcase}") %>
-                    <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}" %>" class="<%="#{item.id}_modifier"%> modifier" type="checkbox" value="<%= val.id %>" data-add-price="<%= val.price %>">
+                    <input id="<%= mod.name.downcase %>_<%= val.name.downcase %>" name="<%= "#{item.id}_#{mod.id}[]" %>" class="<%="#{item.id}_modifier"%> modifier" type="checkbox" value="<%= val.id %>" data-add-price="<%= val.price %>">
                   </li>
                 <%end%>
 
