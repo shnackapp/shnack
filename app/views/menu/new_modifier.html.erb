@@ -18,11 +18,13 @@
 	<% size = @item.modifiers.where(:mod_type =>0).first %>
 	<% num_sizes = size.nil? ? 0 : size.options.count %>
 
-	<div class="modifier_options" data-numsizes="<%= num_sizes %>" data-currentmods="3">
+	<div class="modifier_options input-list" data-numsizes="<%= num_sizes %>" data-currentmods="3">
 		<% 3.times do |i| %>
 			<%= text_field_tag "option_name_#{i}.to_sym", nil, :placeholder=>"Option #{i+1} Name" %>
-			<%= text_field_tag "option_price_#{i+1}".to_sym, nil, :type=>"number", :placeholder=>"Price #{i+1}" %>
-			<span class="size-dependent-prices" > 
+			<span class="independent-price">
+				<%= text_field_tag "option_price_#{i+1}".to_sym, nil, :type=>"number", :placeholder=>"Price #{i+1}" %>
+			</span>
+			<span class="size-dependent-prices" style="display:none;"> 
 				<% num_sizes.times do |j| %>
 					<%= text_field_tag "option_price_#{i+1}_#{j+1}".to_sym, nil, :type=>"number", :placeholder=>"Price for Option #{i+1} for #{size.options[j].name}"  %>
 				<% end %>
