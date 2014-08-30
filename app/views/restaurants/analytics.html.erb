@@ -8,8 +8,10 @@
 <p align="center"><b><%= @avg_total %></b></p>
 
 
-<h3 class="expandable">Average Order Time (Minutes)</h3>
-<p align="center"><b><%= @avg_time %></b></p>
+<div class="panel panel-primary">
+<h3 class="panel-heading">Average Order Time (Minutes)</h3>
+	<p align="center"><b><%= @avg_time unless !@correct_data%></b></p>
+</div>
 
 <h3 class="expandable">Top 5 Items Ordered</h3>
 <div> <%= pie_chart(@order_hash) %> </div>
