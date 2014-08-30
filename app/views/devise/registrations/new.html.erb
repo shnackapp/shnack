@@ -30,9 +30,6 @@ Sign Up
     <%= f.password_field :password, :placeholder => 'Password' %>
     <%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation' %>
 
-<!--     <h6 class="expandable plus-icon" style="margin-left:15px;margin-bottom:5px;"><i>Have a referral code?</i></h6>
- -->    <%= f.text_field :referral_code, :as => :hidden, :input_html => { :value => session[:referral] } %>
-    
     <%= f.button "Sign up", :type => "submit",:class => "darkslategray push-btn  mar-bottom" %>
   <% end %>
 
