@@ -50,10 +50,8 @@
   position: relative;
 
   ol li:last-child {
-    @media(max-width:520px) {
-      position: absolute;
-      right: 10px;
-    }
+    position: absolute;
+    right: 10px;
   }
 }
 

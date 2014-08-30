@@ -7,7 +7,7 @@
         <div class="mod-header"><span><%= mod.name.capitalize %></span></div>
 
         <% mod.options.each_with_index do |val, ind| %>
-              <ol class="single-option-wrap">
+              <ol data-mod-name="<%= val.name %>" data-category="<%= mod.name %>" class="single-option-wrap">
                 <li> <%= val.name.capitalize %> </li>
                 <li>+ <%= Order.integer_to_currency val.price %> </li>
 

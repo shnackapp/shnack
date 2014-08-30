@@ -138,6 +138,8 @@ function updatePrice() {
 	$(".total").html(toUSD(total));
 	$(".total").data("total", total);
 
+	updateCart();
+
 };
 
 function updateQuantity() {
@@ -148,6 +150,44 @@ function updateQuantity() {
 	});
 
 	$(".cart_quantity").html(qnty);
+};
+
+function updateCart() {
+	var empty_cart = "Nothing in cart";
+	var cart_string = "";
+	var mod_string = "";
+	$(".single-item-wrap").each( function() {
+
+		var id = $(this).data("id");
+		var name = $(this).data("name");
+		var cat = $(this).data("category");
+		var qty = $("#" + id + "_num").html();
+
+		if(qty > 0) {
+			if(qty == 1) {
+				cart_string += "<span style='font-weight:bold;'>" + qty + " </span> " + name + " - " + cat + "<br/>";
+			} else {
+				cart_string += "<span style='font-weight:bold;'>" + qty + " </span> " + name + "s - " + cat + "<br/>";
+			}
+
+			$( "."+ id + '_modifier').each( function(index, obj) {
+				if( $(this).is(":checked") ) {
+					var mod = $(this).parent().parent().data('mod-name');
+					if(mod_string == "")
+						mod_string += mod;
+					else 
+						mod_string += ", " + mod;
+				}
+			});
+			if( mod_string != '') {
+				cart_string += "<i>" + mod_string + "</i><br/>";
+				mod_string = "";
+			}
+		}
+	});
+
+	if( cart_string != '' )	$('#cart-contents').html(cart_string);
+	else $('#cart-contents').html(empty_cart);
 };
 
 

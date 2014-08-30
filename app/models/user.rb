@@ -114,26 +114,26 @@ class User < ActiveRecord::Base
   	# Their names should be self explanatory
   	# @param email_sym: Corresponds to the name of the method in UserMailer that sends the email you'd like
   	def self.email_all(email_sym)
-  		User.all.each { |u| UserMailer.send(email_sym, u) }
+  		User.all.each { |u| UserMailer.announcement_email(u).deliver }
   	end
 
   	def self.email_customers_who_havent_ordered(email_sym)
 		users =  User.all.select { |u| u.orders.paid.count == 0 }
-		users.each { |u| UserMailer.send(email_sym, u) }
+		users.each { |u| UserMailer.announcement_email(u).deliver }
   	end
 
   	def self.email_customers_who_have_ordered_once(email_sym) 
   		users =  User.all.select { |u| u.orders.paid.count == 1 }
-		users.each { |u| UserMailer.send(email_sym, u) }
+		users.each { |u| UserMailer.announcement_email(u).deliver }
   	end
 
   	def self.email_customers_who_have_ordered_more_than_once(email_sym) 
   		users =  User.all.select { |u| u.orders.paid.count > 1 }
-		users.each { |u| UserMailer.send(email_sym, u) }
+		users.each { |u| UserMailer.announcement_email(u).deliver }
   	end
 
   	def self.email_user(email_sym, user)
-  		UserMailer.send(email_sym, user)
+  		UserMailer.announcement_email(user).deliver
   	end
 
 
