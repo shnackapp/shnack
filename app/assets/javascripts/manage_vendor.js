@@ -1,16 +1,30 @@
 
 $(document).ready(function() {
-	var option_count = 3;
+	var option_count = $(".modifier_options").data("currentmods");
 	$(".add-text-field").click(function(e) {
 		addOption(++option_count);
 		
 	})
 
+	$("#modifier_is_size_dependent").click(function() {
+		$(".size-dependent-prices").toggle();
+		$(".independent-price").toggle();
+	});
 });
 
 
 function addOption(option_count) {
+	var num_sizes = $(".modifier_options").data("numsizes");
+
 	var name = "<input class='form-control' id='option_name_" + option_count + "' name='option_name_" + option_count + "' placeholder='Option " + option_count + " Name' type='text'>"
-	var price = "<input class='form-control' id='option_price_" + option_count + "' name='option_price_" + option_count + "' placeholder='Option " + option_count + " Price' type='text'>"
-	$(".modifier_options").append(name + price);
+	var price = "<span class='independent-price'><input class='form-control' id='option_price_" + option_count + "' name='option_price_" + option_count + "' placeholder='Option " + option_count + " Price' type='text'></span>"
+	var i;
+	var tmp = "<div class='size-dependent-prices well' style='display:none;'>"
+	for(i=0; i< num_sizes; i++) {
+		var size_name = $(".modifier_options").data("sizename" + i);
+		tmp +=  "<input id='option_price_" + option_count + "_" + (i+1) + "' name='option_price_" + option_count + "_" +(i+1) + "' placeholder='Price for Option " + option_count +  " for " + size_name + "' type='number'>";
+	}
+	 tmp += "</div>";
+
+	$(".modifier_options").append(name + price +tmp);
 }

@@ -14,5 +14,5 @@ class SizePrice < ActiveRecord::Base
   attr_accessible :modifier_id, :price, :size_id
   
   belongs_to :modifier
-  belongs_to :size, :class_name => 'Modifier', :foreign_key => 'size_id'
+  belongs_to :item
 end

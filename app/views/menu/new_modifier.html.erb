@@ -10,25 +10,31 @@
 		<input id="modifier_type_multiple_select" name='mod_type' class="radio-mod-1" type="radio" value="1"> Choose Multiple (Checkboxes)
 		<%= f.text_field :name, :placeholder => "Option Name (Don't fill if Size)", :class =>"form-control text-center"%>
 		<% if @item.has_size? %>
-		<%= f.check_box :is_size_dependent, :style => "float:left;" %>
-		<%= f.label :is_size_dependent, :style => "float:left;" %>
+			<%= f.check_box :is_size_dependent, :style => "float:left;" %>
+			<%= f.label :is_size_dependent, :style => "float:left;" %>
 		<% end %>
 	<br>
 	
 	<% size = @item.modifiers.where(:mod_type =>0).first %>
 	<% num_sizes = size.nil? ? 0 : size.options.count %>
 
-	<div class="modifier_options input-list" data-numsizes="<%= num_sizes %>" data-currentmods="3">
+	<div class="modifier_options input-list" data-numsizes="<%= num_sizes %>" data-currentmods="3"
+		<% unless size.nil? %>
+			<% size.options.each_with_index do |option, index| %>
+				<%= "data-sizename#{index}=#{option.name}"%>
+			<% end %>
+		<% end %>
+		>
 		<% 3.times do |i| %>
 			<%= text_field_tag "option_name_#{i}.to_sym", nil, :placeholder=>"Option #{i+1} Name" %>
 			<span class="independent-price">
 				<%= text_field_tag "option_price_#{i+1}".to_sym, nil, :type=>"number", :placeholder=>"Price #{i+1}" %>
 			</span>
-			<span class="size-dependent-prices" style="display:none;"> 
+			<div class="size-dependent-prices well" style="display:none;"> 
 				<% num_sizes.times do |j| %>
 					<%= text_field_tag "option_price_#{i+1}_#{j+1}".to_sym, nil, :type=>"number", :placeholder=>"Price for Option #{i+1} for #{size.options[j].name}"  %>
 				<% end %>
-			</span>
+			</div>
 		<% end %>
 
 	</div>

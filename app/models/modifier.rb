@@ -17,6 +17,7 @@ class Modifier < ActiveRecord::Base
   belongs_to :item
   has_many :order_modifiers 
   has_many :options
+  has_many :size_prices
 
   TYPE_OF_MODIFIER = ['Variable Size','Single Select', 'Multiple Select', 'Numeric Input']
   # mod_type    Size = 0    Single Select = 1     Multiple Select = 2

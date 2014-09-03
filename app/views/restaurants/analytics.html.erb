@@ -1,21 +1,20 @@
+<%= render 'top_nav' %>
+
 <h3> Analytics </h3>
 
 <%#=COMPLETELY STUBBED OUT DATA FOR NOW....LOGIC TO FIX THIS IN CONTROLLER, JUST COULDN'T GET IT TO LOOK NICE%>
 
-<div class="panel panel-primary">
-<h3 class="panel-heading">Average Order Size</h3>
-	<p align="center"><b><%= @avg_total %></b></p>
-</div>
+<h3 class="expandable">Average Order Size</h3>
+<p align="center"><b><%= @avg_total %></b></p>
+
 
 <div class="panel panel-primary">
 <h3 class="panel-heading">Average Order Time (Minutes)</h3>
-	<p align="center"><b><%= @avg_time %></b></p>
+	<p align="center"><b><%= @avg_time unless !@correct_data%></b></p>
 </div>
 
-<div class="panel panel-primary">
-<h3 class="panel-heading">Top 5 Items Ordered</h3>
-	<%= pie_chart(@order_hash) %>
-</div>
+<h3 class="expandable">Top 5 Items Ordered</h3>
+<div> <%= pie_chart(@order_hash) %> </div>
 
 <div class="panel panel-primary">
 <h3 class="panel-heading">Daily Orders</h3>

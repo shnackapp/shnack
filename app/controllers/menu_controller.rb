@@ -113,13 +113,14 @@ class MenuController < ApplicationController
 		end
 
 
+		
 		mod = @item.modifiers.create(:mod_type => params[:mod_type], :name => params[:modifier][:name], :is_size_dependent => params[:modifier][:is_size_dependent])
 		count = 1
 
-		while !params["option_name_#{count}".to_sym].nil? && !params["option_name_#{count}".to_sym].empty? do
-			mod.options.create(:name => params["option_name_#{count}".to_sym], :price => params["option_price_#{count}".to_sym] )
-			count+= 1
-		end
+			while !params["option_name_#{count}".to_sym].nil? && !params["option_name_#{count}".to_sym].empty? do
+				mod.options.create(:name => params["option_name_#{count}".to_sym], :price => params["option_price_#{count}".to_sym] )
+				count+= 1
+			end
 
 		redirect_to :action => "edit_item", :item_id => @item.id
 

@@ -23,6 +23,14 @@
   padding: 12px;
 }
 
+.my-well-black {
+  @extend .my-well;
+  background-color: #353535;
+  color: $white;
+
+  label { color: darkseagreen !important; }
+}
+
 /* going to delete these, add the color with a color utility */
 .my-well-lemon {
   display: block;

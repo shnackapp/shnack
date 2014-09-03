@@ -1,0 +1,27 @@
+.item-list {
+  //background-color: orange;
+  //padding: 5px;
+  //margin: 5px;
+  //border-left: solid 6px #999;
+
+
+  .row-new {
+    font-size: 16px;
+    padding: 9px 6px 3px 6px;
+  }
+
+  &.stripped {
+    .row-new:nth-child(even) {
+      background-color: #F5F5F5;
+    }
+  }
+
+  &.border {
+    .row-new:not(:last-of-type) {
+      border-bottom: 1px solid #AAA;
+    }
+    .row-new:not(:first-of-type) {
+      border-top: 1px solid #666;
+    }
+  }
+}

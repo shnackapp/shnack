@@ -1,19 +1,12 @@
-<table id="multiple_select_mod_table">
-  <tbody>
-    <tr>
-      <td colspan="2"> <%= text_field_tag :ms_title, nil, :placeholder=>"Options Title" %> </td>
-    </tr>
-    <tr>
-      <td> <%= text_field_tag :ms_name_1, nil, :placeholder=>"Option 1 Name" %> </td>
-      <td> <%= text_field_tag :ms_price_1, nil, :type=>"number", :placeholder=>"Price 1" %> </td>
-    </tr>
-    <tr>
-      <td> <%= text_field_tag :ms_name_2, nil, :placeholder=>"Option 2 Name" %> </td>
-      <td> <%= text_field_tag :ms_price_2, nil, :type=>"number", :placeholder=>"Price 2" %> </td>
-    </tr>
-    <tr>
-      <td> <%= text_field_tag :ms_name_3, nil, :placeholder=>"Option 3 Name" %> </td>
-      <td> <%= text_field_tag :ms_price_3, nil, :type=>"number", :placeholder=>"Price 3" %> </td>
-    </tr>
-  </tbody>
-</table>
+<div class="wrapper input-list-double pad-y-lrg" id="multiple_select_mod_table">
+  <label>Multiple Select Option</label>
+  <div class="row-new"><%= text_field_tag :ms_title, nil, :placeholder=>"Options Title" %></div>
+  <p>Customers could have none, or all of the following</p>
+
+  <%= text_field_tag :ms_name_1, nil, :placeholder=>"Option 1 Name" %>
+  <%= text_field_tag :ms_price_1, nil, :type=>"number", :placeholder=>"Price 1" %>
+  <%= text_field_tag :ms_name_2, nil, :placeholder=>"Option 2 Name" %>
+  <%= text_field_tag :ms_price_2, nil, :type=>"number", :placeholder=>"Price 2" %>
+  <%= text_field_tag :ms_name_3, nil, :placeholder=>"Option 3 Name" %>
+  <%= text_field_tag :ms_price_3, nil, :type=>"number", :placeholder=>"Price 3" %>
+</div>

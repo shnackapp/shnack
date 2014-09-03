@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20140828224003) do
+=======
+ActiveRecord::Schema.define(:version => 20140825210916) do
+>>>>>>> 6e3c434b755850dfbce102339b985de5b29e7e95
 
   create_table "analytics", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -233,6 +237,7 @@ ActiveRecord::Schema.define(:version => 20140828224003) do
     t.string   "name"
     t.integer  "account_credit",         :default => 0
     t.integer  "orders_count",           :default => 0
+    t.string   "referral_code"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

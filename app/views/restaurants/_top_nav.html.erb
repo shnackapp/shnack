@@ -1,12 +1,13 @@
 <% content_for :page_title do%>
-Manage Restaurant
+  Manage <%= @restaurant.name %>
 <% end %>
 
-<h2 class="SSS"> <%= @restaurant.name %> </h2>
+<h2> <%= @restaurant.name %> </h2>
 
 <a href="#" id="mainMenuBarAnchor"></a>
 <nav id="mainMenuBar" class="row-new mar-bottom-lrg">
   <%= link_to "My Restaurant", restaurant_path(@restaurant), {:method => 'get', class: 'action-btn column-mobile four'} %>
   <%= link_to "Recent Orders", recent_orders_restaurant_path(@restaurant), {:method => 'get', class: 'action-btn column-mobile four' } %>
   <%= link_to "My Menu", my_menu_restaurant_path(@restaurant), {:method => 'get', class: 'action-btn column-mobile four'} %>
+  <%= link_to "View Analytics", analytics_restaurant_path(@restaurant), {:method => 'get', :class => "action-btn column-mobile four"} %>
 </nav>

@@ -21,6 +21,7 @@
 #  name                   :string(255)
 #  account_credit         :integer          default(0)
 #  orders_count           :integer          default(0)
+#  referral_code          :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -35,9 +36,10 @@ class User < ActiveRecord::Base
 
 	# Setup accessible (or protected) attributes for your model
 	attr_accessible :email, :password, :password_confirmation, :remember_me, 
-		:number, :name, :customer_id, :account_credit
+		:number, :name, :customer_id, :account_credit, :referral_code
 	# attr_accessible :title, :body
 
+  before_save :assign_referral_code, on: :create
 	before_create :create_authentication_token, :set_account_credit
 	after_create :create_role, :welcome
 
@@ -54,6 +56,10 @@ class User < ActiveRecord::Base
 	def set_account_credit
 		self.account_credit = 500
 	end
+
+  def assign_referral_code
+    self.referral_code = self.id
+  end
 
 	def create_authentication_token
 		begin

@@ -56,21 +56,31 @@ $(window).scroll(function(){
 
 $(document).ready(function() {
 
-    $("a[href='#top_now']").click(function() {
-      $("html, body").animate({ scrollTop: 0 }, "slow");
-      return false;
-    });
+  $("input[type=tel]").mask("(000) 000-0000");
 
-    if ($(window).height() >= $(document).height() )
-    {
-        $('footer.popup-banner').data('size','hide');
-    }
-    else
-    {
-        $('footer.popup-banner').data('size','show');
-    }
+  $("a[href='#top_now']").click(function() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+  });
 
-    $("#user_number").mask("(000) 000-0000")
+  if ($(window).height() >= $(document).height() ) {
+      $('footer.popup-banner').data('size','hide');
+  } else {
+      $('footer.popup-banner').data('size','show');
+  }
+
+
+  $(".expandable").next().hide();
+  $(".expandable").click(function() {
+     $(this).next().slideToggle(200);
+     $(this).toggleClass("expanded");
+   });
+  
+  $("[data-js=expandable]").next().hide();
+  $("[data-js=expandable]").click(function() {
+     $(this).next().slideToggle(200);
+     $(this).toggleClass("expanded");
+   });
 });
 
 window.fbAsyncInit = function() {
