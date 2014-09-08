@@ -11,8 +11,8 @@
 #
 
 class SizePrice < ActiveRecord::Base
-  attr_accessible :modifier_id, :price, :size_id
+  attr_accessible :option_id, :price, :size_id
   
-  belongs_to :modifier
-  belongs_to :item
+  belongs_to :option
+  belongs_to :size, :class_name => 'Option'
 end

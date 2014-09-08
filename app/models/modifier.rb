@@ -13,17 +13,20 @@
 #
 
 class Modifier < ActiveRecord::Base
-  attr_accessible :name, :price, :mod_type
+  attr_accessible :name, :price, :mod_type, :is_size_dependent
   belongs_to :item
   has_many :order_modifiers 
   has_many :options
-  has_many :size_prices
 
   TYPE_OF_MODIFIER = ['Variable Size','Single Select', 'Multiple Select', 'Numeric Input']
   # mod_type    Size = 0    Single Select = 1     Multiple Select = 2
 
   def type_string
   	TYPE_OF_MODIFIER[self.mod_type]
+  end
+
+  def is_size_dependent?
+  	self.is_size_dependent
   end
 
 end

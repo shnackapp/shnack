@@ -1,8 +1,8 @@
 class CreateSizePrices < ActiveRecord::Migration
   def up
     create_table :size_prices do |t|
-      t.integer :item_id
-      t.integer :modifier_id
+      t.integer :size_id
+      t.integer :option_id
       t.integer :price
 
       t.timestamps

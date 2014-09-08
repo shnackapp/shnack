@@ -26,7 +26,7 @@
 		<% end %>
 		>
 		<% 3.times do |i| %>
-			<%= text_field_tag "option_name_#{i}.to_sym", nil, :placeholder=>"Option #{i+1} Name" %>
+			<%= text_field_tag "option_name_#{i}".to_sym, nil, :placeholder=>"Option #{i+1} Name" %>
 			<span class="independent-price">
 				<%= text_field_tag "option_price_#{i+1}".to_sym, nil, :type=>"number", :placeholder=>"Price #{i+1}" %>
 			</span>

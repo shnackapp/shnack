@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20140828224003) do
-=======
-ActiveRecord::Schema.define(:version => 20140825210916) do
->>>>>>> 6e3c434b755850dfbce102339b985de5b29e7e95
 
   create_table "analytics", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -190,11 +186,11 @@ ActiveRecord::Schema.define(:version => 20140825210916) do
   end
 
   create_table "size_prices", :force => true do |t|
-    t.integer  "item_id"
-    t.integer  "modifier_id"
+    t.integer  "size_id"
+    t.integer  "option_id"
     t.integer  "price"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "stadia", :force => true do |t|
