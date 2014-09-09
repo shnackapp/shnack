@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
   	@user = user
-  	@url = 'https://www.shnackapp.com/users/sign_in'
+  	@url = 'https://www.gem.shnackapp.com/users/sign_in'
   	mail(to: @user.email, subject: "Welcome to Shnack")
   end
 

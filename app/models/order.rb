@@ -75,7 +75,7 @@ class Order < ActiveRecord::Base
         client.account.messages.create({
         :from => Rails.configuration.twilio[:from],
         :to => customer.number,
-          :body => "Your order ##{self.order_number} at #{self.owner.name} is ready to be picked up. shnackapp.com#{path}"    
+          :body => "Your order ##{self.order_number} at #{self.owner.name} has been picked up. gem.shnackapp.com#{path}"    
         })
     end
   end

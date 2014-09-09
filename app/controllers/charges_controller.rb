@@ -149,7 +149,7 @@ class ChargesController < ApplicationController
 
 
 	  if account_created
-	  	flash[:notice] = "Your order was placed and your account was created successfully. You will receive a text when your order is ready. Thank you for using Shnack!"
+	  	flash[:notice] = "Your order was placed and your account was created successfully. Thank you for using Shnack and please enjoy your day!"
 	  end
 
 	  if @order.credit_was_used			  	
