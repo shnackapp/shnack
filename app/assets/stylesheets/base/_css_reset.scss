@@ -40,6 +40,19 @@ label {
   display: block; 
 }
 
+a {
+  text-decoration: none;
+  font-weight: 500;
+
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 body {
 
   // background-image: image-url('noise-bg-2.png');
