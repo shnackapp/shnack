@@ -265,7 +265,7 @@ $("#log-in").click(function(evt) {
 
 
    $("#order-phone-number").keypress(function(e) {
-   		if(e.which<48 || e.which > 57) {
+   		if((e.which<48 || e.which > 57) && e.which != 8) {
    			e.preventDefault();
    		}
    		else {
