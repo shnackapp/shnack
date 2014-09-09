@@ -90,11 +90,6 @@ class ApiController < ApplicationController
 		respond_with @result, :location => nil
 	end
 
-	### Vendor/Customer ###
-	def get_menu_for_vendor
-	@vendor = Vendor.find(params[:object_id])
-    respond_with @vendor.menu.items
-	end
 
 	### Vendor/Customer ###
 	def get_menu_for_vendor
@@ -104,13 +99,16 @@ class ApiController < ApplicationController
 		else
 			@owner = Vendor.exists?(params[:object_id]) ? Vendor.find(params[:object_id]) : Restaurant.find(params[:object_id])
 		end
-		# respond_with {:error => "Please create a menu at #{request.domain}"}, :location=>nil if @menu.nil?
-
 
 		@menu = @owner.menu
 		@categories = @menu.categories
 
-		respond_with @categories.map { |cat| {:name => cat.name, :items => cat.items} }, :location => nil
+
+		respond_with @categories.map { 
+      |cat| { :name => cat.name, :items => cat.items.map { 
+        |item| { :item_details => item, :modifiers => item.modifiers.map {
+         |modifier| {:modifier => modifier, :options => modifier.options} } } } } }, :location => nil
+
 	end
 
 	### Vendor ###
