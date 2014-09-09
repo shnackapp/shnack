@@ -18,7 +18,7 @@ gem 'groupdate'
 
 group :development, :test do
 	gem 'byebug'
-	gem 'sqlite3'
+	gem 'sqlite3', '1.3.5'
 	gem 'quiet_assets'
 end
 
