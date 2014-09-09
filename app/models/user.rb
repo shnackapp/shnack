@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 	end
 
 	def set_account_credit
-		self.account_credit = 500
+		self.account_credit = 0
 	end
 
 
