@@ -32,7 +32,7 @@
 
 
 <%= form_tag "/orders/#{@order.id}/login", :id=>"login-form" do %>
-	<div class="row-new">
+	<div class="row-new input-list">
 		<%= text_field(:login, :email, :class=>"form-control", :id => "email", :placeholder => "E-mail Address") %>
 		<%= password_field(:login, :password, :class=>"form-control", :id => "password", :placeholder => "Password") %>
 		<%= button_tag(type: 'submit', class: "push-btn mar-top") do %>
