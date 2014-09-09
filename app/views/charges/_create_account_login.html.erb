@@ -19,7 +19,7 @@
 
 	<% if @owner.cash_only %>
 		<%= form_tag "#", :id => "cash-only-form", :"data-form"=> "create-account-form"   do %>
-			<%= button_tag(type: 'submit', class: "push-btn darkslategray mar-top", id: "pay-button") do %>
+			<%= button_tag(type: 'submit', class: "push-btn mar-top", id: "pay-button") do %>
 		        <%= "Create Account & Complete Order" %>
 		    <% end %>
 		<% end %>
@@ -35,7 +35,7 @@
 	<div class="row-new">
 		<%= text_field(:login, :email, :class=>"form-control", :id => "email", :placeholder => "E-mail Address") %>
 		<%= password_field(:login, :password, :class=>"form-control", :id => "password", :placeholder => "Password") %>
-		<%= button_tag(type: 'submit', class: "push-btn darkslategray mar-top") do %>
+		<%= button_tag(type: 'submit', class: "push-btn mar-top") do %>
 			Log In 
 		<% end %>
 	</div>

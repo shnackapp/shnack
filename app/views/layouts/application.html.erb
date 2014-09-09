@@ -62,9 +62,9 @@
 						</li>
 					</ul>
 				<%else%>
-					<div class="links">
-						<%= link_to('Login', new_user_session_path, :class => 'user')  %> 
-						<%= link_to('Sign Up', new_user_registration_path, :class => 'user')  %>  
+					<div class="user-links">
+						<%= link_to('Login', new_user_session_path)  %> 
+						<%= link_to('Sign Up', new_user_registration_path, :class => 'signup')  %>  
 					</div> 
 				<%end%>
 			</div>
