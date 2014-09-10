@@ -44,7 +44,7 @@
 					<td> <%= Order.integer_to_currency(@order.total) %> </td>
 				</tr>
 			<% else %>
-				<% if user_signed_in? && current_user.account_credit > 0 %> 
+				<% if user_signed_in? && current_user.account_credit > 0 && !@order.paid %> 
 					<tr id="shnack-credit">
 						<td> Shnack Credit </td>
 						<td></td>
