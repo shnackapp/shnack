@@ -85,15 +85,40 @@ function initializeValues() {
 	
 	updatePrice();
 	updateQuantity();
-	intializeSizeDependentMods();
+	initializeSizeDependentMods();
 
 };
 
 function  initializeSizeDependentMods() {
-	
+
+	//Iterate through each size dependent modifier
+	$(".size_dependent").each(function() {
+		//Need to get the id of the selected size for this item.
+		var size = $(this).parent().find("input.size:checked").val();
+		//Set each input to do on click.
+		$(this).parent().find("input.size").click(function(evt) {
+			var size = $(this).val();
+
+			$(this).parent().parent().parent().parent().children(".size_dependent").each(function() {
+
+				$(this).children("ol").each(function() {
+				var price = $(this).data("size"+size);
+				$(this).children(".price").text("+" + integerToCurrency(price));
+				$(this).find("input").data("add-price", price);
+				});
+			});
+		});
+		//Update the price of each ol.
+		$(this).children("ol").each(function() {
+			var price = $(this).data("size"+size);
+			$(this).children(".price").text("+" + integerToCurrency(price));
+			$(this).find("input").data("add-price", price);
+		});
+	});
+
+
 
 }
-
 
 
 
@@ -208,4 +233,12 @@ function toUSD(number) {
         .replace(/(\d{3}(?!$))/g, '$1,')
         .split('').reverse().join('');
     return '$' + dollars + '.' + cents.slice(0, 2);
+}
+
+function integerToCurrency(number) {
+	var num = number.toString();
+	cents = num.length < 2 ? "0" + num : num.slice(num.length-2, num.length);
+	dollars = num.length < 3 ? "0" : num.slice(0, num.length-2);
+
+	return '$' + dollars + '.' + cents;
 }

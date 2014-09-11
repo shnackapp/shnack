@@ -3,22 +3,22 @@
 
   <div class="row-new">
     <% item.modifiers.each do |mod| %>
-      <div class="column-mobile six individual-mod-wrap">
+      <div class="column-mobile six individual-mod-wrap <%= 'size_dependent' if mod.is_size_dependent? %>">
         <div class="mod-header"><span><%= mod.name.capitalize %></span></div>
 
         <% mod.options.each_with_index do |val, ind| %>
               <ol data-mod-name="<%= val.name %>" data-category="<%= mod.name %>" class="single-option-wrap"
                   <% if mod.is_size_dependent? %> 
-                    <%= "data-issizedependent='true'" %>
+                   
                     <% val.size_prices.each do |sizeprice| %>
-                      <%= "data-size#{sizeprice.size.id}='#{sizeprice.price}' " %>
+                      <%= "data-size#{sizeprice.size.id}=#{sizeprice.price}" %>
                     <% end %>
                   <% end %>
                 >
 
                 
                 <li> <%= val.name.capitalize %> </li>
-                <li>+ <%= Order.integer_to_currency val.price %> </li>
+                <li class="price">+ <%= Order.integer_to_currency val.price %> </li>
 
                 <% if mod.mod_type == 0 %>
                   <li>
