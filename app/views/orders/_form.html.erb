@@ -116,7 +116,7 @@
           <% if @owner.shnack_fee != 0 %>
             <ol>
               <li>Shnack Fee:</li>
-              <li data-price="<%= @owner.shnack_fee %>" class="fee"> <%= @order.integer_to_currency(@owner.shnack_fee) %></li>
+              <li data-price="<%= @owner.shnack_fee %>" class="fee"> <%= Order.integer_to_currency(@owner.shnack_fee) %></li>
             </ol>
           <% end %>
 

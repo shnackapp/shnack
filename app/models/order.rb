@@ -139,24 +139,12 @@ class Order < ActiveRecord::Base
     options[:separator] = "." if options[:separator].nil?
 
     amount_str = amount.to_s
-    cents = amount_str.length < 2 ? "00" : amount_str[-2,2]
+    cents = amount_str.length < 2 ? "0#{amount_str}" : amount_str[-2,2]
     dollars = amount_str.length < 3 ? "0" : amount_str[0..-3]
 
     return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
   end
 
-
-  # NEEDS TO BE DEPRECATED
-  def integer_to_currency(amount, options = {})
-    options[:unit] = "$" if options[:unit].nil?
-    options[:separator] = "." if options[:separator].nil?
-
-    amount_str = amount.to_s
-    cents = amount_str.length < 2 ? "00" : amount_str[-2,2]
-    dollars = amount_str.length < 3 ? "0" : amount_str[0..-3]
-
-    return "#{options[:unit]}#{dollars}#{options[:separator]}#{cents}"
-  end
 
 
 
