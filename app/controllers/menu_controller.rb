@@ -112,7 +112,7 @@ class MenuController < ApplicationController
 		end
 
 		# if trying to create a second size modifier, redirect to form with flash message
-		if params[:mod_type] == "0" && @item.modifiers.where(:mod_type == 0).count > 0
+		if params[:mod_type] == "0" && @item.has_size?
 			flash[:error] = "This item already has a size modifier."
 			redirect_to :action => "new_modifier", :item_id => @item.id
 			return
