@@ -24,7 +24,15 @@ class OrderItem < ActiveRecord::Base
   	total = Item.find(self.item_id).price
 
   	self.order_modifiers.each do |order_modifier|
-  		order_modifier.options.each { |option| total+= option.price unless option.price.nil?}
+      if order_modifier.modifier.is_size_dependent?
+        selected_size = self.order_modifiers.where(:modifier_id => self.item.size_modifier).first.options.first
+        order_modifier.options.each do |option|
+          total += option.size_prices.where(:size_id => selected_size.id).first.price
+        end
+
+      else
+  		  order_modifier.options.each { |option| total+= option.price unless option.price.nil?}
+      end
   	end
 
   	total

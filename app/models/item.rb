@@ -51,6 +51,10 @@ class Item < ActiveRecord::Base
     self.modifiers.where(:mod_type => 0).count > 0
   end
 
+  def size_modifier
+    self.modifiers.where(:mod_type => 0).first
+  end
+
 
 
 end
