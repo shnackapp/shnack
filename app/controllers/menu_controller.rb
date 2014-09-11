@@ -99,6 +99,12 @@ class MenuController < ApplicationController
 		#Validity checks
 
 		# if modifier has no name, redirect to form with flash mesage
+		if params[:mod_type].nil?
+			flash[:error] = "Please select a modifier type"
+			redirect_to :action => "new_modifier", :item_id => @item.id
+			return
+		end
+
 		if (params[:modifier][:name].nil? || params[:modifier][:name].empty?  && params[:mod_type] != "0")
 			flash[:error] = "Please enter a name"
 			redirect_to :action => "new_modifier", :item_id => @item.id
