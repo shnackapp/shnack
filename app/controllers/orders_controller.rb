@@ -115,7 +115,6 @@ class OrdersController < ApplicationController
               order_mod.options << option
 
               if mod.is_size_dependent?
-                byebug
                 selected_size = params["#{id}_#{item.modifiers.where(:mod_type => 0).first.id}"]
                 m_price = option.size_prices.where(:size_id => selected_size).first.price
                 cost += qty.to_i * m_price 
