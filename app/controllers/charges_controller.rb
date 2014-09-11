@@ -153,7 +153,7 @@ class ChargesController < ApplicationController
 	  end
 
 	  if @order.credit_was_used			  	
-	  	flash[:notice] = "Your order was placed successfully. Thank you for using Shnack!\nYou have #{@order.integer_to_currency current_user.account_credit} left on your account"
+	  	flash[:notice] = "Your order was placed successfully. Thank you for using Shnack!\nYou have #{Order.integer_to_currency current_user.account_credit} left on your account"
 	  end
 
 	  unless flash[:notice]
