@@ -24,7 +24,7 @@ function addOption(option_count) {
 	var tmp = "<div class='size-dependent-prices well' style='display:none;'>"
 	for(i=0; i< num_sizes; i++) {
 		var size_name = $(".modifier_options").data("sizename" + i);
-		tmp +=  "<input id='option_price_" + (option_count+1) + "_" + (i) + "' name='option_price_" + (option_count+1) + "_" +(i+1) + "' placeholder='Price for Option " + (option_count+1) +  " for " + size_name + "' type='number'>";
+		tmp +=  "<input id='option_price_" + (option_count) + "_" + (i) + "' name='option_price_" + (option_count) + "_" +(i+1) + "' placeholder='Price for Option " + (option_count+1) +  " for " + size_name + "' type='number'>";
 	}
 	 tmp += "</div>";
 
