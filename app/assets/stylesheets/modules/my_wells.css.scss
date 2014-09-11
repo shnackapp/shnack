@@ -25,7 +25,10 @@
 .my-well-black {
  @extend .my-well;
  background-color: #353535 ;
- :not(input) { color: $white; }
+ color: $white;
+ input, select {
+  color: $black;
+ }
 
  label { color: darkseagreen !important; } 
 }
