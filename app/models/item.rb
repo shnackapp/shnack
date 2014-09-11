@@ -48,7 +48,7 @@ class Item < ActiveRecord::Base
   end
 
   def has_size?
-    self.modifiers.where(:mod_type == 0).count > 0
+    self.modifiers.where(:mod_type => 0).count > 0
   end
 
 
