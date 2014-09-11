@@ -7,19 +7,39 @@
 	<div class="text-center">
 		<input id="modifier_type_size" name='mod_type' class="radio-mod-1" type="radio" value="0"> Size
 		<input id="modifier_type_single_select" name='mod_type' class="radio-mod-1" type="radio" value="1"> Choose One Option
-		<input id="modifier_type_multiple_select" name='mod_type' class="radio-mod-1" type="radio" value="1"> Choose Multiple (Checkboxes)
+		<input id="modifier_type_multiple_select" name='mod_type' class="radio-mod-1" type="radio" value="2"> Choose Multiple (Checkboxes)
 		<%= f.text_field :name, :placeholder => "Option Name (Don't fill if Size)", :class =>"form-control text-center"%>
+		<% if @item.has_size? %>
+			<%= f.check_box :is_size_dependent, :style => "float:left;" %>
+			<%= f.label :is_size_dependent, :style => "float:left;" %>
+		<% end %>
 	<br>
 	
-	<div class="modifier_options">
-		<%= text_field_tag :option_name_1, nil, :placeholder=>"Option 1 Name", :class=> "form-control" %>
-		<%= text_field_tag :option_price_1, nil, :type=>"number", :placeholder=>"Price 1", :class=> "form-control" %> 
+	<% size = @item.modifiers.where(:mod_type =>0).first %>
+	<% num_sizes = size.nil? ? 0 : size.options.count %>
 
-		<%= text_field_tag :option_name_2, nil, :placeholder=>"Option 2 Name", :class=> "form-control" %>
-        <%= text_field_tag :option_price_2, nil, :type=>"number", :placeholder=>"Price 2", :class=> "form-control" %>
-        <%= text_field_tag :option_name_3, nil, :placeholder=>"Option 3 Name", :class=> "form-control" %>
-        <%= text_field_tag :option_price_3, nil, :type=>"number", :placeholder=>"Price 3", :class=> "form-control" %>
+	<div class="modifier_options input-list" data-numsizes="<%= num_sizes %>" data-currentmods="3"
+		<% unless size.nil? %>
+			<% size.options.each_with_index do |option, index| %>
+				<%= "data-sizename#{index}=#{option.name}"%>
+			<% end %>
+		<% end %>
+		>
+		<% 3.times do |i| %>
+			<%= text_field_tag "option_name_#{i}".to_sym, nil, :placeholder=>"Option #{i+1} Name" %>
+			<span class="independent-price">
+				<%= text_field_tag "option_price_#{i}".to_sym, nil, :type=>"number", :placeholder=>"Price #{i+1}" %>
+			</span>
+			<div class="size-dependent-prices well" style="display:none;"> 
+				<% num_sizes.times do |j| %>
+					<%= text_field_tag "option_price_#{i}_#{j}".to_sym, nil, :type=>"number", :placeholder=>"Price for Option #{i+1} for #{size.options[j].name}"  %>
+				<% end %>
+			</div>
+		<% end %>
+
 	</div>
+
+	
 
 	<a class="add-text-field">Add Another Option </a>
 

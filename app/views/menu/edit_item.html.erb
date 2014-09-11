@@ -20,10 +20,17 @@
 		
 		<span class="name"><%= modifier.name %></span>
 		<span class="type"><%= modifier.type_string %> </span>
+		<p> Size Dependent? <%= modifier.is_size_dependent? %> </p>
 		<% modifier.options.each do |option| %>
 			<div class="option">
 				<span class="name"> <%= option.name %> </span>
-				<span class="price"> <%= Order.integer_to_currency option.price %> </span>
+				<% if modifier.is_size_dependent? %>
+					<% option.size_prices.each do |size_price| %>
+						<%= size_price.size.name %> <%= Order.integer_to_currency size_price.price %>
+					<% end %>
+				<% else %>
+					<span class="price"> <%= Order.integer_to_currency option.price %> </span>
+				<% end %>
 
 			</div>
 		<% end %>

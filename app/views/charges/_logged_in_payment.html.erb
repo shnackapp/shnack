@@ -8,7 +8,7 @@
 
     <% if current_user.account_credit > 0 %>
       <label> 
-        You have <%= @order.integer_to_currency current_user.account_credit %> in Shnack Credit! Would you like to use it?
+        You have <%= Order.integer_to_currency current_user.account_credit %> in Shnack Credit! Would you like to use it?
         <%= check_box_tag(:use_credit, '1', true) %>
         <span class="charges-shnack-credit"></span>
       </label>
