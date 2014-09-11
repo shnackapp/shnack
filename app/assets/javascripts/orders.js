@@ -69,6 +69,8 @@ $(document).ready(function() {
     if(hidden) { $('#multiple_select_mod_table').show(); hidden=false; }
     else { $('#multiple_select_mod_table').hide(); hidden=true; }
   });
+
+
 });
 
 
@@ -83,8 +85,14 @@ function initializeValues() {
 	
 	updatePrice();
 	updateQuantity();
+	intializeSizeDependentMods();
 
 };
+
+function  initializeSizeDependentMods() {
+	
+
+}
 
 
 
