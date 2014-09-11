@@ -131,7 +131,6 @@ class MenuController < ApplicationController
 					option.size_prices.create(:size_id => size_option.id, :price => params["option_price_#{count}_#{index}"])
 				end	
 			else
-
 				mod.options.create(:name => params["option_name_#{count}".to_sym], :price => params["option_price_#{count}".to_sym] )
 				
 			end
