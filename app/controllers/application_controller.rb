@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :setup, :capture_referral
 
+  respond_to :json
+
 
 
   def select_stadium

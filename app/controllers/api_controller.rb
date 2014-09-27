@@ -103,11 +103,12 @@ class ApiController < ApplicationController
 		@menu = @owner.menu
 		@categories = @menu.categories
 
+		render status: :ok
 
-		respond_with @categories.map { 
-      |cat| { :name => cat.name, :items => cat.items.map { 
-        |item| { :item_details => item, :modifiers => item.modifiers.map {
-         |modifier| {:modifier => modifier, :options => modifier.options} } } } } }, :location => nil
+		# respond_with @categories.map { 
+  #     |cat| { :name => cat.name, :items => cat.items.map { 
+  #       |item| { :item_details => item, :modifiers => item.modifiers.map {
+  #        |modifier| {:modifier => modifier, :options => modifier.options} } } } } }, :location => nil
 
 	end
 
@@ -163,13 +164,16 @@ class ApiController < ApplicationController
 		if @user
 			if @user.valid_password?(params[:password])
 				@response[:auth_token] =  @user.authentication_token
+				@response[:name] = @user.name
+				@response[:phone_number] = @user.number
+				@response[:email] = @user.email
+
 			else
 				@response[:error] = "incorrect_password"
 			end
 		else
 			@response[:error] = "incorrect_email"
 		end
-
 		respond_with(@response, :location => nil)
 	end
 
