@@ -150,8 +150,10 @@ $("#log-in").click(function(evt) {
 	if yes, submit create-account-form
 
 	Case 2:
-		Check if it's the checked option. If so,
-
+		Check what the selected option is.
+			Case 1. There is no ability to select options, meaning the account does not have cards
+			Case 2. An already created card is selected
+			Case 3. A new card is being added.
 
 
    **/
@@ -160,8 +162,10 @@ $("#log-in").click(function(evt) {
 		event.preventDefault();
 		var $form = $(this);
 
+
 		var main_form = $(this).data("form");
 
+		//Case 1
 		if(main_form == "create-account-form") {
 
 			Stripe.card.createToken({
@@ -196,6 +200,7 @@ $("#log-in").click(function(evt) {
 		}
 		else if(main_form == "select-card-form") {
 
+				//Case 2.1, Case 2.3
 			if(!$("input[name='user_card']")[0] || $("input[name='user_card']:checked").is('#new-card-button')) {	
 		    	$form.find('button').prop('disabled', true);
 
@@ -227,6 +232,7 @@ $("#log-in").click(function(evt) {
 				  }
 				});			
 			}
+			//Case 2.2
 			else {
 				var $form = $('#select-card-form'); 
 
@@ -241,6 +247,15 @@ $("#log-in").click(function(evt) {
 	});
 
 
+	$("#cash-only-form").submit(function(event) {
+		event.preventDefault();
+		var main_form = $(this).data("form");
+		
+		$form = $(main_form);
+		$("#" + main_form).get(0).submit();
+
+	});
+
 	$("#order-name").keyup(function(e) {
 		var name_valid = validateName($(this).val());
 		if(name_valid && validatePhoneNumber($("#order-phone-number").val()) && validateEmail($("#order-email").val()) && validatePassword($("#order-password").val())) {
@@ -250,7 +265,7 @@ $("#log-in").click(function(evt) {
 
 
    $("#order-phone-number").keypress(function(e) {
-   		if(e.which<48 || e.which > 57) {
+   		if((e.which<48 || e.which > 57) && e.which != 8) {
    			e.preventDefault();
    		}
    		else {

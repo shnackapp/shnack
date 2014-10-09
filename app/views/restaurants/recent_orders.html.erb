@@ -10,7 +10,7 @@
 	<% @orders.where(:paid => true).reverse.each do |order| %>
 		<tr>
 			<td> Order #<%= order.order_number %> </td>
-			<td> <%= order.integer_to_currency(order.total) %> </td>
+			<td> <%= Order.integer_to_currency(order.total) %> </td>
 			<td> 
 				<% if order.withdrawn %>
 					Withdrawn

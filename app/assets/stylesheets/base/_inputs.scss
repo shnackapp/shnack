@@ -13,23 +13,45 @@ input[type=radio] {
   }
 }
 
-select,
-input[type=text],
-input[type=email],
-input[type=password],
-input[type=tel],
-input[type=number],
-textarea {
-  padding: 8px;
-  border: solid 1px #C5C5C5;
-  border-radius: 2px;
-  color: #232323 !important;
+label { 
+    color: #555; 
+    display: block; 
+  }
 
-  &:hover, &:focus { 
-    //border-color: #A9A9A9;
-    box-shadow: 0 0 4px #A9A9A9;
-  } 
-}
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel],
+  input[type=number],
+  textarea,
+  input[type=checkbox],
+  input[type=radio] {
+    margin: 0px 3px 8px 3px;
+  }
+
+  select,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=number],
+  input[type=tel],
+  textarea {
+    padding: 8px;
+    border: solid 1px #C5C5C5;
+    border-radius: 2px;
+
+    &:hover { 
+      border-color: #A9A9A9;
+      box-shadow: 0 0 5px #A9A9A9;
+    } 
+
+    &:focus {
+      border-color: #A9A9A9;
+      box-shadow: 0 0 5px #A9A9A9;
+    }
+  }
+
 
 //QQQ necessary???
 label > input[type=checkbox],
@@ -41,47 +63,45 @@ label > input[type=radio] {
 
 /* old code */
 
-// input[type="radio"].modifier, input[type="checkbox"].modifier {
-//   opacity: 0;
-//   position:absolute;
-// }
+/* input[type="radio"].modifier, input[type="checkbox"].modifier {
+  opacity: 0;
+  position:absolute;
+}
 
-// input[type="radio"].modifier + label {
-//   background-color: khaki;
-//   background-image: none;
-//   border-radius:15px;
-//   border: 2px solid #555;
-//   display:block;
-//   height: 10px;
-//   padding:6px;
-//   width:10px;
-//   box-shadow: 0 0 2px #333;
+input[type="radio"].modifier + label {
+  background-color: khaki;
+  background-image: none;
+  border-radius:15px;
+  border: 2px solid #555;
+  display:block;
+  height: 10px;
+  padding:6px;
+  width:10px;
+  box-shadow: 0 0 2px #333;
 
-// }
+}
 
-// input[type="checkbox"].modifier + label {
-//   background-color: khaki;
-//   background-image: none;
-//   border: 2px solid #555;
-//   display:block;
-//   height: 10px;
-//   padding:6px;
-//   width:10px;
-//   box-shadow: 0 0 2px #333;
-// }
+input[type="checkbox"].modifier + label {
+  background-color: khaki;
+  background-image: none;
+  border: 2px solid #555;
+  display:block;
+  height: 10px;
+  padding:6px;
+  width:10px;
+  box-shadow: 0 0 2px #333;
+}
 
-// input[type=radio]:checked.modifier + label { 
-//   background-color:#444;
-//   border-color: khaki;
-// }
+input[type=radio]:checked.modifier + label { 
+  background-color:#444;
+  border-color: khaki;
+}
 
-// input[type="checkbox"]:checked.modifier + label { 
-//   background-color:#444;
-//   border-color: khaki;
-// }
+input[type="checkbox"]:checked.modifier + label { 
+  background-color:#444;
+  border-color: khaki;
+} */
 
-
-input[type="tel"].error { border: 1px solid #780000  }
 
 label.charges {
   padding: 2px 1em 0 0;
@@ -93,10 +113,3 @@ input.radio.charges {
   border: none;
   display: inline-block;
 }
-
-/* input.form-control {
-  border-radius: 0px;
-  margin-bottom:5px;
-}
-
- */

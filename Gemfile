@@ -15,11 +15,10 @@ gem 'simple_form'
 gem 'pry', '~> 0.10.0'
 gem "chartkick"
 gem 'groupdate'
-gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
 	gem 'byebug'
-	gem 'sqlite3',   '~> 1.3.5'
+	gem 'sqlite3', '1.3.5'
 	gem 'quiet_assets'
 end
 

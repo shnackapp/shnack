@@ -2,17 +2,18 @@
 #
 # Table name: modifiers
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  price      :integer
-#  item_id    :integer
-#  mod_type   :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                :integer          not null, primary key
+#  name              :string(255)
+#  price             :integer
+#  item_id           :integer
+#  mod_type          :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  is_size_dependent :boolean          default(FALSE)
 #
 
 class Modifier < ActiveRecord::Base
-  attr_accessible :name, :price, :mod_type
+  attr_accessible :name, :price, :mod_type, :is_size_dependent
   belongs_to :item
   has_many :order_modifiers 
   has_many :options
@@ -22,6 +23,10 @@ class Modifier < ActiveRecord::Base
 
   def type_string
   	TYPE_OF_MODIFIER[self.mod_type]
+  end
+
+  def is_size_dependent?
+  	self.is_size_dependent
   end
 
 end

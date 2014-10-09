@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
 
   private
     def is_demo?
-     request.subdomain == "demo"
+     request.subdomain == "demo" || request.subdomain == "gem"
     end
 
     def capture_referral

@@ -103,6 +103,7 @@ class OrdersController < ApplicationController
         # Changing it when we allow multiple modifiers shouldn't be too difficult, we just need a while loop
         # for each item.
         item.modifiers.each do |mod|
+
           option_id = params["#{id}_#{mod.id}"]
           order_mod = order_item.order_modifiers.create(:modifier_id => mod.id)
 
@@ -112,14 +113,28 @@ class OrdersController < ApplicationController
             option_id.each do |op_id|
               option = Option.find(op_id.to_i)
               order_mod.options << option
-              cost += qty.to_i * option.price unless option.price.nil?
+
+              if mod.is_size_dependent?
+                selected_size = params["#{id}_#{item.modifiers.where(:mod_type => 0).first.id}"]
+                m_price = option.size_prices.where(:size_id => selected_size).first.price
+                cost += qty.to_i * m_price 
+              else
+
+                cost += qty.to_i * option.price unless option.price.nil?
+              end
             end
 
           elsif option_id.to_i != 0
             option = Option.find(option_id.to_i)
             order_mod.options << option
 
-            cost += qty.to_i * option.price unless option.price.nil?
+            if mod.is_size_dependent?
+              selected_size = params["#{id}_#{item.modifiers.where(:mod_type => 0).first.id}"]
+              m_price = option.size_prices.where(:size_id => selected_size).first.price
+              cost += qty.to_i * m_price 
+            else
+              cost += qty.to_i * option.price unless option.price.nil?
+            end
           end
 
         end

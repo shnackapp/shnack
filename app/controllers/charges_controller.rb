@@ -35,7 +35,7 @@ class ChargesController < ApplicationController
 	  end
 
 
-	  #If the user is not signed in
+	  # If the user is not signed in
 	  # Then they're creating an account
 	  unless user_signed_in?
 	  	if User.where(:email=>params[:user][:email]).count > 0
@@ -56,17 +56,16 @@ class ChargesController < ApplicationController
 
 	  end
 
+	  # If the order is a cash order or the amount is 0
 	  if @owner.cash_only || @amount == 0
 	  	@order.update_attribute(:paid, true)
-	  	@owner.user = current_user
+	  	@order.user = current_user
 	  	@order.shnack_cut = 0
 	  	@order.location_cut = 0
 	  	@order.withdrawn = true
+
 	  else
-
-
 	  	@amount = @order.total 	  # Amount in cents
-
 
 	  	#check if the user is using their account credit.
 	  	# if so, update the totals accordingly.
@@ -154,7 +153,7 @@ class ChargesController < ApplicationController
 	  end
 
 	  if @order.credit_was_used			  	
-	  	flash[:notice] = "Your order was placed successfully. Thank you for using Shnack!\nYou have #{@order.integer_to_currency current_user.account_credit} left on your account"
+	  	flash[:notice] = "Your order was placed successfully. Thank you for using Shnack!\nYou have #{Order.integer_to_currency current_user.account_credit} left on your account"
 	  end
 
 	  unless flash[:notice]

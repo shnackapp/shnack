@@ -83,6 +83,5 @@ class UsersController < ApplicationController
     def is_referral?
       session[:referral].blank?
     end
-  end
 
 end
