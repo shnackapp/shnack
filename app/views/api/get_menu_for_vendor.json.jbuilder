@@ -5,7 +5,6 @@ json.categories            categories do |c|
   json.items               c.items do |i|
     json.name                i.name
     json.price               i.price
-    json.type                i.item_type
     json.description         i.description
     json.modifiers           i.modifiers do |m|
       json.mod_type             m.mod_type
