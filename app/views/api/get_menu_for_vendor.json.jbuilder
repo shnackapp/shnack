@@ -4,6 +4,7 @@ json.categories            categories do |c|
   json.name                c.name
   json.items               c.items do |i|
     json.name                i.name
+    json.id                  i.id
     json.price               i.price
     json.description         i.description
     json.modifiers           i.modifiers do |m|
