@@ -254,70 +254,70 @@ class ApiController < ApplicationController
 
 	end
 
-	def create
-    amount = 0
-    if params[:order][:vendor_id].nil?
-      owner = Restaurant.find(params[:order].delete(:restaurant_id), :include => {:menu => :items})
-    else
-      owner = Vendor.find(params[:order].delete(:vendor_id), :include => {:menu => :items})
-    end
-    unless owner.is_open?
-      respond_with("#{owner.name} is currently not taking orders.", location: :nil)
-    end
-    user_id = params[:order].delete(:user_id)
-    items = owner.menu.items
-    items_price = Hash[items.map { |it| [it.id, (it.price).to_int]}]
-    @order = Order.create(:user_id => user_id)
-    params[:order].delete(:item).each { |id, qty|
-      if qty.to_i != 0
-        order_item = @order.order_items.create(:item_id => id.to_i, :quantity => qty.to_i)
-        item = Item.find(id.to_i)
-        cost = qty.to_i * items_price[id.to_i]
-        # This assumes that if someone orders multiple of the item, then they want them
-        # all modified exactly the same way.
-        # Changing it when we allow multiple modifiers shouldn't be too difficult, we just need a while loop
-        # for each item.
-        item.modifiers.each do |mod|
-          option_id = params["#{id}_#{mod.id}"]
-          order_mod = order_item.order_modifiers.create(:modifier_id => mod.id)
-          # If the modifier was a checkbox modifier
-          # then we go through every selected option and add it.
-          if option_id.is_a?(Array)
-            option_id.each do |op_id|
-              option = Option.find(op_id.to_i)
-              order_mod.options << option
-              if mod.is_size_dependent?
-                selected_size = params["#{id}_#{item.modifiers.where(:mod_type => 0).first.id}"]
-                m_price = option.size_prices.where(:size_id => selected_size).first.price
-                cost += qty.to_i * m_price 
-              else
-                cost += qty.to_i * option.price unless option.price.nil?
-              end
-            end
-          elsif option_id.to_i != 0
-            option = Option.find(option_id.to_i)
-            order_mod.options << option
-            if mod.is_size_dependent?
-              selected_size = params["#{id}_#{item.modifiers.where(:mod_type => 0).first.id}"]
-              m_price = option.size_prices.where(:size_id => selected_size).first.price
-              cost += qty.to_i * m_price 
-            else
-              cost += qty.to_i * option.price unless option.price.nil?
-            end
-          end
-        end
-        amount += cost
-      end
-    }
-    @order.subtotal = amount
-    @order.total = (owner.add_tax ? amount + amount*owner.tax : amount)
-    owner.instance_of?(Vendor) ? @order.vendor = owner : @order.restaurant = owner
-    if user_signed_in?
-      @order.user = current_user
-    else
-      @order.user_info = UserInfo.create
-    end
-  end
+	# def create
+ #    amount = 0
+ #    if params[:order][:vendor_id].nil?
+ #      owner = Restaurant.find(params[:order].delete(:restaurant_id), :include => {:menu => :items})
+ #    else
+ #      owner = Vendor.find(params[:order].delete(:vendor_id), :include => {:menu => :items})
+ #    end
+ #    unless owner.is_open?
+ #      respond_with("#{owner.name} is currently not taking orders.", location: :nil)
+ #    end
+ #    user_id = params[:order].delete(:user_id)
+ #    items = owner.menu.items
+ #    items_price = Hash[items.map { |it| [it.id, (it.price).to_int]}]
+ #    @order = Order.create(:user_id => user_id)
+ #    params[:order].delete(:item).each { |id, qty|
+ #      if qty.to_i != 0
+ #        order_item = @order.order_items.create(:item_id => id.to_i, :quantity => qty.to_i)
+ #        item = Item.find(id.to_i)
+ #        cost = qty.to_i * items_price[id.to_i]
+ #        # This assumes that if someone orders multiple of the item, then they want them
+ #        # all modified exactly the same way.
+ #        # Changing it when we allow multiple modifiers shouldn't be too difficult, we just need a while loop
+ #        # for each item.
+ #        item.modifiers.each do |mod|
+ #          option_id = params["#{id}_#{mod.id}"]
+ #          order_mod = order_item.order_modifiers.create(:modifier_id => mod.id)
+ #          # If the modifier was a checkbox modifier
+ #          # then we go through every selected option and add it.
+ #          if option_id.is_a?(Array)
+ #            option_id.each do |op_id|
+ #              option = Option.find(op_id.to_i)
+ #              order_mod.options << option
+ #              if mod.is_size_dependent?
+ #                selected_size = params["#{id}_#{item.modifiers.where(:mod_type => 0).first.id}"]
+ #                m_price = option.size_prices.where(:size_id => selected_size).first.price
+ #                cost += qty.to_i * m_price 
+ #              else
+ #                cost += qty.to_i * option.price unless option.price.nil?
+ #              end
+ #            end
+ #          elsif option_id.to_i != 0
+ #            option = Option.find(option_id.to_i)
+ #            order_mod.options << option
+ #            if mod.is_size_dependent?
+ #              selected_size = params["#{id}_#{item.modifiers.where(:mod_type => 0).first.id}"]
+ #              m_price = option.size_prices.where(:size_id => selected_size).first.price
+ #              cost += qty.to_i * m_price 
+ #            else
+ #              cost += qty.to_i * option.price unless option.price.nil?
+ #            end
+ #          end
+ #        end
+ #        amount += cost
+ #      end
+ #    }
+ #    @order.subtotal = amount
+ #    @order.total = (owner.add_tax ? amount + amount*owner.tax : amount)
+ #    owner.instance_of?(Vendor) ? @order.vendor = owner : @order.restaurant = owner
+ #    if user_signed_in?
+ #      @order.user = current_user
+ #    else
+ #      @order.user_info = UserInfo.create
+ #    end
+ #  end
 
 
 	# EXPECTS
