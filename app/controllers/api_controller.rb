@@ -10,7 +10,11 @@ class ApiController < ApplicationController
     @user = User.create(:name => params[:name],:email => params[:email],:number => params[:phone],:password => params[:password],:customer_id =>params[:customer_id])
     #@user = User.create(user_params)
    	#respond_with  {:auth_token => @user.authentication_token}
-   	puts @user.authentication_token, @user.id, @user.name, @user.email, @user.number
+   	puts @user.authentication_token
+   	puts @user.id
+   	puts @user.name
+   	puts @user.email
+   	puts @user.number
    	respond_with(@user.authentication_token, @user.id,:location =>nil)
    	
     # respond_to do |format|
