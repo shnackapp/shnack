@@ -15,7 +15,9 @@ class ApiController < ApplicationController
    	puts @user.name
    	puts @user.email
    	puts @user.number
-   	respond_with(@user.authentication_token, @user.id,:location =>nil)
+   	# respond_with(@user.authentication_token, @user.id,:location =>nil)
+   	render status: :ok
+
    	
     # respond_to do |format|
     #   if @user.save
