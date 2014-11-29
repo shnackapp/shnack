@@ -173,6 +173,7 @@ class ApiController < ApplicationController
 				@response[:name] = @user.name
 				@response[:phone_number] = @user.number
 				@response[:email] = @user.email
+				@response[:id] = @user.id
 
 			else
 				@response[:error] = "incorrect_password"
