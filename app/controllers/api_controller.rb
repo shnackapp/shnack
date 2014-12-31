@@ -147,7 +147,9 @@ class ApiController < ApplicationController
 				@response[:email] = @user.email
 				@response[:id] = @user.id
 				@response[:customer_id] = @user.customer_id
-
+				Stripe.api_key = 'sk_test_xDJ5KS0I8VgJvHSQT1Iuxy56'
+        @customer = Stripe::Customer.retrieve(@user.customer_id)
+        @response[:stripe_customer] = @customer
 			else
 				@response[:error] = "incorrect_password"
 			end
@@ -229,9 +231,7 @@ class ApiController < ApplicationController
 		rescue => e
 		# Something else happened, completely unrelated to Stripe
 		end
-
 		respond_with(@customer, :location => nil)
-
 	end
 
 	# def create_order
