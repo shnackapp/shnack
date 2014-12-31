@@ -8,40 +8,12 @@ class ApiController < ApplicationController
 	### Create with User with Customer id from Stripe ###
 	def create
     @user = User.create(:name => params[:name],:email => params[:email],:number => params[:phone],:password => params[:password],:customer_id =>params[:customer_id])
-    #@user = User.create(user_params)
-   	#respond_with  {:auth_token => @user.authentication_token}
-   	puts @user.authentication_token
-   	puts @user.id
-   	puts @user.name
-   	puts @user.email
-   	puts @user.number
-   	# respond_with(@user.authentication_token, @user.id,:location =>nil)
    	render status: :ok
-
-   	
-    # respond_to do |format|
-    #   if @user.save
-    #     # Tell the UserMailer to send a welcome Email after save
-    #     UserMailer.welcome_email(@user).deliver
- 
-    #     format.html { redirect_to(@user, notice: 'User was successfully created.') }
-    #     format.json { render json: @user, status: :created, location: @user }
-    #   else
-    #     format.html { render action: 'new' }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
-    
   end
 
   def unique_email_phone
-  	puts params[:email]
-  	puts params[:phone]
-
   	email_exists = User.where(email: params[:email]).exists? 
   	phone_exists = User.where(number: params[:phone]).exists? 
-  	puts email_exists.to_s
-  	puts phone_exists.to_s
   	render json: { email_exists: email_exists.to_s, phone_exists: phone_exists.to_s}
   end
 
@@ -174,6 +146,7 @@ class ApiController < ApplicationController
 				@response[:phone_number] = @user.number
 				@response[:email] = @user.email
 				@response[:id] = @user.id
+				@response[:customer_id] = @user.customer_id
 
 			else
 				@response[:error] = "incorrect_password"
@@ -261,7 +234,7 @@ class ApiController < ApplicationController
 
 	end
 
-	# def create
+	# def create_order
  #    amount = 0
  #    if params[:order][:vendor_id].nil?
  #      owner = Restaurant.find(params[:order].delete(:restaurant_id), :include => {:menu => :items})
